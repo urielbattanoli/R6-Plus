@@ -12,6 +12,15 @@
 		A41995342081644C0039A6D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A41995322081644C0039A6D4 /* Main.storyboard */; };
 		A4199536208164500039A6D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4199535208164500039A6D4 /* Assets.xcassets */; };
 		A4199539208164500039A6D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4199537208164500039A6D4 /* LaunchScreen.storyboard */; };
+		A4505F6A208238EF00C841DE /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F68208238EF00C841DE /* PlayerTableViewCell.swift */; };
+		A4505F6B208238EF00C841DE /* PlayerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4505F69208238EF00C841DE /* PlayerTableViewCell.xib */; };
+		A4505F6D2082393F00C841DE /* PlayerViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F6C2082393F00C841DE /* PlayerViewData.swift */; };
+		A4505F7720823AAB00C841DE /* LeaderboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F7620823AAB00C841DE /* LeaderboardPresenter.swift */; };
+		A4505F7920823B1700C841DE /* LeaderboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F7820823B1700C841DE /* LeaderboardService.swift */; };
+		A4505F7B2082CEDB00C841DE /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F7A2082CEDB00C841DE /* LeaderboardView.swift */; };
+		A4505F7E2082FE8500C841DE /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F7C2082FE8500C841DE /* LeaderboardViewController.swift */; };
+		A4505F7F2082FE8500C841DE /* LeaderboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4505F7D2082FE8500C841DE /* LeaderboardViewController.xib */; };
+		A4505F82208308E300C841DE /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F81208308E300C841DE /* Player.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +31,15 @@
 		A4199535208164500039A6D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4199538208164500039A6D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A419953A208164500039A6D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4505F68208238EF00C841DE /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
+		A4505F69208238EF00C841DE /* PlayerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerTableViewCell.xib; sourceTree = "<group>"; };
+		A4505F6C2082393F00C841DE /* PlayerViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewData.swift; sourceTree = "<group>"; };
+		A4505F7620823AAB00C841DE /* LeaderboardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardPresenter.swift; sourceTree = "<group>"; };
+		A4505F7820823B1700C841DE /* LeaderboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardService.swift; sourceTree = "<group>"; };
+		A4505F7A2082CEDB00C841DE /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
+		A4505F7C2082FE8500C841DE /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
+		A4505F7D2082FE8500C841DE /* LeaderboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaderboardViewController.xib; sourceTree = "<group>"; };
+		A4505F81208308E300C841DE /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +72,9 @@
 		A419952D2081644C0039A6D4 /* R6-Plus */ = {
 			isa = PBXGroup;
 			children = (
+				A4505F80208308D500C841DE /* Models */,
+				A4505F6F208239EF00C841DE /* Leaderboard */,
+				A4505F6E208239C300C841DE /* Cells */,
 				A419952E2081644C0039A6D4 /* AppDelegate.swift */,
 				A41995302081644C0039A6D4 /* ViewController.swift */,
 				A41995322081644C0039A6D4 /* Main.storyboard */,
@@ -62,6 +83,44 @@
 				A419953A208164500039A6D4 /* Info.plist */,
 			);
 			path = "R6-Plus";
+			sourceTree = "<group>";
+		};
+		A4505F67208238CC00C841DE /* PlayerTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A4505F68208238EF00C841DE /* PlayerTableViewCell.swift */,
+				A4505F69208238EF00C841DE /* PlayerTableViewCell.xib */,
+				A4505F6C2082393F00C841DE /* PlayerViewData.swift */,
+			);
+			path = PlayerTableViewCell;
+			sourceTree = "<group>";
+		};
+		A4505F6E208239C300C841DE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A4505F67208238CC00C841DE /* PlayerTableViewCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		A4505F6F208239EF00C841DE /* Leaderboard */ = {
+			isa = PBXGroup;
+			children = (
+				A4505F7620823AAB00C841DE /* LeaderboardPresenter.swift */,
+				A4505F7820823B1700C841DE /* LeaderboardService.swift */,
+				A4505F7A2082CEDB00C841DE /* LeaderboardView.swift */,
+				A4505F7C2082FE8500C841DE /* LeaderboardViewController.swift */,
+				A4505F7D2082FE8500C841DE /* LeaderboardViewController.xib */,
+			);
+			path = Leaderboard;
+			sourceTree = "<group>";
+		};
+		A4505F80208308D500C841DE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A4505F81208308E300C841DE /* Player.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,6 +181,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4505F7F2082FE8500C841DE /* LeaderboardViewController.xib in Resources */,
+				A4505F6B208238EF00C841DE /* PlayerTableViewCell.xib in Resources */,
 				A4199539208164500039A6D4 /* LaunchScreen.storyboard in Resources */,
 				A4199536208164500039A6D4 /* Assets.xcassets in Resources */,
 				A41995342081644C0039A6D4 /* Main.storyboard in Resources */,
@@ -135,7 +196,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4505F7B2082CEDB00C841DE /* LeaderboardView.swift in Sources */,
+				A4505F7720823AAB00C841DE /* LeaderboardPresenter.swift in Sources */,
+				A4505F6A208238EF00C841DE /* PlayerTableViewCell.swift in Sources */,
+				A4505F6D2082393F00C841DE /* PlayerViewData.swift in Sources */,
+				A4505F7E2082FE8500C841DE /* LeaderboardViewController.swift in Sources */,
+				A4505F7920823B1700C841DE /* LeaderboardService.swift in Sources */,
 				A41995312081644C0039A6D4 /* ViewController.swift in Sources */,
+				A4505F82208308E300C841DE /* Player.swift in Sources */,
 				A419952F2081644C0039A6D4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
