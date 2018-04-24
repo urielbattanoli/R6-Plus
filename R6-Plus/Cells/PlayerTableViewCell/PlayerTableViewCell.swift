@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlayerTableViewCell: UITableViewCell {
+class PlayerTableViewCell: NibRegistrableTableViewCell {
     
     @IBOutlet private weak var backgroundImageView: UIImageView?
     @IBOutlet private weak var positionLabel: UILabel?

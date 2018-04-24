@@ -22,13 +22,17 @@ class LeaderboardPresenter {
     }
     
     func fetchPlayerList() {
-        leaderboardService.fetchLeaderboard { [weak self] players in
+        leaderboardService.fetchLeaderboard { [weak self] result in
             guard let `self` = self else { return }
-            self.leaderboardView?.setPlayers(players: self.playersToPlayersData(players))
+            var playerList: [PlayerViewData] = []
+            if case(.success(let players)) = result {
+                playerList = self.playersToPlayersData(players)
+            }
+            self.leaderboardView?.setPlayers(players: playerList)
         }
     }
     
     private func playersToPlayersData(_ players: [Player]) -> [PlayerViewData] {
-        return players.map { PlayerViewData(playerImage: $0.imageUrl, position: "\($0.position)", nickName: $0.nickname, skillPoint: "\($0.skillPoint)") }
+        return players.map { PlayerViewData(playerImage: $0.imageUrl, position: "\($0.placement)", nickName: $0.nickname, skillPoint: "\($0.skillPoint)") }
     }
 }

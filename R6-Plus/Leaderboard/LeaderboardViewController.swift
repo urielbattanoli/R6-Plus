@@ -28,7 +28,7 @@ class LeaderboardViewController: UIViewController {
     }
     
     private func setupTableView() {
-        tableView?.register(UINib(nibName: "PlayerTableViewCell", bundle: nil), forCellReuseIdentifier: "PlayerTableViewCell")
+        tableView?.register(PlayerTableViewCell.nib, forCellReuseIdentifier: PlayerTableViewCell.reuseId)
         tableView?.rowHeight = UITableViewAutomaticDimension
         tableView?.estimatedRowHeight = 100
         tableView?.estimatedSectionHeaderHeight = 100
@@ -44,7 +44,7 @@ extension LeaderboardViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PlayerTableViewCell") as? PlayerTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: PlayerTableViewCell.reuseId) as? PlayerTableViewCell
         if playersData.count > indexPath.row {
             cell?.fillData(data: playersData[indexPath.row])
         }
@@ -64,4 +64,3 @@ extension LeaderboardViewController: LeaderboardView {
         playersData = players
     }
 }
-
