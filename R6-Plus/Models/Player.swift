@@ -16,7 +16,7 @@ class Player: Codable {
     let placement: Int
     let skillPoint: Float
     var imageUrl: String {
-        return String(format: id, baseImageUrl)
+        return String(format: baseImageUrl, id)
     }
     
     enum CodingKeys: String, CodingKey {

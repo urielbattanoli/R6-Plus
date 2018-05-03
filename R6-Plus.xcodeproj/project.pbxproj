@@ -14,6 +14,7 @@
 		A4199536208164500039A6D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4199535208164500039A6D4 /* Assets.xcassets */; };
 		A4199539208164500039A6D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4199537208164500039A6D4 /* LaunchScreen.storyboard */; };
 		A4288C66208EDE72005C75BE /* CodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4288C65208EDE72005C75BE /* CodableExtension.swift */; };
+		A43D13B3209014AF0067580D /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D13B2209014AF0067580D /* UIImageViewExtension.swift */; };
 		A4505F6A208238EF00C841DE /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F68208238EF00C841DE /* PlayerTableViewCell.swift */; };
 		A4505F6B208238EF00C841DE /* PlayerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4505F69208238EF00C841DE /* PlayerTableViewCell.xib */; };
 		A4505F6D2082393F00C841DE /* PlayerViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F6C2082393F00C841DE /* PlayerViewData.swift */; };
@@ -40,6 +41,7 @@
 		A4199538208164500039A6D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A419953A208164500039A6D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4288C65208EDE72005C75BE /* CodableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableExtension.swift; sourceTree = "<group>"; };
+		A43D13B2209014AF0067580D /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		A4505F68208238EF00C841DE /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
 		A4505F69208238EF00C841DE /* PlayerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerTableViewCell.xib; sourceTree = "<group>"; };
 		A4505F6C2082393F00C841DE /* PlayerViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewData.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				A4A0A665208ED97200CE46FA /* NibRegistrableView.swift */,
 				A4A0A667208ED9E600CE46FA /* Utils.swift */,
 				A4288C65208EDE72005C75BE /* CodableExtension.swift */,
+				A43D13B2209014AF0067580D /* UIImageViewExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -254,10 +257,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-R6-Plus/Pods-R6-Plus-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -297,6 +302,7 @@
 				A4505F6D2082393F00C841DE /* PlayerViewData.swift in Sources */,
 				A4505F7E2082FE8500C841DE /* LeaderboardViewController.swift in Sources */,
 				A4505F7920823B1700C841DE /* LeaderboardService.swift in Sources */,
+				A43D13B3209014AF0067580D /* UIImageViewExtension.swift in Sources */,
 				A41995312081644C0039A6D4 /* ViewController.swift in Sources */,
 				A4A0A666208ED97200CE46FA /* NibRegistrableView.swift in Sources */,
 				A4505F82208308E300C841DE /* Player.swift in Sources */,

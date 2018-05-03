@@ -25,7 +25,7 @@ class PlayerTableViewCell: NibRegistrableTableViewCell {
     }
     
     func fillData(data: PlayerViewData) {
-//        backgroundImageView?.image = data.playerImage
+        backgroundImageView?.loadImage(data.playerImage)
         positionLabel?.text = data.position
         nicknameLabel?.text = data.nickName
         skillPointLabel?.text = data.skillPoint
