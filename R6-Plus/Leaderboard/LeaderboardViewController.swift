@@ -11,12 +11,22 @@ import UIKit
 class LeaderboardViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView?
+    @IBOutlet private weak var loader: UIActivityIndicatorView?
     
     private let leaderboardPresenter = LeaderboardPresenter(service: LeaderboardService())
-    private var playersData: [PlayerViewData] = [] {
-        didSet {
-            tableView?.reloadData()
-        }
+    private var playersData: [PlayerViewData] = []
+    
+    private var page = 0
+    private var leaderboardRegion: LeaderboardRegion
+    
+    init(leaderboardRegion: LeaderboardRegion) {
+        self.leaderboardRegion = leaderboardRegion
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
@@ -24,7 +34,13 @@ class LeaderboardViewController: UIViewController {
         
         setupTableView()
         leaderboardPresenter.attachView(self)
-        leaderboardPresenter.fetchPlayerList()
+        fetchPlayerList()
+    }
+    
+    private func fetchPlayerList() {
+        let input = LeaderboardInput(stat: leaderboardRegion.stat(), limit: 20, page: page)
+        leaderboardPresenter.fetchPlayerList(input: input)
+        page += 20
     }
     
     private func setupTableView() {
@@ -48,6 +64,11 @@ extension LeaderboardViewController: UITableViewDataSource {
         if playersData.count > indexPath.row {
             cell?.fillData(data: playersData[indexPath.row])
         }
+        
+        if indexPath.row >= page - 10 {
+            fetchPlayerList()
+        }
+        
         return cell ?? UITableViewCell()
     }
 }
@@ -55,12 +76,17 @@ extension LeaderboardViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension LeaderboardViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
 }
 
 // MARK: - LeaderboardView
 extension LeaderboardViewController: LeaderboardView {
     
     func setPlayers(players: [PlayerViewData]) {
-        playersData = players
+        loader?.stopAnimating()
+        playersData += players
+        tableView?.reloadData()
     }
 }

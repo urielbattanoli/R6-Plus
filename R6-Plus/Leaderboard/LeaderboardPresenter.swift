@@ -21,8 +21,8 @@ class LeaderboardPresenter {
         leaderboardView = view
     }
     
-    func fetchPlayerList() {
-        leaderboardService.fetchLeaderboard { [weak self] result in
+    func fetchPlayerList(input: LeaderboardInput) {
+        leaderboardService.fetchLeaderboard(input: input) { [weak self] result in
             guard let `self` = self else { return }
             var playerList: [PlayerViewData] = []
             if case(.success(let players)) = result {

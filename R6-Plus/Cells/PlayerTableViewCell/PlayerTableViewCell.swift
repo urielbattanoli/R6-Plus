@@ -10,6 +10,7 @@ import UIKit
 
 class PlayerTableViewCell: NibRegistrableTableViewCell {
     
+    @IBOutlet private weak var cellBackgroundView: UIView!
     @IBOutlet private weak var backgroundImageView: UIImageView?
     @IBOutlet private weak var positionLabel: UILabel?
     @IBOutlet private weak var nicknameLabel: UILabel?
@@ -25,6 +26,7 @@ class PlayerTableViewCell: NibRegistrableTableViewCell {
     }
     
     func fillData(data: PlayerViewData) {
+        cellBackgroundView.setBlackShadow()
         backgroundImageView?.loadImage(data.playerImage)
         positionLabel?.text = data.position
         nicknameLabel?.text = data.nickName

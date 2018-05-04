@@ -9,10 +9,16 @@
 import Foundation
 import Alamofire
 
+struct LeaderboardInput {
+    let stat: String
+    let limit: Int
+    let page: Int
+}
+
 class LeaderboardService {
     
-    func fetchLeaderboard(completion: @escaping ((Result<[Player]>) -> Void)) {
-        let params: [String: Any] = ["stat": "highest_skill_adjusted", "limit": 20]
+    func fetchLeaderboard(input: LeaderboardInput, completion: @escaping ((Result<[Player]>) -> Void)) {
+        let params: [String: Any] = ["stat": input.stat, "limit": input.limit, "page": input.page]
         
         Alamofire.request(Server.leaderboardUrl,
                           method: .get,
