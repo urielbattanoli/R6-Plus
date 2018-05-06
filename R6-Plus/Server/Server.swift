@@ -19,7 +19,7 @@ struct Server {
     
     static var headers: [String: String] { return ["X-App-Id": "app-ios"] }
     static var leaderboardUrl: String { return "\(baseUrl)api/v2/leaderboards" }
-    static var playerListUrl: String { return "\(baseUrl)api/v2/players" }
+    static var searchUrl: String { return "\(baseUrl)api/v2/players" }
     static func playerByIdUrl(_ id: String) -> String {
         return "\(baseUrl)api/v2/players/\(id)"
     }

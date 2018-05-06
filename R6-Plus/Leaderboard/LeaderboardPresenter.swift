@@ -6,7 +6,7 @@
 //  Copyright © 2018 Mocka. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class LeaderboardPresenter {
     
@@ -21,6 +21,11 @@ class LeaderboardPresenter {
         leaderboardView = view
     }
     
+    func goToPlayerDetail(id: String) {
+        let vc = PlayerDetailViewController(playerId: id)
+        (leaderboardView as? UIViewController)?.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func fetchPlayerList(input: LeaderboardInput) {
         leaderboardService.fetchLeaderboard(input: input) { [weak self] result in
             guard let `self` = self else { return }
@@ -33,6 +38,6 @@ class LeaderboardPresenter {
     }
     
     private func playersToPlayersData(_ players: [Player]) -> [PlayerViewData] {
-        return players.map { PlayerViewData(playerImage: $0.imageUrl, position: "\($0.placement)", nickName: $0.nickname, skillPoint: "\($0.skillPoint)") }
+        return players.map { PlayerViewData(id: $0.id,playerImage: $0.imageUrl, position: "\($0.placement)", nickName: $0.nickname, skillPoint: "\($0.skillPoint)") }
     }
 }

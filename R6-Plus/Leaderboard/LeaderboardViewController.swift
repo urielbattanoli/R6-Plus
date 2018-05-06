@@ -10,15 +10,18 @@ import UIKit
 
 class LeaderboardViewController: UIViewController {
 
+    // MARK: - IBOutlets
     @IBOutlet private weak var tableView: UITableView?
     @IBOutlet private weak var loader: UIActivityIndicatorView?
     
-    private let leaderboardPresenter = LeaderboardPresenter(service: LeaderboardService())
+    // MARK: - Properties
+    private let presenter = LeaderboardPresenter(service: LeaderboardService())
     private var playersData: [PlayerViewData] = []
     
     private var page = 0
     private var leaderboardRegion: LeaderboardRegion
     
+    // MARK: - Life cycle
     init(leaderboardRegion: LeaderboardRegion) {
         self.leaderboardRegion = leaderboardRegion
         
@@ -33,13 +36,14 @@ class LeaderboardViewController: UIViewController {
         super.viewDidLoad()
         
         setupTableView()
-        leaderboardPresenter.attachView(self)
+        presenter.attachView(self)
         fetchPlayerList()
     }
     
+    // MARK: - Functions
     private func fetchPlayerList() {
         let input = LeaderboardInput(stat: leaderboardRegion.stat(), limit: 20, page: page)
-        leaderboardPresenter.fetchPlayerList(input: input)
+        presenter.fetchPlayerList(input: input)
         page += 20
     }
     
@@ -77,7 +81,7 @@ extension LeaderboardViewController: UITableViewDataSource {
 extension LeaderboardViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        presenter.goToPlayerDetail(id: playersData[indexPath.row].id)
     }
 }
 

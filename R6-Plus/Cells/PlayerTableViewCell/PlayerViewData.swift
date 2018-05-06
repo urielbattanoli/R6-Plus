@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 struct PlayerViewData {
+    let id: String
     let playerImage: String
     let position: String
     let nickName: String

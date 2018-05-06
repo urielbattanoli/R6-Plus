@@ -19,7 +19,7 @@ class MainLeaderboardViewController: UIPageViewController {
     }
     
     private func setupPageViewController() {
-        view.backgroundColor = .clear
+        view.backgroundColor = .dark
         
         let vc1 = LeaderboardViewController(leaderboardRegion: .global)
         let vc2 = LeaderboardViewController(leaderboardRegion: .apac)

@@ -17,4 +17,10 @@ struct Utils {
         }
         return String(str[..<str.index(str.endIndex, offsetBy: -5)]) // to remove the ".Type" suffix
     }
+    
+    static let defaultDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        return dateFormatter
+    }()
 }

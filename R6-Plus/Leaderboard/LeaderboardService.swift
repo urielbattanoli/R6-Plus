@@ -30,7 +30,10 @@ class LeaderboardService {
             .responseJSON { response in
                 switch response.result {
                 case .success(let json):
-                    guard let result = json as? [[String: Any]] else { return }
+                    guard let result = json as? [[String: Any]] else {
+                        completion(.failure(nil))
+                        return
+                    }
                     completion(.success(Player.fromDictionaryArray(result)))
                 case .failure(let error):
                     completion(.failure(error))

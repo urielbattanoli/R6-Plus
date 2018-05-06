@@ -10,12 +10,14 @@ import UIKit
 
 class PlayerTableViewCell: NibRegistrableTableViewCell {
     
+    // MARK: - IBOutlet
     @IBOutlet private weak var cellBackgroundView: UIView!
     @IBOutlet private weak var backgroundImageView: UIImageView?
     @IBOutlet private weak var positionLabel: UILabel?
     @IBOutlet private weak var nicknameLabel: UILabel?
     @IBOutlet private weak var skillPointLabel: UILabel?
     
+    // MARK: - Functions
     override func prepareForReuse() {
         super.prepareForReuse()
         
