@@ -11,8 +11,8 @@ import UIKit
 class LeaderboardViewController: UIViewController {
 
     // MARK: - IBOutlets
-    @IBOutlet private weak var tableView: UITableView?
-    @IBOutlet private weak var loader: UIActivityIndicatorView?
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var loader: UIActivityIndicatorView!
     
     // MARK: - Properties
     private let presenter = LeaderboardPresenter(service: LeaderboardService())
@@ -48,11 +48,11 @@ class LeaderboardViewController: UIViewController {
     }
     
     private func setupTableView() {
-        tableView?.register(PlayerTableViewCell.nib, forCellReuseIdentifier: PlayerTableViewCell.reuseId)
-        tableView?.rowHeight = UITableViewAutomaticDimension
-        tableView?.estimatedRowHeight = 100
-        tableView?.estimatedSectionHeaderHeight = 100
-        tableView?.tableFooterView = UIView()
+        tableView.register(PlayerTableViewCell.nib, forCellReuseIdentifier: PlayerTableViewCell.reuseId)
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
+        tableView.estimatedSectionHeaderHeight = 100
+        tableView.tableFooterView = UIView()
     }
 }
 
@@ -89,8 +89,8 @@ extension LeaderboardViewController: UITableViewDelegate {
 extension LeaderboardViewController: LeaderboardView {
     
     func setPlayers(players: [PlayerViewData]) {
-        loader?.stopAnimating()
+        loader.stopAnimating()
         playersData += players
-        tableView?.reloadData()
+        tableView.reloadData()
     }
 }

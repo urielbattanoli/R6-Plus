@@ -23,4 +23,5 @@ struct Server {
     static func playerByIdUrl(_ id: String) -> String {
         return "\(baseUrl)api/v2/players/\(id)"
     }
+    static var baseImageUrl: String { return "https://uplay-avatars.s3.amazonaws.com/%@/default_146_146.png" }
 }

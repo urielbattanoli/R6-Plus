@@ -20,6 +20,10 @@ struct PlayerDetail: Codable {
     let seasonRanks: [SeasonRank]
     let stats: Stats
     
+    var imageUrl: String {
+        return String(format: Server.baseImageUrl, id)
+    }
+    
     struct Aliases: Codable {
         let name: String
         let created_at: String
@@ -36,6 +40,15 @@ struct PlayerDetail: Codable {
         let emea: Rank
         let ncsa: Rank
         let season: Int
+        
+        var bestRank: Rank {
+            let bestRank = [apac.rank, emea.rank, ncsa.rank].max() ?? 0
+            switch bestRank {
+            case apac.rank: return apac
+            case emea.rank: return emea
+            default: return ncsa
+            }
+        }
     }
     
     struct Rank: Codable {
@@ -43,12 +56,20 @@ struct PlayerDetail: Codable {
         let wins: Int
         let losses: Int
         let abandons: Int
-        let max_mmr: Float
-        let mmr: Float
+        let max_mmr: Double
+        let mmr: Double
         let rank: Int
         let max_rank: Int
-        let skill_mean: Float
-        let skill_stdev: Float
+        let skill_mean: Double
+        let skill_stdev: Double
+        
+        var ranking: Ranking {
+            return Ranking(rawValue: rank) ?? .unranked
+        }
+        
+        var winRate: Double {
+            return Double(wins) / Double(wins + losses) * 100
+        }
     }
     
     struct Stats: Codable {
@@ -56,6 +77,47 @@ struct PlayerDetail: Codable {
         let ranked: GameStats
         let general: GeneralStats
         let operators: Operators
+        
+        var operatorArray: [OperatorStats] {
+            return [operators.ash,
+                    operators.bandit,
+                    operators.blackbeard,
+                    operators.blitz,
+                    operators.buck,
+                    operators.capitao,
+                    operators.castle,
+                    operators.caveira,
+                    operators.doc,
+                    operators.dokkaebi,
+                    operators.echo,
+                    operators.ela,
+                    operators.finka,
+                    operators.frost,
+                    operators.fuze,
+                    operators.glaz,
+                    operators.hibana,
+                    operators.iq,
+                    operators.jackal,
+                    operators.jager,
+                    operators.kapkan,
+                    operators.lesion,
+                    operators.lion,
+                    operators.mira,
+                    operators.montagne,
+                    operators.mute,
+                    operators.pulse,
+                    operators.rook,
+                    operators.sledge,
+                    operators.smoke,
+                    operators.tachanka,
+                    operators.thatcher,
+                    operators.thermite,
+                    operators.twitch,
+                    operators.valkyrie,
+                    operators.vigil,
+                    operators.ying,
+                    operators.zofia]
+        }
         
         enum CodingKeys: String, CodingKey {
             case casual
@@ -100,6 +162,19 @@ struct PlayerDetail: Codable {
         let suicides: Int
         let timePlayed: Int
         let won: Int
+        
+        var winRate: Double {
+            return Double(won) / Double(played) * 100
+        }
+        var kdRatio: Double {
+            return Double(kills) / Double(deaths)
+        }
+        var aim: Double {
+            return Double(bulletsHit) / Double(bulletsFired) * 100
+        }
+        var hsRate: Double {
+            return Double(headshot) / Double(bulletsHit) * 100
+        }
     }
     
     struct Operators: Codable {
@@ -150,5 +225,9 @@ struct PlayerDetail: Codable {
         let deaths: Int
         let timePlayed: Int
         let name: String
+        
+        var type: OperatorType {
+            return Operator(rawValue: name)?.type ?? .unknown
+        }
     }
 }

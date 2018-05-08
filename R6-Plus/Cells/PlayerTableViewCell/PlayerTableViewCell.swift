@@ -12,26 +12,26 @@ class PlayerTableViewCell: NibRegistrableTableViewCell {
     
     // MARK: - IBOutlet
     @IBOutlet private weak var cellBackgroundView: UIView!
-    @IBOutlet private weak var backgroundImageView: UIImageView?
-    @IBOutlet private weak var positionLabel: UILabel?
-    @IBOutlet private weak var nicknameLabel: UILabel?
-    @IBOutlet private weak var skillPointLabel: UILabel?
+    @IBOutlet private weak var backgroundImageView: UIImageView!
+    @IBOutlet private weak var positionLabel: UILabel!
+    @IBOutlet private weak var nicknameLabel: UILabel!
+    @IBOutlet private weak var skillPointLabel: UILabel!
     
     // MARK: - Functions
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        backgroundImageView?.image = nil
-        positionLabel?.text = nil
-        nicknameLabel?.text = nil
-        skillPointLabel?.text = nil
+        backgroundImageView.image = nil
+        positionLabel.text = nil
+        nicknameLabel.text = nil
+        skillPointLabel.text = nil
     }
     
     func fillData(data: PlayerViewData) {
         cellBackgroundView.setBlackShadow()
-        backgroundImageView?.loadImage(data.playerImage)
-        positionLabel?.text = data.position
-        nicknameLabel?.text = data.nickName
-        skillPointLabel?.text = data.skillPoint
+        backgroundImageView.loadImage(data.playerImage)
+        positionLabel.text = data.position
+        nicknameLabel.text = data.nickName
+        skillPointLabel.text = data.skillPoint
     }
 }

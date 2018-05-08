@@ -13,4 +13,10 @@ protocol PlayerDetailView: class {
 }
 
 struct PlayerDetailViewData {
+    let sections: [PlayerDetailSection]
+}
+
+struct PlayerDetailSection {
+    let title: String
+    let cells: [CellComponent]
 }

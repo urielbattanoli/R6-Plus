@@ -8,15 +8,13 @@
 
 import Foundation
 
-private let baseImageUrl = "https://uplay-avatars.s3.amazonaws.com/%@/default_146_146.png"
-
 struct Player: Codable {
     let id: String
     let nickname: String
     let placement: Int
     let skillPoint: Float
     var imageUrl: String {
-        return String(format: baseImageUrl, id)
+        return String(format: Server.baseImageUrl, id)
     }
     
     enum CodingKeys: String, CodingKey {

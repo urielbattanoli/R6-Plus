@@ -14,8 +14,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VAa-tP-6Q6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="7yk-Jx-VE4">
-                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="7yk-Jx-VE4">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.074407245510837189" green="0.1597398199140658" blue="0.2275390625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -39,7 +39,9 @@
             <objects>
                 <tabBarController title="R6+" automaticallyAdjustsScrollViewInsets="NO" id="fes-q7-Egy" customClass="TabBarController" customModule="R6_Plus" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="R6+" id="LdL-ec-gux"/>
+                    <navigationItem key="navigationItem" title="R6+" id="LdL-ec-gux">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Fwa-ck-71i"/>
+                    </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="pZZ-FO-dMI">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>

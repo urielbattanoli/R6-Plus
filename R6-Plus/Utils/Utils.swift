@@ -15,12 +15,56 @@ struct Utils {
         guard str.hasSuffix(".Type") else {
             return str
         }
-        return String(str[..<str.index(str.endIndex, offsetBy: -5)]) // to remove the ".Type" suffix
+        return String(str[..<str.index(str.endIndex, offsetBy: -5)])
     }
     
     static let defaultDateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         return dateFormatter
+    }()
+    
+    static let attackersOperators: [String] = {
+        return ["Ash",
+                "Blitz",
+                "Buck",
+                "Capitao",
+                "Dokkaebi",
+                "Finka",
+                "Frost",
+                "Fuze",
+                "Glaz",
+                "Hibana",
+                "IQ",
+                "Jackal",
+                "Lion",
+                "Montagne",
+                "Sledge",
+                "Thatcher",
+                "Thermite",
+                "Twitch",
+                "Zofia"]
+    }()
+    
+    static let defendersOperators: [String] = {
+        return ["Bandit",
+                "Blackbeard",
+                "Castle",
+                "Caveira",
+                "Doc",
+                "Echo",
+                "Ela",
+                "Jager",
+                "Kapkan",
+                "Lesion",
+                "Mira",
+                "Mute",
+                "Pulse",
+                "Rook",
+                "Smoke",
+                "Tachanka",
+                "Valkyrie",
+                "Vigil",
+                "Ying"]
     }()
 }

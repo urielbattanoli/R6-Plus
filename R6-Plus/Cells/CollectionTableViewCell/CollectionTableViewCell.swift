@@ -8,26 +8,28 @@
 
 import UIKit
 
-class CollectionTableViewCell: UITableViewCell {
+class CollectionTableViewCell: NibRegistrableTableViewCell {
 
     // MARK: - IBOutlet
-    @IBOutlet private weak var collectionView: UICollectionView?
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var collectionView: UICollectionView!
     
     // MARK: - Properties
     private var items: [CellComponent] = [] {
         didSet {
-            collectionView?.reloadData()
+            collectionView.reloadData()
         }
     }
     
     // MARK: - Functions
     func fillData(_ data: CollectionCellData) {
+        titleLabel.text = data.title
         registerCellClasses(data.cellsToRegister)
         items = data.items
     }
     
     private func registerCellClasses(_ cellClassesToRegister: [NibRegistrableCollectionViewCell.Type]) {
-        cellClassesToRegister.forEach { collectionView?.registerNib(for: $0) }
+        cellClassesToRegister.forEach { collectionView.registerNib(for: $0) }
     }
 }
 

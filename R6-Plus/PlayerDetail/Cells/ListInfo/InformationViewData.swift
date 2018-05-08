@@ -1,5 +1,5 @@
 //
-//  CollectionCellData.swift
+//  InformationViewData.swift
 //  R6-Plus
 //
 //  Created by Uriel Battanoli on 06/05/18.
@@ -8,8 +8,7 @@
 
 import Foundation
 
-struct CollectionCellData {
+struct InformationCellData {
     let title: String
-    let cellsToRegister: [NibRegistrableCollectionViewCell.Type]
-    let items: [CellComponent]
+    let description: String
 }
