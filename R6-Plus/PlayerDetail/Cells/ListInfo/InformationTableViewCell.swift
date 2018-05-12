@@ -10,10 +10,16 @@ import UIKit
 
 class InformationTableViewCell: NibRegistrableTableViewCell {
     
+    // MARK: - IBOutlet
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
+}
+
+// MARK: - DynamicCellComponent
+extension InformationTableViewCell: DynamicCellComponent {
     
-    func fillData(_ data: InformationCellData) {
+    func updateUI(with data: Any) {
+        guard let data = data as? InformationCellData else { return }
         titleLabel.text = data.title
         descriptionLabel.text = data.description
     }

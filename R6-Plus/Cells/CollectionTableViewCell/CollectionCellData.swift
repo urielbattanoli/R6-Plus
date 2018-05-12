@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import CoreGraphics
 
 struct CollectionCellData {
-    let title: String
+    let collectionHeight: CGFloat
     let cellsToRegister: [NibRegistrableCollectionViewCell.Type]
     let items: [CellComponent]
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Mocka. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class PlayerDetailPresenter {
     
@@ -33,6 +33,7 @@ class PlayerDetailPresenter {
     private func playerDetailToData(_ playerDetail: PlayerDetail) -> PlayerDetailViewData {
         return PlayerDetailViewData(sections: [generateHeaderData(playerDetail),
                                                generateProfileInfo(playerDetail),
+                                               generateSeasons(playerDetail),
                                                generateTimePlayed(playerDetail),
                                                generateGeneralStats(playerDetail),
                                                generateFightingStats(playerDetail),
@@ -57,6 +58,17 @@ extension PlayerDetailPresenter {
              CellComponent(reuseId: infoReuse, data: InformationCellData(title: "First added", description: "\(playerDetail.level)")),
              CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Last played", description: "\(playerDetail.level)"))]
         return PlayerDetailSection(title: "Profile Info", cells: information)
+    }
+    
+    private func generateSeasons(_ playerDetail: PlayerDetail) -> PlayerDetailSection {
+        let reuseId = SeasonCollectionViewCell.reuseId
+        var cells: [CellComponent] = []
+        playerDetail.seasonRanks.forEach { season in
+            guard season.bestRank.rank > 0 else { return }
+            cells.append(CellComponent(reuseId: reuseId, data: SeasonCellData(iconImage: season.bestRank.ranking.image, title: "Season \(season.season)")))
+        }
+        let cellData = CollectionCellData(collectionHeight: 100, cellsToRegister: [SeasonCollectionViewCell.self], items: cells)
+        return PlayerDetailSection(title: "Seasons", cells: [CellComponent(reuseId: CollectionTableViewCell.reuseId, data: cellData)])
     }
     
     private func generateTimePlayed(_ playerDetail: PlayerDetail) -> PlayerDetailSection {

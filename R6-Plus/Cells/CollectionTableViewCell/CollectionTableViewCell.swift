@@ -11,9 +11,15 @@ import UIKit
 class CollectionTableViewCell: NibRegistrableTableViewCell {
 
     // MARK: - IBOutlet
-    @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionHeightConstraint: NSLayoutConstraint!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+    }
     // MARK: - Properties
     private var items: [CellComponent] = [] {
         didSet {
@@ -22,14 +28,19 @@ class CollectionTableViewCell: NibRegistrableTableViewCell {
     }
     
     // MARK: - Functions
-    func fillData(_ data: CollectionCellData) {
-        titleLabel.text = data.title
-        registerCellClasses(data.cellsToRegister)
-        items = data.items
-    }
-    
     private func registerCellClasses(_ cellClassesToRegister: [NibRegistrableCollectionViewCell.Type]) {
         cellClassesToRegister.forEach { collectionView.registerNib(for: $0) }
+    }
+}
+
+// MARK: - DynamicCellComponent
+extension CollectionTableViewCell: DynamicCellComponent {
+    
+    func updateUI(with data: Any) {
+        guard let data = data as? CollectionCellData else { return }
+        registerCellClasses(data.cellsToRegister)
+        collectionHeightConstraint.constant = data.collectionHeight
+        items = data.items
     }
 }
 
@@ -55,5 +66,21 @@ extension CollectionTableViewCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         items[indexPath.row].selectionHandler?()
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension CollectionTableViewCell: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 85, height: 100)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 15
     }
 }

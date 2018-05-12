@@ -41,8 +41,9 @@ class PlayerDetailViewController: UIViewController {
     // MARK: - Functions
     private func setupTableView() {
         tableView.register(ProfileHeaderTableViewCell.nib, forCellReuseIdentifier: ProfileHeaderTableViewCell.reuseId)
-        tableView.register(InformationTableViewCell.nib, forCellReuseIdentifier: InformationTableViewCell.reuseId)
         tableView.register(CollectionTableViewCell.nib, forCellReuseIdentifier: CollectionTableViewCell.reuseId)
+        tableView.register(InformationTableViewCell.nib, forCellReuseIdentifier: InformationTableViewCell.reuseId)
+//        tableView.register(CollectionTableViewCell.self, forCellReuseIdentifier: CollectionTableViewCell.reuseId)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
         tableView.estimatedSectionHeaderHeight = 100
@@ -63,15 +64,7 @@ extension PlayerDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let component = sections[indexPath.section].cells[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: component.reuseId)
-        
-        if let data = component.data as? InformationCellData {
-            (cell as? InformationTableViewCell)?.fillData(data)
-        } else if let data = component.data as? CollectionCellData {
-            (cell as? CollectionTableViewCell)?.fillData(data)
-        } else if let data = component.data as? ProfileHeaderCellData {
-            (cell as? ProfileHeaderTableViewCell)?.fillData(data)
-        }
-        
+        (cell as? DynamicCellComponent)?.updateUI(with: component.data as Any)
         return cell ?? UITableViewCell()
     }
 }

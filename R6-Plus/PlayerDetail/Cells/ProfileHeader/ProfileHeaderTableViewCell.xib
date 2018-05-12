@@ -28,8 +28,23 @@
                                     <constraint firstAttribute="height" constant="220" id="eSL-YI-fvk"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8mv-CM-hXw" customClass="GradientView" customModule="R6_Plus" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="170" width="430" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="vzq-vL-DEw"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBZ-68-cJA">
-                                <rect key="frame" x="36" y="154" width="379" height="30"/>
+                                <rect key="frame" x="36" y="175" width="379" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -40,10 +55,13 @@
                             <constraint firstAttribute="trailing" secondItem="NdR-g3-e7l" secondAttribute="trailing" id="83i-x3-bbz"/>
                             <constraint firstItem="ZBZ-68-cJA" firstAttribute="leading" secondItem="aHd-Ed-wLY" secondAttribute="leading" constant="36" id="Ev3-XZ-CeC"/>
                             <constraint firstItem="NdR-g3-e7l" firstAttribute="top" secondItem="aHd-Ed-wLY" secondAttribute="top" id="MLw-bF-EBc"/>
+                            <constraint firstAttribute="trailing" secondItem="8mv-CM-hXw" secondAttribute="trailing" id="Pdk-8A-ZTD"/>
                             <constraint firstAttribute="trailing" secondItem="ZBZ-68-cJA" secondAttribute="trailing" constant="15" id="SdJ-Bj-deb"/>
-                            <constraint firstAttribute="bottom" secondItem="ZBZ-68-cJA" secondAttribute="bottom" constant="36" id="UkP-69-CQc"/>
+                            <constraint firstAttribute="bottom" secondItem="ZBZ-68-cJA" secondAttribute="bottom" constant="15" id="UkP-69-CQc"/>
                             <constraint firstItem="NdR-g3-e7l" firstAttribute="leading" secondItem="aHd-Ed-wLY" secondAttribute="leading" id="YMD-29-vwI"/>
                             <constraint firstAttribute="bottom" secondItem="NdR-g3-e7l" secondAttribute="bottom" id="clA-OL-VBS"/>
+                            <constraint firstAttribute="bottom" secondItem="8mv-CM-hXw" secondAttribute="bottom" id="e6q-ND-oAE"/>
+                            <constraint firstItem="8mv-CM-hXw" firstAttribute="leading" secondItem="aHd-Ed-wLY" secondAttribute="leading" id="ytY-7U-jj7"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -60,7 +78,7 @@
                 <outlet property="nameLabel" destination="ZBZ-68-cJA" id="J8N-of-eJX"/>
                 <outlet property="profileImageView" destination="NdR-g3-e7l" id="at5-Dh-9P4"/>
             </connections>
-            <point key="canvasLocation" x="128" y="71.5"/>
+            <point key="canvasLocation" x="128" y="71"/>
         </tableViewCell>
     </objects>
 </document>

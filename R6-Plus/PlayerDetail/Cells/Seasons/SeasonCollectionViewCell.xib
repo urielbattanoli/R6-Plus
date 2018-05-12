@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="gTV-IL-0wX" customClass="SeasonCollectionViewCell" customModule="R6_Plus" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="117" height="102"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="117" height="102"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Diamond" translatesAutoresizingMaskIntoConstraints="NO" id="xzz-QK-JZN">
+                        <rect key="frame" x="33.5" y="16" width="50" height="50.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="xzz-QK-JZN" secondAttribute="height" multiplier="250:251" id="Iqp-KM-f5k"/>
+                            <constraint firstAttribute="width" constant="50" id="Syp-m5-YxZ"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Season 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZD-bo-hrG">
+                        <rect key="frame" x="33.5" y="76.5" width="50.5" height="10.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="xzz-QK-JZN" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="3Xp-ch-P0k"/>
+                <constraint firstItem="gZD-bo-hrG" firstAttribute="centerX" secondItem="xzz-QK-JZN" secondAttribute="centerX" id="GDw-dQ-tzQ"/>
+                <constraint firstItem="xzz-QK-JZN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="GkE-Pu-iTM"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gZD-bo-hrG" secondAttribute="trailing" constant="15" id="bQh-PB-9a7"/>
+                <constraint firstItem="gZD-bo-hrG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="hMY-Wp-Zxs"/>
+                <constraint firstItem="gZD-bo-hrG" firstAttribute="top" secondItem="xzz-QK-JZN" secondAttribute="bottom" constant="10" id="hzw-NN-8AU"/>
+                <constraint firstItem="xzz-QK-JZN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="kWp-8E-lyl"/>
+                <constraint firstAttribute="bottom" secondItem="gZD-bo-hrG" secondAttribute="bottom" constant="15" id="qrH-Mq-6Iv"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xzz-QK-JZN" secondAttribute="trailing" constant="15" id="ve2-bC-BRo"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="117" height="102"/>
+            <connections>
+                <outlet property="seasonIconImageView" destination="xzz-QK-JZN" id="F2l-yE-LlQ"/>
+                <outlet property="seasonTitleLabel" destination="gZD-bo-hrG" id="Yxb-hp-aKU"/>
+            </connections>
+            <point key="canvasLocation" x="190.5" y="62"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Diamond" width="358" height="436"/>
+    </resources>
+</document>
