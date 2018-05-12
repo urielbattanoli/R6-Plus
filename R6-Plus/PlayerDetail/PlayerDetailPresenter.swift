@@ -34,6 +34,7 @@ class PlayerDetailPresenter {
         return PlayerDetailViewData(sections: [generateHeaderData(playerDetail),
                                                generateProfileInfo(playerDetail),
                                                generateSeasons(playerDetail),
+                                               generateAliases(playerDetail),
                                                generateTimePlayed(playerDetail),
                                                generateGeneralStats(playerDetail),
                                                generateFightingStats(playerDetail),
@@ -55,8 +56,8 @@ extension PlayerDetailPresenter {
         let infoReuse = InformationTableViewCell.reuseId
         let information =
             [CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Player level", description: "\(playerDetail.level)")),
-             CellComponent(reuseId: infoReuse, data: InformationCellData(title: "First added", description: "\(playerDetail.level)")),
-             CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Last played", description: "\(playerDetail.level)"))]
+             CellComponent(reuseId: infoReuse, data: InformationCellData(title: "First added", description: "")),
+             CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Last played", description: "\(playerDetail.lastPlayed.last_played.formattedStringDate)"))]
         return PlayerDetailSection(title: "Profile Info", cells: information)
     }
     
@@ -69,6 +70,22 @@ extension PlayerDetailPresenter {
         }
         let cellData = CollectionCellData(collectionHeight: 100, cellsToRegister: [SeasonCollectionViewCell.self], items: cells)
         return PlayerDetailSection(title: "Seasons", cells: [CellComponent(reuseId: CollectionTableViewCell.reuseId, data: cellData)])
+    }
+    
+    private func generateAliases(_ playerDetail: PlayerDetail) -> PlayerDetailSection {
+        let reuseId = AliasesCollectionViewCell.reuseId
+        var cells: [CellComponent] = []
+        for (i, alias) in playerDetail.aliases.enumerated() {
+            let hideLine: AliasesCellData.Line
+            switch i {
+            case 0: hideLine = .left
+            case playerDetail.aliases.count - 1: hideLine = .right
+            default: hideLine = .none
+            }
+            cells.append(CellComponent(reuseId: reuseId, data: AliasesCellData(title: alias.name, description: alias.created_at.formattedStringDate, hideLine: hideLine)))
+        }
+        let cellData = CollectionCellData(collectionHeight: 100, cellsToRegister: [AliasesCollectionViewCell.self], items: cells)
+        return PlayerDetailSection(title: "Aliases", cells: [CellComponent(reuseId: CollectionTableViewCell.reuseId, data: cellData)])
     }
     
     private func generateTimePlayed(_ playerDetail: PlayerDetail) -> PlayerDetailSection {

@@ -12,6 +12,7 @@ class PlayerDetailViewController: UIViewController {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var loader: UIActivityIndicatorView!
     
     // MARK: - Properties
     private let presenter = PlayerDetailPresenter(service: PlayerDetailService())
@@ -43,7 +44,6 @@ class PlayerDetailViewController: UIViewController {
         tableView.register(ProfileHeaderTableViewCell.nib, forCellReuseIdentifier: ProfileHeaderTableViewCell.reuseId)
         tableView.register(CollectionTableViewCell.nib, forCellReuseIdentifier: CollectionTableViewCell.reuseId)
         tableView.register(InformationTableViewCell.nib, forCellReuseIdentifier: InformationTableViewCell.reuseId)
-//        tableView.register(CollectionTableViewCell.self, forCellReuseIdentifier: CollectionTableViewCell.reuseId)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
         tableView.estimatedSectionHeaderHeight = 100
@@ -90,6 +90,7 @@ extension PlayerDetailViewController: PlayerDetailView {
     
     func setPlayerDetail(playerDetail: PlayerDetailViewData) {
         sections = playerDetail.sections
+        loader.stopAnimating()
         tableView.reloadData()
     }
 }

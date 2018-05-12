@@ -32,6 +32,10 @@
 		A497F52D20A6A57A00D26A23 /* SeasonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A497F52B20A6A57A00D26A23 /* SeasonCollectionViewCell.swift */; };
 		A497F52E20A6A57A00D26A23 /* SeasonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A497F52C20A6A57A00D26A23 /* SeasonCollectionViewCell.xib */; };
 		A497F53020A6A98900D26A23 /* SeasonCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A497F52F20A6A98900D26A23 /* SeasonCellData.swift */; };
+		A497F53420A755C600D26A23 /* AliasesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A497F53220A755C600D26A23 /* AliasesCollectionViewCell.swift */; };
+		A497F53520A755C600D26A23 /* AliasesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A497F53320A755C600D26A23 /* AliasesCollectionViewCell.xib */; };
+		A497F53920A7818200D26A23 /* AliasesCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A497F53820A7818200D26A23 /* AliasesCellData.swift */; };
+		A497F53C20A782CB00D26A23 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A497F53B20A782CB00D26A23 /* StringExtension.swift */; };
 		A4A0A666208ED97200CE46FA /* NibRegistrableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A0A665208ED97200CE46FA /* NibRegistrableView.swift */; };
 		A4A0A668208ED9E600CE46FA /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A0A667208ED9E600CE46FA /* Utils.swift */; };
 		A4BBADA9209CE50400425AEC /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BBADA8209CE50400425AEC /* UIColorExtension.swift */; };
@@ -91,6 +95,10 @@
 		A497F52B20A6A57A00D26A23 /* SeasonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonCollectionViewCell.swift; sourceTree = "<group>"; };
 		A497F52C20A6A57A00D26A23 /* SeasonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeasonCollectionViewCell.xib; sourceTree = "<group>"; };
 		A497F52F20A6A98900D26A23 /* SeasonCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonCellData.swift; sourceTree = "<group>"; };
+		A497F53220A755C600D26A23 /* AliasesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasesCollectionViewCell.swift; sourceTree = "<group>"; };
+		A497F53320A755C600D26A23 /* AliasesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AliasesCollectionViewCell.xib; sourceTree = "<group>"; };
+		A497F53820A7818200D26A23 /* AliasesCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasesCellData.swift; sourceTree = "<group>"; };
+		A497F53B20A782CB00D26A23 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		A4A0A665208ED97200CE46FA /* NibRegistrableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibRegistrableView.swift; sourceTree = "<group>"; };
 		A4A0A667208ED9E600CE46FA /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A4BBADA8209CE50400425AEC /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -238,6 +246,13 @@
 			path = Server;
 			sourceTree = "<group>";
 		};
+		A497F53A20A781B700D26A23 /* Operators */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Operators;
+			sourceTree = "<group>";
+		};
 		A4A0A664208ED95900CE46FA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +267,7 @@
 				A4DA9BDC209FE06A00EF830F /* IntExtension.swift */,
 				A4DA9BDE209FE41E00EF830F /* DoubleExtension.swift */,
 				A4FAE56A20A2224600E9E877 /* GradientView.swift */,
+				A497F53B20A782CB00D26A23 /* StringExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -263,6 +279,7 @@
 				A4DA9BC8209FCC9C00EF830F /* ProfileHeader */,
 				A4BBADC1209F567600425AEC /* Aliases */,
 				A4BBADC0209F566200425AEC /* Seasons */,
+				A497F53A20A781B700D26A23 /* Operators */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -280,6 +297,9 @@
 		A4BBADC1209F567600425AEC /* Aliases */ = {
 			isa = PBXGroup;
 			children = (
+				A497F53220A755C600D26A23 /* AliasesCollectionViewCell.swift */,
+				A497F53320A755C600D26A23 /* AliasesCollectionViewCell.xib */,
+				A497F53820A7818200D26A23 /* AliasesCellData.swift */,
 			);
 			path = Aliases;
 			sourceTree = "<group>";
@@ -413,6 +433,7 @@
 				A4505F7F2082FE8500C841DE /* LeaderboardViewController.xib in Resources */,
 				A4505F6B208238EF00C841DE /* PlayerTableViewCell.xib in Resources */,
 				A4DA9BCC209FCCBC00EF830F /* ProfileHeaderTableViewCell.xib in Resources */,
+				A497F53520A755C600D26A23 /* AliasesCollectionViewCell.xib in Resources */,
 				A4DA9BEE20A1472F00EF830F /* HeaderListView.xib in Resources */,
 				A4199539208164500039A6D4 /* LaunchScreen.storyboard in Resources */,
 				A4199536208164500039A6D4 /* Assets.xcassets in Resources */,
@@ -480,9 +501,11 @@
 				A4BBADB5209D0FD700425AEC /* PlayerDetailViewController.swift in Sources */,
 				A4DA9BE420A1244400EF830F /* OperatorType.swift in Sources */,
 				A4DA9BE920A1467F00EF830F /* InformationTableViewCell.swift in Sources */,
+				A497F53C20A782CB00D26A23 /* StringExtension.swift in Sources */,
 				A4DA9BCE209FD1A900EF830F /* ProfileHeaderCellData.swift in Sources */,
 				A4DA9BE2209FEEEE00EF830F /* NibDesignable.swift in Sources */,
 				A4505F7B2082CEDB00C841DE /* LeaderboardView.swift in Sources */,
+				A497F53420A755C600D26A23 /* AliasesCollectionViewCell.swift in Sources */,
 				A4505F7720823AAB00C841DE /* LeaderboardPresenter.swift in Sources */,
 				A4DA9BF020A147DC00EF830F /* HeaderListViewData.swift in Sources */,
 				A4BBADC5209F58AD00425AEC /* CollectionTableViewCell.swift in Sources */,
@@ -507,6 +530,7 @@
 				A4505F82208308E300C841DE /* Player.swift in Sources */,
 				A419952F2081644C0039A6D4 /* AppDelegate.swift in Sources */,
 				A4BBADBE209D12FF00425AEC /* PlayerDetail.swift in Sources */,
+				A497F53920A7818200D26A23 /* AliasesCellData.swift in Sources */,
 				A4A0A668208ED9E600CE46FA /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

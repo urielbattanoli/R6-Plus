@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayerDetailViewController" customModule="R6_Plus" customModuleProvider="target">
             <connections>
+                <outlet property="loader" destination="Iw2-a0-QDO" id="wyu-fD-UuR"/>
                 <outlet property="tableView" destination="b2f-YH-ctg" id="Dlb-3r-LSR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -29,13 +30,18 @@
                         <outlet property="delegate" destination="-1" id="6XE-Qb-eWI"/>
                     </connections>
                 </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Iw2-a0-QDO">
+                    <rect key="frame" x="169" y="315" width="37" height="37"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="0.074407245509999997" green="0.1597398199" blue="0.2275390625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Iw2-a0-QDO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5v7-TP-3HK"/>
                 <constraint firstItem="b2f-YH-ctg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="E1i-fg-8PV"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="b2f-YH-ctg" secondAttribute="trailing" id="XVL-5k-Maq"/>
                 <constraint firstItem="b2f-YH-ctg" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="m2m-Vr-Bo3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="b2f-YH-ctg" secondAttribute="bottom" id="pQ4-In-XCw"/>
+                <constraint firstItem="Iw2-a0-QDO" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="pYT-tE-H5Z"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>

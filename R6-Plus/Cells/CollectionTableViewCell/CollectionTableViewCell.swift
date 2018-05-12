@@ -73,14 +73,23 @@ extension CollectionTableViewCell: UICollectionViewDelegate {
 extension CollectionTableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if items.first?.reuseId == AliasesCollectionViewCell.reuseId {
+            return CGSize(width: 150, height: 100)
+        }
         return CGSize(width: 85, height: 100)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        if items.first?.reuseId == AliasesCollectionViewCell.reuseId {
+            return UIEdgeInsets.zero
+        }
         return UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        if items.first?.reuseId == AliasesCollectionViewCell.reuseId {
+            return 0
+        }
         return 15
     }
 }

@@ -18,4 +18,13 @@ extension UIView {
         layer.shadowOpacity = 0.8
         layer.shadowPath = UIBezierPath(rect: bounds).cgPath
     }
+    
+    func setCorner(value: CGFloat) {
+        layer.cornerRadius = value
+        clipsToBounds = true
+    }
+    
+    func setAsCircle() {
+        setCorner(value: frame.width / 2)
+    }
 }
