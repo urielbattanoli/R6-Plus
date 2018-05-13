@@ -6,7 +6,7 @@
 //  Copyright © 2018 Mocka. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct PlayerDetail: Codable {
     
@@ -225,6 +225,10 @@ struct PlayerDetail: Codable {
         let deaths: Int
         let timePlayed: Int
         let name: String
+        
+        var image: UIImage {
+            return Operator(rawValue: name)?.image ?? UIImage()
+        }
         
         var type: OperatorType {
             return Operator(rawValue: name)?.type ?? .unknown

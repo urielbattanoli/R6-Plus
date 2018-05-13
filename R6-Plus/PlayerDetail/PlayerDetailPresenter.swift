@@ -38,7 +38,9 @@ class PlayerDetailPresenter {
                                                generateTimePlayed(playerDetail),
                                                generateGeneralStats(playerDetail),
                                                generateFightingStats(playerDetail),
-                                               generateRankedStats(playerDetail)])
+                                               generateRankedStats(playerDetail),
+                                               generateAttackers(playerDetail),
+                                               generateDefenders(playerDetail)])
     }
 }
 
@@ -148,5 +150,35 @@ extension PlayerDetailPresenter {
             CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Skill", description: ranked.skill_mean.twoDecimal()))]
         
         return PlayerDetailSection(title: "Ranked Stats", cells: information)
+    }
+    
+    private func generateAttackers(_ playerDetail: PlayerDetail) -> PlayerDetailSection {
+        let reuseId = OperatorCollectionViewCell.reuseId
+        let attackers = playerDetail.stats.operatorArray.filter { $0.type == .attacker }
+        var cells: [CellComponent] = []
+        attackers.forEach { op in
+            cells.append(CellComponent(reuseId: reuseId, data: OperatorCellData(image: op.image)) {
+                
+            })
+        }
+        let space = (UIScreen.main.bounds.width - 60 * 4) / 5 + 60
+        let height = CGFloat(ceil(Double(attackers.count) / 4)) * space
+        let cellData = CollectionCellData(collectionHeight: height, cellsToRegister: [OperatorCollectionViewCell.self], items: cells)
+        return PlayerDetailSection(title: "Operators (Attackers)", cells: [CellComponent(reuseId: CollectionTableViewCell.reuseId, data: cellData)])
+    }
+    
+    private func generateDefenders(_ playerDetail: PlayerDetail) -> PlayerDetailSection {
+        let reuseId = OperatorCollectionViewCell.reuseId
+        let defenders = playerDetail.stats.operatorArray.filter { $0.type == .defender }
+        var cells: [CellComponent] = []
+        defenders.forEach { op in
+            cells.append(CellComponent(reuseId: reuseId, data: OperatorCellData(image: op.image)) {
+                
+            })
+        }
+        let space = (UIScreen.main.bounds.width - 60 * 4) / 5 + 60
+        let height = CGFloat(ceil(Double(defenders.count) / 4)) * space
+        let cellData = CollectionCellData(collectionHeight: height, cellsToRegister: [OperatorCollectionViewCell.self], items: cells)
+        return PlayerDetailSection(title: "Operators (Defenders)", cells: [CellComponent(reuseId: CollectionTableViewCell.reuseId, data: cellData)])
     }
 }

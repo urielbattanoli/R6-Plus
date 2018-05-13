@@ -40,6 +40,13 @@ extension CollectionTableViewCell: DynamicCellComponent {
         guard let data = data as? CollectionCellData else { return }
         registerCellClasses(data.cellsToRegister)
         collectionHeightConstraint.constant = data.collectionHeight
+        if data.items.first?.reuseId == OperatorCollectionViewCell.reuseId {
+            (collectionView.collectionViewLayout as? UICollectionViewFlowLayout)?.scrollDirection = .vertical
+            collectionView.isScrollEnabled = false
+        } else {
+            (collectionView.collectionViewLayout as? UICollectionViewFlowLayout)?.scrollDirection = .horizontal
+            collectionView.isScrollEnabled = true
+        }
         items = data.items
     }
 }
@@ -76,6 +83,9 @@ extension CollectionTableViewCell: UICollectionViewDelegateFlowLayout {
         if items.first?.reuseId == AliasesCollectionViewCell.reuseId {
             return CGSize(width: 150, height: 100)
         }
+        if items.first?.reuseId == OperatorCollectionViewCell.reuseId {
+            return CGSize(width: 60, height: 60)
+        }
         return CGSize(width: 85, height: 100)
     }
     
@@ -83,12 +93,20 @@ extension CollectionTableViewCell: UICollectionViewDelegateFlowLayout {
         if items.first?.reuseId == AliasesCollectionViewCell.reuseId {
             return UIEdgeInsets.zero
         }
+        if items.first?.reuseId == OperatorCollectionViewCell.reuseId {
+            let space = (UIScreen.main.bounds.width - 60 * 4) / 5
+            return UIEdgeInsets(top: 0, left: space, bottom: 0, right: space)
+        }
         return UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         if items.first?.reuseId == AliasesCollectionViewCell.reuseId {
             return 0
+        }
+        if items.first?.reuseId == OperatorCollectionViewCell.reuseId {
+            let space = (UIScreen.main.bounds.width - 60 * 4) / 5
+            return space
         }
         return 15
     }

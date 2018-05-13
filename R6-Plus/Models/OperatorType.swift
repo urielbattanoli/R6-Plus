@@ -6,7 +6,7 @@
 //  Copyright © 2018 Mocka. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum OperatorType {
     case attacker
@@ -59,6 +59,12 @@ enum Operator: String {
         case .ash, .blitz, .buck, .capitao, .dokkaebi, .finka, .frost, .fuze, .glaz, .hibana, .iq, .jackal, .lion, .montagne, .sledge, .thatcher, .thermite, .twitch, .zofia:
             return .attacker
         default: return .defender
+        }
+    }
+    
+    var image: UIImage {
+        switch self {
+        default: return UIImage(named: self.rawValue) ?? UIImage()
         }
     }
 }
