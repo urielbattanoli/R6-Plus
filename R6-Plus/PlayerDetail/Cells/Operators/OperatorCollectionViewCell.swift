@@ -8,10 +8,6 @@
 
 import UIKit
 
-struct OperatorCellData {
-    let image: UIImage
-}
-
 class OperatorCollectionViewCell: NibRegistrableCollectionViewCell {
     
     // MARK: - IBOutlet

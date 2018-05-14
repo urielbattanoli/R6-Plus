@@ -38,6 +38,9 @@
 		A497F53C20A782CB00D26A23 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A497F53B20A782CB00D26A23 /* StringExtension.swift */; };
 		A497F53F20A784B100D26A23 /* OperatorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A497F53D20A784B100D26A23 /* OperatorCollectionViewCell.swift */; };
 		A497F54020A784B100D26A23 /* OperatorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A497F53E20A784B100D26A23 /* OperatorCollectionViewCell.xib */; };
+		A497F54420A8B3AC00D26A23 /* OperatorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A497F54220A8B3AC00D26A23 /* OperatorDetailViewController.swift */; };
+		A497F54520A8B3AC00D26A23 /* OperatorDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A497F54320A8B3AC00D26A23 /* OperatorDetailViewController.xib */; };
+		A497F54720A8B41700D26A23 /* OperatorCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A497F54620A8B41700D26A23 /* OperatorCellData.swift */; };
 		A4A0A666208ED97200CE46FA /* NibRegistrableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A0A665208ED97200CE46FA /* NibRegistrableView.swift */; };
 		A4A0A668208ED9E600CE46FA /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A0A667208ED9E600CE46FA /* Utils.swift */; };
 		A4BBADA9209CE50400425AEC /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BBADA8209CE50400425AEC /* UIColorExtension.swift */; };
@@ -103,6 +106,9 @@
 		A497F53B20A782CB00D26A23 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		A497F53D20A784B100D26A23 /* OperatorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorCollectionViewCell.swift; sourceTree = "<group>"; };
 		A497F53E20A784B100D26A23 /* OperatorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OperatorCollectionViewCell.xib; sourceTree = "<group>"; };
+		A497F54220A8B3AC00D26A23 /* OperatorDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorDetailViewController.swift; sourceTree = "<group>"; };
+		A497F54320A8B3AC00D26A23 /* OperatorDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OperatorDetailViewController.xib; sourceTree = "<group>"; };
+		A497F54620A8B41700D26A23 /* OperatorCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorCellData.swift; sourceTree = "<group>"; };
 		A4A0A665208ED97200CE46FA /* NibRegistrableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibRegistrableView.swift; sourceTree = "<group>"; };
 		A4A0A667208ED9E600CE46FA /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A4BBADA8209CE50400425AEC /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -255,8 +261,18 @@
 			children = (
 				A497F53D20A784B100D26A23 /* OperatorCollectionViewCell.swift */,
 				A497F53E20A784B100D26A23 /* OperatorCollectionViewCell.xib */,
+				A497F54620A8B41700D26A23 /* OperatorCellData.swift */,
 			);
 			path = Operators;
+			sourceTree = "<group>";
+		};
+		A497F54120A8B38500D26A23 /* OperatorDetail */ = {
+			isa = PBXGroup;
+			children = (
+				A497F54220A8B3AC00D26A23 /* OperatorDetailViewController.swift */,
+				A497F54320A8B3AC00D26A23 /* OperatorDetailViewController.xib */,
+			);
+			path = OperatorDetail;
 			sourceTree = "<group>";
 		};
 		A4A0A664208ED95900CE46FA /* Utils */ = {
@@ -362,6 +378,7 @@
 		A4E05878209BECD000BF2231 /* PlayerDetail */ = {
 			isa = PBXGroup;
 			children = (
+				A497F54120A8B38500D26A23 /* OperatorDetail */,
 				A4BBADBF209F563900425AEC /* Cells */,
 				A4BBADB7209D0FE400425AEC /* PlayerDetailPresenter.swift */,
 				A4BBADB9209D0FF900425AEC /* PlayerDetailService.swift */,
@@ -436,6 +453,7 @@
 				A4BBADB6209D0FD700425AEC /* PlayerDetailViewController.xib in Resources */,
 				A497F54020A784B100D26A23 /* OperatorCollectionViewCell.xib in Resources */,
 				A497F52E20A6A57A00D26A23 /* SeasonCollectionViewCell.xib in Resources */,
+				A497F54520A8B3AC00D26A23 /* OperatorDetailViewController.xib in Resources */,
 				A4DA9BEA20A1467F00EF830F /* InformationTableViewCell.xib in Resources */,
 				A4505F7F2082FE8500C841DE /* LeaderboardViewController.xib in Resources */,
 				A4505F6B208238EF00C841DE /* PlayerTableViewCell.xib in Resources */,
@@ -509,6 +527,7 @@
 				A4BBADB5209D0FD700425AEC /* PlayerDetailViewController.swift in Sources */,
 				A4DA9BE420A1244400EF830F /* OperatorType.swift in Sources */,
 				A4DA9BE920A1467F00EF830F /* InformationTableViewCell.swift in Sources */,
+				A497F54420A8B3AC00D26A23 /* OperatorDetailViewController.swift in Sources */,
 				A497F53C20A782CB00D26A23 /* StringExtension.swift in Sources */,
 				A4DA9BCE209FD1A900EF830F /* ProfileHeaderCellData.swift in Sources */,
 				A4DA9BE2209FEEEE00EF830F /* NibDesignable.swift in Sources */,
@@ -540,6 +559,7 @@
 				A4BBADBE209D12FF00425AEC /* PlayerDetail.swift in Sources */,
 				A497F53920A7818200D26A23 /* AliasesCellData.swift in Sources */,
 				A4A0A668208ED9E600CE46FA /* Utils.swift in Sources */,
+				A497F54720A8B41700D26A23 /* OperatorCellData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

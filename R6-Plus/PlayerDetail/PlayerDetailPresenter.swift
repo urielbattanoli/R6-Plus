@@ -42,6 +42,14 @@ class PlayerDetailPresenter {
                                                generateAttackers(playerDetail),
                                                generateDefenders(playerDetail)])
     }
+    
+    private func openOperatorInfo(_ operatorStats: PlayerDetail.OperatorStats) {
+        let sections = [generateOperatorDetail(operatorStats)]
+        let vc = OperatorDetailViewController(sections: sections)
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle = .crossDissolve
+        (playerDetailView as? UIViewController)?.present(vc, animated: true)
+    }
 }
 
 // MARK: - Data generation
@@ -156,9 +164,9 @@ extension PlayerDetailPresenter {
         let reuseId = OperatorCollectionViewCell.reuseId
         let attackers = playerDetail.stats.operatorArray.filter { $0.type == .attacker }
         var cells: [CellComponent] = []
-        attackers.forEach { op in
+        attackers.forEach { [weak self] op in
             cells.append(CellComponent(reuseId: reuseId, data: OperatorCellData(image: op.image)) {
-                
+                self?.openOperatorInfo(op)
             })
         }
         let space = (UIScreen.main.bounds.width - 60 * 4) / 5 + 60
@@ -171,14 +179,26 @@ extension PlayerDetailPresenter {
         let reuseId = OperatorCollectionViewCell.reuseId
         let defenders = playerDetail.stats.operatorArray.filter { $0.type == .defender }
         var cells: [CellComponent] = []
-        defenders.forEach { op in
+        defenders.forEach { [weak self] op in
             cells.append(CellComponent(reuseId: reuseId, data: OperatorCellData(image: op.image)) {
-                
+                self?.openOperatorInfo(op)
             })
         }
         let space = (UIScreen.main.bounds.width - 60 * 4) / 5 + 60
         let height = CGFloat(ceil(Double(defenders.count) / 4)) * space
         let cellData = CollectionCellData(collectionHeight: height, cellsToRegister: [OperatorCollectionViewCell.self], items: cells)
         return PlayerDetailSection(title: "Operators (Defenders)", cells: [CellComponent(reuseId: CollectionTableViewCell.reuseId, data: cellData)])
+    }
+    
+    private func generateOperatorDetail(_ operatorStats: PlayerDetail.OperatorStats) -> PlayerDetailSection {
+        let infoReuse = InformationTableViewCell.reuseId
+        let information =
+            [CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Kills", description: "\(operatorStats.kills)")),
+             CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Deaths", description: "\(operatorStats.deaths)")),
+             CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Wins", description: "\(operatorStats.won)")),
+             CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Losses", description: "\(operatorStats.lost)")),
+             CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Win rate", description: operatorStats.winRate.twoDecimalPercent())),
+             CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Time Played", description: operatorStats.timePlayed.inHours()))]
+        return PlayerDetailSection(title: operatorStats.name, cells: information)
     }
 }

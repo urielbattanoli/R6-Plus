@@ -12,7 +12,7 @@ struct Player: Codable {
     let id: String
     let nickname: String
     let placement: Int
-    let skillPoint: Float
+    let skillPoint: Double
     var imageUrl: String {
         return String(format: Server.baseImageUrl, id)
     }

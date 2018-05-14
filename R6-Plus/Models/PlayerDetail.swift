@@ -226,6 +226,10 @@ struct PlayerDetail: Codable {
         let timePlayed: Int
         let name: String
         
+        var winRate: Double {
+            return Double(won) / Double(won + lost) * 100
+        }
+        
         var image: UIImage {
             return Operator(rawValue: name)?.image ?? UIImage()
         }

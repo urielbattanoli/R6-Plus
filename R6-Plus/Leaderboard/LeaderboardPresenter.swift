@@ -38,6 +38,6 @@ class LeaderboardPresenter {
     }
     
     private func playersToPlayersData(_ players: [Player]) -> [PlayerViewData] {
-        return players.map { PlayerViewData(id: $0.id,playerImage: $0.imageUrl, position: "\($0.placement)", nickName: $0.nickname, skillPoint: "\($0.skillPoint)") }
+        return players.map { PlayerViewData(id: $0.id,playerImage: $0.imageUrl, position: "\($0.placement)", nickName: $0.nickname, skillPoint: "Skill rating: \($0.skillPoint.twoDecimal())") }
     }
 }
