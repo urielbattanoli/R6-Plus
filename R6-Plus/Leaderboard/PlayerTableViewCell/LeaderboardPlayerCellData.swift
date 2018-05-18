@@ -1,5 +1,5 @@
 //
-//  PlayerViewData.swift
+//  LeaderboardPlayerCellData.swift
 //  R6-Plus
 //
 //  Created by Uriel Battanoli on 14/04/18.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct PlayerViewData {
+struct LeaderboardPlayerCellData {
     let id: String
     let playerImage: String
     let position: String

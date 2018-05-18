@@ -9,5 +9,5 @@
 import Foundation
 
 protocol LeaderboardView: class {
-    func setPlayers(players: [PlayerViewData])
+    func setPlayers(players: [LeaderboardPlayerCellData])
 }

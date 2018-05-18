@@ -19,6 +19,7 @@ struct PlayerDetail: Codable {
     let rank: SeasonRank
     let seasonRanks: [SeasonRank]
     let stats: Stats
+    let created_at: String
     
     var imageUrl: String {
         return String(format: Server.baseImageUrl, id)

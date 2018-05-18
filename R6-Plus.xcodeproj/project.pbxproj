@@ -19,9 +19,9 @@
 		A43BFACB209F6D6D004C00CB /* CellComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43BFACA209F6D6D004C00CB /* CellComponent.swift */; };
 		A43BFACD209F6EB3004C00CB /* CollectionCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43BFACC209F6EB3004C00CB /* CollectionCellData.swift */; };
 		A43D13B3209014AF0067580D /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D13B2209014AF0067580D /* UIImageViewExtension.swift */; };
-		A4505F6A208238EF00C841DE /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F68208238EF00C841DE /* PlayerTableViewCell.swift */; };
+		A4505F6A208238EF00C841DE /* LeaderboardPlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F68208238EF00C841DE /* LeaderboardPlayerTableViewCell.swift */; };
 		A4505F6B208238EF00C841DE /* PlayerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4505F69208238EF00C841DE /* PlayerTableViewCell.xib */; };
-		A4505F6D2082393F00C841DE /* PlayerViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F6C2082393F00C841DE /* PlayerViewData.swift */; };
+		A4505F6D2082393F00C841DE /* LeaderboardPlayerCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F6C2082393F00C841DE /* LeaderboardPlayerCellData.swift */; };
 		A4505F7720823AAB00C841DE /* LeaderboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F7620823AAB00C841DE /* LeaderboardPresenter.swift */; };
 		A4505F7920823B1700C841DE /* LeaderboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F7820823B1700C841DE /* LeaderboardService.swift */; };
 		A4505F7B2082CEDB00C841DE /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F7A2082CEDB00C841DE /* LeaderboardView.swift */; };
@@ -87,9 +87,9 @@
 		A43BFACA209F6D6D004C00CB /* CellComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellComponent.swift; sourceTree = "<group>"; };
 		A43BFACC209F6EB3004C00CB /* CollectionCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellData.swift; sourceTree = "<group>"; };
 		A43D13B2209014AF0067580D /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
-		A4505F68208238EF00C841DE /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
+		A4505F68208238EF00C841DE /* LeaderboardPlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardPlayerTableViewCell.swift; sourceTree = "<group>"; };
 		A4505F69208238EF00C841DE /* PlayerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerTableViewCell.xib; sourceTree = "<group>"; };
-		A4505F6C2082393F00C841DE /* PlayerViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewData.swift; sourceTree = "<group>"; };
+		A4505F6C2082393F00C841DE /* LeaderboardPlayerCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardPlayerCellData.swift; sourceTree = "<group>"; };
 		A4505F7620823AAB00C841DE /* LeaderboardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardPresenter.swift; sourceTree = "<group>"; };
 		A4505F7820823B1700C841DE /* LeaderboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardService.swift; sourceTree = "<group>"; };
 		A4505F7A2082CEDB00C841DE /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
@@ -188,19 +188,19 @@
 		A419952D2081644C0039A6D4 /* R6-Plus */ = {
 			isa = PBXGroup;
 			children = (
-				A4A0A664208ED95900CE46FA /* Utils */,
-				A46BA1B2208962A5003274F7 /* Server */,
-				A4505F80208308D500C841DE /* Models */,
-				A4E05873209BE29200BF2231 /* MainLeaderboard */,
-				A4505F6F208239EF00C841DE /* Leaderboard */,
-				A4E05878209BECD000BF2231 /* PlayerDetail */,
-				A4505F6E208239C300C841DE /* Cells */,
 				A419952E2081644C0039A6D4 /* AppDelegate.swift */,
-				A41995302081644C0039A6D4 /* TabBarController.swift */,
-				A41995322081644C0039A6D4 /* Main.storyboard */,
 				A4199535208164500039A6D4 /* Assets.xcassets */,
-				A4199537208164500039A6D4 /* LaunchScreen.storyboard */,
 				A419953A208164500039A6D4 /* Info.plist */,
+				A4199537208164500039A6D4 /* LaunchScreen.storyboard */,
+				A41995322081644C0039A6D4 /* Main.storyboard */,
+				A41995302081644C0039A6D4 /* TabBarController.swift */,
+				A4505F6E208239C300C841DE /* Cells */,
+				A4505F6F208239EF00C841DE /* Leaderboard */,
+				A4E05873209BE29200BF2231 /* MainLeaderboard */,
+				A4505F80208308D500C841DE /* Models */,
+				A4E05878209BECD000BF2231 /* PlayerDetail */,
+				A46BA1B2208962A5003274F7 /* Server */,
+				A4A0A664208ED95900CE46FA /* Utils */,
 			);
 			path = "R6-Plus";
 			sourceTree = "<group>";
@@ -208,9 +208,9 @@
 		A4505F67208238CC00C841DE /* PlayerTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				A4505F68208238EF00C841DE /* PlayerTableViewCell.swift */,
+				A4505F68208238EF00C841DE /* LeaderboardPlayerTableViewCell.swift */,
 				A4505F69208238EF00C841DE /* PlayerTableViewCell.xib */,
-				A4505F6C2082393F00C841DE /* PlayerViewData.swift */,
+				A4505F6C2082393F00C841DE /* LeaderboardPlayerCellData.swift */,
 			);
 			path = PlayerTableViewCell;
 			sourceTree = "<group>";
@@ -219,7 +219,6 @@
 			isa = PBXGroup;
 			children = (
 				A4BBADC2209F588A00425AEC /* CollectionTableViewCell */,
-				A4505F67208238CC00C841DE /* PlayerTableViewCell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -232,6 +231,7 @@
 				A4505F7A2082CEDB00C841DE /* LeaderboardView.swift */,
 				A4505F7C2082FE8500C841DE /* LeaderboardViewController.swift */,
 				A4505F7D2082FE8500C841DE /* LeaderboardViewController.xib */,
+				A4505F67208238CC00C841DE /* PlayerTableViewCell */,
 			);
 			path = Leaderboard;
 			sourceTree = "<group>";
@@ -278,18 +278,18 @@
 		A4A0A664208ED95900CE46FA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				A4DA9BE0209FEEED00EF830F /* NibDesignable */,
-				A4A0A665208ED97200CE46FA /* NibRegistrableView.swift */,
-				A4A0A667208ED9E600CE46FA /* Utils.swift */,
-				A4288C65208EDE72005C75BE /* CodableExtension.swift */,
-				A43D13B2209014AF0067580D /* UIImageViewExtension.swift */,
-				A423CDBB209BD9EF00528E03 /* UIViewExtension.swift */,
-				A4BBADA8209CE50400425AEC /* UIColorExtension.swift */,
 				A43BFACA209F6D6D004C00CB /* CellComponent.swift */,
-				A4DA9BDC209FE06A00EF830F /* IntExtension.swift */,
+				A4288C65208EDE72005C75BE /* CodableExtension.swift */,
 				A4DA9BDE209FE41E00EF830F /* DoubleExtension.swift */,
 				A4FAE56A20A2224600E9E877 /* GradientView.swift */,
+				A4DA9BDC209FE06A00EF830F /* IntExtension.swift */,
+				A4DA9BE1209FEEED00EF830F /* NibDesignable.swift */,
+				A4A0A665208ED97200CE46FA /* NibRegistrableView.swift */,
 				A497F53B20A782CB00D26A23 /* StringExtension.swift */,
+				A4BBADA8209CE50400425AEC /* UIColorExtension.swift */,
+				A43D13B2209014AF0067580D /* UIImageViewExtension.swift */,
+				A423CDBB209BD9EF00528E03 /* UIViewExtension.swift */,
+				A4A0A667208ED9E600CE46FA /* Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -357,14 +357,6 @@
 				A4DA9BEF20A147DC00EF830F /* HeaderListViewData.swift */,
 			);
 			path = ListInfo;
-			sourceTree = "<group>";
-		};
-		A4DA9BE0209FEEED00EF830F /* NibDesignable */ = {
-			isa = PBXGroup;
-			children = (
-				A4DA9BE1209FEEED00EF830F /* NibDesignable.swift */,
-			);
-			path = NibDesignable;
 			sourceTree = "<group>";
 		};
 		A4E05873209BE29200BF2231 /* MainLeaderboard */ = {
@@ -537,8 +529,8 @@
 				A4DA9BF020A147DC00EF830F /* HeaderListViewData.swift in Sources */,
 				A4BBADC5209F58AD00425AEC /* CollectionTableViewCell.swift in Sources */,
 				A4BBADA9209CE50400425AEC /* UIColorExtension.swift in Sources */,
-				A4505F6A208238EF00C841DE /* PlayerTableViewCell.swift in Sources */,
-				A4505F6D2082393F00C841DE /* PlayerViewData.swift in Sources */,
+				A4505F6A208238EF00C841DE /* LeaderboardPlayerTableViewCell.swift in Sources */,
+				A4505F6D2082393F00C841DE /* LeaderboardPlayerCellData.swift in Sources */,
 				A423CDBC209BD9EF00528E03 /* UIViewExtension.swift in Sources */,
 				A4DA9BDB209FD5DD00EF830F /* InformationViewData.swift in Sources */,
 				A4505F7E2082FE8500C841DE /* LeaderboardViewController.swift in Sources */,

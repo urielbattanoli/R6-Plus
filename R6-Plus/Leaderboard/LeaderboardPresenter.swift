@@ -29,7 +29,7 @@ class LeaderboardPresenter {
     func fetchPlayerList(input: LeaderboardInput) {
         leaderboardService.fetchLeaderboard(input: input) { [weak self] result in
             guard let `self` = self else { return }
-            var playerList: [PlayerViewData] = []
+            var playerList: [LeaderboardPlayerCellData] = []
             if case(.success(let players)) = result {
                 playerList = self.playersToPlayersData(players)
             }
@@ -37,7 +37,7 @@ class LeaderboardPresenter {
         }
     }
     
-    private func playersToPlayersData(_ players: [Player]) -> [PlayerViewData] {
-        return players.map { PlayerViewData(id: $0.id,playerImage: $0.imageUrl, position: "\($0.placement)", nickName: $0.nickname, skillPoint: "Skill rating: \($0.skillPoint.twoDecimal())") }
+    private func playersToPlayersData(_ players: [Player]) -> [LeaderboardPlayerCellData] {
+        return players.map { LeaderboardPlayerCellData(id: $0.id,playerImage: $0.imageUrl, position: "\($0.placement)", nickName: $0.nickname, skillPoint: "Skill rating: \($0.skillPoint.twoDecimal())") }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  PlayerTableViewCell.swift
+//  LeaderboardPlayerTableViewCell.swift
 //  R6-Plus
 //
 //  Created by Uriel Battanoli on 14/04/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlayerTableViewCell: NibRegistrableTableViewCell {
+class LeaderboardPlayerTableViewCell: NibRegistrableTableViewCell {
     
     // MARK: - IBOutlet
     @IBOutlet private weak var cellBackgroundView: UIView!
@@ -27,7 +27,7 @@ class PlayerTableViewCell: NibRegistrableTableViewCell {
         skillPointLabel.text = nil
     }
     
-    func fillData(data: PlayerViewData) {
+    func fillData(data: LeaderboardPlayerCellData) {
         cellBackgroundView.setBlackShadow()
         backgroundImageView.loadImage(data.playerImage)
         positionLabel.text = data.position

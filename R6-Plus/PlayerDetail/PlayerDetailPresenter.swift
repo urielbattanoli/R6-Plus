@@ -66,16 +66,16 @@ extension PlayerDetailPresenter {
         let infoReuse = InformationTableViewCell.reuseId
         let information =
             [CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Player level", description: "\(playerDetail.level)")),
-             CellComponent(reuseId: infoReuse, data: InformationCellData(title: "First added", description: "")),
-             CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Last played", description: "\(playerDetail.lastPlayed.last_played.formattedStringDate)"))]
+             CellComponent(reuseId: infoReuse, data: InformationCellData(title: "First added", description: playerDetail.created_at.formattedStringDate)),
+             CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Last played", description: playerDetail.lastPlayed.last_played.formattedStringDate))]
         return PlayerDetailSection(title: "Profile Info", cells: information)
     }
     
     private func generateSeasons(_ playerDetail: PlayerDetail) -> PlayerDetailSection {
         let reuseId = SeasonCollectionViewCell.reuseId
-        var cells: [CellComponent] = []
-        playerDetail.seasonRanks.forEach { season in
-            guard season.bestRank.rank > 0 else { return }
+        let currentSeason = CellComponent(reuseId: reuseId, data: SeasonCellData(iconImage: playerDetail.rank.bestRank.ranking.image, title: "Season \(playerDetail.rank.season)"))
+        var cells: [CellComponent] = [currentSeason]
+        playerDetail.seasonRanks.filter { $0.season >= 6 }.reversed().forEach { season in
             cells.append(CellComponent(reuseId: reuseId, data: SeasonCellData(iconImage: season.bestRank.ranking.image, title: "Season \(season.season)")))
         }
         let cellData = CollectionCellData(collectionHeight: 100, cellsToRegister: [SeasonCollectionViewCell.self], items: cells)

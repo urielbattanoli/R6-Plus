@@ -16,7 +16,7 @@ class LeaderboardViewController: UIViewController {
     
     // MARK: - Properties
     private let presenter = LeaderboardPresenter(service: LeaderboardService())
-    private var playersData: [PlayerViewData] = []
+    private var playersData: [LeaderboardPlayerCellData] = []
     
     private var page = 0
     private var leaderboardRegion: LeaderboardRegion
@@ -48,7 +48,7 @@ class LeaderboardViewController: UIViewController {
     }
     
     private func setupTableView() {
-        tableView.register(PlayerTableViewCell.nib, forCellReuseIdentifier: PlayerTableViewCell.reuseId)
+        tableView.register(LeaderboardPlayerTableViewCell.nib, forCellReuseIdentifier: LeaderboardPlayerTableViewCell.reuseId)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
         tableView.estimatedSectionHeaderHeight = 100
@@ -64,7 +64,7 @@ extension LeaderboardViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: PlayerTableViewCell.reuseId) as? PlayerTableViewCell
+        let cell: LeaderboardPlayerTableViewCell? = tableView.dequeueReusableCell()
         if playersData.count > indexPath.row {
             cell?.fillData(data: playersData[indexPath.row])
         }
@@ -88,7 +88,7 @@ extension LeaderboardViewController: UITableViewDelegate {
 // MARK: - LeaderboardView
 extension LeaderboardViewController: LeaderboardView {
     
-    func setPlayers(players: [PlayerViewData]) {
+    func setPlayers(players: [LeaderboardPlayerCellData]) {
         loader.stopAnimating()
         playersData += players
         tableView.reloadData()
