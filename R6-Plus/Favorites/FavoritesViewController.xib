@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoritesViewController" customModule="R6_Plus" customModuleProvider="target">
+            <connections>
+                <outlet property="loader" destination="O0v-QW-xje" id="9ig-rn-y9o"/>
+                <outlet property="tableView" destination="jfE-O8-40N" id="Zqh-ku-ptY"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jfE-O8-40N">
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <color key="backgroundColor" red="0.066666666669999999" green="0.14117647059999999" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Z7y-UD-VfN"/>
+                        <outlet property="delegate" destination="-1" id="7uI-b0-3nv"/>
+                    </connections>
+                </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="O0v-QW-xje">
+                    <rect key="frame" x="169.5" y="315.5" width="37" height="37"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="O0v-QW-xje" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="AjM-n2-gQk"/>
+                <constraint firstItem="jfE-O8-40N" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="EXW-zH-2XZ"/>
+                <constraint firstItem="O0v-QW-xje" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Rh2-S8-w6E"/>
+                <constraint firstItem="jfE-O8-40N" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="gxk-Ce-X46"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jfE-O8-40N" secondAttribute="trailing" id="jGc-Wn-aK3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="jfE-O8-40N" secondAttribute="bottom" id="nYi-LL-z7K"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+</document>

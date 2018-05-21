@@ -27,7 +27,7 @@ class LeaderboardPlayerTableViewCell: NibRegistrableTableViewCell {
         skillPointLabel.text = nil
     }
     
-    func fillData(data: LeaderboardPlayerCellData) {
+    func fillData(_ data: LeaderboardPlayerCellData) {
         cellBackgroundView.setBlackShadow()
         backgroundImageView.loadImage(data.playerImage)
         positionLabel.text = data.position

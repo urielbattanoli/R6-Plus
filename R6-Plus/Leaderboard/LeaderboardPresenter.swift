@@ -10,30 +10,30 @@ import UIKit
 
 class LeaderboardPresenter {
     
-    private let leaderboardService: LeaderboardService
-    weak private var leaderboardView: LeaderboardView?
+    private let service: LeaderboardService
+    weak private var view: LeaderboardView?
     
     init(service: LeaderboardService) {
-        leaderboardService = service
+        self.service = service
     }
     
     func attachView(_ view: LeaderboardView) {
-        leaderboardView = view
+        self.view = view
     }
     
-    func goToPlayerDetail(id: String) {
-        let vc = PlayerDetailViewController(playerId: id)
-        (leaderboardView as? UIViewController)?.navigationController?.pushViewController(vc, animated: true)
+    func goToPlayerDetail(_ id: String) {
+        let vc = PlayerDetailViewController(playerId: id, playerDetail: nil)
+        (view as? UIViewController)?.navigationController?.pushViewController(vc, animated: true)
     }
     
     func fetchPlayerList(input: LeaderboardInput) {
-        leaderboardService.fetchLeaderboard(input: input) { [weak self] result in
+        service.fetchLeaderboard(input: input) { [weak self] result in
             guard let `self` = self else { return }
             var playerList: [LeaderboardPlayerCellData] = []
             if case(.success(let players)) = result {
                 playerList = self.playersToPlayersData(players)
             }
-            self.leaderboardView?.setPlayers(players: playerList)
+            self.view?.setPlayers(players: playerList)
         }
     }
     

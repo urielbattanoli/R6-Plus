@@ -10,28 +10,55 @@ import UIKit
 
 class PlayerDetailPresenter {
     
-    private let playerDetailService: PlayerDetailService
-    weak private var playerDetailView: PlayerDetailView?
+    private let service: PlayerDetailService
+    private var playerDetail: PlayerDetail?
+    weak private var view: PlayerDetailView?
     
-    init(service: PlayerDetailService) {
-        playerDetailService = service
+    init(playerDetail: PlayerDetail?, service: PlayerDetailService) {
+        self.playerDetail = playerDetail
+        self.service = service
     }
     
     func attachView(_ view: PlayerDetailView) {
-        playerDetailView = view
+        self.view = view
     }
     
-    func fetchPlayerDetail(id: String) {
-        playerDetailService.fetchPlayerDetail(id: id) { [weak self] result in
+    func favoriteTouched() {
+        guard let playerDetail = playerDetail else { return }
+        if playerDetail.isFavorite {
+            unsetAsFavorite(id: playerDetail.id)
+        } else {
+            setAsFavorite(id: playerDetail.id)
+        }
+    }
+    
+    private func setAsFavorite(id: String) {
+        guard !R6UserDefaults.shared.favoriteIds.contains(id) else { return }
+        R6UserDefaults.shared.favoriteIds.append(id)
+    }
+    
+    private func unsetAsFavorite(id: String) {
+        guard let index = R6UserDefaults.shared.favoriteIds.index(of: id) else { return }
+        R6UserDefaults.shared.favoriteIds.remove(at: index)
+    }
+    
+    func fetchPlayerDetailIfNeeded(id: String) {
+        if let playerDetail = playerDetail {
+            view?.setPlayerDetail(playerDetail: playerDetailToData(playerDetail))
+            return
+        }
+        service.fetchPlayerDetail(id: id) { [weak self] result in
             guard let `self` = self else { return }
-            if case(.success(let playerDetail)) = result {
-                self.playerDetailView?.setPlayerDetail(playerDetail: self.playerDetailToData(playerDetail))
+            if case .success(let playerDetail) = result {
+                self.playerDetail = playerDetail
+                self.view?.setPlayerDetail(playerDetail: self.playerDetailToData(playerDetail))
             }
         }
     }
     
     private func playerDetailToData(_ playerDetail: PlayerDetail) -> PlayerDetailViewData {
-        return PlayerDetailViewData(sections: [generateHeaderData(playerDetail),
+        return PlayerDetailViewData(isFavorite: playerDetail.isFavorite,
+                                    sections: [generateHeaderData(playerDetail),
                                                generateProfileInfo(playerDetail),
                                                generateSeasons(playerDetail),
                                                generateAliases(playerDetail),
@@ -48,7 +75,7 @@ class PlayerDetailPresenter {
         let vc = OperatorDetailViewController(sections: sections)
         vc.modalPresentationStyle = .overCurrentContext
         vc.modalTransitionStyle = .crossDissolve
-        (playerDetailView as? UIViewController)?.present(vc, animated: true)
+        (view as? UIViewController)?.present(vc, animated: true)
     }
 }
 

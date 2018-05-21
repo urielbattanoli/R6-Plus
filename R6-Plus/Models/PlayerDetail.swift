@@ -21,6 +21,10 @@ struct PlayerDetail: Codable {
     let stats: Stats
     let created_at: String
     
+    var isFavorite: Bool {
+        return R6UserDefaults.shared.favoriteIds.contains(id)
+    }
+    
     var imageUrl: String {
         return String(format: Server.baseImageUrl, id)
     }

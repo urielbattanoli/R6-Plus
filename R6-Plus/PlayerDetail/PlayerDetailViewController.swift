@@ -15,13 +15,19 @@ class PlayerDetailViewController: UIViewController {
     @IBOutlet private weak var loader: UIActivityIndicatorView!
     
     // MARK: - Properties
-    private let presenter = PlayerDetailPresenter(service: PlayerDetailService())
+    private let presenter: PlayerDetailPresenter
     private var sections: [PlayerDetailSection] = []
     private let playerId: String
+    private var isFavorite: Bool = false {
+        didSet {
+            navigationItem.rightBarButtonItem?.image = isFavorite ? #imageLiteral(resourceName: "favorited") : #imageLiteral(resourceName: "unfavorited")
+        }
+    }
     
     // MARK: - Life cycle
-    init(playerId: String) {
+    init(playerId: String, playerDetail: PlayerDetail?) {
         self.playerId = playerId
+        presenter = PlayerDetailPresenter(playerDetail: playerDetail, service: PlayerDetailService())
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -35,11 +41,25 @@ class PlayerDetailViewController: UIViewController {
         
         title = "Detail"
         presenter.attachView(self)
-        presenter.fetchPlayerDetail(id: playerId)
+        presenter.fetchPlayerDetailIfNeeded(id: playerId)
         setupTableView()
+        addFavoriteButton()
     }
     
     // MARK: - Functions
+    private func addFavoriteButton() {
+        let favoriteButton = UIBarButtonItem(image: isFavorite ? #imageLiteral(resourceName: "favorited") : #imageLiteral(resourceName: "unfavorited"),
+                                             style: .plain,
+                                             target: self,
+                                             action: #selector(favoriteButtonTouched))
+        navigationItem.setRightBarButton(favoriteButton, animated: true)
+    }
+    
+    @objc private func favoriteButtonTouched() {
+        isFavorite = !isFavorite
+        presenter.favoriteTouched()
+    }
+    
     private func setupTableView() {
         tableView.register(ProfileHeaderTableViewCell.nib, forCellReuseIdentifier: ProfileHeaderTableViewCell.reuseId)
         tableView.register(CollectionTableViewCell.nib, forCellReuseIdentifier: CollectionTableViewCell.reuseId)
@@ -48,6 +68,7 @@ class PlayerDetailViewController: UIViewController {
         tableView.estimatedRowHeight = 100
         tableView.estimatedSectionHeaderHeight = 100
         tableView.tableFooterView = UIView()
+        tableView.tableHeaderView = nil
     }
 }
 
@@ -89,6 +110,7 @@ extension PlayerDetailViewController: UITableViewDelegate {
 extension PlayerDetailViewController: PlayerDetailView {
     
     func setPlayerDetail(playerDetail: PlayerDetailViewData) {
+        isFavorite = playerDetail.isFavorite
         sections = playerDetail.sections
         loader.stopAnimating()
         tableView.reloadData()

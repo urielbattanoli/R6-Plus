@@ -1,59 +1,48 @@
 //
-//  LeaderboardViewController.swift
+//  FavoritesViewController.swift
 //  R6-Plus
 //
-//  Created by Uriel Battanoli on 15/04/18.
+//  Created by Uriel Battanoli on 17/05/18.
 //  Copyright © 2018 Mocka. All rights reserved.
 //
 
 import UIKit
 
-class LeaderboardViewController: UIViewController {
+class FavoritesViewController: UIViewController {
 
-    // MARK: - IBOutlets
+    // MARK: - IBOutlet
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var loader: UIActivityIndicatorView!
     
     // MARK: - Properties
-    private let presenter = LeaderboardPresenter(service: LeaderboardService())
-    private var playersData: [LeaderboardPlayerCellData] = []
-    
-    private var page = 0
-    private var leaderboardRegion: LeaderboardRegion
-    
-    // MARK: - Life cycle
-    init(leaderboardRegion: LeaderboardRegion) {
-        self.leaderboardRegion = leaderboardRegion
-        
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    private let presenter = FavoritesPresenter(service: FavoritesService())
+    private var playersData: [PlayerCellData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupTableView()
         presenter.attachView(self)
-        fetchPlayerList()
+        presenter.fetchFavorites()
         addRefreshControl()
     }
     
     // MARK: - Functions
-    private func fetchPlayerList() {
-        let input = LeaderboardInput(stat: leaderboardRegion.stat(), limit: 20, page: page)
-        presenter.fetchPlayerList(input: input)
-        page += 20
-    }
-    
     private func setupTableView() {
-        tableView.register(LeaderboardPlayerTableViewCell.nib, forCellReuseIdentifier: LeaderboardPlayerTableViewCell.reuseId)
+        tableView.register(PlayerTableViewCell.nib, forCellReuseIdentifier: PlayerTableViewCell.reuseId)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
         tableView.estimatedSectionHeaderHeight = 100
         tableView.tableFooterView = UIView()
+    }
+    
+    private func setEmptyMessageIfNeeded() {
+        tableView.backgroundView = UIView()
+        guard playersData.count == 0 else { return }
+        let messageLabel = UILabel(frame: CGRect(x: 50, y: 50, width: 200, height: 40))
+        messageLabel.textColor = .white
+        messageLabel.text = "You have not favorites"
+        tableView.backgroundView?.addSubview(messageLabel)
     }
     
     private func addRefreshControl() {
@@ -67,26 +56,21 @@ class LeaderboardViewController: UIViewController {
     @objc private func refreshControllAction() {
         playersData.removeAll()
         tableView.reloadData()
-        page = 0
-        fetchPlayerList()
+        presenter.fetchFavorites()
     }
 }
 
 // MARK: - UITableViewDataSource
-extension LeaderboardViewController: UITableViewDataSource {
+extension FavoritesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return playersData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: LeaderboardPlayerTableViewCell? = tableView.dequeueReusableCell()
+        let cell: PlayerTableViewCell? = tableView.dequeueReusableCell()
         if playersData.count > indexPath.row {
             cell?.fillData(playersData[indexPath.row])
-        }
-        
-        if indexPath.row >= page - 10 {
-            fetchPlayerList()
         }
         
         return cell ?? UITableViewCell()
@@ -94,20 +78,20 @@ extension LeaderboardViewController: UITableViewDataSource {
 }
 
 // MARK: - UITableViewDelegate
-extension LeaderboardViewController: UITableViewDelegate {
+extension FavoritesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.goToPlayerDetail(playersData[indexPath.row].id)
+        presenter.goToPlayerDetail(index: indexPath.row)
     }
 }
 
-// MARK: - LeaderboardView
-extension LeaderboardViewController: LeaderboardView {
-    
-    func setPlayers(players: [LeaderboardPlayerCellData]) {
+// MARK: - FavoritesView
+extension FavoritesViewController: FavoritesView {
+    func setPlayers(players: [PlayerCellData]) {
         loader.stopAnimating()
         tableView.refreshControl?.endRefreshing()
-        playersData += players
+        playersData = players
         tableView.reloadData()
+        setEmptyMessageIfNeeded()
     }
 }

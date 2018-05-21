@@ -19,7 +19,11 @@ class TabBarController: UITabBarController {
     private func setupTabBar() {
         let leaderboard = MainLeaderboardViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
         leaderboard.tabBarItem = UITabBarItem(title: "Leaderboard", image: nil, selectedImage: nil)
-        self.viewControllers = [leaderboard]
+        
+        let favorites = FavoritesViewController()
+        favorites.tabBarItem = UITabBarItem(title: "Favorites", image: nil, selectedImage: nil)
+        
+        self.viewControllers = [leaderboard, favorites]
     }
     
     @IBAction func Touch(_ sender: Any) {
