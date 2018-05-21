@@ -2,49 +2,77 @@
 //  MainLeaderboardViewController.swift
 //  R6-Plus
 //
-//  Created by Uriel Battanoli on 03/05/18.
+//  Created by Uriel Battanoli on 21/05/18.
 //  Copyright © 2018 Mocka. All rights reserved.
 //
 
 import UIKit
 
-class MainLeaderboardViewController: UIPageViewController {
-
-    private var leaderViewControllers: [UIViewController] = []
+class MainLeaderboardViewController: UIViewController {
+    
+    @IBOutlet private weak var menuHeader: MenuHeaderMain!
+    
+    var pageViewController: LeaderboardPageViewController!
+    private let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        setupPageViewController()
+        menuHeader.items = [LeaderboardRegion.global.menuName(),
+                            LeaderboardRegion.apac.menuName(),
+                            LeaderboardRegion.emea.menuName(),
+                            LeaderboardRegion.ncsa.menuName()]
+        menuHeader.delegate = self
+        setupSearch()
     }
     
-    private func setupPageViewController() {
-        view.backgroundColor = #colorLiteral(red: 0.06666666667, green: 0.1411764706, blue: 0.2, alpha: 1)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let pageViewController = segue.destination as? LeaderboardPageViewController else { return }
+        pageViewController.pageDelegate = self
+        self.pageViewController = pageViewController
+    }
+    
+    private func setupSearch() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchTouched))
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Candies"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+    }
+    
+    @objc private func searchTouched() {
         
-        let vc1 = LeaderboardViewController(leaderboardRegion: .global)
-        let vc2 = LeaderboardViewController(leaderboardRegion: .apac)
-        let vc3 = LeaderboardViewController(leaderboardRegion: .emea)
-        let vc4 = LeaderboardViewController(leaderboardRegion: .ncsa)
-        leaderViewControllers = [vc1, vc2, vc3, vc4]
-        dataSource = self
-        
-        setViewControllers([leaderViewControllers.first!], direction: .forward, animated: true)
     }
 }
 
-extension MainLeaderboardViewController: UIPageViewControllerDataSource {
+extension MainLeaderboardViewController: MenuHeaderMainDelegate {
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let index = leaderViewControllers.index(of: viewController),
-            index - 1 >= 0 else { return nil }
-        
-        return leaderViewControllers[index - 1]
+    func button(_ button: UIButton, didChangeToPosition position: Int) {
+        pageViewController.changePage(toPosition: position)
+        searchController.becomeFirstResponder()
+    }
+}
+
+extension MainLeaderboardViewController: ContentPageViewControllerDelegate {
+    func page(_ page: UIViewController, didChangeToPosition position: Int) {
+        menuHeader.animateMenu(withPosition: position)
+    }
+}
+
+extension MainLeaderboardViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let index = leaderViewControllers.index(of: viewController),
-            index + 1 < leaderViewControllers.count else { return nil }
-        
-        return leaderViewControllers[index + 1]
+    private func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    private func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+        //        filteredCandies = candies.filter({( candy : Candy) -> Bool in
+        //            return candy.name.lowercased().contains(searchText.lowercased())
+        //        })
+        //
     }
 }

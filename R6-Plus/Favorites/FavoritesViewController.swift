@@ -39,10 +39,14 @@ class FavoritesViewController: UIViewController {
     private func setEmptyMessageIfNeeded() {
         tableView.backgroundView = UIView()
         guard playersData.count == 0 else { return }
-        let messageLabel = UILabel(frame: CGRect(x: 50, y: 50, width: 200, height: 40))
-        messageLabel.textColor = .white
-        messageLabel.text = "You have not favorites"
+        let messageLabel = UILabel(frame: .zero)
         tableView.backgroundView?.addSubview(messageLabel)
+        messageLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: messageLabel, attribute: .top, relatedBy: .equal, toItem: tableView.backgroundView, attribute: .top, multiplier: 1, constant: 50).isActive = true
+        NSLayoutConstraint(item: messageLabel, attribute: .centerX, relatedBy: .equal, toItem: tableView.backgroundView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+        messageLabel.textColor = .white
+        messageLabel.textAlignment = .center
+        messageLabel.text = "You have not favorites"
     }
     
     private func addRefreshControl() {

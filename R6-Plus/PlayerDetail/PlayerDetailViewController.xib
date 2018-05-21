@@ -22,8 +22,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="b2f-YH-ctg">
-                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="b2f-YH-ctg">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" red="0.074407245509999997" green="0.1597398199" blue="0.2275390625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="Pl8-XZ-0q6"/>
@@ -39,11 +39,12 @@
                 <constraint firstItem="Iw2-a0-QDO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5v7-TP-3HK"/>
                 <constraint firstItem="b2f-YH-ctg" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="7u0-Od-LE6"/>
                 <constraint firstItem="b2f-YH-ctg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="VkQ-Vi-WyA"/>
-                <constraint firstItem="b2f-YH-ctg" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="gZU-dT-Xoi"/>
+                <constraint firstItem="b2f-YH-ctg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gZU-dT-Xoi"/>
                 <constraint firstItem="Iw2-a0-QDO" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="pYT-tE-H5Z"/>
                 <constraint firstItem="b2f-YH-ctg" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="sob-xv-KFD"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
 </document>

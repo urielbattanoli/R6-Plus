@@ -15,9 +15,10 @@ class LeaderboardViewController: UIViewController {
     @IBOutlet private weak var loader: UIActivityIndicatorView!
     
     // MARK: - Properties
+    var index: Int = 0
+    
     private let presenter = LeaderboardPresenter(service: LeaderboardService())
     private var playersData: [LeaderboardPlayerCellData] = []
-    
     private var page = 0
     private var leaderboardRegion: LeaderboardRegion
     

@@ -17,16 +17,22 @@ class TabBarController: UITabBarController {
     }
     
     private func setupTabBar() {
-        let leaderboard = MainLeaderboardViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        let storyboard = UIStoryboard(name: "Leaderboard", bundle: nil)
+        let leaderboard = storyboard.instantiateInitialViewController()!
         leaderboard.tabBarItem = UITabBarItem(title: "Leaderboard", image: nil, selectedImage: nil)
         
         let favorites = FavoritesViewController()
-        favorites.tabBarItem = UITabBarItem(title: "Favorites", image: nil, selectedImage: nil)
+//        favorites.tabBarItem = UITabBarItem(title: "", image: nil, selectedImage: nil)
+        favorites.title = "Favorites"
+        let navigation = UINavigationController(rootViewController: favorites)
+        navigation.navigationBar.barTintColor = #colorLiteral(red: 0.07450980392, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
+        navigation.navigationBar.tintColor = .white
+        navigation.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        navigation.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        navigation.navigationItem.largeTitleDisplayMode = .always
+        navigation.navigationBar.prefersLargeTitles = true
+        navigation.navigationBar.isTranslucent = false
         
-        self.viewControllers = [leaderboard, favorites]
-    }
-    
-    @IBAction func Touch(_ sender: Any) {
-        navigationController?.pushViewController(LeaderboardViewController(leaderboardRegion: .global), animated: true)
+        viewControllers = [leaderboard, navigation]
     }
 }

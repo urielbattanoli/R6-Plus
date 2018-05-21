@@ -66,9 +66,7 @@ class PlayerDetailViewController: UIViewController {
         tableView.register(InformationTableViewCell.nib, forCellReuseIdentifier: InformationTableViewCell.reuseId)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
-        tableView.estimatedSectionHeaderHeight = 100
         tableView.tableFooterView = UIView()
-        tableView.tableHeaderView = nil
     }
 }
 
@@ -101,7 +99,7 @@ extension PlayerDetailViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        guard section > 0 else { return 0 }
+        guard section > 0 else { return 0.1 }
         return 55
     }
 }
