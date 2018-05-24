@@ -18,6 +18,14 @@ class PlayerTableViewCell: NibRegistrableTableViewCell {
     
     // MARK: - Functions
     func fillData(_ data: PlayerCellData) {
+    }
+}
+
+// MARK: - DynamicCellComponent
+extension PlayerTableViewCell: DynamicCellComponent {
+    
+    func updateUI(with data: Any) {
+        guard let data = data as? PlayerCellData else { return }
         profileImageView.loadImage(data.imageUrl)
         profileNameLabel.text = data.name
         skillPointLabel.text = data.skillPoint

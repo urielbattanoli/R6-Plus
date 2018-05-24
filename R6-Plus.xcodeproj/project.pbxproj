@@ -27,11 +27,8 @@
 		A43832ED20AE622100B55F7C /* PlayerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43832EB20AE622100B55F7C /* PlayerTableViewCell.xib */; };
 		A43832EF20AE751900B55F7C /* PlayerCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43832EE20AE751900B55F7C /* PlayerCellData.swift */; };
 		A43832F120AE76E000B55F7C /* R6UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43832F020AE76E000B55F7C /* R6UserDefaults.swift */; };
-		A43832F520AE791800B55F7C /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43832F320AE791700B55F7C /* FavoritesViewController.swift */; };
-		A43832F620AE791800B55F7C /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43832F420AE791700B55F7C /* FavoritesViewController.xib */; };
 		A43832F820AE796800B55F7C /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43832F720AE796800B55F7C /* FavoritesPresenter.swift */; };
 		A43832FA20AE797C00B55F7C /* FavoritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43832F920AE797C00B55F7C /* FavoritesService.swift */; };
-		A43832FC20AE798700B55F7C /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43832FB20AE798700B55F7C /* FavoritesView.swift */; };
 		A43BFACB209F6D6D004C00CB /* CellComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43BFACA209F6D6D004C00CB /* CellComponent.swift */; };
 		A43BFACD209F6EB3004C00CB /* CollectionCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43BFACC209F6EB3004C00CB /* CollectionCellData.swift */; };
 		A43D13B3209014AF0067580D /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D13B2209014AF0067580D /* UIImageViewExtension.swift */; };
@@ -40,11 +37,12 @@
 		A4505F6D2082393F00C841DE /* LeaderboardPlayerCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F6C2082393F00C841DE /* LeaderboardPlayerCellData.swift */; };
 		A4505F7720823AAB00C841DE /* LeaderboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F7620823AAB00C841DE /* LeaderboardPresenter.swift */; };
 		A4505F7920823B1700C841DE /* LeaderboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F7820823B1700C841DE /* LeaderboardService.swift */; };
-		A4505F7B2082CEDB00C841DE /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F7A2082CEDB00C841DE /* LeaderboardView.swift */; };
-		A4505F7E2082FE8500C841DE /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F7C2082FE8500C841DE /* LeaderboardViewController.swift */; };
-		A4505F7F2082FE8500C841DE /* LeaderboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4505F7D2082FE8500C841DE /* LeaderboardViewController.xib */; };
+		A4505F7B2082CEDB00C841DE /* UBTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F7A2082CEDB00C841DE /* UBTableView.swift */; };
+		A4505F7E2082FE8500C841DE /* UBTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F7C2082FE8500C841DE /* UBTableViewController.swift */; };
+		A4505F7F2082FE8500C841DE /* UBTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4505F7D2082FE8500C841DE /* UBTableViewController.xib */; };
 		A4505F82208308E300C841DE /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F81208308E300C841DE /* Player.swift */; };
 		A46BA1B4208962B9003274F7 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46BA1B3208962B9003274F7 /* Server.swift */; };
+		A47E3AF920B66C5E001B4C10 /* UBTableViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E3AF820B66C5E001B4C10 /* UBTableViewPresenter.swift */; };
 		A497F52D20A6A57A00D26A23 /* SeasonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A497F52B20A6A57A00D26A23 /* SeasonCollectionViewCell.swift */; };
 		A497F52E20A6A57A00D26A23 /* SeasonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A497F52C20A6A57A00D26A23 /* SeasonCollectionViewCell.xib */; };
 		A497F53020A6A98900D26A23 /* SeasonCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A497F52F20A6A98900D26A23 /* SeasonCellData.swift */; };
@@ -112,11 +110,8 @@
 		A43832EB20AE622100B55F7C /* PlayerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerTableViewCell.xib; sourceTree = "<group>"; };
 		A43832EE20AE751900B55F7C /* PlayerCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCellData.swift; sourceTree = "<group>"; };
 		A43832F020AE76E000B55F7C /* R6UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R6UserDefaults.swift; sourceTree = "<group>"; };
-		A43832F320AE791700B55F7C /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
-		A43832F420AE791700B55F7C /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
 		A43832F720AE796800B55F7C /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
 		A43832F920AE797C00B55F7C /* FavoritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesService.swift; sourceTree = "<group>"; };
-		A43832FB20AE798700B55F7C /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		A43BFACA209F6D6D004C00CB /* CellComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellComponent.swift; sourceTree = "<group>"; };
 		A43BFACC209F6EB3004C00CB /* CollectionCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellData.swift; sourceTree = "<group>"; };
 		A43D13B2209014AF0067580D /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
@@ -125,11 +120,12 @@
 		A4505F6C2082393F00C841DE /* LeaderboardPlayerCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardPlayerCellData.swift; sourceTree = "<group>"; };
 		A4505F7620823AAB00C841DE /* LeaderboardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardPresenter.swift; sourceTree = "<group>"; };
 		A4505F7820823B1700C841DE /* LeaderboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardService.swift; sourceTree = "<group>"; };
-		A4505F7A2082CEDB00C841DE /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
-		A4505F7C2082FE8500C841DE /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
-		A4505F7D2082FE8500C841DE /* LeaderboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaderboardViewController.xib; sourceTree = "<group>"; };
+		A4505F7A2082CEDB00C841DE /* UBTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBTableView.swift; sourceTree = "<group>"; };
+		A4505F7C2082FE8500C841DE /* UBTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBTableViewController.swift; sourceTree = "<group>"; };
+		A4505F7D2082FE8500C841DE /* UBTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UBTableViewController.xib; sourceTree = "<group>"; };
 		A4505F81208308E300C841DE /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		A46BA1B3208962B9003274F7 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		A47E3AF820B66C5E001B4C10 /* UBTableViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBTableViewPresenter.swift; sourceTree = "<group>"; };
 		A497F52B20A6A57A00D26A23 /* SeasonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonCollectionViewCell.swift; sourceTree = "<group>"; };
 		A497F52C20A6A57A00D26A23 /* SeasonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeasonCollectionViewCell.xib; sourceTree = "<group>"; };
 		A497F52F20A6A98900D26A23 /* SeasonCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonCellData.swift; sourceTree = "<group>"; };
@@ -228,6 +224,7 @@
 				A4199537208164500039A6D4 /* LaunchScreen.storyboard */,
 				A41995322081644C0039A6D4 /* Main.storyboard */,
 				A41995302081644C0039A6D4 /* TabBarController.swift */,
+				A47E3AF720B66B6D001B4C10 /* UBTableViewController */,
 				A4505F6E208239C300C841DE /* Cells */,
 				A43832F220AE78F900B55F7C /* Favorites */,
 				A4505F6F208239EF00C841DE /* Leaderboard */,
@@ -276,9 +273,6 @@
 			children = (
 				A43832F720AE796800B55F7C /* FavoritesPresenter.swift */,
 				A43832F920AE797C00B55F7C /* FavoritesService.swift */,
-				A43832FB20AE798700B55F7C /* FavoritesView.swift */,
-				A43832F320AE791700B55F7C /* FavoritesViewController.swift */,
-				A43832F420AE791700B55F7C /* FavoritesViewController.xib */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -307,9 +301,6 @@
 			children = (
 				A4505F7620823AAB00C841DE /* LeaderboardPresenter.swift */,
 				A4505F7820823B1700C841DE /* LeaderboardService.swift */,
-				A4505F7A2082CEDB00C841DE /* LeaderboardView.swift */,
-				A4505F7C2082FE8500C841DE /* LeaderboardViewController.swift */,
-				A4505F7D2082FE8500C841DE /* LeaderboardViewController.xib */,
 				A4505F67208238CC00C841DE /* LeaderboardPlayerTableViewCell */,
 			);
 			path = Leaderboard;
@@ -333,6 +324,17 @@
 				A46BA1B3208962B9003274F7 /* Server.swift */,
 			);
 			path = Server;
+			sourceTree = "<group>";
+		};
+		A47E3AF720B66B6D001B4C10 /* UBTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A4505F7A2082CEDB00C841DE /* UBTableView.swift */,
+				A47E3AF820B66C5E001B4C10 /* UBTableViewPresenter.swift */,
+				A4505F7C2082FE8500C841DE /* UBTableViewController.swift */,
+				A4505F7D2082FE8500C841DE /* UBTableViewController.xib */,
+			);
+			path = UBTableViewController;
 			sourceTree = "<group>";
 		};
 		A497F53A20A781B700D26A23 /* Operators */ = {
@@ -534,14 +536,13 @@
 				A497F52E20A6A57A00D26A23 /* SeasonCollectionViewCell.xib in Resources */,
 				A497F54520A8B3AC00D26A23 /* OperatorDetailViewController.xib in Resources */,
 				A4DA9BEA20A1467F00EF830F /* InformationTableViewCell.xib in Resources */,
-				A4505F7F2082FE8500C841DE /* LeaderboardViewController.xib in Resources */,
+				A4505F7F2082FE8500C841DE /* UBTableViewController.xib in Resources */,
 				A4505F6B208238EF00C841DE /* LeaderboardPlayerTableViewCell.xib in Resources */,
 				A4DA9BCC209FCCBC00EF830F /* ProfileHeaderTableViewCell.xib in Resources */,
 				A497F53520A755C600D26A23 /* AliasesCollectionViewCell.xib in Resources */,
 				A4DA9BEE20A1472F00EF830F /* HeaderListView.xib in Resources */,
 				A4199539208164500039A6D4 /* LaunchScreen.storyboard in Resources */,
 				A4199536208164500039A6D4 /* Assets.xcassets in Resources */,
-				A43832F620AE791800B55F7C /* FavoritesViewController.xib in Resources */,
 				A41AA4D820B24C7B00E1D37D /* SearchViewController.xib in Resources */,
 				A41995342081644C0039A6D4 /* Main.storyboard in Resources */,
 			);
@@ -602,7 +603,6 @@
 				A4288C66208EDE72005C75BE /* CodableExtension.swift in Sources */,
 				A46BA1B4208962B9003274F7 /* Server.swift in Sources */,
 				A43BFACD209F6EB3004C00CB /* CollectionCellData.swift in Sources */,
-				A43832F520AE791800B55F7C /* FavoritesViewController.swift in Sources */,
 				A4BBADBA209D0FF900425AEC /* PlayerDetailService.swift in Sources */,
 				A4DA9BDD209FE06A00EF830F /* IntExtension.swift in Sources */,
 				A4BBADB5209D0FD700425AEC /* PlayerDetailViewController.swift in Sources */,
@@ -612,7 +612,7 @@
 				A497F53C20A782CB00D26A23 /* StringExtension.swift in Sources */,
 				A4DA9BCE209FD1A900EF830F /* ProfileHeaderCellData.swift in Sources */,
 				A4DA9BE2209FEEEE00EF830F /* NibDesignable.swift in Sources */,
-				A4505F7B2082CEDB00C841DE /* LeaderboardView.swift in Sources */,
+				A4505F7B2082CEDB00C841DE /* UBTableView.swift in Sources */,
 				A497F53420A755C600D26A23 /* AliasesCollectionViewCell.swift in Sources */,
 				A4505F7720823AAB00C841DE /* LeaderboardPresenter.swift in Sources */,
 				A4DA9BF020A147DC00EF830F /* HeaderListViewData.swift in Sources */,
@@ -624,11 +624,10 @@
 				A4505F6A208238EF00C841DE /* LeaderboardPlayerTableViewCell.swift in Sources */,
 				A4505F6D2082393F00C841DE /* LeaderboardPlayerCellData.swift in Sources */,
 				A423CDBC209BD9EF00528E03 /* UIViewExtension.swift in Sources */,
-				A43832FC20AE798700B55F7C /* FavoritesView.swift in Sources */,
 				A41AA4E520B2F14300E1D37D /* MainLeaderboardViewController.swift in Sources */,
 				A4DA9BDB209FD5DD00EF830F /* InformationViewData.swift in Sources */,
 				A41AA4D720B24C7B00E1D37D /* SearchViewController.swift in Sources */,
-				A4505F7E2082FE8500C841DE /* LeaderboardViewController.swift in Sources */,
+				A4505F7E2082FE8500C841DE /* UBTableViewController.swift in Sources */,
 				A4DA9BED20A1472F00EF830F /* HeaderListView.swift in Sources */,
 				A4DA9BDF209FE41E00EF830F /* DoubleExtension.swift in Sources */,
 				A4DA9BCB209FCCBC00EF830F /* ProfileHeaderTableViewCell.swift in Sources */,
@@ -636,6 +635,7 @@
 				A423CDBA209BC85400528E03 /* LeaderboardRegion.swift in Sources */,
 				A43832F820AE796800B55F7C /* FavoritesPresenter.swift in Sources */,
 				A43D13B3209014AF0067580D /* UIImageViewExtension.swift in Sources */,
+				A47E3AF920B66C5E001B4C10 /* UBTableViewPresenter.swift in Sources */,
 				A43832FA20AE797C00B55F7C /* FavoritesService.swift in Sources */,
 				A4BBADB8209D0FE400425AEC /* PlayerDetailPresenter.swift in Sources */,
 				A41995312081644C0039A6D4 /* TabBarController.swift in Sources */,

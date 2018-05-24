@@ -22,7 +22,7 @@ struct PlayerDetail: Codable {
     let created_at: String
     
     var isFavorite: Bool {
-        return R6UserDefaults.shared.favoriteIds.contains(id)
+        return R6UserDefaults.shared.favorites.filter { ($0["id"] as? String ?? "") == id }.count > 0
     }
     
     var imageUrl: String {

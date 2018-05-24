@@ -41,7 +41,11 @@
                         <viewLayoutGuide key="safeArea" id="bxr-Sb-fwk"/>
                     </view>
                     <navigationItem key="navigationItem" title="R6+" id="8WH-Ku-mnM">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="7id-Xk-XxR"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="7id-Xk-XxR">
+                            <connections>
+                                <action selector="searchTouched" destination="A0O-L7-VCP" id="a60-Gb-ifj"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="menuHeader" destination="N9d-lp-mRd" id="C2U-y0-LjJ"/>

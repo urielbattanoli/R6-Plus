@@ -26,20 +26,20 @@ class PlayerDetailPresenter {
     func favoriteTouched() {
         guard let playerDetail = playerDetail else { return }
         if playerDetail.isFavorite {
-            unsetAsFavorite(id: playerDetail.id)
+            unsetAsFavorite(player: playerDetail)
         } else {
-            setAsFavorite(id: playerDetail.id)
+            setAsFavorite(player: playerDetail)
         }
     }
     
-    private func setAsFavorite(id: String) {
-        guard !R6UserDefaults.shared.favoriteIds.contains(id) else { return }
-        R6UserDefaults.shared.favoriteIds.append(id)
+    private func setAsFavorite(player: PlayerDetail) {
+        guard let playerDict = try? player.toDictionary() else { return }
+        R6UserDefaults.shared.favorites.append(playerDict)
     }
     
-    private func unsetAsFavorite(id: String) {
-        guard let index = R6UserDefaults.shared.favoriteIds.index(of: id) else { return }
-        R6UserDefaults.shared.favoriteIds.remove(at: index)
+    private func unsetAsFavorite(player: PlayerDetail) {
+        guard let index = (R6UserDefaults.shared.favorites.index { ($0["id"] as? String ?? "") == player.id }) else { return }
+        R6UserDefaults.shared.favorites.remove(at: index)
     }
     
     func fetchPlayerDetailIfNeeded(id: String) {

@@ -31,7 +31,6 @@ class MainLeaderboardViewController: UIViewController {
     }
     
     private func setupSearch() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchTouched))
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Candies"
@@ -39,8 +38,8 @@ class MainLeaderboardViewController: UIViewController {
         definesPresentationContext = true
     }
     
-    @objc private func searchTouched() {
-        
+    @IBAction private func searchTouched() {
+        searchController.becomeFirstResponder()
     }
 }
 

@@ -26,8 +26,12 @@ class LeaderboardPlayerTableViewCell: NibRegistrableTableViewCell {
         nicknameLabel.text = nil
         skillPointLabel.text = nil
     }
+}
+
+extension LeaderboardPlayerTableViewCell: DynamicCellComponent {
     
-    func fillData(_ data: LeaderboardPlayerCellData) {
+    func updateUI(with data: Any) {
+        guard let data = data as? LeaderboardPlayerCellData else { return }
         cellBackgroundView.setBlackShadow()
         backgroundImageView.loadImage(data.playerImage)
         positionLabel.text = data.position

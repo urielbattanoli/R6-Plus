@@ -17,9 +17,9 @@ class R6UserDefaults {
     static let shared = R6UserDefaults()
     private let userDefaults = UserDefaults.standard
     
-    var favoriteIds: [String] {
+    var favorites: [[String: Any]] {
         get {
-            return userDefaults.array(forKey: Key.favorites) as? [String] ?? []
+            return userDefaults.array(forKey: Key.favorites) as? [[String: Any]] ?? []
         }
         set {
             userDefaults.set(newValue, forKey: Key.favorites)

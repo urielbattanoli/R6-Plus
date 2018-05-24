@@ -17,7 +17,7 @@ struct Server {
     
     private static var baseUrl: String { return "https://r6db.com/" }
     
-    static var headers: [String: String] { return ["X-App-Id": "app-ios"] }
+    static var headers: [String: String] { return ["X-App-Id": "5e23d930-edd3-4240-b9a9-723c673fb649"] }
     static var leaderboardUrl: String { return "\(baseUrl)api/v2/leaderboards" }
     static var searchUrl: String { return "\(baseUrl)api/v2/players" }
     static func playerByIdUrl(_ id: String) -> String {
