@@ -14,7 +14,6 @@
 		A4199536208164500039A6D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4199535208164500039A6D4 /* Assets.xcassets */; };
 		A4199539208164500039A6D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4199537208164500039A6D4 /* LaunchScreen.storyboard */; };
 		A41AA4D720B24C7B00E1D37D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41AA4D520B24C7B00E1D37D /* SearchViewController.swift */; };
-		A41AA4D820B24C7B00E1D37D /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A41AA4D620B24C7B00E1D37D /* SearchViewController.xib */; };
 		A41AA4DA20B2EE2500E1D37D /* Leaderboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A41AA4D920B2EE2500E1D37D /* Leaderboard.storyboard */; };
 		A41AA4E020B2EF9C00E1D37D /* MenuHeaderMainItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = A41AA4DC20B2EF9C00E1D37D /* MenuHeaderMainItem.xib */; };
 		A41AA4E220B2EF9C00E1D37D /* MenuHeaderMainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41AA4DE20B2EF9C00E1D37D /* MenuHeaderMainItem.swift */; };
@@ -43,6 +42,12 @@
 		A4505F82208308E300C841DE /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F81208308E300C841DE /* Player.swift */; };
 		A46BA1B4208962B9003274F7 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46BA1B3208962B9003274F7 /* Server.swift */; };
 		A47E3AF920B66C5E001B4C10 /* UBTableViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E3AF820B66C5E001B4C10 /* UBTableViewPresenter.swift */; };
+		A491AA8E20BB79F70072B169 /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A491AA8D20BB79F70072B169 /* UINavigationControllerExtension.swift */; };
+		A491AA9020BB7A4F0072B169 /* UISearchControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A491AA8F20BB7A4F0072B169 /* UISearchControllerExtension.swift */; };
+		A492C02B20B9B4C0005051E4 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A492C02A20B9B4C0005051E4 /* SearchPresenter.swift */; };
+		A492C02D20B9B4E8005051E4 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A492C02C20B9B4E8005051E4 /* SearchService.swift */; };
+		A492C03120B9C81E005051E4 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A492C03020B9C81E005051E4 /* SearchViewController.xib */; };
+		A492C03520BB2F2C005051E4 /* SearchedPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A492C03420BB2F2C005051E4 /* SearchedPlayer.swift */; };
 		A497F52D20A6A57A00D26A23 /* SeasonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A497F52B20A6A57A00D26A23 /* SeasonCollectionViewCell.swift */; };
 		A497F52E20A6A57A00D26A23 /* SeasonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A497F52C20A6A57A00D26A23 /* SeasonCollectionViewCell.xib */; };
 		A497F53020A6A98900D26A23 /* SeasonCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A497F52F20A6A98900D26A23 /* SeasonCellData.swift */; };
@@ -97,7 +102,6 @@
 		A4199538208164500039A6D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A419953A208164500039A6D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A41AA4D520B24C7B00E1D37D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		A41AA4D620B24C7B00E1D37D /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		A41AA4D920B2EE2500E1D37D /* Leaderboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Leaderboard.storyboard; sourceTree = "<group>"; };
 		A41AA4DC20B2EF9C00E1D37D /* MenuHeaderMainItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuHeaderMainItem.xib; sourceTree = "<group>"; };
 		A41AA4DE20B2EF9C00E1D37D /* MenuHeaderMainItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuHeaderMainItem.swift; sourceTree = "<group>"; };
@@ -126,6 +130,12 @@
 		A4505F81208308E300C841DE /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		A46BA1B3208962B9003274F7 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		A47E3AF820B66C5E001B4C10 /* UBTableViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBTableViewPresenter.swift; sourceTree = "<group>"; };
+		A491AA8D20BB79F70072B169 /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
+		A491AA8F20BB7A4F0072B169 /* UISearchControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchControllerExtension.swift; sourceTree = "<group>"; };
+		A492C02A20B9B4C0005051E4 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		A492C02C20B9B4E8005051E4 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		A492C03020B9C81E005051E4 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		A492C03420BB2F2C005051E4 /* SearchedPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedPlayer.swift; sourceTree = "<group>"; };
 		A497F52B20A6A57A00D26A23 /* SeasonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonCollectionViewCell.swift; sourceTree = "<group>"; };
 		A497F52C20A6A57A00D26A23 /* SeasonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeasonCollectionViewCell.xib; sourceTree = "<group>"; };
 		A497F52F20A6A98900D26A23 /* SeasonCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonCellData.swift; sourceTree = "<group>"; };
@@ -241,8 +251,10 @@
 		A41AA4D420B24BB200E1D37D /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				A492C02A20B9B4C0005051E4 /* SearchPresenter.swift */,
+				A492C02C20B9B4E8005051E4 /* SearchService.swift */,
 				A41AA4D520B24C7B00E1D37D /* SearchViewController.swift */,
-				A41AA4D620B24C7B00E1D37D /* SearchViewController.xib */,
+				A492C03020B9C81E005051E4 /* SearchViewController.xib */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -309,10 +321,11 @@
 		A4505F80208308D500C841DE /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A4505F81208308E300C841DE /* Player.swift */,
 				A423CDB9209BC85400528E03 /* LeaderboardRegion.swift */,
-				A4BBADBD209D12FF00425AEC /* PlayerDetail.swift */,
 				A4DA9BE320A1244400EF830F /* OperatorType.swift */,
+				A4505F81208308E300C841DE /* Player.swift */,
+				A4BBADBD209D12FF00425AEC /* PlayerDetail.swift */,
+				A492C03420BB2F2C005051E4 /* SearchedPlayer.swift */,
 				A4DA9BE520A12EE100EF830F /* Ranking.swift */,
 			);
 			path = Models;
@@ -366,12 +379,14 @@
 				A4DA9BDC209FE06A00EF830F /* IntExtension.swift */,
 				A4DA9BE1209FEEED00EF830F /* NibDesignable.swift */,
 				A4A0A665208ED97200CE46FA /* NibRegistrableView.swift */,
+				A43832F020AE76E000B55F7C /* R6UserDefaults.swift */,
 				A497F53B20A782CB00D26A23 /* StringExtension.swift */,
 				A4BBADA8209CE50400425AEC /* UIColorExtension.swift */,
 				A43D13B2209014AF0067580D /* UIImageViewExtension.swift */,
+				A491AA8D20BB79F70072B169 /* UINavigationControllerExtension.swift */,
+				A491AA8F20BB7A4F0072B169 /* UISearchControllerExtension.swift */,
 				A423CDBB209BD9EF00528E03 /* UIViewExtension.swift */,
 				A4A0A667208ED9E600CE46FA /* Utils.swift */,
-				A43832F020AE76E000B55F7C /* R6UserDefaults.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -527,6 +542,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A41AA4DA20B2EE2500E1D37D /* Leaderboard.storyboard in Resources */,
+				A492C03120B9C81E005051E4 /* SearchViewController.xib in Resources */,
 				A41AA4E020B2EF9C00E1D37D /* MenuHeaderMainItem.xib in Resources */,
 				A4AE64A220B2F4F000544C2D /* MenuHeaderMain.xib in Resources */,
 				A4BBADC6209F58AD00425AEC /* CollectionTableViewCell.xib in Resources */,
@@ -543,7 +559,6 @@
 				A4DA9BEE20A1472F00EF830F /* HeaderListView.xib in Resources */,
 				A4199539208164500039A6D4 /* LaunchScreen.storyboard in Resources */,
 				A4199536208164500039A6D4 /* Assets.xcassets in Resources */,
-				A41AA4D820B24C7B00E1D37D /* SearchViewController.xib in Resources */,
 				A41995342081644C0039A6D4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -596,11 +611,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A491AA9020BB7A4F0072B169 /* UISearchControllerExtension.swift in Sources */,
 				A497F53F20A784B100D26A23 /* OperatorCollectionViewCell.swift in Sources */,
 				A4FAE56B20A2224600E9E877 /* GradientView.swift in Sources */,
 				A497F53020A6A98900D26A23 /* SeasonCellData.swift in Sources */,
 				A497F52D20A6A57A00D26A23 /* SeasonCollectionViewCell.swift in Sources */,
 				A4288C66208EDE72005C75BE /* CodableExtension.swift in Sources */,
+				A492C02B20B9B4C0005051E4 /* SearchPresenter.swift in Sources */,
 				A46BA1B4208962B9003274F7 /* Server.swift in Sources */,
 				A43BFACD209F6EB3004C00CB /* CollectionCellData.swift in Sources */,
 				A4BBADBA209D0FF900425AEC /* PlayerDetailService.swift in Sources */,
@@ -626,6 +643,7 @@
 				A423CDBC209BD9EF00528E03 /* UIViewExtension.swift in Sources */,
 				A41AA4E520B2F14300E1D37D /* MainLeaderboardViewController.swift in Sources */,
 				A4DA9BDB209FD5DD00EF830F /* InformationViewData.swift in Sources */,
+				A492C03520BB2F2C005051E4 /* SearchedPlayer.swift in Sources */,
 				A41AA4D720B24C7B00E1D37D /* SearchViewController.swift in Sources */,
 				A4505F7E2082FE8500C841DE /* UBTableViewController.swift in Sources */,
 				A4DA9BED20A1472F00EF830F /* HeaderListView.swift in Sources */,
@@ -638,6 +656,7 @@
 				A47E3AF920B66C5E001B4C10 /* UBTableViewPresenter.swift in Sources */,
 				A43832FA20AE797C00B55F7C /* FavoritesService.swift in Sources */,
 				A4BBADB8209D0FE400425AEC /* PlayerDetailPresenter.swift in Sources */,
+				A491AA8E20BB79F70072B169 /* UINavigationControllerExtension.swift in Sources */,
 				A41995312081644C0039A6D4 /* TabBarController.swift in Sources */,
 				A4DC12C320B302E000DD4A2E /* LeaderboardPageViewController.swift in Sources */,
 				A4DA9BE620A12EE100EF830F /* Ranking.swift in Sources */,
@@ -650,6 +669,7 @@
 				A419952F2081644C0039A6D4 /* AppDelegate.swift in Sources */,
 				A4BBADBE209D12FF00425AEC /* PlayerDetail.swift in Sources */,
 				A497F53920A7818200D26A23 /* AliasesCellData.swift in Sources */,
+				A492C02D20B9B4E8005051E4 /* SearchService.swift in Sources */,
 				A4A0A668208ED9E600CE46FA /* Utils.swift in Sources */,
 				A497F54720A8B41700D26A23 /* OperatorCellData.swift in Sources */,
 			);

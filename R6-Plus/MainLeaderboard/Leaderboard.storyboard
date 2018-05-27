@@ -17,6 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ybi-eV-0fb">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
+                            </scrollView>
                             <view contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="N9d-lp-mRd" customClass="MenuHeaderMain" customModule="R6_Plus" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                 <color key="backgroundColor" red="0.074509803920000006" green="0.16078431369999999" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -30,9 +33,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="ybi-eV-0fb" firstAttribute="bottom" secondItem="bxr-Sb-fwk" secondAttribute="bottom" id="2gQ-Ek-62y"/>
+                            <constraint firstItem="ybi-eV-0fb" firstAttribute="top" secondItem="bxr-Sb-fwk" secondAttribute="top" id="3TF-sf-T1s"/>
                             <constraint firstItem="N9d-lp-mRd" firstAttribute="top" secondItem="bxr-Sb-fwk" secondAttribute="top" id="AAi-cu-1eH"/>
                             <constraint firstItem="bxr-Sb-fwk" firstAttribute="trailing" secondItem="N9d-lp-mRd" secondAttribute="trailing" id="AsB-qg-s9h"/>
                             <constraint firstItem="N9d-lp-mRd" firstAttribute="leading" secondItem="bxr-Sb-fwk" secondAttribute="leading" id="RNA-MI-sJr"/>
+                            <constraint firstItem="ybi-eV-0fb" firstAttribute="leading" secondItem="bxr-Sb-fwk" secondAttribute="leading" id="V1K-4K-Ztb"/>
+                            <constraint firstItem="ybi-eV-0fb" firstAttribute="trailing" secondItem="bxr-Sb-fwk" secondAttribute="trailing" id="Wdf-Fx-sjf"/>
                             <constraint firstItem="iBC-mU-AAX" firstAttribute="top" secondItem="N9d-lp-mRd" secondAttribute="bottom" id="b77-i7-VuM"/>
                             <constraint firstItem="iBC-mU-AAX" firstAttribute="leading" secondItem="bxr-Sb-fwk" secondAttribute="leading" id="bYc-c0-1zI"/>
                             <constraint firstItem="bxr-Sb-fwk" firstAttribute="trailing" secondItem="iBC-mU-AAX" secondAttribute="trailing" id="rgP-G8-Xc9"/>
@@ -43,7 +50,7 @@
                     <navigationItem key="navigationItem" title="R6+" id="8WH-Ku-mnM">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="7id-Xk-XxR">
                             <connections>
-                                <action selector="searchTouched" destination="A0O-L7-VCP" id="a60-Gb-ifj"/>
+                                <action selector="searchTouched" destination="A0O-L7-VCP" id="av8-oA-2Oi"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

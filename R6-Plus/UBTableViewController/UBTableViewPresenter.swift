@@ -13,4 +13,5 @@ protocol UBtableViewPresenter: class {
     func loadMoreInfo()
     func refreshControlAction()
     func attachView(_ view: UBTableView)
+    func viewdidAppear()
 }

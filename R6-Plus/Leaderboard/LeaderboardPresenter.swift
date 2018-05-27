@@ -80,4 +80,6 @@ extension LeaderboardPresenter: UBtableViewPresenter {
         page = 0
         fetchPlayerList()
     }
+    
+    func viewdidAppear() {}
 }

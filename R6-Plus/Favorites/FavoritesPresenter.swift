@@ -25,12 +25,12 @@ class FavoritesPresenter {
         fetchFavorites()
     }
     
-    func goToPlayerDetail(_ player: PlayerDetail) {
+    private func goToPlayerDetail(_ player: PlayerDetail) {
         let vc = PlayerDetailViewController(playerId: player.id, playerDetail: player)
         (view as? UIViewController)?.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func fetchFavorites() {
+    private func fetchFavorites() {
         let favorites = R6UserDefaults.shared.favorites
         players = PlayerDetail.fromDictionaryArray(favorites)
         view?.setCells(self.players.map { self.playerToCellComponent($0) }, isLoadMore: false)
@@ -43,7 +43,7 @@ class FavoritesPresenter {
         let data = PlayerCellData(id: player.id,
                                   imageUrl: player.imageUrl,
                                   name: player.name,
-                                  skillPoint: player.rank.bestRank.skill_mean.twoDecimal(),
+                                  description: player.rank.bestRank.skill_mean.twoDecimal(),
                                   ranking: player.rank.bestRank.ranking)
         
         return CellComponent(reuseId: PlayerTableViewCell.reuseId,
@@ -68,6 +68,10 @@ extension FavoritesPresenter: UBtableViewPresenter {
     func refreshControlAction() {
         view?.setCells([], isLoadMore: false)
         view?.reloadTableView()
+        fetchFavorites()
+    }
+    
+    func viewdidAppear() {
         fetchFavorites()
     }
 }

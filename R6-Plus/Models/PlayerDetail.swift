@@ -14,7 +14,7 @@ struct PlayerDetail: Codable {
     let userId: String
     let name: String
     let level: Int
-    let aliases: [Aliases]
+    let aliases: [Alias]
     let lastPlayed: LastPlayed
     let rank: SeasonRank
     let seasonRanks: [SeasonRank]
@@ -29,7 +29,7 @@ struct PlayerDetail: Codable {
         return String(format: Server.baseImageUrl, id)
     }
     
-    struct Aliases: Codable {
+    struct Alias: Codable {
         let name: String
         let created_at: String
     }

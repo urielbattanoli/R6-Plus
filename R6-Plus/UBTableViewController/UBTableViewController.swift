@@ -38,6 +38,12 @@ class UBTableViewController: UIViewController {
         setupTableView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        presenter.viewdidAppear()
+    }
+    
     // MARK: - Functions
     private func setupTableView() {
         tableView.rowHeight = UITableViewAutomaticDimension

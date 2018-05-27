@@ -13,7 +13,7 @@ class PlayerTableViewCell: NibRegistrableTableViewCell {
     // MARK: - IBOutlet
     @IBOutlet private weak var profileImageView: UIImageView!
     @IBOutlet private weak var profileNameLabel: UILabel!
-    @IBOutlet private weak var skillPointLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var rankingImageView: UIImageView!
     
     // MARK: - Functions
@@ -28,7 +28,7 @@ extension PlayerTableViewCell: DynamicCellComponent {
         guard let data = data as? PlayerCellData else { return }
         profileImageView.loadImage(data.imageUrl)
         profileNameLabel.text = data.name
-        skillPointLabel.text = data.skillPoint
+        descriptionLabel.text = data.description
         rankingImageView.image = data.ranking.image
     }
 }

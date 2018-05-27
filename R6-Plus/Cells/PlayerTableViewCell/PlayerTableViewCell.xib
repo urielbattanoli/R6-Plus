@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -96,10 +95,10 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="descriptionLabel" destination="vDs-0g-VfD" id="mp5-fS-hGN"/>
                 <outlet property="profileImageView" destination="4dh-KU-saa" id="p7v-mN-IxM"/>
                 <outlet property="profileNameLabel" destination="lx1-4f-9bb" id="GIz-jK-T9e"/>
                 <outlet property="rankingImageView" destination="YS1-52-wI4" id="eVK-pF-gig"/>
-                <outlet property="skillPointLabel" destination="vDs-0g-VfD" id="dHs-dQ-cOF"/>
             </connections>
             <point key="canvasLocation" x="129" y="104.5"/>
         </tableViewCell>
