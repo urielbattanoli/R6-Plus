@@ -35,7 +35,7 @@ class FavoritesPresenter {
         players = PlayerDetail.fromDictionaryArray(favorites)
         view?.setCells(self.players.map { self.playerToCellComponent($0) }, isLoadMore: false)
         view?.stopLoading()
-        view?.setEmptyMessageIfNeeded("You have not favorites")
+        view?.setEmptyMessageIfNeeded("You don't have any favorites")
         view?.reloadTableView()
     }
     

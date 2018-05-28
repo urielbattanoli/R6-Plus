@@ -1,9 +1,9 @@
 //
 //  MenuHeaderMain.swift
-//  Makadu
+//  R6-Plus
 //
 //  Created by Matheus Alberton on 14/02/18.
-//  Copyright © 2018 Makadu. All rights reserved.
+//  Copyright © 2018 Mocka. All rights reserved.
 //
 
 import UIKit
@@ -47,36 +47,27 @@ class MenuHeaderMain: NibDesignable {
     }
 
     func animateMenu(withPosition position: Int) {
-        var currentView: MenuHeaderMainItem!
-        for index in 0..<stackView.arrangedSubviews.count {
-            let view = stackView.arrangedSubviews[index] as! MenuHeaderMainItem
-
-            if index == position {
-                currentView = view
-            }
-        }
-
+        guard position < stackView.arrangedSubviews.count,
+            let currentView = stackView.arrangedSubviews[position] as? MenuHeaderMainItem else { return }
+        
         layoutIfNeeded()
-
         let viewPosition = currentView.frame.origin.x + currentView.frame.width + scrollView.contentOffset.x
-
+        
         if viewPosition > scrollView.frame.width && position > currentItem {
-            var newPosition: CGFloat = 0
+            let newPosition: CGFloat
 
-            if position == stackView.arrangedSubviews.count-1 {
+            if position == stackView.arrangedSubviews.count - 1 {
                 newPosition = scrollView.contentSize.width - scrollView.bounds.size.width
             } else {
-                newPosition = scrollView.contentOffset.x + currentView.frame.width
+                newPosition = scrollView.contentOffset.x + currentView.frame.width / 2
             }
     
             scrollView.setContentOffset(CGPoint(x: newPosition, y: 0), animated: true)
-        } else if viewPosition < scrollView.contentSize.width && position < currentItem {
-            var newPosition = scrollView.contentOffset.x - currentView.frame.width
-            if newPosition < 0 {
-                newPosition = 0
-            }
+        } else if position < currentItem {
+            let newPosition = scrollView.contentOffset.x - currentView.frame.width
+            let point = CGPoint(x: max(0, newPosition), y: 0)
 
-            scrollView.setContentOffset(CGPoint(x: newPosition, y: 0), animated: true)
+            scrollView.setContentOffset(point, animated: true)
         }
 
         UIView.animate(withDuration: 0.25) {

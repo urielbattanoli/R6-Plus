@@ -18,15 +18,17 @@ class TabBarController: UITabBarController {
     
     private func setupTabBar() {
         let storyboard = UIStoryboard(name: "Leaderboard", bundle: nil)
-        let leaderboard = storyboard.instantiateInitialViewController()!
-        leaderboard.tabBarItem = UITabBarItem(title: "Leaderboard", image: nil, selectedImage: nil)
+        let leaderboard = storyboard.instantiateInitialViewController()
+        leaderboard?.tabBarItem = UITabBarItem(title: "Leaderboard", image: #imageLiteral(resourceName: "unlist"), selectedImage: #imageLiteral(resourceName: "list"))
         
         let presenter = FavoritesPresenter(service: FavoritesService())
         let favorites = UBTableViewController(presenter: presenter)
-//        favorites.tabBarItem = UITabBarItem(title: "", image: nil, selectedImage: nil)
+        favorites.tabBarItem = UITabBarItem(title: "Favorites", image: #imageLiteral(resourceName: "unfavorited"), selectedImage: #imageLiteral(resourceName: "favorited"))
         favorites.title = "Favorites"
         let navigation = UINavigationController(rootViewController: favorites)
         navigation.defaultConfiguration()
-        viewControllers = [leaderboard, navigation]
+        
+        // To avoid force unwrap on leaderboard instantiateInitialViewController
+        viewControllers = [leaderboard, navigation].compactMap { $0 }
     }
 }
