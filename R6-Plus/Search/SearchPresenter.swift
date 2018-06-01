@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 protocol SearchPresenterDelegate: UBtableViewPresenter {
     func searchPlayer(name: String, platform: String)
@@ -18,6 +19,7 @@ class SearchPresenter {
     private weak var view: UBTableView?
     private var lastInput: SearchInput?
     private var timer: Timer?
+    private var lastRequest: DataRequest?
     
     init(service: SearchService) {
         self.service = service
@@ -29,10 +31,10 @@ class SearchPresenter {
     }
     
     private func scheduleSearch(input: SearchInput) {
-        guard !input.name.isEmpty else {
-            view?.setEmptyMessageIfNeeded("")
-            return
-        }
+        view?.startLoading()
+        view?.setCells([], isLoadMore: false)
+        view?.reloadTableView()
+        view?.setEmptyMessageIfNeeded("")
         lastInput = input
         timer?.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 0.5,
@@ -43,9 +45,9 @@ class SearchPresenter {
     }
     
     @objc private func fetchSearch() {
-        view?.startLoading()
         guard let input = lastInput else { return }
-        service.fetchSearch(input: input) { [weak self] result in
+        lastRequest?.cancel()
+        lastRequest = service.fetchSearch(input: input) { [weak self] result in
             guard let `self` = self else { return }
             var playerList: [CellComponent] = []
             if case(.success(let players)) = result {
@@ -63,7 +65,7 @@ class SearchPresenter {
                                   imageUrl: player.imageUrl,
                                   name: player.name,
                                   description: "Level: \(player.level)",
-                                  ranking: player.ranks.bestRank.ranking)
+            ranking: player.ranks.bestRank.ranking)
         
         return CellComponent(reuseId: PlayerTableViewCell.reuseId,
                              data: data) { [weak self] in

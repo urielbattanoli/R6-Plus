@@ -21,20 +21,20 @@ struct SearchInput {
 
 class SearchService {
     
-    func fetchSearch(input: SearchInput, completion: @escaping ((Result<[SearchedPlayer]>) -> Void)) {
-        Alamofire.request(Server.searchUrl,
-                          method: .get,
-                          parameters: input.params(),
-                          encoding: URLEncoding.default,
-                          headers: Server.headers)
+    func fetchSearch(input: SearchInput, completion: @escaping ((Result<[SearchedPlayer]>) -> Void)) -> DataRequest {
+        return Alamofire.request(Server.searchUrl,
+                                 method: .get,
+                                 parameters: input.params(),
+                                 encoding: URLEncoding.default,
+                                 headers: Server.headers)
             
             .validate()
             .responseJSON { response in
                 switch response.result {
                 case .success(let json):
                     guard let result = json as? [[String: Any]] else {
-                            completion(.failure(nil))
-                            return
+                        completion(.failure(nil))
+                        return
                     }
                     let detail = SearchedPlayer.fromDictionaryArray(result)
                     completion(.success(detail))

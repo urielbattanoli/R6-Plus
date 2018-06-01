@@ -13,7 +13,6 @@ class SearchViewController: UBTableViewController {
     // MARK: - Properties
     private let searchController = UISearchController(searchResultsController: nil)
     private let presenter: SearchPresenterDelegate
-    private var scope = "PC"
 
     // MARK: - Life cycle
     init(presenter: SearchPresenterDelegate) {
@@ -55,17 +54,15 @@ class SearchViewController: UBTableViewController {
 // MARK: - UISearchResultsUpdating
 extension SearchViewController: UISearchResultsUpdating {
     
-    func updateSearchResults(for searchController: UISearchController) {
-        filterContentForSearchText(searchController.searchBar.text!)
+    func updateSearchResults(for searchController: UISearchController) { }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let scope = searchBar.scopeButtonTitles?[searchBar.selectedScopeButtonIndex] ?? ""
+        filterContentForSearchText(searchText, scope: scope)
     }
     
-    private func searchBarIsEmpty() -> Bool {
-        // Returns true if the text is empty or nil
-        return searchController.searchBar.text?.isEmpty ?? true
-    }
-    
-    private func filterContentForSearchText(_ searchText: String, scope: String = "All") {
-        presenter.searchPlayer(name: searchText, platform: self.scope)
+    private func filterContentForSearchText(_ searchText: String, scope: String = "PC") {
+        presenter.searchPlayer(name: searchText, platform: scope)
     }
 }
 
@@ -73,8 +70,9 @@ extension SearchViewController: UISearchResultsUpdating {
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        scope = searchBar.scopeButtonTitles?[selectedScope] ?? ""
-        filterContentForSearchText(searchBar.text ?? "")
+        let scope = searchBar.scopeButtonTitles?[selectedScope] ?? ""
+        let text = searchBar.text ?? ""
+        filterContentForSearchText(text, scope: scope)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
