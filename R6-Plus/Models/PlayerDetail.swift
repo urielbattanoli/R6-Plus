@@ -37,7 +37,7 @@ struct PlayerDetail: Codable {
     struct LastPlayed: Codable {
         let casual: Int
         let ranked: Int
-        let last_played: String
+        let last_played: String?
     }
     
     struct SeasonRank: Codable {
@@ -137,7 +137,7 @@ struct PlayerDetail: Codable {
         let kills: Int
         let lost: Int
         let played: Int
-        let timePlayed: Int
+        let timePlayed: Int?
         let won: Int
     }
     

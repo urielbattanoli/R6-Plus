@@ -10,5 +10,4 @@ import Foundation
 
 struct ProfileHeaderCellData {
     let imageUrl: String
-    let name: String
 }

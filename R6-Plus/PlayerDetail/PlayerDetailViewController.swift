@@ -39,7 +39,6 @@ class PlayerDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Detail"
         presenter.attachView(self)
         presenter.fetchPlayerDetailIfNeeded(id: playerId)
         setupTableView()
@@ -108,6 +107,7 @@ extension PlayerDetailViewController: UITableViewDelegate {
 extension PlayerDetailViewController: PlayerDetailView {
     
     func setPlayerDetail(playerDetail: PlayerDetailViewData) {
+        title = playerDetail.name
         isFavorite = playerDetail.isFavorite
         sections = playerDetail.sections
         loader.stopAnimating()

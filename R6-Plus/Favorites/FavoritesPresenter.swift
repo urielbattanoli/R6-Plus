@@ -43,7 +43,7 @@ class FavoritesPresenter {
         let data = PlayerCellData(id: player.id,
                                   imageUrl: player.imageUrl,
                                   name: player.name,
-                                  description: player.rank.bestRank.skill_mean.twoDecimal(),
+                                  description: "Level: \(player.level)",
                                   ranking: player.rank.bestRank.ranking)
         
         return CellComponent(reuseId: PlayerTableViewCell.reuseId,

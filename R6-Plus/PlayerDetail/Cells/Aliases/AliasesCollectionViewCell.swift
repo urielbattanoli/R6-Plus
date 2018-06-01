@@ -38,7 +38,7 @@ extension AliasesCollectionViewCell: DynamicCellComponent {
         
         titleLabel.text = data.title
         descriptionLabel.text = data.description
-        lineLeftView.isHidden = data.hideLine == .left
-        lineRightView.isHidden = data.hideLine == .right
+        lineLeftView.isHidden = data.hideLine == .left || data.hideLine == .both
+        lineRightView.isHidden = data.hideLine == .right || data.hideLine == .both
     }
 }

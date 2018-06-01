@@ -81,7 +81,7 @@ extension CollectionTableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if items.first?.reuseId == AliasesCollectionViewCell.reuseId {
-            return CGSize(width: 150, height: 100)
+            return CGSize(width: 150, height: 120)
         }
         if items.first?.reuseId == OperatorCollectionViewCell.reuseId {
             return CGSize(width: 60, height: 60)

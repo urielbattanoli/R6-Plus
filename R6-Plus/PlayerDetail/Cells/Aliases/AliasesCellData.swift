@@ -16,6 +16,7 @@ struct AliasesCellData {
     enum Line {
         case right
         case left
+        case both
         case none
     }
 }

@@ -13,6 +13,7 @@ protocol PlayerDetailView: class {
 }
 
 struct PlayerDetailViewData {
+    let name: String
     let isFavorite: Bool
     let sections: [PlayerDetailSection]
 }

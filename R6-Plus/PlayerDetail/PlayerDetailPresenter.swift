@@ -57,7 +57,8 @@ class PlayerDetailPresenter {
     }
     
     private func playerDetailToData(_ playerDetail: PlayerDetail) -> PlayerDetailViewData {
-        return PlayerDetailViewData(isFavorite: playerDetail.isFavorite,
+        return PlayerDetailViewData(name: playerDetail.name,
+                                    isFavorite: playerDetail.isFavorite,
                                     sections: [generateHeaderData(playerDetail),
                                                generateProfileInfo(playerDetail),
                                                generateSeasons(playerDetail),
@@ -84,7 +85,7 @@ extension PlayerDetailPresenter {
     
     private func generateHeaderData(_ playerDetail: PlayerDetail) -> PlayerDetailSection {
         let cell = CellComponent(reuseId: ProfileHeaderTableViewCell.reuseId,
-                                 data: ProfileHeaderCellData(imageUrl: playerDetail.imageUrl, name: playerDetail.name))
+                                 data: ProfileHeaderCellData(imageUrl: playerDetail.imageUrl))
         
         return PlayerDetailSection(title: "", cells: [cell])
     }
@@ -94,7 +95,7 @@ extension PlayerDetailPresenter {
         let information =
             [CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Player level", description: "\(playerDetail.level)")),
              CellComponent(reuseId: infoReuse, data: InformationCellData(title: "First added", description: playerDetail.created_at.formattedStringDate)),
-             CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Last played", description: playerDetail.lastPlayed.last_played.formattedStringDate))]
+             CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Last played", description: playerDetail.lastPlayed.last_played?.formattedStringDate ?? "-"))]
         return PlayerDetailSection(title: "Profile Info", cells: information)
     }
     
@@ -115,7 +116,7 @@ extension PlayerDetailPresenter {
         for (i, alias) in playerDetail.aliases.enumerated() {
             let hideLine: AliasesCellData.Line
             switch i {
-            case 0: hideLine = .left
+            case 0: hideLine = playerDetail.aliases.count > 1 ? .left : .both
             case playerDetail.aliases.count - 1: hideLine = .right
             default: hideLine = .none
             }
@@ -128,10 +129,17 @@ extension PlayerDetailPresenter {
     private func generateTimePlayed(_ playerDetail: PlayerDetail) -> PlayerDetailSection {
         let stats = playerDetail.stats
         let infoReuse = InformationTableViewCell.reuseId
+        let totalTime: String
+        if let casualTime = stats.casual.timePlayed,
+            let rankedTime = stats.ranked.timePlayed {
+            totalTime = (casualTime + rankedTime).inHours()
+        } else {
+            totalTime = "-"
+        }
         let information = [
-            CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Casual", description: stats.casual.timePlayed.inHours())),
-            CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Ranked", description: stats.ranked.timePlayed.inHours())),
-            CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Total", description: (stats.casual.timePlayed + stats.ranked.timePlayed).inHours()))]
+            CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Casual", description: stats.casual.timePlayed?.inHours() ?? "-")),
+            CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Ranked", description: stats.ranked.timePlayed?.inHours() ?? "-")),
+            CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Total", description: totalTime))]
         return PlayerDetailSection(title: "Time Played", cells: information)
     }
     
