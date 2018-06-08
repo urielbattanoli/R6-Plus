@@ -23,6 +23,7 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NdR-g3-e7l">
                                 <rect key="frame" x="0.0" y="0.0" width="430" height="220"/>
+                                <color key="backgroundColor" red="0.032515646943834534" green="0.069805615723820547" blue="0.099433593750000049" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="220" id="eSL-YI-fvk"/>
                                 </constraints>

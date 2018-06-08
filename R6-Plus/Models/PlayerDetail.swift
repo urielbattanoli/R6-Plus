@@ -73,6 +73,7 @@ struct PlayerDetail: Codable {
         }
         
         var winRate: Double {
+            guard wins + losses != 0 else { return 0 }
             return Double(wins) / Double(wins + losses) * 100
         }
     }
@@ -169,6 +170,7 @@ struct PlayerDetail: Codable {
         let won: Int
         
         var winRate: Double {
+            guard played != 0 else { return 0 }
             return Double(won) / Double(played) * 100
         }
         var kdRatio: Double {
@@ -232,6 +234,7 @@ struct PlayerDetail: Codable {
         let name: String
         
         var winRate: Double {
+            guard won + lost != 0 else { return 0 }
             return Double(won) / Double(won + lost) * 100
         }
         

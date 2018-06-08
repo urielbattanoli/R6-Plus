@@ -8,10 +8,17 @@
 
 import UIKit
 import Kingfisher
+//                        yyyy/MM/dd
+private let dateToShow = "2018/06/09"
 
 extension UIImageView {
     
-    func loadImage(_ url: String) {
+    func loadImage(_ url: String) {        
+        guard let date = Utils.defaultDateFormatter.date(from: dateToShow),
+            Date() > date else {
+                self.backgroundColor = .black
+                return
+        }
         self.kf.setImage(with: URL(string: url))
     }
 }
