@@ -6,8 +6,9 @@
 //  Copyright © 2018 Mocka. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct HeaderListViewData {
     let title: String
+    let alignment: NSTextAlignment
 }

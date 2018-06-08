@@ -14,5 +14,6 @@ class HeaderListView: NibDesignable {
     
     func fillData(_ data: HeaderListViewData) {
         titleLabel.text = data.title
+        titleLabel.textAlignment = data.alignment
     }
 }
