@@ -11,9 +11,11 @@ import UIKit
 class OperatorDetailViewController: UIViewController {
 
     // MARK: - IBOutlet
-    @IBOutlet private weak var backgroundView: UIView! {
+    
+    @IBOutlet private weak var backgroundView: UIControl!
+    @IBOutlet private weak var tableBackgroundView: UIView! {
         didSet {
-            backgroundView.setCorner(value: 3)
+            tableBackgroundView.setCorner(value: 3)
         }
     }
     @IBOutlet private weak var tableView: UITableView!
@@ -37,7 +39,6 @@ class OperatorDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.setBlackShadow()
         setupTableView()
     }
     
@@ -60,20 +61,20 @@ class OperatorDetailViewController: UIViewController {
     }
     
     @IBAction private func panGestureRecognizerHandler(_ sender: UIPanGestureRecognizer) {
-        let touchPoint = sender.location(in: view?.window)
+        let touchPoint = sender.location(in: backgroundView?.window)
         
         if sender.state == .began {
             initialTouchPoint = touchPoint
         } else if sender.state == .changed {
             if touchPoint.y - initialTouchPoint.y > 0 {
-                view.frame = CGRect(x: 0, y: touchPoint.y - initialTouchPoint.y, width: view.frame.size.width, height: view.frame.size.height)
+                backgroundView.frame = CGRect(x: 0, y: touchPoint.y - initialTouchPoint.y, width: backgroundView.frame.size.width, height: backgroundView.frame.size.height)
             }
         } else if sender.state == .ended || sender.state == .cancelled {
             if touchPoint.y - initialTouchPoint.y > 100 {
                 dismissViewController()
             } else {
                 UIView.animate(withDuration: 0.3, animations: {
-                    self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+                    self.backgroundView.frame = CGRect(x: 0, y: 0, width: self.backgroundView.frame.size.width, height: self.backgroundView.frame.size.height)
                 })
             }
         }
@@ -104,7 +105,7 @@ extension OperatorDetailViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = HeaderListView()
-        view.fillData(HeaderListViewData(title: sections[section].title, alignment: .left))
+        view.fillData(HeaderListViewData(title: sections[section].title, alignment: .left, color: .white))
         return view
     }
     

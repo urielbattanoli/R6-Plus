@@ -76,7 +76,7 @@ class PlayerDetailPresenter {
         let vc = OperatorDetailViewController(sections: sections)
         vc.modalPresentationStyle = .overCurrentContext
         vc.modalTransitionStyle = .crossDissolve
-        (view as? UIViewController)?.present(vc, animated: true)
+        (view as? UIViewController)?.tabBarController?.present(vc, animated: true)
     }
 }
 
