@@ -11,4 +11,5 @@ import UIKit
 struct HeaderListViewData {
     let title: String
     let alignment: NSTextAlignment
+    let color: UIColor
 }
