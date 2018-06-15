@@ -13,7 +13,13 @@ struct SearchInput {
     let name: String
     let platform: String
     
-    func params() -> [String: Any] {
+    var headers: [String: String] {
+        var deafaultHeaders = Server.headers
+        deafaultHeaders["Referer"] = "https://r6db.com/search/\(platform)/\(name)"
+        return deafaultHeaders
+    }
+    
+    var params: [String: Any] {
         return ["name": name,
                 "platform": platform]
     }
@@ -24,9 +30,9 @@ class SearchService {
     func fetchSearch(input: SearchInput, completion: @escaping ((Result<[SearchedPlayer]>) -> Void)) -> DataRequest {
         return Alamofire.request(Server.searchUrl,
                                  method: .get,
-                                 parameters: input.params(),
+                                 parameters: input.params,
                                  encoding: URLEncoding.default,
-                                 headers: Server.headers)
+                                 headers: input.headers)
             
             .validate()
             .responseJSON { response in

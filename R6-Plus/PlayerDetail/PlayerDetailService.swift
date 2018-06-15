@@ -12,10 +12,13 @@ import Alamofire
 class PlayerDetailService {
     
     func fetchPlayerDetail(id: String, completion: @escaping ((Result<PlayerDetail>) -> Void)) {
+        var headers = Server.headers
+        headers["Referer"] = "https://r6db.com/player/\(id)"
+        
         Alamofire.request(Server.playerByIdUrl(id),
                           method: .get,
                           encoding: URLEncoding.default,
-                          headers: Server.headers)
+                          headers: headers)
             
             .validate()
             .responseJSON { response in

@@ -21,7 +21,7 @@ class TabBarController: UITabBarController {
         let leaderboard = storyboard.instantiateInitialViewController()
         leaderboard?.tabBarItem = UITabBarItem(title: "Leaderboard", image: #imageLiteral(resourceName: "unlist"), selectedImage: #imageLiteral(resourceName: "list"))
         
-        let presenter = FavoritesPresenter(service: FavoritesService())
+        let presenter = FavoritesPresenter()
         let favorites = UBTableViewController(presenter: presenter)
         favorites.tabBarItem = UITabBarItem(title: "Favorites", image: #imageLiteral(resourceName: "unfavorited"), selectedImage: #imageLiteral(resourceName: "favorited"))
         favorites.title = "Favorites"

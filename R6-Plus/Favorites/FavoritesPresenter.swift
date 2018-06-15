@@ -10,13 +10,8 @@ import UIKit
 
 class FavoritesPresenter {
     
-    private let service: FavoritesService
     private weak var view: UBTableView?
     private var players: [PlayerDetail] = []
-    
-    init(service: FavoritesService) {
-        self.service = service
-    }
     
     private func setupFavorites() {
         view?.registerCells([PlayerTableViewCell.self])

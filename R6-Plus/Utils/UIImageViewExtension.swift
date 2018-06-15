@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 //                        yyyy/MM/dd
-private let dateToShow = "2018/06/09"
+private let dateToShow = "2018/06/17"
 
 extension UIImageView {
     

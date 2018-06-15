@@ -13,6 +13,12 @@ struct LeaderboardInput {
     let stat: String
     let limit: Int
     let page: Int
+    
+    var headers: [String: String] {
+        var deafaultHeaders = Server.headers
+        deafaultHeaders["Referer"] = "https://r6db.com/leaderboard/PC/ALL"
+        return deafaultHeaders
+    }
 }
 
 class LeaderboardService {
@@ -24,7 +30,7 @@ class LeaderboardService {
                           method: .get,
                           parameters: params,
                           encoding: URLEncoding.default,
-                          headers: Server.headers)
+                          headers: input.headers)
             
             .validate()
             .responseJSON { response in
