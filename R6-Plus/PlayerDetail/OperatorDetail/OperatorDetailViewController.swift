@@ -22,11 +22,11 @@ class OperatorDetailViewController: UIViewController {
     @IBOutlet private weak var panGestureRecognizer: UIPanGestureRecognizer!
     
     // MARK: - Properties
-    private var sections: [PlayerDetailSection] = []
+    private var sections: [SectionComponent] = []
     var initialTouchPoint: CGPoint = CGPoint(x: 0,y: 0)
     
     // MARK: - Life cycle
-    init(sections: [PlayerDetailSection]) {
+    init(sections: [SectionComponent]) {
         self.sections = sections
         
         super.init(nibName: nil, bundle: nil)

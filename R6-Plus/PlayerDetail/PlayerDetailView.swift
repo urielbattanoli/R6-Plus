@@ -15,10 +15,5 @@ protocol PlayerDetailView: class {
 struct PlayerDetailViewData {
     let name: String
     let isFavorite: Bool
-    let sections: [PlayerDetailSection]
-}
-
-struct PlayerDetailSection {
-    let title: String
-    let cells: [CellComponent]
+    let sections: [SectionComponent]
 }

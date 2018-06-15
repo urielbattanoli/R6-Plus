@@ -83,23 +83,28 @@ class PlayerDetailPresenter {
 // MARK: - Data generation
 extension PlayerDetailPresenter {
     
-    private func generateHeaderData(_ playerDetail: PlayerDetail) -> PlayerDetailSection {
+    private func generateHeaderData(_ playerDetail: PlayerDetail) -> SectionComponent {
+        let data = ProfileHeaderCellData(imageUrl: playerDetail.imageUrl) { [weak self] in
+            let comparePresenter = PlayerComparisonPresenter(leftPlayer: playerDetail, rightPlayerId: playerDetail.id)
+            let compareVC = UBTableViewController(presenter: comparePresenter)
+            (self?.view as? UIViewController)?.navigationController?.pushViewController(compareVC, animated: true)
+        }
         let cell = CellComponent(reuseId: ProfileHeaderTableViewCell.reuseId,
-                                 data: ProfileHeaderCellData(imageUrl: playerDetail.imageUrl))
+                                 data: data)
         
-        return PlayerDetailSection(title: "", cells: [cell])
+        return SectionComponent(title: "", cells: [cell])
     }
     
-    private func generateProfileInfo(_ playerDetail: PlayerDetail) -> PlayerDetailSection {
+    private func generateProfileInfo(_ playerDetail: PlayerDetail) -> SectionComponent {
         let infoReuse = InformationTableViewCell.reuseId
         let information =
             [CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Player level", description: "\(playerDetail.level)")),
              CellComponent(reuseId: infoReuse, data: InformationCellData(title: "First added", description: playerDetail.created_at.formattedStringDate)),
              CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Last played", description: playerDetail.lastPlayed.last_played?.formattedStringDate ?? "-"))]
-        return PlayerDetailSection(title: "Profile Info", cells: information)
+        return SectionComponent(title: "Profile Info", cells: information)
     }
     
-    private func generateSeasons(_ playerDetail: PlayerDetail) -> PlayerDetailSection {
+    private func generateSeasons(_ playerDetail: PlayerDetail) -> SectionComponent {
         let reuseId = SeasonCollectionViewCell.reuseId
         let currentSeason = CellComponent(reuseId: reuseId, data: SeasonCellData(iconImage: playerDetail.rank.bestRank.ranking.image, title: "Season \(playerDetail.rank.season)"))
         var cells: [CellComponent] = [currentSeason]
@@ -107,10 +112,10 @@ extension PlayerDetailPresenter {
             cells.append(CellComponent(reuseId: reuseId, data: SeasonCellData(iconImage: season.bestRank.ranking.image, title: "Season \(season.season)")))
         }
         let cellData = CollectionCellData(collectionHeight: 100, cellsToRegister: [SeasonCollectionViewCell.self], items: cells)
-        return PlayerDetailSection(title: "Seasons", cells: [CellComponent(reuseId: CollectionTableViewCell.reuseId, data: cellData)])
+        return SectionComponent(title: "Seasons", cells: [CellComponent(reuseId: CollectionTableViewCell.reuseId, data: cellData)])
     }
     
-    private func generateAliases(_ playerDetail: PlayerDetail) -> PlayerDetailSection {
+    private func generateAliases(_ playerDetail: PlayerDetail) -> SectionComponent {
         let reuseId = AliasesCollectionViewCell.reuseId
         var cells: [CellComponent] = []
         for (i, alias) in playerDetail.aliases.enumerated() {
@@ -123,10 +128,10 @@ extension PlayerDetailPresenter {
             cells.append(CellComponent(reuseId: reuseId, data: AliasesCellData(title: alias.name, description: alias.created_at.formattedStringDate, hideLine: hideLine)))
         }
         let cellData = CollectionCellData(collectionHeight: 100, cellsToRegister: [AliasesCollectionViewCell.self], items: cells)
-        return PlayerDetailSection(title: "Aliases", cells: [CellComponent(reuseId: CollectionTableViewCell.reuseId, data: cellData)])
+        return SectionComponent(title: "Aliases", cells: [CellComponent(reuseId: CollectionTableViewCell.reuseId, data: cellData)])
     }
     
-    private func generateTimePlayed(_ playerDetail: PlayerDetail) -> PlayerDetailSection {
+    private func generateTimePlayed(_ playerDetail: PlayerDetail) -> SectionComponent {
         let stats = playerDetail.stats
         let infoReuse = InformationTableViewCell.reuseId
         let totalTime: String
@@ -140,10 +145,10 @@ extension PlayerDetailPresenter {
             CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Casual", description: stats.casual.timePlayed?.inHours() ?? "-")),
             CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Ranked", description: stats.ranked.timePlayed?.inHours() ?? "-")),
             CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Total", description: totalTime))]
-        return PlayerDetailSection(title: "Time Played", cells: information)
+        return SectionComponent(title: "Time Played", cells: information)
     }
     
-    private func generateGeneralStats(_ playerDetail: PlayerDetail) -> PlayerDetailSection {
+    private func generateGeneralStats(_ playerDetail: PlayerDetail) -> SectionComponent {
         let general = playerDetail.stats.general
         let infoReuse = InformationTableViewCell.reuseId
         let information = [
@@ -154,10 +159,10 @@ extension PlayerDetailPresenter {
             CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Deaths", description: "\(general.deaths)")),
             CellComponent(reuseId: infoReuse, data: InformationCellData(title: "K/D ratio", description: general.kdRatio.twoDecimal()))]
         
-        return PlayerDetailSection(title: "General Stats", cells: information)
+        return SectionComponent(title: "General Stats", cells: information)
     }
     
-    private func generateFightingStats(_ playerDetail: PlayerDetail) -> PlayerDetailSection {
+    private func generateFightingStats(_ playerDetail: PlayerDetail) -> SectionComponent {
         let general = playerDetail.stats.general
         let infoReuse = InformationTableViewCell.reuseId
         let maxAttackerTime = playerDetail.stats.operatorArray.filter { $0.type == .attacker }.map { $0.timePlayed }.max() ?? 0
@@ -177,10 +182,10 @@ extension PlayerDetailPresenter {
             CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Favorite attacker", description: attacker?.name ?? "")),
             CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Favorite defender", description: defender?.name ?? ""))]
         
-        return PlayerDetailSection(title: "Fighting Stats", cells: information)
+        return SectionComponent(title: "Fighting Stats", cells: information)
     }
     
-    private func generateRankedStats(_ playerDetail: PlayerDetail) -> PlayerDetailSection {
+    private func generateRankedStats(_ playerDetail: PlayerDetail) -> SectionComponent {
         let ranked = playerDetail.rank.bestRank
         let infoReuse = InformationTableViewCell.reuseId
         let information = [
@@ -192,10 +197,10 @@ extension PlayerDetailPresenter {
             CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Rank", description: ranked.ranking.name)),
             CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Skill", description: ranked.skill_mean.twoDecimal()))]
         
-        return PlayerDetailSection(title: "Ranked Stats", cells: information)
+        return SectionComponent(title: "Ranked Stats", cells: information)
     }
     
-    private func generateAttackers(_ playerDetail: PlayerDetail) -> PlayerDetailSection {
+    private func generateAttackers(_ playerDetail: PlayerDetail) -> SectionComponent {
         let reuseId = OperatorCollectionViewCell.reuseId
         let attackers = playerDetail.stats.operatorArray.filter { $0.type == .attacker }
         var cells: [CellComponent] = []
@@ -207,10 +212,10 @@ extension PlayerDetailPresenter {
         let space = (UIScreen.main.bounds.width - 60 * 4) / 5 + 60
         let height = CGFloat(ceil(Double(attackers.count) / 4)) * space
         let cellData = CollectionCellData(collectionHeight: height, cellsToRegister: [OperatorCollectionViewCell.self], items: cells)
-        return PlayerDetailSection(title: "Operators (Attackers)", cells: [CellComponent(reuseId: CollectionTableViewCell.reuseId, data: cellData)])
+        return SectionComponent(title: "Operators (Attackers)", cells: [CellComponent(reuseId: CollectionTableViewCell.reuseId, data: cellData)])
     }
     
-    private func generateDefenders(_ playerDetail: PlayerDetail) -> PlayerDetailSection {
+    private func generateDefenders(_ playerDetail: PlayerDetail) -> SectionComponent {
         let reuseId = OperatorCollectionViewCell.reuseId
         let defenders = playerDetail.stats.operatorArray.filter { $0.type == .defender }
         var cells: [CellComponent] = []
@@ -222,10 +227,10 @@ extension PlayerDetailPresenter {
         let space = (UIScreen.main.bounds.width - 60 * 4) / 5 + 60
         let height = CGFloat(ceil(Double(defenders.count) / 4)) * space
         let cellData = CollectionCellData(collectionHeight: height, cellsToRegister: [OperatorCollectionViewCell.self], items: cells)
-        return PlayerDetailSection(title: "Operators (Defenders)", cells: [CellComponent(reuseId: CollectionTableViewCell.reuseId, data: cellData)])
+        return SectionComponent(title: "Operators (Defenders)", cells: [CellComponent(reuseId: CollectionTableViewCell.reuseId, data: cellData)])
     }
     
-    private func generateOperatorDetail(_ operatorStats: PlayerDetail.OperatorStats) -> PlayerDetailSection {
+    private func generateOperatorDetail(_ operatorStats: PlayerDetail.OperatorStats) -> SectionComponent {
         let infoReuse = InformationTableViewCell.reuseId
         let information =
             [CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Kills", description: "\(operatorStats.kills)")),
@@ -234,6 +239,6 @@ extension PlayerDetailPresenter {
              CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Losses", description: "\(operatorStats.lost)")),
              CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Win rate", description: operatorStats.winRate.twoDecimalPercent())),
              CellComponent(reuseId: infoReuse, data: InformationCellData(title: "Time Played", description: operatorStats.timePlayed.inHours()))]
-        return PlayerDetailSection(title: operatorStats.name, cells: information)
+        return SectionComponent(title: operatorStats.name, cells: information)
     }
 }

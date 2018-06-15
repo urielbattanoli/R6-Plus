@@ -8,13 +8,6 @@
 
 import UIKit
 
-struct ComparisonHeaderViewData {
-    let leftPlayerImageUrl: String
-    let leftPlayerName: String
-    let rightPlayerImageUrl: String
-    let rightPlayerName: String
-}
-
 class ComparisonHeaderTableViewCell: NibRegistrableTableViewCell {
     
     // MARK: - IBOutlet

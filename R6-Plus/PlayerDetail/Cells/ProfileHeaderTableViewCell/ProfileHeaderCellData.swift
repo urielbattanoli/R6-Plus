@@ -10,4 +10,5 @@ import Foundation
 
 struct ProfileHeaderCellData {
     let imageUrl: String
+    let compareButtonHandler: (() -> Void)?
 }

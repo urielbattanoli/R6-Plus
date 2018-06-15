@@ -37,10 +37,20 @@
                             <constraint firstAttribute="bottom" secondItem="NdR-g3-e7l" secondAttribute="bottom" id="clA-OL-VBS"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lG-84-rdw">
+                        <rect key="frame" x="364" y="209.5" width="46" height="30"/>
+                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <state key="normal" title="Button"/>
+                        <connections>
+                            <action selector="compareButtonTouched:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="dsR-qh-uaI"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="aHd-Ed-wLY" secondAttribute="trailing" id="4jQ-iy-cgz"/>
                     <constraint firstAttribute="bottom" secondItem="aHd-Ed-wLY" secondAttribute="bottom" constant="40" id="4yi-xI-TW2"/>
+                    <constraint firstAttribute="trailing" secondItem="1lG-84-rdw" secondAttribute="trailing" constant="20" id="TlJ-xm-8tp"/>
+                    <constraint firstAttribute="bottom" secondItem="1lG-84-rdw" secondAttribute="bottom" constant="20" id="Y7G-SH-seY"/>
                     <constraint firstItem="aHd-Ed-wLY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="hQx-id-ral"/>
                     <constraint firstItem="aHd-Ed-wLY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="lHz-8v-heV"/>
                 </constraints>

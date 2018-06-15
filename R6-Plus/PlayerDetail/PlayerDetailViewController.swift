@@ -16,7 +16,7 @@ class PlayerDetailViewController: UIViewController {
     
     // MARK: - Properties
     private let presenter: PlayerDetailPresenter
-    private var sections: [PlayerDetailSection] = []
+    private var sections: [SectionComponent] = []
     private let playerId: String
     private var isFavorite: Bool = false {
         didSet {

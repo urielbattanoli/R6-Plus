@@ -8,6 +8,11 @@
 
 import Foundation
 
+struct SectionComponent {
+    let title: String
+    let cells: [CellComponent]
+}
+
 class CellComponent {
     let reuseId: String
     var data: Any?

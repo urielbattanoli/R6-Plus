@@ -91,6 +91,8 @@
 		A4DC12C320B302E000DD4A2E /* LeaderboardPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DC12C220B302E000DD4A2E /* LeaderboardPageViewController.swift */; };
 		A4E9167520CDAD65001C291B /* ComparisonHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9167320CDAD65001C291B /* ComparisonHeaderTableViewCell.swift */; };
 		A4E9167620CDAD65001C291B /* ComparisonHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4E9167420CDAD65001C291B /* ComparisonHeaderTableViewCell.xib */; };
+		A4E9167820CDB84D001C291B /* ComparisonHeaderViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9167720CDB84D001C291B /* ComparisonHeaderViewData.swift */; };
+		A4E9167A20CDB878001C291B /* PlayerComparisonPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9167920CDB878001C291B /* PlayerComparisonPresenter.swift */; };
 		A4FAE56B20A2224600E9E877 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FAE56A20A2224600E9E877 /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
@@ -183,6 +185,8 @@
 		A4DC12C220B302E000DD4A2E /* LeaderboardPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardPageViewController.swift; sourceTree = "<group>"; };
 		A4E9167320CDAD65001C291B /* ComparisonHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		A4E9167420CDAD65001C291B /* ComparisonHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComparisonHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		A4E9167720CDB84D001C291B /* ComparisonHeaderViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonHeaderViewData.swift; sourceTree = "<group>"; };
+		A4E9167920CDB878001C291B /* PlayerComparisonPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerComparisonPresenter.swift; sourceTree = "<group>"; };
 		A4FAE56A20A2224600E9E877 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -301,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				A43E915720CB267B00440D39 /* Cells */,
+				A4E9167920CDB878001C291B /* PlayerComparisonPresenter.swift */,
 			);
 			path = PlayerComparison;
 			sourceTree = "<group>";
@@ -529,6 +534,7 @@
 			children = (
 				A4E9167320CDAD65001C291B /* ComparisonHeaderTableViewCell.swift */,
 				A4E9167420CDAD65001C291B /* ComparisonHeaderTableViewCell.xib */,
+				A4E9167720CDB84D001C291B /* ComparisonHeaderViewData.swift */,
 			);
 			path = ComparisonHeaderView;
 			sourceTree = "<group>";
@@ -695,6 +701,7 @@
 				A41AA4E320B2EF9C00E1D37D /* MenuHeaderMain.swift in Sources */,
 				A4505F6A208238EF00C841DE /* LeaderboardPlayerTableViewCell.swift in Sources */,
 				A4505F6D2082393F00C841DE /* LeaderboardPlayerCellData.swift in Sources */,
+				A4E9167A20CDB878001C291B /* PlayerComparisonPresenter.swift in Sources */,
 				A423CDBC209BD9EF00528E03 /* UIViewExtension.swift in Sources */,
 				A41AA4E520B2F14300E1D37D /* MainLeaderboardViewController.swift in Sources */,
 				A4DA9BDB209FD5DD00EF830F /* InformationViewData.swift in Sources */,
@@ -712,6 +719,7 @@
 				A4BBADB8209D0FE400425AEC /* PlayerDetailPresenter.swift in Sources */,
 				A491AA8E20BB79F70072B169 /* UINavigationControllerExtension.swift in Sources */,
 				A41995312081644C0039A6D4 /* TabBarController.swift in Sources */,
+				A4E9167820CDB84D001C291B /* ComparisonHeaderViewData.swift in Sources */,
 				A4DC12C320B302E000DD4A2E /* LeaderboardPageViewController.swift in Sources */,
 				A4DA9BE620A12EE100EF830F /* Ranking.swift in Sources */,
 				A4A0A666208ED97200CE46FA /* NibRegistrableView.swift in Sources */,
