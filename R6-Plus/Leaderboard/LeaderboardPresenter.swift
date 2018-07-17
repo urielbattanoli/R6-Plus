@@ -40,7 +40,8 @@ class LeaderboardPresenter {
             if case(.success(let players)) = result {
                 playerList = self.playersToCellComponents(players)
             }
-            self.view?.setCells(playerList, isLoadMore: true)
+            let section = SectionComponent(title: nil, cells: playerList)
+            self.view?.setSections([section], isLoadMore: true)
             self.view?.stopLoading()
             self.view?.reloadTableView()
         }
@@ -75,7 +76,7 @@ extension LeaderboardPresenter: UBtableViewPresenter {
     }
     
     func refreshControlAction() {
-        view?.setCells([], isLoadMore: false)
+        view?.setSections([], isLoadMore: false)
         view?.reloadTableView()
         page = 0
         fetchPlayerList()

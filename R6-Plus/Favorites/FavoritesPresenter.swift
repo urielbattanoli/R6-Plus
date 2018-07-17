@@ -28,7 +28,9 @@ class FavoritesPresenter {
     private func fetchFavorites() {
         let favorites = R6UserDefaults.shared.favorites
         players = PlayerDetail.fromDictionaryArray(favorites)
-        view?.setCells(self.players.map { self.playerToCellComponent($0) }, isLoadMore: false)
+        let section = SectionComponent(title: nil,
+                                        cells: players.map { self.playerToCellComponent($0) })
+        view?.setSections([section], isLoadMore: false)
         view?.stopLoading()
         view?.setEmptyMessageIfNeeded("You don't have any favorites")
         view?.reloadTableView()
@@ -61,7 +63,7 @@ extension FavoritesPresenter: UBtableViewPresenter {
     }
     
     func refreshControlAction() {
-        view?.setCells([], isLoadMore: false)
+        view?.setSections([], isLoadMore: false)
         view?.reloadTableView()
         fetchFavorites()
     }

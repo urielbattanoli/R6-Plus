@@ -14,7 +14,7 @@ protocol UBTableView: class {
     func stopLoading()
     func registerCells(_ cells: [NibRegistrableTableViewCell.Type])
     func reloadTableView()
-    func setCells(_ cells: [CellComponent], isLoadMore: Bool)
+    func setSections(_ sections: [SectionComponent], isLoadMore: Bool)
     func addRefreshControl()
     func setEmptyMessageIfNeeded(_ message: String) 
 }

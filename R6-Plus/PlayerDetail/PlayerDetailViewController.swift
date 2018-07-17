@@ -93,7 +93,9 @@ extension PlayerDetailViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = HeaderListView()
-        view.fillData(HeaderListViewData(title: sections[section].title, alignment: .left, color: .white))
+        view.fillData(HeaderListViewData(title: sections[section].title ?? "",
+                                         alignment: .left,
+                                         color: .white))
         return view
     }
     
@@ -106,10 +108,10 @@ extension PlayerDetailViewController: UITableViewDelegate {
 // MARK: - PlayerDetailView
 extension PlayerDetailViewController: PlayerDetailView {
     
-    func setPlayerDetail(playerDetail: PlayerDetailViewData) {
-        title = playerDetail.name
-        isFavorite = playerDetail.isFavorite
-        sections = playerDetail.sections
+    func setPlayerDetail(data: PlayerDetailViewData) {
+        title = data.name
+        isFavorite = data.isFavorite
+        sections = data.sections
         loader.stopAnimating()
         tableView.reloadData()
     }

@@ -44,14 +44,14 @@ class PlayerDetailPresenter {
     
     func fetchPlayerDetailIfNeeded(id: String) {
         if let playerDetail = playerDetail {
-            view?.setPlayerDetail(playerDetail: playerDetailToData(playerDetail))
+            view?.setPlayerDetail(data: playerDetailToData(playerDetail))
             return
         }
         service.fetchPlayerDetail(id: id) { [weak self] result in
             guard let `self` = self else { return }
             if case .success(let playerDetail) = result {
                 self.playerDetail = playerDetail
-                self.view?.setPlayerDetail(playerDetail: self.playerDetailToData(playerDetail))
+                self.view?.setPlayerDetail(data: self.playerDetailToData(playerDetail))
             }
         }
     }

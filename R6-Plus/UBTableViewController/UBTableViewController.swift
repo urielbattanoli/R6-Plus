@@ -17,7 +17,7 @@ class UBTableViewController: UIViewController {
     // MARK: - Properties
     var index = 0
     private var presenter: UBtableViewPresenter
-    private var cells: [CellComponent] = []
+    private var sections: [SectionComponent] = []
     private var pagination = 0
     
     // MARK: - Life cycle
@@ -60,12 +60,16 @@ class UBTableViewController: UIViewController {
 // MARK: - UITableViewDataSource
 extension UBTableViewController: UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cells.count
+        return sections[section].cells.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let data = cells[indexPath.row]
+        let data = sections[indexPath.section].cells[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: data.reuseId, for: indexPath)
         if let cellData = data.data {
             (cell as? DynamicCellComponent)?.updateUI(with: cellData)
@@ -81,8 +85,21 @@ extension UBTableViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension UBTableViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = HeaderListView()
+        view.fillData(HeaderListViewData(title: sections[section].title ?? "",
+                                         alignment: .left,
+                                         color: .white))
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard sections[section].title != nil else { return 0.1 }
+        return 55
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        cells[indexPath.row].selectionHandler?()
+        sections[indexPath.section].cells[indexPath.row].selectionHandler?()
     }
 }
 
@@ -106,11 +123,11 @@ extension UBTableViewController: UBTableView {
         tableView.reloadData()
     }
     
-    func setCells(_ cells: [CellComponent], isLoadMore: Bool) {
+    func setSections(_ sections: [SectionComponent], isLoadMore: Bool) {
         if isLoadMore {
-            self.cells += cells
+            self.sections += sections
         } else {
-            self.cells = cells
+            self.sections = sections
         }
     }
     
@@ -124,7 +141,7 @@ extension UBTableViewController: UBTableView {
     
     func setEmptyMessageIfNeeded(_ message: String) {
         tableView.backgroundView = UIView()
-        guard cells.count == 0 else { return }
+        guard sections.count == 0 else { return }
         let messageLabel = UILabel(frame: .zero)
         tableView.backgroundView?.addSubview(messageLabel)
         messageLabel.translatesAutoresizingMaskIntoConstraints = false

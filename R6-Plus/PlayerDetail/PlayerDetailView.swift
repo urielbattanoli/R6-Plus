@@ -9,7 +9,7 @@
 import Foundation
 
 protocol PlayerDetailView: class {
-    func setPlayerDetail(playerDetail: PlayerDetailViewData)
+    func setPlayerDetail(data: PlayerDetailViewData)
 }
 
 struct PlayerDetailViewData {

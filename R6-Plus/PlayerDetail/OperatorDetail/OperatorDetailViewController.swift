@@ -105,7 +105,9 @@ extension OperatorDetailViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = HeaderListView()
-        view.fillData(HeaderListViewData(title: sections[section].title, alignment: .left, color: .white))
+        view.fillData(HeaderListViewData(title: sections[section].title ?? "",
+                                         alignment: .left,
+                                         color: .white))
         return view
     }
     

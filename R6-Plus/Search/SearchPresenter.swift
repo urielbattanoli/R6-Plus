@@ -32,7 +32,7 @@ class SearchPresenter {
     
     private func scheduleSearch(input: SearchInput) {
         view?.startLoading()
-        view?.setCells([], isLoadMore: false)
+        view?.setSections([], isLoadMore: false)
         view?.reloadTableView()
         view?.setEmptyMessageIfNeeded("")
         lastInput = input
@@ -53,7 +53,8 @@ class SearchPresenter {
             if case(.success(let players)) = result {
                 playerList = players.map { self.playerToCellComponent($0) }
             }
-            self.view?.setCells(playerList, isLoadMore: false)
+            let section = SectionComponent(title: nil, cells: playerList)
+            self.view?.setSections([section], isLoadMore: false)
             self.view?.stopLoading()
             self.view?.setEmptyMessageIfNeeded("Player not found")
             self.view?.reloadTableView()
