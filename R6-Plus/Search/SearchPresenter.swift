@@ -16,7 +16,7 @@ protocol SearchPresenterDelegate: UBtableViewPresenter {
 class SearchPresenter {
     
     private let service: SearchService
-    private weak var view: UBTableView?
+    weak var view: UBTableView?
     private var lastInput: SearchInput?
     private var timer: Timer?
     private var lastRequest: DataRequest?
@@ -28,7 +28,10 @@ class SearchPresenter {
     private func setupSearch() {
         view?.registerCells([PlayerTableViewCell.self])
         view?.stopLoading()
+        initialState()
     }
+    
+    func initialState() {}
     
     private func scheduleSearch(input: SearchInput) {
         view?.startLoading()
@@ -37,6 +40,11 @@ class SearchPresenter {
         view?.setEmptyMessageIfNeeded("")
         lastInput = input
         timer?.invalidate()
+        lastRequest?.cancel()
+        guard input.name.count > 3 else {
+            view?.stopLoading()
+            return
+        }
         timer = Timer.scheduledTimer(timeInterval: 0.5,
                                      target: self,
                                      selector: #selector(fetchSearch),
@@ -61,7 +69,7 @@ class SearchPresenter {
         }
     }
     
-    private func playerToCellComponent(_ player: SearchedPlayer) -> CellComponent {
+    func playerToCellComponent(_ player: SearchedPlayer) -> CellComponent {
         let data = PlayerCellData(id: player.id,
                                   imageUrl: player.imageUrl,
                                   name: player.name,
@@ -83,7 +91,7 @@ class SearchPresenter {
 // MARK: - UBtableViewPresenter
 extension SearchPresenter: SearchPresenterDelegate {
     
-    func searchPlayer(name: String, platform: String) {
+    @objc func searchPlayer(name: String, platform: String) {
         scheduleSearch(input: SearchInput(name: name, platform: platform))
     }
     

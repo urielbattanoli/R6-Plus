@@ -78,6 +78,16 @@ class PlayerDetailPresenter {
         vc.modalTransitionStyle = .crossDissolve
         (view as? UIViewController)?.tabBarController?.present(vc, animated: true)
     }
+    
+    private func comparisonTouched() {
+        guard let playerDetail = playerDetail else { return }
+        let presenter = OponentComparisonPresenter(service: SearchService(), playerDetail: playerDetail)
+        let searchVC = SearchViewController(presenter: presenter)
+        searchVC.modalTransitionStyle = .crossDissolve
+        let navigation = UINavigationController(rootViewController: searchVC)
+        navigation.defaultConfiguration()
+        (view as? UIViewController)?.navigationController?.present(navigation, animated: true)
+    }
 }
 
 // MARK: - Data generation
@@ -85,9 +95,7 @@ extension PlayerDetailPresenter {
     
     private func generateHeaderData(_ playerDetail: PlayerDetail) -> SectionComponent {
         let data = ProfileHeaderCellData(imageUrl: playerDetail.imageUrl) { [weak self] in
-            let comparePresenter = PlayerComparisonPresenter(leftPlayer: playerDetail, rightPlayerId: "8ef2d135-73a3-4a58-8858-733f3882290a")
-            let compareVC = UBTableViewController(presenter: comparePresenter)
-            (self?.view as? UIViewController)?.navigationController?.pushViewController(compareVC, animated: true)
+            self?.comparisonTouched()
         }
         let cell = CellComponent(reuseId: ProfileHeaderTableViewCell.reuseId,
                                  data: data)

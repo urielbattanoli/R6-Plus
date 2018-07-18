@@ -42,6 +42,7 @@
 		A4505F7F2082FE8500C841DE /* UBTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4505F7D2082FE8500C841DE /* UBTableViewController.xib */; };
 		A4505F82208308E300C841DE /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F81208308E300C841DE /* Player.swift */; };
 		A46BA1B4208962B9003274F7 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46BA1B3208962B9003274F7 /* Server.swift */; };
+		A478D1B520FEEBA700606F3F /* OponentComparisonPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478D1B420FEEBA700606F3F /* OponentComparisonPresenter.swift */; };
 		A47E3AF920B66C5E001B4C10 /* UBTableViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E3AF820B66C5E001B4C10 /* UBTableViewPresenter.swift */; };
 		A491AA8E20BB79F70072B169 /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A491AA8D20BB79F70072B169 /* UINavigationControllerExtension.swift */; };
 		A491AA9020BB7A4F0072B169 /* UISearchControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A491AA8F20BB7A4F0072B169 /* UISearchControllerExtension.swift */; };
@@ -136,6 +137,7 @@
 		A4505F7D2082FE8500C841DE /* UBTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UBTableViewController.xib; sourceTree = "<group>"; };
 		A4505F81208308E300C841DE /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		A46BA1B3208962B9003274F7 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		A478D1B420FEEBA700606F3F /* OponentComparisonPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OponentComparisonPresenter.swift; sourceTree = "<group>"; };
 		A47E3AF820B66C5E001B4C10 /* UBTableViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBTableViewPresenter.swift; sourceTree = "<group>"; };
 		A491AA8D20BB79F70072B169 /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
 		A491AA8F20BB7A4F0072B169 /* UISearchControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchControllerExtension.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				A4505F6F208239EF00C841DE /* Leaderboard */,
 				A4E05873209BE29200BF2231 /* MainLeaderboard */,
 				A4505F80208308D500C841DE /* Models */,
+				A478D1B320FEE8F500606F3F /* Oponent Selection */,
 				A43E915620CB261000440D39 /* PlayerComparison */,
 				A4E05878209BECD000BF2231 /* PlayerDetail */,
 				A41AA4D420B24BB200E1D37D /* Search */,
@@ -368,6 +371,14 @@
 				A46BA1B3208962B9003274F7 /* Server.swift */,
 			);
 			path = Server;
+			sourceTree = "<group>";
+		};
+		A478D1B320FEE8F500606F3F /* Oponent Selection */ = {
+			isa = PBXGroup;
+			children = (
+				A478D1B420FEEBA700606F3F /* OponentComparisonPresenter.swift */,
+			);
+			path = "Oponent Selection";
 			sourceTree = "<group>";
 		};
 		A47E3AF720B66B6D001B4C10 /* UBTableViewController */ = {
@@ -725,6 +736,7 @@
 				A4A0A666208ED97200CE46FA /* NibRegistrableView.swift in Sources */,
 				A4AAC7FC20CB2EE9008F1EAB /* ComparisonInfoData.swift in Sources */,
 				A43BFACB209F6D6D004C00CB /* CellComponent.swift in Sources */,
+				A478D1B520FEEBA700606F3F /* OponentComparisonPresenter.swift in Sources */,
 				A43832F120AE76E000B55F7C /* R6UserDefaults.swift in Sources */,
 				A4BBADBC209D100C00425AEC /* PlayerDetailView.swift in Sources */,
 				A43E915A20CB269700440D39 /* ComparisonInfoTableViewCell.swift in Sources */,
