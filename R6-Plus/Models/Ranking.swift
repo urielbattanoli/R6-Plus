@@ -30,7 +30,7 @@ enum Ranking: Int {
     case platinum2 = 18
     case platinum1 = 19
     case diamond = 20
-    case unranked
+    case unranked = 0
     
     var name: String {
         switch self {
