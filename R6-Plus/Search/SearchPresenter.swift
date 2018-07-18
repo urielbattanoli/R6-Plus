@@ -96,5 +96,6 @@ extension SearchPresenter: SearchPresenterDelegate {
         setupSearch()
     }
     
-    func viewdidAppear() { }
+    func viewdidAppear() {}
+    func viewWillDisappear() {}
 }

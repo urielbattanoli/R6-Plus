@@ -14,4 +14,5 @@ protocol UBtableViewPresenter: class {
     func refreshControlAction()
     func attachView(_ view: UBTableView)
     func viewdidAppear()
+    func viewWillDisappear()
 }

@@ -71,4 +71,6 @@ extension FavoritesPresenter: UBtableViewPresenter {
     func viewdidAppear() {
         fetchFavorites()
     }
+    
+    func viewWillDisappear() {}
 }

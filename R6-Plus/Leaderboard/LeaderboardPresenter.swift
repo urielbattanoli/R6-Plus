@@ -83,4 +83,5 @@ extension LeaderboardPresenter: UBtableViewPresenter {
     }
     
     func viewdidAppear() {}
+    func viewWillDisappear() {}
 }

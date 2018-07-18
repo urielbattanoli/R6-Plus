@@ -6,7 +6,7 @@
 //  Copyright © 2018 Mocka. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 private let infoReuseId = ComparisonInfoTableViewCell.reuseId
 
@@ -67,7 +67,17 @@ extension PlayerComparisonPresenter: UBtableViewPresenter {
     
     func refreshControlAction() {}
     
-    func viewdidAppear() {}
+    func viewdidAppear() {
+        (UIApplication.shared.delegate as? AppDelegate)?.shouldRotate = true
+        let value = UIInterfaceOrientation.landscapeRight.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
+    }
+    
+    func viewWillDisappear() {
+        let value = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
+        (UIApplication.shared.delegate as? AppDelegate)?.shouldRotate = false
+    }
 }
 
 // MARK: - Data generation
