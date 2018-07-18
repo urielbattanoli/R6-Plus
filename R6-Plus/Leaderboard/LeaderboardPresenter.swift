@@ -40,7 +40,7 @@ class LeaderboardPresenter {
             if case(.success(let players)) = result {
                 playerList = self.playersToCellComponents(players)
             }
-            let section = SectionComponent(title: nil, cells: playerList)
+            let section = SectionComponent(header: nil, cells: playerList)
             self.view?.setSections([section], isLoadMore: true)
             self.view?.stopLoading()
             self.view?.reloadTableView()

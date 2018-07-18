@@ -20,4 +20,14 @@ extension Double {
     func twoDecimalPercent() -> String {
         return "\(self.twoDecimal())%"
     }
+    
+    func bestScore(rightValue: Double) -> BestScore {
+        if self > rightValue {
+            return .left
+        } else if self < rightValue {
+            return .right
+        } else {
+            return .equal
+        }
+    }
 }

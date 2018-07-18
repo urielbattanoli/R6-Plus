@@ -86,15 +86,14 @@ extension UBTableViewController: UITableViewDataSource {
 extension UBTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let header = sections[section].header else { return nil }
         let view = HeaderListView()
-        view.fillData(HeaderListViewData(title: sections[section].title ?? "",
-                                         alignment: .left,
-                                         color: .white))
+        view.fillData(header)
         return view
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        guard sections[section].title != nil else { return 0.1 }
+        guard sections[section].header != nil else { return 0.1 }
         return 55
     }
     

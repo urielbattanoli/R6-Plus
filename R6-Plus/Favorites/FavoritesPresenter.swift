@@ -28,7 +28,7 @@ class FavoritesPresenter {
     private func fetchFavorites() {
         let favorites = R6UserDefaults.shared.favorites
         players = PlayerDetail.fromDictionaryArray(favorites)
-        let section = SectionComponent(title: nil,
+        let section = SectionComponent(header: nil,
                                         cells: players.map { self.playerToCellComponent($0) })
         view?.setSections([section], isLoadMore: false)
         view?.stopLoading()

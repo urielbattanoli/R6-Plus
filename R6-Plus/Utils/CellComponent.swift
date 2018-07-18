@@ -9,7 +9,7 @@
 import Foundation
 
 struct SectionComponent {
-    let title: String?
+    let header: HeaderListViewData?
     let cells: [CellComponent]
 }
 

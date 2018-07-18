@@ -53,7 +53,7 @@ class SearchPresenter {
             if case(.success(let players)) = result {
                 playerList = players.map { self.playerToCellComponent($0) }
             }
-            let section = SectionComponent(title: nil, cells: playerList)
+            let section = SectionComponent(header: nil, cells: playerList)
             self.view?.setSections([section], isLoadMore: false)
             self.view?.stopLoading()
             self.view?.setEmptyMessageIfNeeded("Player not found")
