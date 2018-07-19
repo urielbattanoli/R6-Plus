@@ -82,6 +82,9 @@ extension LeaderboardPresenter: UBtableViewPresenter {
         fetchPlayerList()
     }
     
-    func viewdidAppear() {}
+    func viewdidAppear() {
+        ReviewHelper.askForReviewIfNeeded()
+    }
+    
     func viewWillDisappear() {}
 }

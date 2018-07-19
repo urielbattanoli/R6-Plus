@@ -68,6 +68,7 @@ extension PlayerComparisonPresenter: UBtableViewPresenter {
     func refreshControlAction() {}
     
     func viewdidAppear() {
+        R6UserDefaults.shared.freeComparison = Date().nextDay()
         (UIApplication.shared.delegate as? AppDelegate)?.shouldRotate = true
         let value = UIInterfaceOrientation.landscapeRight.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")

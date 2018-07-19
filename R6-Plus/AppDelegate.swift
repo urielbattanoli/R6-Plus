@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     internal var shouldRotate = false
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        ReviewHelper.incrementAppOpenedCount()
         return true
     }
     

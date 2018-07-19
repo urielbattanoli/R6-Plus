@@ -79,14 +79,57 @@ class PlayerDetailPresenter {
         (view as? UIViewController)?.tabBarController?.present(vc, animated: true)
     }
     
+    private func offerPremiumAccount() {
+        configureIAP()
+        let alert = UIAlertController(title: "You reach comparisons limit by day",
+                                      message: "Buy premium account and make as many comparisons as you want",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Buy", style: .default) { action in
+            IAPHelper.shared.purchaseMyProduct(index: 0)
+        })
+        alert.addAction(UIAlertAction(title: "Restore", style: .default) { action in
+            IAPHelper.shared.restorePurchase()
+        })
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        (view as? UIViewController)?.present(alert, animated: true)
+    }
+    
+    private func configureIAP() {
+        IAPHelper.shared.fetchAvailableProducts()
+        IAPHelper.shared.purchaseStatusBlock = { [weak self] type in
+            switch type {
+            case .purchased, .restored:
+                R6UserDefaults.shared.premiumAccount = true
+            case .disabled:
+                R6UserDefaults.shared.premiumAccount = false
+            }
+            let alert = UIAlertController(title: type.message(),
+                                          message: nil,
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
+            (self?.view as? UIViewController)?.present(alert, animated: true)
+        }
+    }
+    
     private func comparisonTouched() {
-        guard let playerDetail = playerDetail else { return }
+        guard canMakeComparison(), let playerDetail = playerDetail else {
+            offerPremiumAccount()
+            return
+        }
         let presenter = OponentComparisonPresenter(service: SearchService(), playerDetail: playerDetail)
         let searchVC = SearchViewController(presenter: presenter)
         searchVC.modalTransitionStyle = .crossDissolve
         let navigation = UINavigationController(rootViewController: searchVC)
         navigation.defaultConfiguration()
         (view as? UIViewController)?.navigationController?.present(navigation, animated: true)
+    }
+    
+    private func canMakeComparison() -> Bool {
+        guard !R6UserDefaults.shared.premiumAccount else { return true }
+        if let lastDate = R6UserDefaults.shared.freeComparison {
+            return Date() > lastDate
+        }
+        return true
     }
 }
 
