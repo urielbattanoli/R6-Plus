@@ -60,7 +60,7 @@ class OponentComparisonPresenter: SearchPresenter {
     private func offerPremiumAccount() {
         configureIAP()
         let alert = UIAlertController(title: "You've reached the maximum number of comparisons today",
-                                      message: "Upgrade your account to premium and make as many comparisons as you want",
+                                      message: "Upgrade your account to premium and make as many comparisons as you want! Also, remove all ads.",
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Buy", style: .default) { action in
             IAPHelper.shared.purchaseMyProduct(index: 0)

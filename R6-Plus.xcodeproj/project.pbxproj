@@ -48,6 +48,8 @@
 		A478D1BD2100010800606F3F /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478D1BC2100010800606F3F /* IAPHelper.swift */; };
 		A478D1C72100340B00606F3F /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478D1C62100340B00606F3F /* DateExtension.swift */; };
 		A478D1C921015C0000606F3F /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478D1C821015C0000606F3F /* NotificationExtension.swift */; };
+		A478D1CD2101667700606F3F /* PremiumAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478D1CB2101667700606F3F /* PremiumAccountViewController.swift */; };
+		A478D1CE2101667700606F3F /* PremiumAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A478D1CC2101667700606F3F /* PremiumAccountViewController.xib */; };
 		A47E3AF920B66C5E001B4C10 /* UBTableViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E3AF820B66C5E001B4C10 /* UBTableViewPresenter.swift */; };
 		A491AA8E20BB79F70072B169 /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A491AA8D20BB79F70072B169 /* UINavigationControllerExtension.swift */; };
 		A491AA9020BB7A4F0072B169 /* UISearchControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A491AA8F20BB7A4F0072B169 /* UISearchControllerExtension.swift */; };
@@ -148,6 +150,8 @@
 		A478D1BC2100010800606F3F /* IAPHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		A478D1C62100340B00606F3F /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		A478D1C821015C0000606F3F /* NotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtension.swift; sourceTree = "<group>"; };
+		A478D1CB2101667700606F3F /* PremiumAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumAccountViewController.swift; sourceTree = "<group>"; };
+		A478D1CC2101667700606F3F /* PremiumAccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PremiumAccountViewController.xib; sourceTree = "<group>"; };
 		A47E3AF820B66C5E001B4C10 /* UBTableViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBTableViewPresenter.swift; sourceTree = "<group>"; };
 		A491AA8D20BB79F70072B169 /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
 		A491AA8F20BB7A4F0072B169 /* UISearchControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchControllerExtension.swift; sourceTree = "<group>"; };
@@ -269,6 +273,7 @@
 				A478D1B320FEE8F500606F3F /* Oponent Selection */,
 				A43E915620CB261000440D39 /* PlayerComparison */,
 				A4E05878209BECD000BF2231 /* PlayerDetail */,
+				A478D1CA2101661B00606F3F /* PremiumAccount */,
 				A41AA4D420B24BB200E1D37D /* Search */,
 				A46BA1B2208962A5003274F7 /* Server */,
 				A4A0A664208ED95900CE46FA /* Utils */,
@@ -391,6 +396,15 @@
 				A478D1B420FEEBA700606F3F /* OponentComparisonPresenter.swift */,
 			);
 			path = "Oponent Selection";
+			sourceTree = "<group>";
+		};
+		A478D1CA2101661B00606F3F /* PremiumAccount */ = {
+			isa = PBXGroup;
+			children = (
+				A478D1CB2101667700606F3F /* PremiumAccountViewController.swift */,
+				A478D1CC2101667700606F3F /* PremiumAccountViewController.xib */,
+			);
+			path = PremiumAccount;
 			sourceTree = "<group>";
 		};
 		A47E3AF720B66B6D001B4C10 /* UBTableViewController */ = {
@@ -649,6 +663,7 @@
 				A4DA9BCC209FCCBC00EF830F /* ProfileHeaderTableViewCell.xib in Resources */,
 				A497F53520A755C600D26A23 /* AliasesCollectionViewCell.xib in Resources */,
 				A4DA9BEE20A1472F00EF830F /* HeaderListView.xib in Resources */,
+				A478D1CE2101667700606F3F /* PremiumAccountViewController.xib in Resources */,
 				A4199539208164500039A6D4 /* LaunchScreen.storyboard in Resources */,
 				A4199536208164500039A6D4 /* Assets.xcassets in Resources */,
 				A41995342081644C0039A6D4 /* Main.storyboard in Resources */,
@@ -735,6 +750,7 @@
 				A4505F6A208238EF00C841DE /* LeaderboardPlayerTableViewCell.swift in Sources */,
 				A478D1B720FFF4CB00606F3F /* ReviewHelper.swift in Sources */,
 				A4505F6D2082393F00C841DE /* LeaderboardPlayerCellData.swift in Sources */,
+				A478D1CD2101667700606F3F /* PremiumAccountViewController.swift in Sources */,
 				A4E9167A20CDB878001C291B /* PlayerComparisonPresenter.swift in Sources */,
 				A423CDBC209BD9EF00528E03 /* UIViewExtension.swift in Sources */,
 				A41AA4E520B2F14300E1D37D /* MainLeaderboardViewController.swift in Sources */,

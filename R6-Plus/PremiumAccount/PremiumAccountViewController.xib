@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PremiumAccountViewController" customModule="R6_Plus" customModuleProvider="target">
+            <connections>
+                <outlet property="buyButton" destination="GR3-ze-7nJ" id="qXd-oB-cOc"/>
+                <outlet property="messageLabel" destination="bLJ-GJ-sIl" id="J6F-td-hhM"/>
+                <outlet property="premiumImageView" destination="uEv-A4-a9i" id="pXZ-ct-art"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help us by upgrading your account to premium and make as many comparisons as you want! Also, remove all ads" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLJ-GJ-sIl">
+                    <rect key="frame" x="20" y="345.5" width="335" height="110"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="not_premium" translatesAutoresizingMaskIntoConstraints="NO" id="uEv-A4-a9i">
+                    <rect key="frame" x="122" y="185.5" width="130" height="130"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="130" id="MDW-me-yr4"/>
+                        <constraint firstAttribute="width" constant="130" id="zco-mO-a16"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GR3-ze-7nJ">
+                    <rect key="frame" x="20" y="587" width="335" height="50"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="wCv-y0-jVF"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                    <state key="normal" title="Buy Now!">
+                        <color key="titleColor" red="0.13390423830683759" green="0.28746983934177511" blue="0.40948223039215681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="didTouchBuyButton:" destination="-1" eventType="touchUpInside" id="bLv-v7-vaF"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.074509803920000006" green="0.16078431369999999" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="uEv-A4-a9i" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="IOm-ze-qh2"/>
+                <constraint firstItem="bLJ-GJ-sIl" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dWE-cv-pcZ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="GR3-ze-7nJ" secondAttribute="bottom" constant="30" id="fUQ-HF-kcE"/>
+                <constraint firstItem="bLJ-GJ-sIl" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="1.2" id="m9X-uq-gIh"/>
+                <constraint firstAttribute="trailing" secondItem="bLJ-GJ-sIl" secondAttribute="trailing" constant="20" id="nY6-ld-nhr"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="GR3-ze-7nJ" secondAttribute="trailing" constant="20" id="njV-H2-qwy"/>
+                <constraint firstItem="GR3-ze-7nJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="psP-qM-VV6"/>
+                <constraint firstItem="bLJ-GJ-sIl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="qmB-i6-ShX"/>
+                <constraint firstItem="bLJ-GJ-sIl" firstAttribute="top" secondItem="uEv-A4-a9i" secondAttribute="bottom" constant="30" id="qw3-4y-hzd"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="33.5" y="62.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="not_premium" width="512" height="512"/>
+    </resources>
+</document>
