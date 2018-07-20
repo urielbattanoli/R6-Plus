@@ -13,7 +13,7 @@ protocol SearchPresenterDelegate: UBtableViewPresenter {
     func searchPlayer(name: String, platform: String)
 }
 
-class SearchPresenter {
+class SearchPresenter: NSObject {
     
     private let service: SearchService
     weak var view: UBTableView?
@@ -41,7 +41,7 @@ class SearchPresenter {
         lastInput = input
         timer?.invalidate()
         lastRequest?.cancel()
-        guard input.name.count > 3 else {
+        guard input.name.count > 2 else {
             view?.stopLoading()
             return
         }

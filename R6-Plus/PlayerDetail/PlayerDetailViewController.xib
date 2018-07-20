@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayerDetailViewController" customModule="R6_Plus" customModuleProvider="target">
             <connections>
+                <outlet property="bannerView" destination="8Og-i4-YZo" id="WBv-QA-rbL"/>
+                <outlet property="bannerViewHeightConstraint" destination="Q31-sn-tVP" id="Lgf-aH-dVp"/>
                 <outlet property="loader" destination="Iw2-a0-QDO" id="wyu-fD-UuR"/>
                 <outlet property="tableView" destination="b2f-YH-ctg" id="Dlb-3r-LSR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -21,7 +23,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="b2f-YH-ctg">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="b2f-YH-ctg">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" red="0.074407245509999997" green="0.1597398199" blue="0.2275390625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
@@ -32,15 +34,25 @@
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Iw2-a0-QDO">
                     <rect key="frame" x="169" y="315" width="37" height="37"/>
                 </activityIndicatorView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Og-i4-YZo" customClass="GADBannerView">
+                    <rect key="frame" x="0.0" y="667" width="375" height="0.0"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" id="Q31-sn-tVP"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.074407245509999997" green="0.1597398199" blue="0.2275390625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Iw2-a0-QDO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5v7-TP-3HK"/>
                 <constraint firstItem="b2f-YH-ctg" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="7u0-Od-LE6"/>
+                <constraint firstItem="8Og-i4-YZo" firstAttribute="top" secondItem="b2f-YH-ctg" secondAttribute="bottom" id="M90-Ja-p9D"/>
                 <constraint firstItem="b2f-YH-ctg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="VkQ-Vi-WyA"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8Og-i4-YZo" secondAttribute="trailing" id="XYH-jT-1QS"/>
+                <constraint firstItem="8Og-i4-YZo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="evk-qf-gnX"/>
                 <constraint firstItem="b2f-YH-ctg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gZU-dT-Xoi"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="8Og-i4-YZo" secondAttribute="bottom" id="oen-HR-cGW"/>
                 <constraint firstItem="Iw2-a0-QDO" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="pYT-tE-H5Z"/>
-                <constraint firstItem="b2f-YH-ctg" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="sob-xv-KFD"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="33.5" y="53.5"/>

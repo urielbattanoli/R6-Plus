@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class PlayerDetailViewController: UIViewController {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var loader: UIActivityIndicatorView!
+    @IBOutlet private weak var bannerView: GADBannerView!
+    @IBOutlet private weak var bannerViewHeightConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
     private let presenter: PlayerDetailPresenter
@@ -43,9 +46,26 @@ class PlayerDetailViewController: UIViewController {
         presenter.fetchPlayerDetailIfNeeded(id: playerId)
         setupTableView()
         addFavoriteButton()
+        guard !R6UserDefaults.shared.premiumAccount else { return }
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(changeConstraintHeight),
+                                               name: .didBuyPremiumAccount,
+                                               object: nil)
+        setupBanner()
     }
     
     // MARK: - Functions
+    @objc private func changeConstraintHeight() {
+        bannerViewHeightConstraint?.constant = 0
+    }
+    
+    private func setupBanner() {
+        bannerView.adUnitID = ADS_BANNER_ID
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerViewHeightConstraint.constant = 50
+    }
+    
     private func addFavoriteButton() {
         let favoriteButton = UIBarButtonItem(image: isFavorite ? #imageLiteral(resourceName: "favorited") : #imageLiteral(resourceName: "unfavorited"),
                                              style: .plain,

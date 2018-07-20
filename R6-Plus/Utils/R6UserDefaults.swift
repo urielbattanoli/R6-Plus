@@ -54,6 +54,10 @@ class R6UserDefaults {
             return userDefaults.bool(forKey: Key.premiumAccount)
         }
         set {
+            if newValue == true {
+                NotificationCenter.default.post(name: .didBuyPremiumAccount,
+                                                object: nil)
+            }
             userDefaults.set(newValue, forKey: Key.premiumAccount)
         }
     }

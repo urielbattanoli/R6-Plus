@@ -47,6 +47,7 @@
 		A478D1BB2100000100606F3F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A478D1BA2100000100606F3F /* StoreKit.framework */; };
 		A478D1BD2100010800606F3F /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478D1BC2100010800606F3F /* IAPHelper.swift */; };
 		A478D1C72100340B00606F3F /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478D1C62100340B00606F3F /* DateExtension.swift */; };
+		A478D1C921015C0000606F3F /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478D1C821015C0000606F3F /* NotificationExtension.swift */; };
 		A47E3AF920B66C5E001B4C10 /* UBTableViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E3AF820B66C5E001B4C10 /* UBTableViewPresenter.swift */; };
 		A491AA8E20BB79F70072B169 /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A491AA8D20BB79F70072B169 /* UINavigationControllerExtension.swift */; };
 		A491AA9020BB7A4F0072B169 /* UISearchControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A491AA8F20BB7A4F0072B169 /* UISearchControllerExtension.swift */; };
@@ -146,6 +147,7 @@
 		A478D1BA2100000100606F3F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		A478D1BC2100010800606F3F /* IAPHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		A478D1C62100340B00606F3F /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		A478D1C821015C0000606F3F /* NotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtension.swift; sourceTree = "<group>"; };
 		A47E3AF820B66C5E001B4C10 /* UBTableViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBTableViewPresenter.swift; sourceTree = "<group>"; };
 		A491AA8D20BB79F70072B169 /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
 		A491AA8F20BB7A4F0072B169 /* UISearchControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchControllerExtension.swift; sourceTree = "<group>"; };
@@ -432,6 +434,7 @@
 				A4DA9BDC209FE06A00EF830F /* IntExtension.swift */,
 				A4DA9BE1209FEEED00EF830F /* NibDesignable.swift */,
 				A4A0A665208ED97200CE46FA /* NibRegistrableView.swift */,
+				A478D1C821015C0000606F3F /* NotificationExtension.swift */,
 				A43832F020AE76E000B55F7C /* R6UserDefaults.swift */,
 				A497F53B20A782CB00D26A23 /* StringExtension.swift */,
 				A4BBADA8209CE50400425AEC /* UIColorExtension.swift */,
@@ -740,6 +743,7 @@
 				A478D1C72100340B00606F3F /* DateExtension.swift in Sources */,
 				A41AA4D720B24C7B00E1D37D /* SearchViewController.swift in Sources */,
 				A4505F7E2082FE8500C841DE /* UBTableViewController.swift in Sources */,
+				A478D1C921015C0000606F3F /* NotificationExtension.swift in Sources */,
 				A4DA9BED20A1472F00EF830F /* HeaderListView.swift in Sources */,
 				A4DA9BDF209FE41E00EF830F /* DoubleExtension.swift in Sources */,
 				A4DA9BCB209FCCBC00EF830F /* ProfileHeaderTableViewCell.swift in Sources */,

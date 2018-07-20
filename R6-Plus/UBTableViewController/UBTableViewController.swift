@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class UBTableViewController: UIViewController {
 
     // MARK: - IBOutlets
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var loader: UIActivityIndicatorView!
+    @IBOutlet private weak var bannerView: GADBannerView!
+    @IBOutlet private weak var bannerViewHeightConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
     var index = 0
@@ -36,6 +39,12 @@ class UBTableViewController: UIViewController {
         
         presenter.attachView(self)
         setupTableView()
+        guard !R6UserDefaults.shared.premiumAccount else { return }
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(changeConstraintHeight),
+                                               name: .didBuyPremiumAccount,
+                                               object: nil)
+        setupBanner()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -51,6 +60,17 @@ class UBTableViewController: UIViewController {
     }
     
     // MARK: - Functions
+    @objc private func changeConstraintHeight() {
+        bannerViewHeightConstraint?.constant = 0
+    }
+    
+    private func setupBanner() {
+        bannerView?.adUnitID = ADS_BANNER_ID
+        bannerView?.rootViewController = self
+        bannerView?.load(GADRequest())
+        bannerViewHeightConstraint?.constant = 50
+    }
+    
     private func setupTableView() {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100

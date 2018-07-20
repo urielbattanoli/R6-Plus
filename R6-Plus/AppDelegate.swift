@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import GoogleMobileAds
+
+let ADS_APP_ID = "ca-app-pub-3291479380654020~6866270802"
+let ADS_BANNER_ID = "ca-app-pub-3940256099942544/2934735716"//"ca-app-pub-3291479380654020/4653210435"
+let ADS_VIDEO_ID = "ca-app-pub-3940256099942544/1712485313"//"ca-app-pub-3291479380654020/3432037228"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         ReviewHelper.incrementAppOpenedCount()
+        GADMobileAds.configure(withApplicationID: ADS_APP_ID)
+        GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
+                                                    withAdUnitID: ADS_VIDEO_ID)
         return true
     }
     
