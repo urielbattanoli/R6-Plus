@@ -172,6 +172,7 @@ extension UBTableViewController: UBTableView {
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint(item: messageLabel, attribute: .top, relatedBy: .equal, toItem: tableView.backgroundView, attribute: .top, multiplier: 1, constant: 50).isActive = true
         NSLayoutConstraint(item: messageLabel, attribute: .centerX, relatedBy: .equal, toItem: tableView.backgroundView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+        messageLabel.numberOfLines = 0
         messageLabel.textColor = .white
         messageLabel.textAlignment = .center
         messageLabel.text = message

@@ -36,13 +36,13 @@ class LeaderboardPresenter {
         let input = LeaderboardInput(stat: leaderboardRegion.stat(), limit: 20, page: page)
         service.fetchLeaderboard(input: input) { [weak self] result in
             guard let `self` = self else { return }
-            var playerList: [CellComponent] = []
             if case(.success(let players)) = result {
-                playerList = self.playersToCellComponents(players)
+                let playerList = self.playersToCellComponents(players)
+                let section = SectionComponent(header: nil, cells: playerList)
+                self.view?.setSections([section], isLoadMore: true)
             }
-            let section = SectionComponent(header: nil, cells: playerList)
-            self.view?.setSections([section], isLoadMore: true)
             self.view?.stopLoading()
+            self.view?.setEmptyMessageIfNeeded("Server in maintenance!\n\nSorry :(")
             self.view?.reloadTableView()
         }
         page += 20

@@ -17,7 +17,8 @@ struct Server {
     
     private static var baseUrl: String { return "https://r6db.com/" }
     
-    static var headers: [String: String] { return ["X-App-Id": "5e23d930-edd3-4240-b9a9-723c673fb649"] }
+    static var headers: [String: String] { return ["X-App-Id": "b0815d12-ce26-462f-85ec-b866f24db0f0",
+                                                   "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"] }
     static var leaderboardUrl: String { return "\(baseUrl)api/v2/leaderboards" }
     static var searchUrl: String { return "\(baseUrl)api/v2/players" }
     static func playerByIdUrl(_ id: String) -> String {
