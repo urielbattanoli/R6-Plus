@@ -85,7 +85,7 @@ class OponentComparisonPresenter: SearchPresenter {
             switch type {
             case .purchased, .restored:
                 R6UserDefaults.shared.premiumAccount = true
-            case .disabled:
+            case .disabled, .failure:
                 R6UserDefaults.shared.premiumAccount = false
             }
             let alert = UIAlertController(title: type.message(),

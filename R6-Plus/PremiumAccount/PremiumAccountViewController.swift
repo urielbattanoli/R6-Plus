@@ -56,9 +56,11 @@ class PremiumAccountViewController: UIViewController {
         IAPHelper.shared.fetchAvailableProducts()
         IAPHelper.shared.purchaseStatusBlock = { [weak self] type in
             switch type {
-            case .purchased, .restored:
+            case .purchased:
                 R6UserDefaults.shared.premiumAccount = true
-            case .disabled:
+            case .restored(let success):
+                R6UserDefaults.shared.premiumAccount = success
+            case .disabled, .failure:
                 R6UserDefaults.shared.premiumAccount = false
             }
             let alert = UIAlertController(title: type.message(),

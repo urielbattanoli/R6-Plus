@@ -11,14 +11,16 @@ import StoreKit
 
 enum IAPHandlerAlertType {
     case disabled
-    case restored
+    case restored(success: Bool)
     case purchased
+    case failure(error: Error?)
     
     func message() -> String {
         switch self {
         case .disabled: return "Purchases are disabled in your device!"
-        case .restored: return "You've successfully restored your purchase!"
-        case .purchased: return "You've successfully bought this purchase!"
+        case .restored(let success): return success ?  "You've successfully restored your purchase!" : "You can't restore a purchase you haven't made"
+        case .purchased: return"You've successfully bought this purchase!"
+        case .failure(let error): return error?.localizedDescription ?? "Something went wrong! Try again "
         }
     }
 }
@@ -72,7 +74,8 @@ extension IAPHelper: SKProductsRequestDelegate {
 extension IAPHelper: SKPaymentTransactionObserver {
     
     func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
-        purchaseStatusBlock?(.restored)
+        let transactionId = queue.transactions.first?.original?.payment.productIdentifier ?? ""
+        purchaseStatusBlock?(.restored(success: transactionId == PREMIUM_ACCOUNT_PRODUCT_ID))
     }
     
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
@@ -81,8 +84,12 @@ extension IAPHelper: SKPaymentTransactionObserver {
             case .purchased:
                 SKPaymentQueue.default().finishTransaction(transaction)
                 purchaseStatusBlock?(.purchased)
-            case .failed, .restored:
+            case .restored:
                 SKPaymentQueue.default().finishTransaction(transaction)
+                purchaseStatusBlock?(.restored(success: true))
+            case .failed:
+                SKPaymentQueue.default().finishTransaction(transaction)
+                purchaseStatusBlock?(.failure(error: transaction.error))
             default: break
             }
         }
