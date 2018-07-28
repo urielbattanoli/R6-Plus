@@ -14,6 +14,7 @@ class TabBarController: UITabBarController {
         super.awakeFromNib()
         
         setupTabBar()
+        verifyPremiumAccount()
     }
     
     private func setupTabBar() {
@@ -33,5 +34,12 @@ class TabBarController: UITabBarController {
         premiumVC.title = "Premium"
         // To avoid force unwrap on leaderboard instantiateInitialViewController
         viewControllers = [leaderboard, navigation, premiumVC].compactMap { $0 }
+    }
+    
+    private func verifyPremiumAccount() {
+        if R6UserDefaults.shared.premiumAccount && !R6UserDefaults.shared.premiumAccountVerified {
+            R6UserDefaults.shared.premiumAccountVerified = true
+            IAPHelper.shared.restorePurchase()
+        }
     }
 }
