@@ -174,12 +174,15 @@ struct PlayerDetail: Codable {
             return Double(won) / Double(played) * 100
         }
         var kdRatio: Double {
+            guard deaths != 0 else { return 0 }
             return Double(kills) / Double(deaths)
         }
         var aim: Double {
+            guard bulletsFired != 0 else { return 0 }
             return Double(bulletsHit) / Double(bulletsFired) * 100
         }
         var hsRate: Double {
+            guard bulletsHit != 0 else { return 0 }
             return Double(headshot) / Double(bulletsHit) * 100
         }
     }

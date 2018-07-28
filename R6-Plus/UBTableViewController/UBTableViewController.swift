@@ -177,4 +177,8 @@ extension UBTableViewController: UBTableView {
         messageLabel.textAlignment = .center
         messageLabel.text = message
     }
+    
+    func printScreen() -> UIImage {
+        return tableView.screenshot()
+    }
 }

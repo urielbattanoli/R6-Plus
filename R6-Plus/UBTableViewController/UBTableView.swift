@@ -6,7 +6,7 @@
 //  Copyright © 2018 Mocka. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol UBTableView: class {
     
@@ -16,5 +16,6 @@ protocol UBTableView: class {
     func reloadTableView()
     func setSections(_ sections: [SectionComponent], isLoadMore: Bool)
     func addRefreshControl()
-    func setEmptyMessageIfNeeded(_ message: String) 
+    func setEmptyMessageIfNeeded(_ message: String)
+    func printScreen() -> UIImage
 }

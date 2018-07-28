@@ -29,6 +29,7 @@ class PlayerComparisonPresenter {
         view?.startLoading()
         guard let rightPlayerId = rightPlayerId else { return }
         fetchPlayerDetailIfNeeded(id: rightPlayerId)
+        addShareInfo()
     }
     
     func fetchPlayerDetailIfNeeded(id: String) {
@@ -52,6 +53,20 @@ class PlayerComparisonPresenter {
                 generateTimePlayed(leftPlayer: leftPlayer, rightPlayer: rightPlayer),
                 generateFightingStats(leftPlayer: leftPlayer, rightPlayer: rightPlayer),
                 generateRankedStats(leftPlayer: leftPlayer, rightPlayer: rightPlayer)]
+    }
+    
+    private func addShareInfo() {
+        guard let viewController = view as? UIViewController else { return }
+        let button = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareButtonTouched))
+        viewController.navigationItem.rightBarButtonItem = button
+    }
+    
+    @objc private func shareButtonTouched() {
+        guard let image = view?.printScreen(),
+            let viewController = view as? UIViewController else { return }
+        
+        let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        viewController.present(activityViewController, animated: true)
     }
 }
 
