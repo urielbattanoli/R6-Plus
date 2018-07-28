@@ -18,6 +18,7 @@ class PlayerDetailPresenter: NSObject {
     init(playerDetail: PlayerDetail?, service: PlayerDetailService) {
         self.playerDetail = playerDetail
         self.service = service
+        AnalitycsHelper.DetailOpened.logEvent()
     }
     
     func attachView(_ view: PlayerDetailView) {
@@ -25,6 +26,7 @@ class PlayerDetailPresenter: NSObject {
     }
     
     func favoriteTouched() {
+        AnalitycsHelper.FavoritedTouched.logEvent()
         guard let playerDetail = playerDetail else { return }
         if playerDetail.isFavorite {
             unsetAsFavorite(player: playerDetail)
@@ -91,6 +93,7 @@ class PlayerDetailPresenter: NSObject {
     }
     
     private func openComparison() {
+        AnalitycsHelper.DetailComparisonTouched.logEvent()
         guard let playerDetail = playerDetail else { return }
         let presenter = OponentComparisonPresenter(service: SearchService(), playerDetail: playerDetail)
         let searchVC = SearchViewController(presenter: presenter)

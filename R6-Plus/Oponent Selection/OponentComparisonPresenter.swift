@@ -63,32 +63,31 @@ class OponentComparisonPresenter: SearchPresenter {
                                       message: "Upgrade your account to premium and make as many comparisons as you want! Also, remove all ads.",
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Buy", style: .default) { action in
+            AnalitycsHelper.ComparisonBuyPremiumTouched.logEvent()
             IAPHelper.shared.purchaseMyProduct(index: 0)
         })
         alert.addAction(UIAlertAction(title: "Restore", style: .default) { action in
+            AnalitycsHelper.ComparisonRestorePremiumTouched.logEvent()
             IAPHelper.shared.restorePurchase()
         })
         alert.addAction(UIAlertAction(title: "Free Comparison [Video Ads]", style: .default) { [weak self] action in
+            AnalitycsHelper.ComparisonWatchVideoTouched.logEvent()
             guard let viewController = self?.view as? UIViewController else { return }
             GADRewardBasedVideoAd.sharedInstance().delegate = self
             if GADRewardBasedVideoAd.sharedInstance().isReady == true {
                 GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: viewController)
             }
         })
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { action in
+            AnalitycsHelper.ComparisonBuyCanceled.logEvent()
+        })
         (view as? UIViewController)?.present(alert, animated: true)
     }
     
     private func configureIAP() {
         IAPHelper.shared.fetchAvailableProducts()
-        IAPHelper.shared.purchaseStatusBlock = { [weak self] type in
-            switch type {
-            case .purchased, .restored:
-                R6UserDefaults.shared.premiumAccount = true
-            case .disabled, .failure:
-                R6UserDefaults.shared.premiumAccount = false
-            }
-            let alert = UIAlertController(title: type.message(),
+        IAPHelper.shared.purchaseStatusBlock = { [weak self] message in
+            let alert = UIAlertController(title: message,
                                           message: nil,
                                           preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
@@ -97,6 +96,7 @@ class OponentComparisonPresenter: SearchPresenter {
     }
     
     private func comparisonTouched() {
+        AnalitycsHelper.ComparisonTouched.logEvent()
         guard videoWatched || canMakeComparison() else {
             offerPremiumAccount()
             return
@@ -142,6 +142,7 @@ private extension PlayerDetail {
 // MARK: - GADRewardBasedVideoAdDelegate
 extension OponentComparisonPresenter: GADRewardBasedVideoAdDelegate {
     func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didRewardUserWith reward: GADAdReward) {
+        AnalitycsHelper.ComparisonVideoFullyWatched.logEvent()
         videoWatched = true
     }
     

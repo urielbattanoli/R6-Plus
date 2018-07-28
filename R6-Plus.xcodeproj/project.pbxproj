@@ -33,6 +33,8 @@
 		A43D13B3209014AF0067580D /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D13B2209014AF0067580D /* UIImageViewExtension.swift */; };
 		A43E915A20CB269700440D39 /* ComparisonInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43E915820CB269700440D39 /* ComparisonInfoTableViewCell.swift */; };
 		A43E915B20CB269700440D39 /* ComparisonInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43E915920CB269700440D39 /* ComparisonInfoTableViewCell.xib */; };
+		A448079B210C3B2C00EEF36D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A448079A210C3B2C00EEF36D /* GoogleService-Info.plist */; };
+		A448079D210C3C3400EEF36D /* AnalitycsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A448079C210C3C3400EEF36D /* AnalitycsHelper.swift */; };
 		A4505F6A208238EF00C841DE /* LeaderboardPlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F68208238EF00C841DE /* LeaderboardPlayerTableViewCell.swift */; };
 		A4505F6B208238EF00C841DE /* LeaderboardPlayerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4505F69208238EF00C841DE /* LeaderboardPlayerTableViewCell.xib */; };
 		A4505F6D2082393F00C841DE /* LeaderboardPlayerCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F6C2082393F00C841DE /* LeaderboardPlayerCellData.swift */; };
@@ -136,6 +138,8 @@
 		A43D13B2209014AF0067580D /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		A43E915820CB269700440D39 /* ComparisonInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonInfoTableViewCell.swift; sourceTree = "<group>"; };
 		A43E915920CB269700440D39 /* ComparisonInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComparisonInfoTableViewCell.xib; sourceTree = "<group>"; };
+		A448079A210C3B2C00EEF36D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A448079C210C3C3400EEF36D /* AnalitycsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalitycsHelper.swift; sourceTree = "<group>"; };
 		A4505F68208238EF00C841DE /* LeaderboardPlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardPlayerTableViewCell.swift; sourceTree = "<group>"; };
 		A4505F69208238EF00C841DE /* LeaderboardPlayerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaderboardPlayerTableViewCell.xib; sourceTree = "<group>"; };
 		A4505F6C2082393F00C841DE /* LeaderboardPlayerCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardPlayerCellData.swift; sourceTree = "<group>"; };
@@ -263,6 +267,7 @@
 				A419952E2081644C0039A6D4 /* AppDelegate.swift */,
 				A4199535208164500039A6D4 /* Assets.xcassets */,
 				A419953A208164500039A6D4 /* Info.plist */,
+				A448079A210C3B2C00EEF36D /* GoogleService-Info.plist */,
 				A4199537208164500039A6D4 /* LaunchScreen.storyboard */,
 				A41995322081644C0039A6D4 /* Main.storyboard */,
 				A41995302081644C0039A6D4 /* TabBarController.swift */,
@@ -442,6 +447,7 @@
 		A4A0A664208ED95900CE46FA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				A448079C210C3C3400EEF36D /* AnalitycsHelper.swift */,
 				A43BFACA209F6D6D004C00CB /* CellComponent.swift */,
 				A4288C65208EDE72005C75BE /* CodableExtension.swift */,
 				A478D1C62100340B00606F3F /* DateExtension.swift */,
@@ -658,6 +664,7 @@
 				A4BBADB6209D0FD700425AEC /* PlayerDetailViewController.xib in Resources */,
 				A43832ED20AE622100B55F7C /* PlayerTableViewCell.xib in Resources */,
 				A497F54020A784B100D26A23 /* OperatorCollectionViewCell.xib in Resources */,
+				A448079B210C3B2C00EEF36D /* GoogleService-Info.plist in Resources */,
 				A497F52E20A6A57A00D26A23 /* SeasonCollectionViewCell.xib in Resources */,
 				A497F54520A8B3AC00D26A23 /* OperatorDetailViewController.xib in Resources */,
 				A4DA9BEA20A1467F00EF830F /* InformationTableViewCell.xib in Resources */,
@@ -684,12 +691,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-R6-Plus/Pods-R6-Plus-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -722,6 +733,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4E9167520CDAD65001C291B /* ComparisonHeaderTableViewCell.swift in Sources */,
+				A448079D210C3C3400EEF36D /* AnalitycsHelper.swift in Sources */,
 				A491AA9020BB7A4F0072B169 /* UISearchControllerExtension.swift in Sources */,
 				A497F53F20A784B100D26A23 /* OperatorCollectionViewCell.swift in Sources */,
 				A4FAE56B20A2224600E9E877 /* GradientView.swift in Sources */,

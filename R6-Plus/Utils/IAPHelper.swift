@@ -33,7 +33,7 @@ class IAPHelper: NSObject {
     private var iapProducts = [SKProduct]()
     private var canMakePurchases: Bool { return SKPaymentQueue.canMakePayments() }
     
-    var purchaseStatusBlock: ((IAPHandlerAlertType) -> Void)?
+    var purchaseStatusBlock: ((String) -> Void)?
     
     func purchaseMyProduct(index: Int) {
         guard iapProducts.count > index else { return }
@@ -44,7 +44,10 @@ class IAPHelper: NSObject {
             SKPaymentQueue.default().add(self)
             SKPaymentQueue.default().add(payment)
         } else {
-            purchaseStatusBlock?(.disabled)
+            let type: IAPHandlerAlertType = .disabled
+            R6UserDefaults.shared.premiumAccount = false
+            AnalitycsHelper.PremiumBuyDisabled.logEvent()
+            purchaseStatusBlock?(type.message())
         }
     }
     
@@ -75,7 +78,15 @@ extension IAPHelper: SKPaymentTransactionObserver {
     
     func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
         let transactionId = queue.transactions.first?.original?.payment.productIdentifier ?? ""
-        purchaseStatusBlock?(.restored(success: transactionId == PREMIUM_ACCOUNT_PRODUCT_ID))
+        let productAlreadyBought = transactionId == PREMIUM_ACCOUNT_PRODUCT_ID
+        if productAlreadyBought {
+            AnalitycsHelper.PremiumRestored.logEvent()
+        } else {
+            AnalitycsHelper.PremiumRestoredFailed.logEvent()
+        }
+        let type: IAPHandlerAlertType = .restored(success: productAlreadyBought)
+        R6UserDefaults.shared.premiumAccount = productAlreadyBought
+        purchaseStatusBlock?(type.message())
     }
     
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
@@ -83,13 +94,22 @@ extension IAPHelper: SKPaymentTransactionObserver {
             switch transaction.transactionState {
             case .purchased:
                 SKPaymentQueue.default().finishTransaction(transaction)
-                purchaseStatusBlock?(.purchased)
+                let type: IAPHandlerAlertType = .purchased
+                R6UserDefaults.shared.premiumAccount = true
+                AnalitycsHelper.PremiumBuyed.logEvent()
+                purchaseStatusBlock?(type.message())
             case .restored:
                 SKPaymentQueue.default().finishTransaction(transaction)
-                purchaseStatusBlock?(.restored(success: true))
+                let type: IAPHandlerAlertType = .restored(success: true)
+                R6UserDefaults.shared.premiumAccount = true
+                AnalitycsHelper.PremiumRestored.logEvent()
+                purchaseStatusBlock?(type.message())
             case .failed:
                 SKPaymentQueue.default().finishTransaction(transaction)
-                purchaseStatusBlock?(.failure(error: transaction.error))
+                let type: IAPHandlerAlertType = .failure(error: transaction.error)
+                R6UserDefaults.shared.premiumAccount = false
+                AnalitycsHelper.PremiumBuyFailed.logEvent()
+                purchaseStatusBlock?(type.message())
             default: break
             }
         }

@@ -29,6 +29,7 @@ class PremiumAccountViewController: UIViewController {
                                                selector: #selector(changePremiumStatus),
                                                name: .didBuyPremiumAccount,
                                                object: nil)
+        AnalitycsHelper.PremiumOpened.logEvent()
     }
     
     @objc private func changePremiumStatus() {
@@ -43,27 +44,23 @@ class PremiumAccountViewController: UIViewController {
                                       message: nil,
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Buy", style: .default) { action in
+            AnalitycsHelper.PremiumAlertBuyTouched.logEvent()
             IAPHelper.shared.purchaseMyProduct(index: 0)
         })
         alert.addAction(UIAlertAction(title: "Restore", style: .default) { action in
+            AnalitycsHelper.PremiumRestoreTouched.logEvent()
             IAPHelper.shared.restorePurchase()
         })
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { action in
+            AnalitycsHelper.PremiumBuyCanceled.logEvent()
+        })
         present(alert, animated: true)
     }
     
     private func configureIAP() {
         IAPHelper.shared.fetchAvailableProducts()
-        IAPHelper.shared.purchaseStatusBlock = { [weak self] type in
-            switch type {
-            case .purchased:
-                R6UserDefaults.shared.premiumAccount = true
-            case .restored(let success):
-                R6UserDefaults.shared.premiumAccount = success
-            case .disabled, .failure:
-                R6UserDefaults.shared.premiumAccount = false
-            }
-            let alert = UIAlertController(title: type.message(),
+        IAPHelper.shared.purchaseStatusBlock = { [weak self] message in
+            let alert = UIAlertController(title: message,
                                           message: nil,
                                           preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
@@ -72,6 +69,7 @@ class PremiumAccountViewController: UIViewController {
     }
     
     @IBAction private func didTouchBuyButton(_ sender: UIButton) {
+        AnalitycsHelper.PremiumBuyTouched.logEvent()
         configureIAP()
         offerPremiumAccount()
     }

@@ -38,11 +38,11 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lG-84-rdw">
-                        <rect key="frame" x="366" y="195.5" width="44" height="44"/>
+                        <rect key="frame" x="360" y="199.5" width="50" height="50"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="44" id="3Xh-uh-IgW"/>
-                            <constraint firstAttribute="width" constant="44" id="dfb-xV-wQB"/>
+                            <constraint firstAttribute="height" constant="50" id="3Xh-uh-IgW"/>
+                            <constraint firstAttribute="width" constant="50" id="dfb-xV-wQB"/>
                         </constraints>
                         <state key="normal" image="comparison"/>
                         <connections>
@@ -54,7 +54,7 @@
                     <constraint firstAttribute="trailing" secondItem="aHd-Ed-wLY" secondAttribute="trailing" id="4jQ-iy-cgz"/>
                     <constraint firstAttribute="bottom" secondItem="aHd-Ed-wLY" secondAttribute="bottom" constant="40" id="4yi-xI-TW2"/>
                     <constraint firstAttribute="trailing" secondItem="1lG-84-rdw" secondAttribute="trailing" constant="20" id="TlJ-xm-8tp"/>
-                    <constraint firstAttribute="bottom" secondItem="1lG-84-rdw" secondAttribute="bottom" constant="20" id="Y7G-SH-seY"/>
+                    <constraint firstAttribute="bottom" secondItem="1lG-84-rdw" secondAttribute="bottom" constant="10" id="Y7G-SH-seY"/>
                     <constraint firstItem="aHd-Ed-wLY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="hQx-id-ral"/>
                     <constraint firstItem="aHd-Ed-wLY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="lHz-8v-heV"/>
                 </constraints>

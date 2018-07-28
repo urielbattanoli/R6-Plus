@@ -21,6 +21,7 @@ class PlayerComparisonPresenter {
     init(leftPlayer: PlayerDetail?, rightPlayerId: String?) {
         self.leftPlayer = leftPlayer
         self.rightPlayerId = rightPlayerId
+        AnalitycsHelper.ComparisonDone.logEvent()
     }
     
     private func setupComparison() {

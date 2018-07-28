@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMobileAds
+import Firebase
 
 let ADS_APP_ID = "ca-app-pub-3291479380654020~6866270802"
 //let ADS_BANNER_ID = "ca-app-pub-3291479380654020/4653210435"
@@ -22,14 +23,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     internal var shouldRotate = false
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        ReviewHelper.incrementAppOpenedCount()
+        FirebaseApp.configure()
         GADMobileAds.configure(withApplicationID: ADS_APP_ID)
         GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
                                                     withAdUnitID: ADS_VIDEO_ID)
+        ReviewHelper.incrementAppOpenedCount()
+        AnalitycsHelper.AppOpened.logEvent(obs: "\(R6UserDefaults.shared.openCount)")
+        
         return true
     }
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         return shouldRotate ? .allButUpsideDown : .portrait
+    }
+    
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+        AnalitycsHelper.AppClosed.logEvent()
     }
 }

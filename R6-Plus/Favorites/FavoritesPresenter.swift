@@ -18,6 +18,7 @@ class FavoritesPresenter {
         view?.addRefreshControl()
         view?.startLoading()
         fetchFavorites()
+        AnalitycsHelper.FavoriteOpened.logEvent()
     }
     
     private func goToPlayerDetail(_ player: PlayerDetail) {

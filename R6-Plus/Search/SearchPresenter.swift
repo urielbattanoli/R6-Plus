@@ -23,6 +23,7 @@ class SearchPresenter: NSObject {
     
     init(service: SearchService) {
         self.service = service
+        AnalitycsHelper.SearchOpened.logEvent()
     }
     
     private func setupSearch() {
@@ -56,6 +57,7 @@ class SearchPresenter: NSObject {
         guard let input = lastInput else { return }
         lastRequest?.cancel()
         lastRequest = service.fetchSearch(input: input) { [weak self] result in
+            AnalitycsHelper.SearchDone.logEvent()
             guard let `self` = self else { return }
             var playerList: [CellComponent] = []
             if case(.success(let players)) = result {
