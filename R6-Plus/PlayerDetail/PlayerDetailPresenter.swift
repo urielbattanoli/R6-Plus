@@ -34,8 +34,11 @@ class PlayerDetailPresenter: NSObject {
     }
     
     private func setAsFavorite(player: PlayerDetail) {
-        guard let playerDict = try? player.toDictionary() else { return }
-        R6UserDefaults.shared.favorites.append(playerDict)
+        guard var playerDict = try? player.toDictionary() else { return }
+        let date = Date().nextDay()?.nextDay() ?? Date()
+        let dateString = Utils.defaultDateFormatter.string(from: date)
+        playerDict["lastUpdated"] = dateString
+        R6UserDefaults.shared.favorites.insert(playerDict, at: 0)
     }
     
     private func unsetAsFavorite(player: PlayerDetail) {
@@ -44,13 +47,20 @@ class PlayerDetailPresenter: NSObject {
     }
     
     func fetchPlayerDetailIfNeeded(id: String) {
-        if let playerDetail = playerDetail {
+        if let playerDetail = playerDetail,
+            let lastUpdated = playerDetail.lastUpdated,
+            let date = Utils.defaultDateFormatter.date(from: lastUpdated),
+            Date() < date {
             view?.setPlayerDetail(data: playerDetailToData(playerDetail))
             return
         }
         service.fetchPlayerDetail(id: id) { [weak self] result in
             guard let `self` = self else { return }
             if case .success(let playerDetail) = result {
+                if playerDetail.isFavorite {
+                    self.unsetAsFavorite(player: playerDetail)
+                    self.setAsFavorite(player: playerDetail)
+                }
                 self.playerDetail = playerDetail
                 self.view?.setPlayerDetail(data: self.playerDetailToData(playerDetail))
             }

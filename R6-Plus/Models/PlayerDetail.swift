@@ -20,6 +20,7 @@ struct PlayerDetail: Codable {
     let seasonRanks: [SeasonRank]
     let stats: Stats
     let created_at: String
+    let lastUpdated: String?
     
     var isFavorite: Bool {
         return R6UserDefaults.shared.favorites.filter { ($0["id"] as? String ?? "") == id }.count > 0
