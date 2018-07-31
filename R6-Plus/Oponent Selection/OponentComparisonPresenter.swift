@@ -29,7 +29,9 @@ class OponentComparisonPresenter: SearchPresenter {
         }
     }
     
-    override func initialState() {
+    override func setupSearch() {
+        super.setupSearch()
+        
         showFavoritePlayers()
     }
     

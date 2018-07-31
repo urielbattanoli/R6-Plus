@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		53A25CF384C62B70A75CDAB5 /* Pods_R6_Plus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50472A15BCE2BB04C6336464 /* Pods_R6_Plus.framework */; };
+		A402D11D210FF304004BC20D /* ProGamesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402D11C210FF304004BC20D /* ProGamesPresenter.swift */; };
+		A402D11F210FF414004BC20D /* ProGamesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402D11E210FF414004BC20D /* ProGamesService.swift */; };
+		A402D121210FF4BA004BC20D /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402D120210FF4BA004BC20D /* Match.swift */; };
+		A402D125210FFA2A004BC20D /* MatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402D123210FFA2A004BC20D /* MatchTableViewCell.swift */; };
+		A402D126210FFA2A004BC20D /* MatchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A402D124210FFA2A004BC20D /* MatchTableViewCell.xib */; };
+		A402D128210FFE67004BC20D /* MatchCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402D127210FFE67004BC20D /* MatchCellData.swift */; };
 		A40AC5C4210B5A290058CAC0 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40AC5C3210B5A290058CAC0 /* UITableViewExtension.swift */; };
 		A419952F2081644C0039A6D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A419952E2081644C0039A6D4 /* AppDelegate.swift */; };
 		A41995312081644C0039A6D4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41995302081644C0039A6D4 /* TabBarController.swift */; };
@@ -111,6 +117,12 @@
 		2A4A898900901F59E77A1E85 /* Pods-R6-Plus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-R6-Plus.release.xcconfig"; path = "Pods/Target Support Files/Pods-R6-Plus/Pods-R6-Plus.release.xcconfig"; sourceTree = "<group>"; };
 		2FAE278EE515063186D11EE8 /* Pods-R6-Plus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-R6-Plus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-R6-Plus/Pods-R6-Plus.debug.xcconfig"; sourceTree = "<group>"; };
 		50472A15BCE2BB04C6336464 /* Pods_R6_Plus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_R6_Plus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A402D11C210FF304004BC20D /* ProGamesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProGamesPresenter.swift; sourceTree = "<group>"; };
+		A402D11E210FF414004BC20D /* ProGamesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProGamesService.swift; sourceTree = "<group>"; };
+		A402D120210FF4BA004BC20D /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
+		A402D123210FFA2A004BC20D /* MatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTableViewCell.swift; sourceTree = "<group>"; };
+		A402D124210FFA2A004BC20D /* MatchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchTableViewCell.xib; sourceTree = "<group>"; };
+		A402D127210FFE67004BC20D /* MatchCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCellData.swift; sourceTree = "<group>"; };
 		A40AC5C3210B5A290058CAC0 /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		A419952B2081644C0039A6D4 /* R6-Plus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "R6-Plus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A419952E2081644C0039A6D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -243,6 +255,26 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A402D11B210FF282004BC20D /* ProGames */ = {
+			isa = PBXGroup;
+			children = (
+				A402D122210FFA0F004BC20D /* MatchTableViewCell */,
+				A402D11C210FF304004BC20D /* ProGamesPresenter.swift */,
+				A402D11E210FF414004BC20D /* ProGamesService.swift */,
+			);
+			path = ProGames;
+			sourceTree = "<group>";
+		};
+		A402D122210FFA0F004BC20D /* MatchTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A402D123210FFA2A004BC20D /* MatchTableViewCell.swift */,
+				A402D124210FFA2A004BC20D /* MatchTableViewCell.xib */,
+				A402D127210FFE67004BC20D /* MatchCellData.swift */,
+			);
+			path = MatchTableViewCell;
+			sourceTree = "<group>";
+		};
 		A41995222081644B0039A6D4 = {
 			isa = PBXGroup;
 			children = (
@@ -281,6 +313,7 @@
 				A43E915620CB261000440D39 /* PlayerComparison */,
 				A4E05878209BECD000BF2231 /* PlayerDetail */,
 				A478D1CA2101661B00606F3F /* PremiumAccount */,
+				A402D11B210FF282004BC20D /* ProGames */,
 				A41AA4D420B24BB200E1D37D /* Search */,
 				A46BA1B2208962A5003274F7 /* Server */,
 				A4A0A664208ED95900CE46FA /* Utils */,
@@ -380,11 +413,12 @@
 			isa = PBXGroup;
 			children = (
 				A423CDB9209BC85400528E03 /* LeaderboardRegion.swift */,
+				A402D120210FF4BA004BC20D /* Match.swift */,
 				A4DA9BE320A1244400EF830F /* OperatorType.swift */,
 				A4505F81208308E300C841DE /* Player.swift */,
 				A4BBADBD209D12FF00425AEC /* PlayerDetail.swift */,
-				A492C03420BB2F2C005051E4 /* SearchedPlayer.swift */,
 				A4DA9BE520A12EE100EF830F /* Ranking.swift */,
+				A492C03420BB2F2C005051E4 /* SearchedPlayer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -677,6 +711,7 @@
 				A4199539208164500039A6D4 /* LaunchScreen.storyboard in Resources */,
 				A4199536208164500039A6D4 /* Assets.xcassets in Resources */,
 				A41995342081644C0039A6D4 /* Main.storyboard in Resources */,
+				A402D126210FFA2A004BC20D /* MatchTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -732,13 +767,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A402D125210FFA2A004BC20D /* MatchTableViewCell.swift in Sources */,
 				A4E9167520CDAD65001C291B /* ComparisonHeaderTableViewCell.swift in Sources */,
 				A448079D210C3C3400EEF36D /* AnalitycsHelper.swift in Sources */,
 				A491AA9020BB7A4F0072B169 /* UISearchControllerExtension.swift in Sources */,
 				A497F53F20A784B100D26A23 /* OperatorCollectionViewCell.swift in Sources */,
 				A4FAE56B20A2224600E9E877 /* GradientView.swift in Sources */,
 				A497F53020A6A98900D26A23 /* SeasonCellData.swift in Sources */,
+				A402D11F210FF414004BC20D /* ProGamesService.swift in Sources */,
 				A497F52D20A6A57A00D26A23 /* SeasonCollectionViewCell.swift in Sources */,
+				A402D128210FFE67004BC20D /* MatchCellData.swift in Sources */,
 				A4288C66208EDE72005C75BE /* CodableExtension.swift in Sources */,
 				A492C02B20B9B4C0005051E4 /* SearchPresenter.swift in Sources */,
 				A46BA1B4208962B9003274F7 /* Server.swift in Sources */,
@@ -780,11 +818,13 @@
 				A4DA9BCB209FCCBC00EF830F /* ProfileHeaderTableViewCell.swift in Sources */,
 				A4505F7920823B1700C841DE /* LeaderboardService.swift in Sources */,
 				A423CDBA209BC85400528E03 /* LeaderboardRegion.swift in Sources */,
+				A402D11D210FF304004BC20D /* ProGamesPresenter.swift in Sources */,
 				A43832F820AE796800B55F7C /* FavoritesPresenter.swift in Sources */,
 				A43D13B3209014AF0067580D /* UIImageViewExtension.swift in Sources */,
 				A47E3AF920B66C5E001B4C10 /* UBTableViewPresenter.swift in Sources */,
 				A4BBADB8209D0FE400425AEC /* PlayerDetailPresenter.swift in Sources */,
 				A40AC5C4210B5A290058CAC0 /* UITableViewExtension.swift in Sources */,
+				A402D121210FF4BA004BC20D /* Match.swift in Sources */,
 				A491AA8E20BB79F70072B169 /* UINavigationControllerExtension.swift in Sources */,
 				A41995312081644C0039A6D4 /* TabBarController.swift in Sources */,
 				A4E9167820CDB84D001C291B /* ComparisonHeaderViewData.swift in Sources */,

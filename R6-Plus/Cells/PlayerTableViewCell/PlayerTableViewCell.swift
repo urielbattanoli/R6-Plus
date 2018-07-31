@@ -11,14 +11,11 @@ import UIKit
 class PlayerTableViewCell: NibRegistrableTableViewCell {
 
     // MARK: - IBOutlet
+    @IBOutlet private weak var cellBackgroundView: UIView!
     @IBOutlet private weak var profileImageView: UIImageView!
     @IBOutlet private weak var profileNameLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var rankingImageView: UIImageView!
-    
-    // MARK: - Functions
-    func fillData(_ data: PlayerCellData) {
-    }
 }
 
 // MARK: - DynamicCellComponent

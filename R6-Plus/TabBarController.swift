@@ -21,21 +21,26 @@ class TabBarController: UITabBarController {
     }
     
     private func setupTabBar() {
+        let proGames = UBTableViewController(presenter: ProGamesPresenter())
+        proGames.tabBarItem = UITabBarItem(title: "Pro Games", image: #imageLiteral(resourceName: "trophy-outline"), selectedImage: #imageLiteral(resourceName: "trophy"))
+        proGames.title = "Pro Games"
+        let proGamesNavigation = UINavigationController(rootViewController: proGames)
+        proGamesNavigation.defaultConfiguration()
+        
         let storyboard = UIStoryboard(name: "Leaderboard", bundle: nil)
         let leaderboard = storyboard.instantiateInitialViewController()
         leaderboard?.tabBarItem = UITabBarItem(title: "Leaderboard", image: #imageLiteral(resourceName: "unlist"), selectedImage: #imageLiteral(resourceName: "list"))
         
-        let presenter = FavoritesPresenter()
-        let favorites = UBTableViewController(presenter: presenter)
+        let favorites = UBTableViewController(presenter: FavoritesPresenter())
         favorites.tabBarItem = UITabBarItem(title: "Favorites", image: #imageLiteral(resourceName: "unfavorited"), selectedImage: #imageLiteral(resourceName: "favorited"))
         favorites.title = "Favorites"
-        let navigation = UINavigationController(rootViewController: favorites)
-        navigation.defaultConfiguration()
+        let favoritesNavigation = UINavigationController(rootViewController: favorites)
+        favoritesNavigation.defaultConfiguration()
         
         let premiumVC = PremiumAccountViewController()
         premiumVC.tabBarItem = UITabBarItem(title: "Premium", image: #imageLiteral(resourceName: "account"), selectedImage: #imageLiteral(resourceName: "filled_account"))
         premiumVC.title = "Premium"
         // To avoid force unwrap on leaderboard instantiateInitialViewController
-        viewControllers = [leaderboard, navigation, premiumVC].compactMap { $0 }
+        viewControllers = [proGamesNavigation, leaderboard, favoritesNavigation, premiumVC].compactMap { $0 }
     }
 }

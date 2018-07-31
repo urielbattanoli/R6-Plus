@@ -24,6 +24,12 @@ struct Utils {
         return dateFormatter
     }()
     
+    static let matchDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM\nhh:mm"
+        return dateFormatter
+    }()
+
     static let attackersOperators: [String] = {
         return ["Ash",
                 "Blitz",

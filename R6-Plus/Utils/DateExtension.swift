@@ -18,4 +18,9 @@ extension Date {
         let caledar = Utils.defaultDateFormatter.calendar
         return caledar?.date(byAdding: .day, value: 1, to: self)
     }
+    
+    func toMatchTime() -> String {
+        let text = Utils.matchDateFormatter.string(from: self)
+        return text.replacingOccurrences(of: ":", with: "h")
+    }
 }

@@ -26,13 +26,10 @@ class SearchPresenter: NSObject {
         AnalitycsHelper.SearchOpened.logEvent()
     }
     
-    private func setupSearch() {
+    func setupSearch() {
         view?.registerCells([PlayerTableViewCell.self])
         view?.stopLoading()
-        initialState()
     }
-    
-    func initialState() {}
     
     private func scheduleSearch(input: SearchInput) {
         view?.startLoading()

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -75,7 +75,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.11056341862988006" green="0.23736103197702946" blue="0.33810546875000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.19607843137254902" green="0.23529411764705882" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wLk-gj-mAG" firstAttribute="leading" secondItem="h9k-Yb-Pid" secondAttribute="leading" id="33h-p3-59S"/>
                             <constraint firstItem="wLk-gj-mAG" firstAttribute="top" secondItem="h9k-Yb-Pid" secondAttribute="top" id="J0o-oO-zcV"/>
@@ -95,6 +95,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="cellBackgroundView" destination="h9k-Yb-Pid" id="WN0-pa-Xau"/>
                 <outlet property="descriptionLabel" destination="vDs-0g-VfD" id="mp5-fS-hGN"/>
                 <outlet property="profileImageView" destination="4dh-KU-saa" id="p7v-mN-IxM"/>
                 <outlet property="profileNameLabel" destination="lx1-4f-9bb" id="GIz-jK-T9e"/>
