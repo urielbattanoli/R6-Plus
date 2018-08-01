@@ -18,7 +18,6 @@ class MainLeaderboardViewController: UIViewController {
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
-        ReviewHelper.askForReviewIfNeeded()
         menuHeader.items = [LeaderboardRegion.global.menuName(),
                             LeaderboardRegion.apac.menuName(),
                             LeaderboardRegion.emea.menuName(),
