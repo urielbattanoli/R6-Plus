@@ -54,5 +54,6 @@ extension MatchTableViewCell: DynamicCellComponent {
         if data.isLive {
             startAnimating()
         }
+        liveView.isHidden = !data.isLive
     }
 }

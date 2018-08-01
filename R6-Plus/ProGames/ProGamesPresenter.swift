@@ -12,6 +12,7 @@ class ProGamesPresenter {
     
     private weak var view: UBTableView?
     private var service = ProGamesService()
+    private var page = 0
     
     private func setupProGames() {
         view?.registerCells([MatchTableViewCell.self])
@@ -21,15 +22,16 @@ class ProGamesPresenter {
     }
     
     func fetchMatches() {
-        service.fetchProGames { [weak self] result in
+        service.fetchProGames(page: page, limit: 15) { [weak self] result in
             guard let `self` = self else { return }
             if case .success(let matches) = result {
-                self.view?.setSections(self.generateMatchesSection(matches), isLoadMore: false)
+                self.view?.setSections(self.generateMatchesSection(matches), isLoadMore: true)
             }
             self.view?.stopLoading()
             self.view?.setEmptyMessageIfNeeded("No matches scheduled for these days")
             self.view?.reloadTableView()
         }
+        page += 1
     }
     
     private func generateMatchesSection(_ matches: [Match]) -> [SectionComponent] {
@@ -47,7 +49,7 @@ class ProGamesPresenter {
                              matchTime: match.playDate.toMatchTime(),
                              teamBImageUrl: match.team_b.imageUrl,
                              teamBName: match.team_b.name,
-                             isLive: true)
+                             isLive: match.isLive)
     }
 }
 
@@ -58,7 +60,8 @@ extension ProGamesPresenter: UBtableViewPresenter {
     func refreshControlAction() {
         view?.setSections([], isLoadMore: false)
         view?.reloadTableView()
-        setupProGames()
+        page = 0
+        fetchMatches()
     }
     
     func attachView(_ view: UBTableView) {

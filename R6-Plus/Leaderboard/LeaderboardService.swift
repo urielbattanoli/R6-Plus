@@ -15,9 +15,9 @@ struct LeaderboardInput {
     let page: Int
     
     var headers: [String: String] {
-        var deafaultHeaders = Server.headers
-        deafaultHeaders["Referer"] = "https://r6db.com/leaderboard/PC/ALL"
-        return deafaultHeaders
+        var defaultHeaders = Server.headers
+        defaultHeaders["Referer"] = "https://r6db.com/leaderboard/PC/ALL"
+        return defaultHeaders
     }
 }
 
