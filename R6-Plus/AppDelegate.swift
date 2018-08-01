@@ -9,12 +9,14 @@
 import UIKit
 import GoogleMobileAds
 import Firebase
+import OneSignal
 
 let ADS_APP_ID = "ca-app-pub-3291479380654020~6866270802"
 let ADS_BANNER_ID = "ca-app-pub-3291479380654020/4653210435"
 let ADS_VIDEO_ID = "ca-app-pub-3291479380654020/3432037228"
 //let ADS_BANNER_ID = "ca-app-pub-3940256099942544/2934735716" //test
 //let ADS_VIDEO_ID = "ca-app-pub-3940256099942544/1712485313" //test
+let ONESIGNAL_APP_ID = ""
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,6 +31,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                     withAdUnitID: ADS_VIDEO_ID)
         ReviewHelper.incrementAppOpenedCount()
         AnalitycsHelper.AppOpened.logEvent(obs: "\(R6UserDefaults.shared.openCount)")
+        
+        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
+        OneSignal.initWithLaunchOptions(launchOptions,
+                                        appId: ONESIGNAL_APP_ID,
+                                        handleNotificationAction: nil,
+                                        settings: onesignalInitSettings)
+        OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification
+        application.registerForRemoteNotifications()
+        OneSignal.promptForPushNotifications() { accepted in
+            print("User accepted notifications: \(accepted)")
+        }
         
         return true
     }
