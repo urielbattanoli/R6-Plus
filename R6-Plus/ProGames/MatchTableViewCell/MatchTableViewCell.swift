@@ -48,9 +48,13 @@ extension MatchTableViewCell: DynamicCellComponent {
         tournamentNameLabel.text = data.tournamentName
         teamAImageView.loadImage(data.teamAImageUrl)
         teamANameLabel.text = data.teamAName
+        let wordsA = data.teamAName.split(separator: " ").count
+        teamANameLabel.numberOfLines = wordsA > 1 ? 0 : 1
         matchTimeLabel.text = data.matchTime
         teamBImageView.loadImage(data.teamBImageUrl)
         teamBNameLabel.text = data.teamBName
+        let wordsB = data.teamAName.split(separator: " ").count
+        teamBNameLabel.numberOfLines = wordsB > 1 ? 0 : 1
         if data.isLive {
             startAnimating()
         }
