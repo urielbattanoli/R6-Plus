@@ -16,7 +16,7 @@ let ADS_BANNER_ID = "ca-app-pub-3291479380654020/4653210435"
 let ADS_VIDEO_ID = "ca-app-pub-3291479380654020/3432037228"
 //let ADS_BANNER_ID = "ca-app-pub-3940256099942544/2934735716" //test
 //let ADS_VIDEO_ID = "ca-app-pub-3940256099942544/1712485313" //test
-let ONESIGNAL_APP_ID = ""
+let ONESIGNAL_APP_ID = "592b29cc-4853-4d42-9e8b-74873f9b8fbb"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
