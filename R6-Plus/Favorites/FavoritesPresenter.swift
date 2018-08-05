@@ -14,11 +14,12 @@ class FavoritesPresenter {
     private var players: [PlayerDetail] = []
     
     private func setupFavorites() {
+        AnalitycsHelper.FavoriteOpened.logEvent()
         view?.registerCells([PlayerTableViewCell.self])
         view?.addRefreshControl()
         view?.startLoading()
         fetchFavorites()
-        AnalitycsHelper.FavoriteOpened.logEvent()
+        addSearchButton()
     }
     
     private func goToPlayerDetail(_ player: PlayerDetail) {
@@ -48,6 +49,16 @@ class FavoritesPresenter {
                              data: data) { [weak self] in
                                 self?.goToPlayerDetail(player)
         }
+    }
+    
+    private func addSearchButton() {
+        guard let viewController = view as? UIViewController else { return }
+        let button = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchButtonTouched))
+        viewController.navigationItem.rightBarButtonItem = button
+    }
+    
+    @objc private func searchButtonTouched() {
+        SearchRouter.openSearch(viewController: view as? UIViewController)
     }
 }
 

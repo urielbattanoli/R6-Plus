@@ -10,6 +10,7 @@ import Foundation
 
 struct Match: Codable {
     
+    let objectId: String
     let tournament: Tournament
     let team_b: Team
     let team_a: Team

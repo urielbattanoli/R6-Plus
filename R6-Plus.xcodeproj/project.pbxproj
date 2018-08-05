@@ -114,6 +114,7 @@
 		A4E9167820CDB84D001C291B /* ComparisonHeaderViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9167720CDB84D001C291B /* ComparisonHeaderViewData.swift */; };
 		A4E9167A20CDB878001C291B /* PlayerComparisonPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9167920CDB878001C291B /* PlayerComparisonPresenter.swift */; };
 		A4FAE56B20A2224600E9E877 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FAE56A20A2224600E9E877 /* GradientView.swift */; };
+		A4FE7E162117976500E9E871 /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE7E152117976500E9E871 /* SearchRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -257,6 +258,7 @@
 		A4E9167720CDB84D001C291B /* ComparisonHeaderViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonHeaderViewData.swift; sourceTree = "<group>"; };
 		A4E9167920CDB878001C291B /* PlayerComparisonPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerComparisonPresenter.swift; sourceTree = "<group>"; };
 		A4FAE56A20A2224600E9E877 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		A4FE7E152117976500E9E871 /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -377,6 +379,7 @@
 				A492C02C20B9B4E8005051E4 /* SearchService.swift */,
 				A41AA4D520B24C7B00E1D37D /* SearchViewController.swift */,
 				A492C03020B9C81E005051E4 /* SearchViewController.xib */,
+				A4FE7E152117976500E9E871 /* SearchRouter.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -910,6 +913,7 @@
 				A497F53F20A784B100D26A23 /* OperatorCollectionViewCell.swift in Sources */,
 				A4FAE56B20A2224600E9E877 /* GradientView.swift in Sources */,
 				A497F53020A6A98900D26A23 /* SeasonCellData.swift in Sources */,
+				A4FE7E162117976500E9E871 /* SearchRouter.swift in Sources */,
 				A402D11F210FF414004BC20D /* ProGamesService.swift in Sources */,
 				A497F52D20A6A57A00D26A23 /* SeasonCollectionViewCell.swift in Sources */,
 				A402D128210FFE67004BC20D /* MatchCellData.swift in Sources */,

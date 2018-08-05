@@ -34,12 +34,7 @@ class MainLeaderboardViewController: UIViewController {
     
     // MARK: - IBAction
     @IBAction private func searchTouched() {
-        let presenter = SearchPresenter(service: SearchService())
-        let searchVC = SearchViewController(presenter: presenter)
-        searchVC.modalTransitionStyle = .crossDissolve
-        let navigation = UINavigationController(rootViewController: searchVC)
-        navigation.defaultConfiguration()
-        navigationController?.present(navigation, animated: true)
+        SearchRouter.openSearch(viewController: self)
     }
 }
 

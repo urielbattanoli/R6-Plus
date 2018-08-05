@@ -36,6 +36,8 @@ enum AnalitycsHelper: String {
     case PremiumRestoredFailed
     case PremiumBuyFailed
     case PremiumBuyDisabled
+    case ProGamesOpened
+    case MatchTouched
     
     func logEvent(obs: String? = nil) {
         var parameters: [String: String]?

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Mocka. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class ProGamesPresenter {
     
@@ -15,10 +15,12 @@ class ProGamesPresenter {
     private var page = 0
     
     private func setupProGames() {
+        AnalitycsHelper.ProGamesOpened.logEvent()
         view?.registerCells([MatchTableViewCell.self])
         view?.addRefreshControl()
         view?.startLoading()
         fetchMatches()
+        addSearchButton()
     }
     
     func fetchMatches() {
@@ -34,11 +36,28 @@ class ProGamesPresenter {
         page += 1
     }
     
+    private func matchTouched(_ match: Match) {
+        AnalitycsHelper.MatchTouched.logEvent(obs: match.objectId)
+        
+        guard match.isLive else {
+            matchNotLive()
+            return
+        }
+        // TODO: Open youtube channel match
+    }
+    
+    private func matchNotLive() {
+        let alert = UIAlertController(title: nil, message: "This stream is currently not available!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
+        (view as? UIViewController)?.present(alert, animated: true)
+    }
+    
     private func generateMatchesSection(_ matches: [Match]) -> [SectionComponent] {
-        let cells = matches.map {
-            CellComponent(reuseId: MatchTableViewCell.reuseId, data: generateMatchData($0), selectionHandler: {
-                
-            })}
+        let cells = matches.map { [weak self] match in
+            CellComponent(reuseId: MatchTableViewCell.reuseId, data: generateMatchData(match)) {
+                self?.matchTouched(match)
+            }
+        }
         return [SectionComponent(header: nil, cells: cells)]
     }
     
@@ -50,6 +69,16 @@ class ProGamesPresenter {
                              teamBImageUrl: match.team_b.imageUrl,
                              teamBName: match.team_b.name,
                              isLive: match.isLive)
+    }
+    
+    private func addSearchButton() {
+        guard let viewController = view as? UIViewController else { return }
+        let button = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchButtonTouched))
+        viewController.navigationItem.rightBarButtonItem = button
+    }
+    
+    @objc private func searchButtonTouched() {
+        SearchRouter.openSearch(viewController: view as? UIViewController)
     }
 }
 
