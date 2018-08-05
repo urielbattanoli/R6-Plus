@@ -11,6 +11,8 @@ target 'R6-Plus' do
     pod 'Kingfisher', '~> 4.0'
     pod 'Google-Mobile-Ads-SDK'
     pod 'Firebase/Core'
+    pod 'Fabric'
+    pod 'Crashlytics'
     shared_pods
 end
 

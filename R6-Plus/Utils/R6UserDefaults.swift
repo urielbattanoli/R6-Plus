@@ -13,7 +13,7 @@ private struct Key {
     static var openCount: String { return "appOpenCount" }
     static var freeComparison: String { return "freeComparison" }
     static var premiumAccount: String { return "premiumAccount" }
-    static var premiumAccountVerified: String { return "premiumAccountVerified" }
+    static var premiumAccountVerified: String { return "premiumAccountVerified2" }
 }
 
 class R6UserDefaults {

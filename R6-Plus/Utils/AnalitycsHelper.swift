@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Firebase
+import Crashlytics
 
 enum AnalitycsHelper: String {
     case IsPremiumAccount
@@ -38,12 +38,10 @@ enum AnalitycsHelper: String {
     case PremiumBuyDisabled
     
     func logEvent(obs: String? = nil) {
-        var parameters = [
-            AnalyticsParameterItemID: "id-\(self.rawValue)",
-            AnalyticsParameterItemName: self.rawValue]
+        var parameters: [String: String]?
         if let obs = obs {
-            parameters["obs"] = obs
+            parameters = ["obs": obs]
         }
-        Analytics.logEvent(AnalyticsEventSelectContent, parameters: parameters)
+        Answers.logCustomEvent(withName: self.rawValue, customAttributes: parameters)
     }
 }
