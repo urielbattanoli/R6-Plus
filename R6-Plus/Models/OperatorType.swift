@@ -56,7 +56,7 @@ enum Operator: String {
     
     var type: OperatorType {
         switch self {
-        case .ash, .blitz, .buck, .capitao, .dokkaebi, .finka, .frost, .fuze, .glaz, .hibana, .iq, .jackal, .lion, .montagne, .sledge, .thatcher, .thermite, .twitch, .zofia:
+        case .ash, .blitz, .buck, .capitao, .dokkaebi, .finka, .fuze, .glaz, .hibana, .iq, .jackal, .lion, .montagne, .sledge, .thatcher, .thermite, .twitch, .ying, .zofia:
             return .attacker
         default: return .defender
         }
