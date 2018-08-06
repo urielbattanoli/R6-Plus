@@ -25,6 +25,7 @@ struct Server {
         return "\(baseUrl)api/v2/players/\(id)"
     }
     static var baseImageUrl: String { return "https://uplay-avatars.s3.amazonaws.com/%@/default_146_146.png" }
+    static var ubisoftImageUrl: String { return "https://ubisoft-avatars.akamaized.net/%@/default_146_146.png" }
     static var proGamesUrl: String { return "http://178.128.75.11:1337/parse/functions/matchesByPage" }
-//    static var proGamesUrl: String { return "http://178.128.75.11:1338/parse/functions/matchesByPage" }
+//    static var proGamesUrl: String { return "http://178.128.75.11:1338/parse/functions/matchesByPage" } // TEST
 }

@@ -11,6 +11,8 @@ import Foundation
 struct SearchedPlayer: Codable {
     
     let id: String
+    let userId: String
+    let platform: String
     let name: String
     let level: Int
     let ranks: Ranks
@@ -40,6 +42,9 @@ struct SearchedPlayer: Codable {
     }
     
     var imageUrl: String {
+        guard platform != "XBOX" else {
+            return String(format: Server.ubisoftImageUrl, userId)
+        }
         return String(format: Server.baseImageUrl, id)
     }
 }

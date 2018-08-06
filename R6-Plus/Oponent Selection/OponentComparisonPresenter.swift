@@ -135,6 +135,8 @@ private extension PlayerDetail {
                                          emea: emea,
                                          ncsa: ncsa)
         return SearchedPlayer(id: self.id,
+                              userId: self.userId,
+                              platform: self.platform,
                               name: self.name,
                               level: self.level,
                               ranks: ranks)
