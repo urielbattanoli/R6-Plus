@@ -42,7 +42,7 @@ class SearchViewController: UBTableViewController {
     // MARK: - Functions
     private func setupSearch() {
         searchController.defaultConfiguration()
-        searchController.searchBar.scopeButtonTitles = ["PC", "PS4", "XB1"]
+        searchController.searchBar.scopeButtonTitles = ["PC", "PS4", "XBOX"]
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "Search player"
