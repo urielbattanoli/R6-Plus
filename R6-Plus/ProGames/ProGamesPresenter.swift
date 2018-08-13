@@ -39,14 +39,15 @@ class ProGamesPresenter {
     private func matchTouched(_ match: Match) {
         AnalitycsHelper.MatchTouched.logEvent(obs: match.objectId)
         
-        guard match.isLive else {
-            matchNotLive()
+        guard let url = URL(string: match.streamUrl ?? ""),
+            match.isLive && UIApplication.shared.canOpenURL(url) else {
+            streamNotAvailable()
             return
         }
-        // TODO: Open youtube channel match
+        UIApplication.shared.open(url, options: [:])
     }
     
-    private func matchNotLive() {
+    private func streamNotAvailable() {
         let alert = UIAlertController(title: nil, message: "This stream is currently not available!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
         (view as? UIViewController)?.present(alert, animated: true)

@@ -43,7 +43,7 @@ class SearchPresenter: NSObject {
             view?.stopLoading()
             return
         }
-        timer = Timer.scheduledTimer(timeInterval: 0.5,
+        timer = Timer.scheduledTimer(timeInterval: 0.8,
                                      target: self,
                                      selector: #selector(fetchSearch),
                                      userInfo: nil,

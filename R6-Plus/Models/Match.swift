@@ -15,6 +15,7 @@ struct Match: Codable {
     let team_b: Team
     let team_a: Team
     let start_timestamp: Double
+    let streamUrl: String?
     
     var playDate: Date {
         let myTimeInterval = TimeInterval(start_timestamp / 1000)
