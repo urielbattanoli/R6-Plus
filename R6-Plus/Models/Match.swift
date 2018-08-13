@@ -23,9 +23,10 @@ struct Match: Codable {
     }
     
     var isLive: Bool {
+        let startGame = start_timestamp / 1000
         let now = Date().timeIntervalSince1970
-        let endGame = start_timestamp + 1 * 60 * 60
-        return now > start_timestamp && now < endGame
+        let endGame = startGame + 1 * 60 * 60
+        return now > startGame && now < endGame
     }
     
     struct Tournament: Codable {
