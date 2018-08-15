@@ -26,7 +26,7 @@ struct Utils {
     
     static let matchDateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMM\nhh:mm"
+        dateFormatter.dateFormat = "dd MMM\nHH:mm"
         return dateFormatter
     }()
 
