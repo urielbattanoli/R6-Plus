@@ -1144,10 +1144,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2FAE278EE515063186D11EE8 /* Pods-R6-Plus.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "R6-Plus/R6-Plus.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = DXGTJAG2UY;
 				INFOPLIST_FILE = "R6-Plus/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1166,7 +1166,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2A4A898900901F59E77A1E85 /* Pods-R6-Plus.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "R6-Plus/R6-Plus.entitlements";
 				CODE_SIGN_STYLE = Automatic;

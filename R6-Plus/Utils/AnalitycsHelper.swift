@@ -29,7 +29,7 @@ enum AnalitycsHelper: String {
     case PremiumOpened
     case PremiumAlertBuyTouched
     case PremiumBuyTouched
-    case PremiumBuyed
+    case PremiumBought
     case PremiumBuyCanceled
     case PremiumRestoreTouched
     case PremiumRestored

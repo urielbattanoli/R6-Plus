@@ -96,7 +96,7 @@ extension IAPHelper: SKPaymentTransactionObserver {
                 SKPaymentQueue.default().finishTransaction(transaction)
                 let type: IAPHandlerAlertType = .purchased
                 R6UserDefaults.shared.premiumAccount = true
-                AnalitycsHelper.PremiumBuyed.logEvent()
+                AnalitycsHelper.PremiumBought.logEvent()
                 purchaseStatusBlock?(type.message())
             case .restored:
                 SKPaymentQueue.default().finishTransaction(transaction)
