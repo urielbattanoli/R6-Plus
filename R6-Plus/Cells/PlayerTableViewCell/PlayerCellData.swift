@@ -13,5 +13,4 @@ struct PlayerCellData {
     let imageUrl: String
     let name: String
     let description: String
-    let ranking: Ranking
 }

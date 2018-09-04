@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -36,39 +35,28 @@
                                         <rect key="frame" x="65" y="0.0" width="483" height="50"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="kkJ-NL-Nuv">
-                                                <rect key="frame" x="0.0" y="5" width="433.5" height="40"/>
+                                                <rect key="frame" x="0.0" y="5" width="39" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="253" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lx1-4f-9bb">
-                                                        <rect key="frame" x="0.0" y="0.0" width="433.5" height="24"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="39" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDs-0g-VfD">
-                                                        <rect key="frame" x="0.0" y="24" width="433.5" height="16"/>
+                                                        <rect key="frame" x="0.0" y="24" width="39" height="16"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="YS1-52-wI4">
-                                                <rect key="frame" x="443.5" y="10" width="24.5" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="YS1-52-wI4" secondAttribute="height" multiplier="179:218" id="kIN-zX-chn"/>
-                                                </constraints>
-                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="kkJ-NL-Nuv" secondAttribute="bottom" constant="5" id="583-yu-no1"/>
-                                            <constraint firstItem="YS1-52-wI4" firstAttribute="centerY" secondItem="mtA-G2-jbw" secondAttribute="centerY" id="8sX-gT-TEl"/>
                                             <constraint firstItem="kkJ-NL-Nuv" firstAttribute="leading" secondItem="mtA-G2-jbw" secondAttribute="leading" id="Grq-4a-GJw"/>
-                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="YS1-52-wI4" secondAttribute="bottom" constant="10" id="aSG-YI-or9"/>
-                                            <constraint firstItem="YS1-52-wI4" firstAttribute="leading" secondItem="kkJ-NL-Nuv" secondAttribute="trailing" constant="10" id="eZf-Dv-N54"/>
                                             <constraint firstItem="kkJ-NL-Nuv" firstAttribute="top" secondItem="mtA-G2-jbw" secondAttribute="top" constant="5" id="fou-Jn-2FK"/>
-                                            <constraint firstAttribute="trailing" secondItem="YS1-52-wI4" secondAttribute="trailing" constant="15" id="ph6-CP-ogo"/>
-                                            <constraint firstItem="YS1-52-wI4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="mtA-G2-jbw" secondAttribute="top" constant="10" id="w0m-tR-Wkc"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -99,7 +87,6 @@
                 <outlet property="descriptionLabel" destination="vDs-0g-VfD" id="mp5-fS-hGN"/>
                 <outlet property="profileImageView" destination="4dh-KU-saa" id="p7v-mN-IxM"/>
                 <outlet property="profileNameLabel" destination="lx1-4f-9bb" id="GIz-jK-T9e"/>
-                <outlet property="rankingImageView" destination="YS1-52-wI4" id="eVK-pF-gig"/>
             </connections>
             <point key="canvasLocation" x="129" y="104.5"/>
         </tableViewCell>

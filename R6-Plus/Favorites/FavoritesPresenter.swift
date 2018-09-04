@@ -42,8 +42,7 @@ class FavoritesPresenter {
         let data = PlayerCellData(id: player.id,
                                   imageUrl: player.imageUrl,
                                   name: player.name,
-                                  description: "Level: \(player.level)",
-                                  ranking: player.rank.bestRank.ranking)
+                                  description: player.platform)
         
         return CellComponent(reuseId: PlayerTableViewCell.reuseId,
                              data: data) { [weak self] in

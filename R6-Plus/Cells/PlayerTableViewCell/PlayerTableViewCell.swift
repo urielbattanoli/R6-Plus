@@ -15,7 +15,6 @@ class PlayerTableViewCell: NibRegistrableTableViewCell {
     @IBOutlet private weak var profileImageView: UIImageView!
     @IBOutlet private weak var profileNameLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
-    @IBOutlet private weak var rankingImageView: UIImageView!
 }
 
 // MARK: - DynamicCellComponent
@@ -26,6 +25,5 @@ extension PlayerTableViewCell: DynamicCellComponent {
         profileImageView.loadImage(data.imageUrl)
         profileNameLabel.text = data.name
         descriptionLabel.text = data.description
-        rankingImageView.image = data.ranking.image
     }
 }

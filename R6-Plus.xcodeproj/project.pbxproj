@@ -85,6 +85,8 @@
 		A4A0A668208ED9E600CE46FA /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A0A667208ED9E600CE46FA /* Utils.swift */; };
 		A4AAC7FC20CB2EE9008F1EAB /* ComparisonInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AAC7FB20CB2EE9008F1EAB /* ComparisonInfoData.swift */; };
 		A4AE64A220B2F4F000544C2D /* MenuHeaderMain.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4AE64A120B2F4F000544C2D /* MenuHeaderMain.xib */; };
+		A4AFC79C2139B11100F4BB30 /* TokenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AFC79B2139B11100F4BB30 /* TokenHelper.swift */; };
+		A4AFC79F2139B9AF00F4BB30 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AFC79E2139B9AF00F4BB30 /* APIHelper.swift */; };
 		A4BBADA9209CE50400425AEC /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BBADA8209CE50400425AEC /* UIColorExtension.swift */; };
 		A4BBADB5209D0FD700425AEC /* PlayerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BBADB3209D0FD700425AEC /* PlayerDetailViewController.swift */; };
 		A4BBADB6209D0FD700425AEC /* PlayerDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4BBADB4209D0FD700425AEC /* PlayerDetailViewController.xib */; };
@@ -108,6 +110,7 @@
 		A4DA9BED20A1472F00EF830F /* HeaderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DA9BEB20A1472F00EF830F /* HeaderListView.swift */; };
 		A4DA9BEE20A1472F00EF830F /* HeaderListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4DA9BEC20A1472F00EF830F /* HeaderListView.xib */; };
 		A4DA9BF020A147DC00EF830F /* HeaderListViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DA9BEF20A147DC00EF830F /* HeaderListViewData.swift */; };
+		A4DB0C13212F8D880037D683 /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DB0C12212F8D880037D683 /* DataExtension.swift */; };
 		A4DC12C320B302E000DD4A2E /* LeaderboardPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DC12C220B302E000DD4A2E /* LeaderboardPageViewController.swift */; };
 		A4E9167520CDAD65001C291B /* ComparisonHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9167320CDAD65001C291B /* ComparisonHeaderTableViewCell.swift */; };
 		A4E9167620CDAD65001C291B /* ComparisonHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4E9167420CDAD65001C291B /* ComparisonHeaderTableViewCell.xib */; };
@@ -229,6 +232,8 @@
 		A4A0A667208ED9E600CE46FA /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A4AAC7FB20CB2EE9008F1EAB /* ComparisonInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonInfoData.swift; sourceTree = "<group>"; };
 		A4AE64A120B2F4F000544C2D /* MenuHeaderMain.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuHeaderMain.xib; sourceTree = "<group>"; };
+		A4AFC79B2139B11100F4BB30 /* TokenHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenHelper.swift; sourceTree = "<group>"; };
+		A4AFC79E2139B9AF00F4BB30 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		A4BBADA8209CE50400425AEC /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		A4BBADB3209D0FD700425AEC /* PlayerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailViewController.swift; sourceTree = "<group>"; };
 		A4BBADB4209D0FD700425AEC /* PlayerDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerDetailViewController.xib; sourceTree = "<group>"; };
@@ -252,6 +257,7 @@
 		A4DA9BEB20A1472F00EF830F /* HeaderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderListView.swift; sourceTree = "<group>"; };
 		A4DA9BEC20A1472F00EF830F /* HeaderListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderListView.xib; sourceTree = "<group>"; };
 		A4DA9BEF20A147DC00EF830F /* HeaderListViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderListViewData.swift; sourceTree = "<group>"; };
+		A4DB0C12212F8D880037D683 /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
 		A4DC12C220B302E000DD4A2E /* LeaderboardPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardPageViewController.swift; sourceTree = "<group>"; };
 		A4E9167320CDAD65001C291B /* ComparisonHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		A4E9167420CDAD65001C291B /* ComparisonHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComparisonHeaderTableViewCell.xib; sourceTree = "<group>"; };
@@ -544,25 +550,16 @@
 			isa = PBXGroup;
 			children = (
 				A448079C210C3C3400EEF36D /* AnalitycsHelper.swift */,
+				A4AFC79E2139B9AF00F4BB30 /* APIHelper.swift */,
 				A43BFACA209F6D6D004C00CB /* CellComponent.swift */,
-				A4288C65208EDE72005C75BE /* CodableExtension.swift */,
-				A478D1C62100340B00606F3F /* DateExtension.swift */,
-				A4DA9BDE209FE41E00EF830F /* DoubleExtension.swift */,
+				A4AFC79D2139B12800F4BB30 /* Extensions */,
 				A4FAE56A20A2224600E9E877 /* GradientView.swift */,
 				A478D1BC2100010800606F3F /* IAPHelper.swift */,
-				A4DA9BDC209FE06A00EF830F /* IntExtension.swift */,
 				A4DA9BE1209FEEED00EF830F /* NibDesignable.swift */,
 				A4A0A665208ED97200CE46FA /* NibRegistrableView.swift */,
-				A478D1C821015C0000606F3F /* NotificationExtension.swift */,
 				A43832F020AE76E000B55F7C /* R6UserDefaults.swift */,
 				A478D1B620FFF4CB00606F3F /* ReviewHelper.swift */,
-				A497F53B20A782CB00D26A23 /* StringExtension.swift */,
-				A4BBADA8209CE50400425AEC /* UIColorExtension.swift */,
-				A43D13B2209014AF0067580D /* UIImageViewExtension.swift */,
-				A491AA8D20BB79F70072B169 /* UINavigationControllerExtension.swift */,
-				A491AA8F20BB7A4F0072B169 /* UISearchControllerExtension.swift */,
-				A40AC5C3210B5A290058CAC0 /* UITableViewExtension.swift */,
-				A423CDBB209BD9EF00528E03 /* UIViewExtension.swift */,
+				A4AFC79B2139B11100F4BB30 /* TokenHelper.swift */,
 				A4A0A667208ED9E600CE46FA /* Utils.swift */,
 			);
 			path = Utils;
@@ -586,6 +583,26 @@
 				A4DA9BEF20A147DC00EF830F /* HeaderListViewData.swift */,
 			);
 			path = HeaderListView;
+			sourceTree = "<group>";
+		};
+		A4AFC79D2139B12800F4BB30 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A4288C65208EDE72005C75BE /* CodableExtension.swift */,
+				A4DB0C12212F8D880037D683 /* DataExtension.swift */,
+				A478D1C62100340B00606F3F /* DateExtension.swift */,
+				A4DA9BDE209FE41E00EF830F /* DoubleExtension.swift */,
+				A4DA9BDC209FE06A00EF830F /* IntExtension.swift */,
+				A478D1C821015C0000606F3F /* NotificationExtension.swift */,
+				A497F53B20A782CB00D26A23 /* StringExtension.swift */,
+				A4BBADA8209CE50400425AEC /* UIColorExtension.swift */,
+				A43D13B2209014AF0067580D /* UIImageViewExtension.swift */,
+				A491AA8D20BB79F70072B169 /* UINavigationControllerExtension.swift */,
+				A491AA8F20BB7A4F0072B169 /* UISearchControllerExtension.swift */,
+				A40AC5C3210B5A290058CAC0 /* UITableViewExtension.swift */,
+				A423CDBB209BD9EF00528E03 /* UIViewExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		A4BBADBF209F563900425AEC /* Cells */ = {
@@ -836,6 +853,8 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -843,6 +862,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -933,6 +954,7 @@
 				A4505F7B2082CEDB00C841DE /* UBTableView.swift in Sources */,
 				A497F53420A755C600D26A23 /* AliasesCollectionViewCell.swift in Sources */,
 				A4505F7720823AAB00C841DE /* LeaderboardPresenter.swift in Sources */,
+				A4AFC79F2139B9AF00F4BB30 /* APIHelper.swift in Sources */,
 				A4DA9BF020A147DC00EF830F /* HeaderListViewData.swift in Sources */,
 				A4BBADC5209F58AD00425AEC /* CollectionTableViewCell.swift in Sources */,
 				A478D1BD2100010800606F3F /* IAPHelper.swift in Sources */,
@@ -952,6 +974,7 @@
 				A478D1C72100340B00606F3F /* DateExtension.swift in Sources */,
 				A41AA4D720B24C7B00E1D37D /* SearchViewController.swift in Sources */,
 				A4505F7E2082FE8500C841DE /* UBTableViewController.swift in Sources */,
+				A4AFC79C2139B11100F4BB30 /* TokenHelper.swift in Sources */,
 				A478D1C921015C0000606F3F /* NotificationExtension.swift in Sources */,
 				A4DA9BED20A1472F00EF830F /* HeaderListView.swift in Sources */,
 				A4DA9BDF209FE41E00EF830F /* DoubleExtension.swift in Sources */,
@@ -975,6 +998,7 @@
 				A43BFACB209F6D6D004C00CB /* CellComponent.swift in Sources */,
 				A478D1B520FEEBA700606F3F /* OponentComparisonPresenter.swift in Sources */,
 				A43832F120AE76E000B55F7C /* R6UserDefaults.swift in Sources */,
+				A4DB0C13212F8D880037D683 /* DataExtension.swift in Sources */,
 				A4BBADBC209D100C00425AEC /* PlayerDetailView.swift in Sources */,
 				A43E915A20CB269700440D39 /* ComparisonInfoTableViewCell.swift in Sources */,
 				A4505F82208308E300C841DE /* Player.swift in Sources */,
@@ -1151,10 +1175,7 @@
 				DEVELOPMENT_TEAM = DXGTJAG2UY;
 				INFOPLIST_FILE = "R6-Plus/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mocka.R6-Plus";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -1172,10 +1193,7 @@
 				DEVELOPMENT_TEAM = DXGTJAG2UY;
 				INFOPLIST_FILE = "R6-Plus/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mocka.R6-Plus";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -1192,11 +1210,7 @@
 				DEVELOPMENT_TEAM = DXGTJAG2UY;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mocka.R6-Plus.OneSignalNotificationServiceExtension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1214,11 +1228,7 @@
 				DEVELOPMENT_TEAM = DXGTJAG2UY;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mocka.R6-Plus.OneSignalNotificationServiceExtension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

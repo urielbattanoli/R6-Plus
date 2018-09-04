@@ -24,8 +24,12 @@ struct Server {
     static func playerByIdUrl(_ id: String) -> String {
         return "\(baseUrl)api/v2/players/\(id)"
     }
-    static var baseImageUrl: String { return "https://uplay-avatars.s3.amazonaws.com/%@/default_146_146.png" }
-    static var ubisoftImageUrl: String { return "https://ubisoft-avatars.akamaized.net/%@/default_146_146.png" }
+    static var baseImageUrl: String { return "https://ubisoft-avatars.akamaized.net/%@/default_146_146.png" }
     static var proGamesUrl: String { return "http://178.128.75.11:1337/parse/functions/matchesByPage" }
 //    static var proGamesUrl: String { return "http://178.128.75.11:1338/parse/functions/matchesByPage" } // TEST
+    
+    
+    // MARK: - NEW URLs
+    static var ubiToken: String { return "http://178.128.75.11:5000/token" }
+    static var ubiSearchUrl: String { return "https://public-ubiservices.ubi.com/v2/profiles" }
 }

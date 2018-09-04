@@ -28,9 +28,6 @@ struct PlayerDetail: Codable {
     }
     
     var imageUrl: String {
-        guard platform == "PC" else {
-            return String(format: Server.ubisoftImageUrl, userId)
-        }
         return String(format: Server.baseImageUrl, id)
     }
     

@@ -13,6 +13,8 @@ target 'R6-Plus' do
     pod 'Firebase/Core'
     pod 'Fabric'
     pod 'Crashlytics'
+    pod 'RxSwift'
+    pod 'RxCocoa'
     shared_pods
 end
 

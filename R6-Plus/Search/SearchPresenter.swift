@@ -69,11 +69,10 @@ class SearchPresenter: NSObject {
     }
     
     func playerToCellComponent(_ player: SearchedPlayer) -> CellComponent {
-        let data = PlayerCellData(id: player.id,
+        let data = PlayerCellData(id: player.userId,
                                   imageUrl: player.imageUrl,
-                                  name: player.name,
-                                  description: "Level: \(player.level)",
-            ranking: player.ranks.bestRank.ranking)
+                                  name: player.nameOnPlatform,
+                                  description: player.platformType)
         
         return CellComponent(reuseId: PlayerTableViewCell.reuseId,
                              data: data) { [weak self] in
@@ -82,7 +81,7 @@ class SearchPresenter: NSObject {
     }
     
     private func goToPlayerDetail(_ player: SearchedPlayer) {
-        let vc = PlayerDetailViewController(playerId: player.id, playerDetail: nil)
+        let vc = PlayerDetailViewController(playerId: player.userId, playerDetail: nil)
         (view as? UIViewController)?.navigationController?.pushViewController(vc, animated: true)
     }
 }

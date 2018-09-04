@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         OneSignal.promptForPushNotifications() { accepted in
             print("User accepted notifications: \(accepted)")
         }
-        
+        TokenHelper.validUbiToken()
         return true
     }
     

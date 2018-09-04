@@ -28,6 +28,9 @@ PODS:
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
   - OneSignal (2.8.5)
+  - RxCocoa (4.2.0):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.2.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
@@ -37,6 +40,8 @@ DEPENDENCIES:
   - Google-Mobile-Ads-SDK
   - Kingfisher (~> 4.0)
   - OneSignal (< 3.0, >= 2.5.2)
+  - RxCocoa
+  - RxSwift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -52,6 +57,8 @@ SPEC REPOS:
     - Kingfisher
     - nanopb
     - OneSignal
+    - RxCocoa
+    - RxSwift
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
@@ -66,7 +73,9 @@ SPEC CHECKSUMS:
   Kingfisher: da6b005aa96d37698e3e4f1ccfe96a5b9bbf27d6
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   OneSignal: 42dae269c7eca517aee34963820e1eb922390031
+  RxCocoa: 0b54909c902e1e581212a03e690bbd94032d8baa
+  RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
 
-PODFILE CHECKSUM: 4dc10e21a9e59d831b8c678e5143eaa56a087d34
+PODFILE CHECKSUM: f87d5c288c3e315c2dc02dbaed8733e7154b4505
 
 COCOAPODS: 1.5.3

@@ -47,14 +47,13 @@ class OponentComparisonPresenter: SearchPresenter {
     }
     
     override func playerToCellComponent(_ player: SearchedPlayer) -> CellComponent {
-        let data = PlayerCellData(id: player.id,
+        let data = PlayerCellData(id: player.userId,
                                   imageUrl: player.imageUrl,
-                                  name: player.name,
-                                  description: "Level: \(player.level)",
-            ranking: player.ranks.bestRank.ranking)
+                                  name: player.nameOnPlatform,
+                                  description: player.platformType)
         
         return CellComponent(reuseId: PlayerTableViewCell.reuseId, data: data) { [weak self] in
-            self?.selectedPlayerId = player.id
+            self?.selectedPlayerId = player.userId
             self?.comparisonTouched()
         }
     }
@@ -124,7 +123,7 @@ class OponentComparisonPresenter: SearchPresenter {
 }
 
 private extension PlayerDetail {
-    func toSearchedPlayer() -> SearchedPlayer{
+    func toSearchedPlayer() -> SearchedPlayer {
         let apac = SearchedPlayer.Rank(mmr: self.rank.apac.mmr,
                                        rank: self.rank.apac.rank)
         let emea = SearchedPlayer.Rank(mmr: self.rank.emea.mmr,
@@ -134,12 +133,15 @@ private extension PlayerDetail {
         let ranks = SearchedPlayer.Ranks(apac: apac,
                                          emea: emea,
                                          ncsa: ncsa)
-        return SearchedPlayer(id: self.id,
-                              userId: self.userId,
-                              platform: self.platform,
-                              name: self.name,
-                              level: self.level,
-                              ranks: ranks)
+        return SearchedPlayer(userId: self.id,
+                              platformType: self.platform,
+                              nameOnPlatform: self.name)
+//        return SearchedPlayer(id: self.id,
+//                              userId: self.userId,
+//                              platform: self.platform,
+//                              name: self.name,
+//                              level: self.level,
+//                              ranks: ranks)
     }
 }
 
