@@ -24,7 +24,8 @@ class ProGamesPresenter {
     }
     
     func fetchMatches() {
-        service.fetchProGames(page: page, limit: 15) { [weak self] result in
+        let input = ProGamesInput(limit: 15, page: page)
+        service.fetchProGames(input: input) { [weak self] result in
             guard let `self` = self else { return }
             if case .success(let matches) = result {
                 self.view?.setSections(self.generateMatchesSection(matches), isLoadMore: true)

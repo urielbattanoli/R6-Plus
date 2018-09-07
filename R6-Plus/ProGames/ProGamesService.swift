@@ -9,26 +9,23 @@
 import Foundation
 import Alamofire
 
+struct ProGamesInput {
+    let limit: Int
+    let page: Int
+    
+    var params: [String: Any] {
+        return ["limit": limit,
+                "page": page]
+    }
+}
+
 class ProGamesService {
     
-    func fetchProGames(page: Int, limit: Int, completion: @escaping ((Result<[Match]>) -> Void)) {
-        let headers: [String: String] = ["X-Parse-Application-Id": "R6PLUS",
-                                         "X-Parse-REST-API-Key": "bmoA6075Kxx4SLJ8ZJXXPccILaUrj04U"]
-//        let headers: [String: String] = ["X-Parse-Application-Id": "R6PLUS-DEV",
-//                                         "X-Parse-REST-API-Key": "666"]
-        
-        let params: [String: Any] = ["limit": limit, "page": page]
-        Alamofire.request(Server.proGamesUrl,
-                          method: .post,
-                          parameters: params,
-                          encoding: JSONEncoding.default,
-                          headers: headers)
-            .validate()
-            .responseJSON { response in
-                switch response.result {
+    func fetchProGames(input: ProGamesInput, completion: @escaping ((Result<[Match]>) -> Void)) {
+        R6API.proGames(input: input).request { result in
+                switch result {
                 case .success(let json):
-                    guard let json = json as? [String: Any],
-                        let result = json["result"] as? [[String: Any]] else {
+                    guard let result = json["result"] as? [[String: Any]] else {
                         completion(.failure(nil))
                         return
                     }

@@ -44,6 +44,9 @@
 		A43E915B20CB269700440D39 /* ComparisonInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43E915920CB269700440D39 /* ComparisonInfoTableViewCell.xib */; };
 		A448079B210C3B2C00EEF36D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A448079A210C3B2C00EEF36D /* GoogleService-Info.plist */; };
 		A448079D210C3C3400EEF36D /* AnalitycsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A448079C210C3C3400EEF36D /* AnalitycsHelper.swift */; };
+		A44A4D212141E14800BD1438 /* R6API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44A4D202141E14800BD1438 /* R6API.swift */; };
+		A44A4D232142C8B700BD1438 /* PlayerProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44A4D222142C8B700BD1438 /* PlayerProgression.swift */; };
+		A44A4D252142CF7800BD1438 /* PlayerSeason.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44A4D242142CF7800BD1438 /* PlayerSeason.swift */; };
 		A4505F6A208238EF00C841DE /* LeaderboardPlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F68208238EF00C841DE /* LeaderboardPlayerTableViewCell.swift */; };
 		A4505F6B208238EF00C841DE /* LeaderboardPlayerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4505F69208238EF00C841DE /* LeaderboardPlayerTableViewCell.xib */; };
 		A4505F6D2082393F00C841DE /* LeaderboardPlayerCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F6C2082393F00C841DE /* LeaderboardPlayerCellData.swift */; };
@@ -86,7 +89,6 @@
 		A4AAC7FC20CB2EE9008F1EAB /* ComparisonInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AAC7FB20CB2EE9008F1EAB /* ComparisonInfoData.swift */; };
 		A4AE64A220B2F4F000544C2D /* MenuHeaderMain.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4AE64A120B2F4F000544C2D /* MenuHeaderMain.xib */; };
 		A4AFC79C2139B11100F4BB30 /* TokenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AFC79B2139B11100F4BB30 /* TokenHelper.swift */; };
-		A4AFC79F2139B9AF00F4BB30 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AFC79E2139B9AF00F4BB30 /* APIHelper.swift */; };
 		A4BBADA9209CE50400425AEC /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BBADA8209CE50400425AEC /* UIColorExtension.swift */; };
 		A4BBADB5209D0FD700425AEC /* PlayerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BBADB3209D0FD700425AEC /* PlayerDetailViewController.swift */; };
 		A4BBADB6209D0FD700425AEC /* PlayerDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4BBADB4209D0FD700425AEC /* PlayerDetailViewController.xib */; };
@@ -191,6 +193,9 @@
 		A43E915920CB269700440D39 /* ComparisonInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComparisonInfoTableViewCell.xib; sourceTree = "<group>"; };
 		A448079A210C3B2C00EEF36D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A448079C210C3C3400EEF36D /* AnalitycsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalitycsHelper.swift; sourceTree = "<group>"; };
+		A44A4D202141E14800BD1438 /* R6API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R6API.swift; sourceTree = "<group>"; };
+		A44A4D222142C8B700BD1438 /* PlayerProgression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerProgression.swift; sourceTree = "<group>"; };
+		A44A4D242142CF7800BD1438 /* PlayerSeason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSeason.swift; sourceTree = "<group>"; };
 		A4505F68208238EF00C841DE /* LeaderboardPlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardPlayerTableViewCell.swift; sourceTree = "<group>"; };
 		A4505F69208238EF00C841DE /* LeaderboardPlayerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaderboardPlayerTableViewCell.xib; sourceTree = "<group>"; };
 		A4505F6C2082393F00C841DE /* LeaderboardPlayerCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardPlayerCellData.swift; sourceTree = "<group>"; };
@@ -233,7 +238,6 @@
 		A4AAC7FB20CB2EE9008F1EAB /* ComparisonInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonInfoData.swift; sourceTree = "<group>"; };
 		A4AE64A120B2F4F000544C2D /* MenuHeaderMain.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuHeaderMain.xib; sourceTree = "<group>"; };
 		A4AFC79B2139B11100F4BB30 /* TokenHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenHelper.swift; sourceTree = "<group>"; };
-		A4AFC79E2139B9AF00F4BB30 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		A4BBADA8209CE50400425AEC /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		A4BBADB3209D0FD700425AEC /* PlayerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailViewController.swift; sourceTree = "<group>"; };
 		A4BBADB4209D0FD700425AEC /* PlayerDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerDetailViewController.xib; sourceTree = "<group>"; };
@@ -487,6 +491,8 @@
 				A4BBADBD209D12FF00425AEC /* PlayerDetail.swift */,
 				A4DA9BE520A12EE100EF830F /* Ranking.swift */,
 				A492C03420BB2F2C005051E4 /* SearchedPlayer.swift */,
+				A44A4D222142C8B700BD1438 /* PlayerProgression.swift */,
+				A44A4D242142CF7800BD1438 /* PlayerSeason.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -495,6 +501,7 @@
 			isa = PBXGroup;
 			children = (
 				A46BA1B3208962B9003274F7 /* Server.swift */,
+				A44A4D202141E14800BD1438 /* R6API.swift */,
 			);
 			path = Server;
 			sourceTree = "<group>";
@@ -550,7 +557,6 @@
 			isa = PBXGroup;
 			children = (
 				A448079C210C3C3400EEF36D /* AnalitycsHelper.swift */,
-				A4AFC79E2139B9AF00F4BB30 /* APIHelper.swift */,
 				A43BFACA209F6D6D004C00CB /* CellComponent.swift */,
 				A4AFC79D2139B12800F4BB30 /* Extensions */,
 				A4FAE56A20A2224600E9E877 /* GradientView.swift */,
@@ -938,6 +944,7 @@
 				A402D11F210FF414004BC20D /* ProGamesService.swift in Sources */,
 				A497F52D20A6A57A00D26A23 /* SeasonCollectionViewCell.swift in Sources */,
 				A402D128210FFE67004BC20D /* MatchCellData.swift in Sources */,
+				A44A4D252142CF7800BD1438 /* PlayerSeason.swift in Sources */,
 				A4288C66208EDE72005C75BE /* CodableExtension.swift in Sources */,
 				A492C02B20B9B4C0005051E4 /* SearchPresenter.swift in Sources */,
 				A46BA1B4208962B9003274F7 /* Server.swift in Sources */,
@@ -954,7 +961,6 @@
 				A4505F7B2082CEDB00C841DE /* UBTableView.swift in Sources */,
 				A497F53420A755C600D26A23 /* AliasesCollectionViewCell.swift in Sources */,
 				A4505F7720823AAB00C841DE /* LeaderboardPresenter.swift in Sources */,
-				A4AFC79F2139B9AF00F4BB30 /* APIHelper.swift in Sources */,
 				A4DA9BF020A147DC00EF830F /* HeaderListViewData.swift in Sources */,
 				A4BBADC5209F58AD00425AEC /* CollectionTableViewCell.swift in Sources */,
 				A478D1BD2100010800606F3F /* IAPHelper.swift in Sources */,
@@ -973,6 +979,7 @@
 				A492C03520BB2F2C005051E4 /* SearchedPlayer.swift in Sources */,
 				A478D1C72100340B00606F3F /* DateExtension.swift in Sources */,
 				A41AA4D720B24C7B00E1D37D /* SearchViewController.swift in Sources */,
+				A44A4D232142C8B700BD1438 /* PlayerProgression.swift in Sources */,
 				A4505F7E2082FE8500C841DE /* UBTableViewController.swift in Sources */,
 				A4AFC79C2139B11100F4BB30 /* TokenHelper.swift in Sources */,
 				A478D1C921015C0000606F3F /* NotificationExtension.swift in Sources */,
@@ -1001,6 +1008,7 @@
 				A4DB0C13212F8D880037D683 /* DataExtension.swift in Sources */,
 				A4BBADBC209D100C00425AEC /* PlayerDetailView.swift in Sources */,
 				A43E915A20CB269700440D39 /* ComparisonInfoTableViewCell.swift in Sources */,
+				A44A4D212141E14800BD1438 /* R6API.swift in Sources */,
 				A4505F82208308E300C841DE /* Player.swift in Sources */,
 				A43832EC20AE622100B55F7C /* PlayerTableViewCell.swift in Sources */,
 				A419952F2081644C0039A6D4 /* AppDelegate.swift in Sources */,
@@ -1175,7 +1183,10 @@
 				DEVELOPMENT_TEAM = DXGTJAG2UY;
 				INFOPLIST_FILE = "R6-Plus/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mocka.R6-Plus";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -1193,7 +1204,10 @@
 				DEVELOPMENT_TEAM = DXGTJAG2UY;
 				INFOPLIST_FILE = "R6-Plus/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mocka.R6-Plus";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -1210,7 +1224,11 @@
 				DEVELOPMENT_TEAM = DXGTJAG2UY;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mocka.R6-Plus.OneSignalNotificationServiceExtension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1228,7 +1246,11 @@
 				DEVELOPMENT_TEAM = DXGTJAG2UY;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mocka.R6-Plus.OneSignalNotificationServiceExtension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
