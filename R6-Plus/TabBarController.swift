@@ -42,6 +42,6 @@ class TabBarController: UITabBarController {
         premiumVC.tabBarItem = UITabBarItem(title: "Premium", image: #imageLiteral(resourceName: "account"), selectedImage: #imageLiteral(resourceName: "filled_account"))
         premiumVC.title = "Premium"
         // To avoid force unwrap on leaderboard instantiateInitialViewController
-        viewControllers = [proGamesNavigation, leaderboard, favoritesNavigation, premiumVC].compactMap { $0 }
+        viewControllers = [proGamesNavigation, /*leaderboard,*/ favoritesNavigation, premiumVC].compactMap { $0 }
     }
 }
