@@ -19,7 +19,7 @@ enum AnalitycsHelper: String {
     case ComparisonRestorePremiumTouched
     case ComparisonWatchVideoTouched
     case ComparisonVideoFullyWatched
-    case AdObrigatoryVideoFullyWatched
+    case InterstitialVideoFullyWatched
     case ComparisonBuyCanceled
     case ComparisonDone
     case SearchOpened

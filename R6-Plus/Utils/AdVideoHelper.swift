@@ -50,6 +50,7 @@ class AdVideoHelper: NSObject {
 // MARK: - GADInterstitialDelegate
 extension AdVideoHelper: GADInterstitialDelegate {
     func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        AnalitycsHelper.InterstitialVideoFullyWatched.logEvent()
         reloadInterstitial()
     }
 }
