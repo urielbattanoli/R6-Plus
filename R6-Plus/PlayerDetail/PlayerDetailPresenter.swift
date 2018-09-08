@@ -96,7 +96,7 @@ class PlayerDetailPresenter: NSObject {
     private func openComparison() {
         AnalitycsHelper.DetailComparisonTouched.logEvent()
         guard let playerDetail = playerDetail else { return }
-        let presenter = OponentComparisonPresenter(service: SearchService(), playerDetail: playerDetail)
+        let presenter = OponentSelectionPresenter(service: SearchService(), playerDetail: playerDetail)
         let searchVC = SearchViewController(presenter: presenter)
         searchVC.modalTransitionStyle = .crossDissolve
         let navigation = UINavigationController(rootViewController: searchVC)

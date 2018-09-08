@@ -1,5 +1,5 @@
 //
-//  OponentComparisonPresenter.swift
+//  OponentSelectionPresenter.swift
 //  R6-Plus
 //
 //  Created by Uriel Battanoli on 18/07/18.
@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMobileAds
 
-class OponentComparisonPresenter: SearchPresenter {
+class OponentSelectionPresenter: SearchPresenter {
     
     private let playerDetail: PlayerDetail
     private var videoWatched = false
@@ -131,7 +131,7 @@ private extension PlayerDetail {
 }
 
 // MARK: - GADRewardBasedVideoAdDelegate
-extension OponentComparisonPresenter: GADRewardBasedVideoAdDelegate {
+extension OponentSelectionPresenter: GADRewardBasedVideoAdDelegate {
     func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didRewardUserWith reward: GADAdReward) {
         AnalitycsHelper.ComparisonVideoFullyWatched.logEvent()
         videoWatched = true
@@ -140,6 +140,6 @@ extension OponentComparisonPresenter: GADRewardBasedVideoAdDelegate {
     func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
         if videoWatched { openComparison() }
         GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
-                                                    withAdUnitID: ADS_VIDEO_ID)
+                                                    withAdUnitID: ADS_COMP_ID)
     }
 }

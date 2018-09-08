@@ -32,7 +32,7 @@ class TokenHelper {
         scheduleTimer()
     }
     
-    static func scheduleTimer() {
+    static private func scheduleTimer() {
         timer = Timer.scheduledTimer(timeInterval: 60 * 60 * 2,
                                      target: self,
                                      selector: #selector(validUbiToken),

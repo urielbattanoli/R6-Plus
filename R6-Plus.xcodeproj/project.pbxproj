@@ -51,6 +51,8 @@
 		A44A4D292142DBF400BD1438 /* RankedStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44A4D282142DBF400BD1438 /* RankedStats.swift */; };
 		A44A4D2B2142DC1000BD1438 /* CasualStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44A4D2A2142DC1000BD1438 /* CasualStats.swift */; };
 		A44A4D2D214450DD00BD1438 /* PlayerDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44A4D2C214450DD00BD1438 /* PlayerDetail.swift */; };
+		A44A4D2F214452D900BD1438 /* AdVideoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44A4D2E214452D900BD1438 /* AdVideoHelper.swift */; };
+		A44A4D312144578300BD1438 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44A4D302144578200BD1438 /* UIApplicationExtension.swift */; };
 		A4505F6A208238EF00C841DE /* LeaderboardPlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F68208238EF00C841DE /* LeaderboardPlayerTableViewCell.swift */; };
 		A4505F6B208238EF00C841DE /* LeaderboardPlayerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4505F69208238EF00C841DE /* LeaderboardPlayerTableViewCell.xib */; };
 		A4505F6D2082393F00C841DE /* LeaderboardPlayerCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F6C2082393F00C841DE /* LeaderboardPlayerCellData.swift */; };
@@ -61,7 +63,7 @@
 		A4505F7F2082FE8500C841DE /* UBTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4505F7D2082FE8500C841DE /* UBTableViewController.xib */; };
 		A4505F82208308E300C841DE /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F81208308E300C841DE /* Player.swift */; };
 		A46BA1B4208962B9003274F7 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46BA1B3208962B9003274F7 /* Server.swift */; };
-		A478D1B520FEEBA700606F3F /* OponentComparisonPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478D1B420FEEBA700606F3F /* OponentComparisonPresenter.swift */; };
+		A478D1B520FEEBA700606F3F /* OponentSelectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478D1B420FEEBA700606F3F /* OponentSelectionPresenter.swift */; };
 		A478D1B720FFF4CB00606F3F /* ReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478D1B620FFF4CB00606F3F /* ReviewHelper.swift */; };
 		A478D1BB2100000100606F3F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A478D1BA2100000100606F3F /* StoreKit.framework */; };
 		A478D1BD2100010800606F3F /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478D1BC2100010800606F3F /* IAPHelper.swift */; };
@@ -204,6 +206,8 @@
 		A44A4D282142DBF400BD1438 /* RankedStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankedStats.swift; sourceTree = "<group>"; };
 		A44A4D2A2142DC1000BD1438 /* CasualStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasualStats.swift; sourceTree = "<group>"; };
 		A44A4D2C214450DD00BD1438 /* PlayerDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetail.swift; sourceTree = "<group>"; };
+		A44A4D2E214452D900BD1438 /* AdVideoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdVideoHelper.swift; sourceTree = "<group>"; };
+		A44A4D302144578200BD1438 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		A4505F68208238EF00C841DE /* LeaderboardPlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardPlayerTableViewCell.swift; sourceTree = "<group>"; };
 		A4505F69208238EF00C841DE /* LeaderboardPlayerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaderboardPlayerTableViewCell.xib; sourceTree = "<group>"; };
 		A4505F6C2082393F00C841DE /* LeaderboardPlayerCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardPlayerCellData.swift; sourceTree = "<group>"; };
@@ -214,7 +218,7 @@
 		A4505F7D2082FE8500C841DE /* UBTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UBTableViewController.xib; sourceTree = "<group>"; };
 		A4505F81208308E300C841DE /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		A46BA1B3208962B9003274F7 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
-		A478D1B420FEEBA700606F3F /* OponentComparisonPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OponentComparisonPresenter.swift; sourceTree = "<group>"; };
+		A478D1B420FEEBA700606F3F /* OponentSelectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OponentSelectionPresenter.swift; sourceTree = "<group>"; };
 		A478D1B620FFF4CB00606F3F /* ReviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHelper.swift; sourceTree = "<group>"; };
 		A478D1BA2100000100606F3F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		A478D1BC2100010800606F3F /* IAPHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
@@ -521,7 +525,7 @@
 		A478D1B320FEE8F500606F3F /* Oponent Selection */ = {
 			isa = PBXGroup;
 			children = (
-				A478D1B420FEEBA700606F3F /* OponentComparisonPresenter.swift */,
+				A478D1B420FEEBA700606F3F /* OponentSelectionPresenter.swift */,
 			);
 			path = "Oponent Selection";
 			sourceTree = "<group>";
@@ -568,6 +572,7 @@
 		A4A0A664208ED95900CE46FA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				A44A4D2E214452D900BD1438 /* AdVideoHelper.swift */,
 				A448079C210C3C3400EEF36D /* AnalitycsHelper.swift */,
 				A43BFACA209F6D6D004C00CB /* CellComponent.swift */,
 				A4AFC79D2139B12800F4BB30 /* Extensions */,
@@ -613,6 +618,7 @@
 				A4DA9BDC209FE06A00EF830F /* IntExtension.swift */,
 				A478D1C821015C0000606F3F /* NotificationExtension.swift */,
 				A497F53B20A782CB00D26A23 /* StringExtension.swift */,
+				A44A4D302144578200BD1438 /* UIApplicationExtension.swift */,
 				A4BBADA8209CE50400425AEC /* UIColorExtension.swift */,
 				A43D13B2209014AF0067580D /* UIImageViewExtension.swift */,
 				A491AA8D20BB79F70072B169 /* UINavigationControllerExtension.swift */,
@@ -951,6 +957,7 @@
 				A491AA9020BB7A4F0072B169 /* UISearchControllerExtension.swift in Sources */,
 				A497F53F20A784B100D26A23 /* OperatorCollectionViewCell.swift in Sources */,
 				A4FAE56B20A2224600E9E877 /* GradientView.swift in Sources */,
+				A44A4D2F214452D900BD1438 /* AdVideoHelper.swift in Sources */,
 				A497F53020A6A98900D26A23 /* SeasonCellData.swift in Sources */,
 				A4FE7E162117976500E9E871 /* SearchRouter.swift in Sources */,
 				A402D11F210FF414004BC20D /* ProGamesService.swift in Sources */,
@@ -986,6 +993,7 @@
 				A4505F6A208238EF00C841DE /* LeaderboardPlayerTableViewCell.swift in Sources */,
 				A478D1B720FFF4CB00606F3F /* ReviewHelper.swift in Sources */,
 				A4505F6D2082393F00C841DE /* LeaderboardPlayerCellData.swift in Sources */,
+				A44A4D312144578300BD1438 /* UIApplicationExtension.swift in Sources */,
 				A478D1CD2101667700606F3F /* PremiumAccountViewController.swift in Sources */,
 				A4E9167A20CDB878001C291B /* PlayerComparisonPresenter.swift in Sources */,
 				A423CDBC209BD9EF00528E03 /* UIViewExtension.swift in Sources */,
@@ -1019,7 +1027,7 @@
 				A4A0A666208ED97200CE46FA /* NibRegistrableView.swift in Sources */,
 				A4AAC7FC20CB2EE9008F1EAB /* ComparisonInfoData.swift in Sources */,
 				A43BFACB209F6D6D004C00CB /* CellComponent.swift in Sources */,
-				A478D1B520FEEBA700606F3F /* OponentComparisonPresenter.swift in Sources */,
+				A478D1B520FEEBA700606F3F /* OponentSelectionPresenter.swift in Sources */,
 				A43832F120AE76E000B55F7C /* R6UserDefaults.swift in Sources */,
 				A4DB0C13212F8D880037D683 /* DataExtension.swift in Sources */,
 				A4BBADBC209D100C00425AEC /* PlayerDetailView.swift in Sources */,
