@@ -1,5 +1,5 @@
 //
-//  LeaderboardRegion.swift
+//  Region.swift
 //  R6-Plus
 //
 //  Created by Uriel Battanoli on 03/05/18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum LeaderboardRegion: String {
+enum Region: String {
     case global = "highest"
     case apac
     case emea

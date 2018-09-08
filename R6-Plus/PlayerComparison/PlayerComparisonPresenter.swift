@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 private let infoReuseId = ComparisonInfoTableViewCell.reuseId
 
@@ -17,6 +18,7 @@ class PlayerComparisonPresenter {
     private var rightPlayer: PlayerDetail?
     private var rightPlayerId: String?
     private var service = PlayerDetailService()
+    private let disposeBag = DisposeBag()
     
     init(leftPlayer: PlayerDetail?, rightPlayerId: String?) {
         self.leftPlayer = leftPlayer
@@ -34,16 +36,16 @@ class PlayerComparisonPresenter {
     }
     
     func fetchPlayerDetailIfNeeded(id: String) {
-        service.fetchPlayerDetail(id: id) { [weak self] result in
-            guard let `self` = self else { return }
-            if case .success(let playerDetail) = result {
-                self.rightPlayer = playerDetail
-                self.view?.setSections(self.playersToSection(),
-                                       isLoadMore: false)
-                self.view?.reloadTableView()
-                self.view?.stopLoading()
-            }
-        }
+        service.fetchPlayerDetail(id: id).subscribe(onNext: { [weak self] playerDetail in
+            guard let `self` = self,
+                let playerDetail = playerDetail else { return }
+            self.rightPlayer = playerDetail
+            self.view?.setSections(self.playersToSection(),
+                                   isLoadMore: false)
+            self.view?.reloadTableView()
+            self.view?.stopLoading()
+
+        }).disposed(by: disposeBag)
     }
     
     private func playersToSection() -> [SectionComponent] {
@@ -112,13 +114,13 @@ extension PlayerComparisonPresenter {
     
     private func generateGeneralStats(leftPlayer: PlayerDetail, rightPlayer: PlayerDetail) -> SectionComponent {
         let headerData = HeaderListViewData(title: "General Stats", alignment: .center)
-        let left = leftPlayer.stats.general
-        let right = rightPlayer.stats.general
+        guard let left = leftPlayer.stats.general,
+            let right = rightPlayer.stats.general else { return SectionComponent(header: nil, cells: []) }
         let cells = [CellComponent(reuseId: infoReuseId,
-                                   data: ComparisonInfoData(leftInfo: "\(leftPlayer.level)",
+                                   data: ComparisonInfoData(leftInfo: "\(leftPlayer.progression.level)",
                                     infoName: "Player level",
-                                    rightInfo: "\(rightPlayer.level)",
-                                    bestScore: leftPlayer.level.bestScore(rightValue: rightPlayer.level))),
+                                    rightInfo: "\(rightPlayer.progression.level)",
+                                    bestScore: leftPlayer.progression.level.bestScore(rightValue: rightPlayer.progression.level))),
                      CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: "\(left.won)",
                                     infoName: "Wins",
@@ -130,9 +132,9 @@ extension PlayerComparisonPresenter {
                                     rightInfo: "\(right.lost)",
                                     bestScore: left.lost.bestScore(rightValue: right.lost))),
                      CellComponent(reuseId: infoReuseId,
-                                   data: ComparisonInfoData(leftInfo: left.winRate.twoDecimalPercent(),
+                                   data: ComparisonInfoData(leftInfo: left.winRate.twoDecimalPercent,
                                                             infoName: "Win rate",
-                                                            rightInfo: right.winRate.twoDecimalPercent(),
+                                                            rightInfo: right.winRate.twoDecimalPercent,
                                                             bestScore: left.winRate.bestScore(rightValue: right.winRate))),
                      CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: "\(left.kills)",
@@ -145,9 +147,9 @@ extension PlayerComparisonPresenter {
                                     rightInfo: "\(right.deaths)",
                                     bestScore: left.deaths.bestScore(rightValue: right.deaths))),
                      CellComponent(reuseId: infoReuseId,
-                                   data: ComparisonInfoData(leftInfo: left.kdRatio.twoDecimal(),
+                                   data: ComparisonInfoData(leftInfo: left.kdRatio.twoDecimal,
                                                             infoName: "K/D ratio",
-                                                            rightInfo: right.kdRatio.twoDecimal(),
+                                                            rightInfo: right.kdRatio.twoDecimal,
                                                             bestScore: left.kdRatio.bestScore(rightValue: right.kdRatio)))]
         return SectionComponent(header: headerData, cells: cells)
     }
@@ -159,21 +161,21 @@ extension PlayerComparisonPresenter {
         
         let totalTimeBS: BestScore
         let leftTotalTime: String
-        if let casualTime = left.casual.timePlayed,
-            let rankedTime = left.ranked.timePlayed {
-            leftTotalTime = (casualTime + rankedTime).inHours()
+        if let casualTime = left.casual?.timePlayed,
+            let rankedTime = left.ranked?.timePlayed {
+            leftTotalTime = (casualTime + rankedTime).inHours
         } else {
             leftTotalTime = "-"
         }
         let rightTotalTime: String
-        if let casualTime = right.casual.timePlayed,
-            let rankedTime = right.ranked.timePlayed {
+        if let casualTime = right.casual?.timePlayed,
+            let rankedTime = right.ranked?.timePlayed {
             if leftTotalTime == "-" {
                 totalTimeBS = .right
             } else {
-                totalTimeBS = (left.casual.timePlayed ?? 0 + (left.ranked.timePlayed ?? 0)).bestScore(rightValue: casualTime + rankedTime)
+                totalTimeBS = (left.casual?.timePlayed ?? 0 + (left.ranked?.timePlayed ?? 0)).bestScore(rightValue: casualTime + rankedTime)
             }
-            rightTotalTime = (casualTime + rankedTime).inHours()
+            rightTotalTime = (casualTime + rankedTime).inHours
         } else {
             if leftTotalTime != "-" {
                 totalTimeBS = .left
@@ -183,15 +185,15 @@ extension PlayerComparisonPresenter {
             rightTotalTime = "-"
         }
         let cells = [CellComponent(reuseId: infoReuseId,
-                                   data: ComparisonInfoData(leftInfo: left.casual.timePlayed?.inHours() ?? "-",
+                                   data: ComparisonInfoData(leftInfo: left.casual?.timePlayed.inHours ?? "-",
                                                             infoName: "Casual",
-                                                            rightInfo: right.casual.timePlayed?.inHours() ?? "-",
-                                                            bestScore: (left.casual.timePlayed ?? 0).bestScore(rightValue: right.casual.timePlayed ?? 0))),
+                                                            rightInfo: right.casual?.timePlayed.inHours ?? "-",
+                                                            bestScore: (left.casual?.timePlayed ?? 0).bestScore(rightValue: right.casual?.timePlayed ?? 0))),
                      CellComponent(reuseId: infoReuseId,
-                                   data: ComparisonInfoData(leftInfo: left.ranked.timePlayed?.inHours() ?? "-",
+                                   data: ComparisonInfoData(leftInfo: left.ranked?.timePlayed.inHours ?? "-",
                                                             infoName: "Ranked",
-                                                            rightInfo: right.ranked.timePlayed?.inHours() ?? "-",
-                                                            bestScore: (left.ranked.timePlayed ?? 0).bestScore(rightValue: right.ranked.timePlayed ?? 0))),
+                                                            rightInfo: right.ranked?.timePlayed.inHours ?? "-",
+                                                            bestScore: (left.ranked?.timePlayed ?? 0).bestScore(rightValue: right.ranked?.timePlayed ?? 0))),
                      CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: leftTotalTime,
                                                             infoName: "Total",
@@ -202,18 +204,18 @@ extension PlayerComparisonPresenter {
     
     private func generateFightingStats(leftPlayer: PlayerDetail, rightPlayer: PlayerDetail) -> SectionComponent {
         let headerData = HeaderListViewData(title: "Fighting Stats", alignment: .center)
-        let left = leftPlayer.stats.general
-        let right = rightPlayer.stats.general
+        guard let left = leftPlayer.stats.general,
+            let right = rightPlayer.stats.general else { return SectionComponent(header: nil, cells: []) }
         
-        let leftAttackerTime = leftPlayer.stats.operatorArray.filter { $0.type == .attacker }.map { $0.timePlayed }.max() ?? 0
-        let leftDefenderTime = leftPlayer.stats.operatorArray.filter { $0.type == .defender }.map { $0.timePlayed }.max() ?? 0
-        let leftAttacker = leftPlayer.stats.operatorArray.filter { $0.type == .attacker && $0.timePlayed == leftAttackerTime }.first
-        let leftDefender = leftPlayer.stats.operatorArray.filter { $0.type == .defender && $0.timePlayed == leftDefenderTime }.first
-        
-        let rightAttackerTime = rightPlayer.stats.operatorArray.filter { $0.type == .attacker }.map { $0.timePlayed }.max() ?? 0
-        let rightDefenderTime = rightPlayer.stats.operatorArray.filter { $0.type == .defender }.map { $0.timePlayed }.max() ?? 0
-        let rightAttacker = rightPlayer.stats.operatorArray.filter { $0.type == .attacker && $0.timePlayed == rightAttackerTime }.first
-        let rightDefender = rightPlayer.stats.operatorArray.filter { $0.type == .defender && $0.timePlayed == rightDefenderTime }.first
+//        let leftAttackerTime = leftPlayer.stats.operatorArray.filter { $0.type == .attacker }.map { $0.timePlayed }.max() ?? 0
+//        let leftDefenderTime = leftPlayer.stats.operatorArray.filter { $0.type == .defender }.map { $0.timePlayed }.max() ?? 0
+//        let leftAttacker = leftPlayer.stats.operatorArray.filter { $0.type == .attacker && $0.timePlayed == leftAttackerTime }.first
+//        let leftDefender = leftPlayer.stats.operatorArray.filter { $0.type == .defender && $0.timePlayed == leftDefenderTime }.first
+//
+//        let rightAttackerTime = rightPlayer.stats.operatorArray.filter { $0.type == .attacker }.map { $0.timePlayed }.max() ?? 0
+//        let rightDefenderTime = rightPlayer.stats.operatorArray.filter { $0.type == .defender }.map { $0.timePlayed }.max() ?? 0
+//        let rightAttacker = rightPlayer.stats.operatorArray.filter { $0.type == .attacker && $0.timePlayed == rightAttackerTime }.first
+//        let rightDefender = rightPlayer.stats.operatorArray.filter { $0.type == .defender && $0.timePlayed == rightDefenderTime }.first
         
         let cells = [CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: "\(left.kills)",
@@ -230,14 +232,14 @@ extension PlayerComparisonPresenter {
                                                             infoName: "Deaths",
                                                             rightInfo: "\(right.deaths)",
                                                             bestScore: left.deaths.bestScore(rightValue: right.deaths))),                     CellComponent(reuseId: infoReuseId,
-                                   data: ComparisonInfoData(leftInfo: left.aim.twoDecimalPercent(),
+                                   data: ComparisonInfoData(leftInfo: left.aim.twoDecimalPercent,
                                                             infoName: "Aim (hits)",
-                                                            rightInfo: right.aim.twoDecimalPercent(),
+                                                            rightInfo: right.aim.twoDecimalPercent,
                                                             bestScore: left.aim.bestScore(rightValue: right.aim))),
                      CellComponent(reuseId: infoReuseId,
-                                   data: ComparisonInfoData(leftInfo: left.hsRate.twoDecimalPercent(),
+                                   data: ComparisonInfoData(leftInfo: left.hsRate.twoDecimalPercent,
                                                             infoName: "Percentage HS",
-                                                            rightInfo: right.hsRate.twoDecimalPercent(),
+                                                            rightInfo: right.hsRate.twoDecimalPercent,
                                                             bestScore: left.hsRate.bestScore(rightValue: right.hsRate))),
                      CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: "\(left.penetrationKills)",
@@ -253,24 +255,25 @@ extension PlayerComparisonPresenter {
                                    data: ComparisonInfoData(leftInfo: "\(left.revives)",
                                                             infoName: "Revived",
                                                             rightInfo: "\(right.revives)",
-                                                            bestScore: left.revives.bestScore(rightValue: right.revives))),
-                     CellComponent(reuseId: infoReuseId,
-                                   data: ComparisonInfoData(leftInfo: leftAttacker?.name ?? "-",
-                                                            infoName: "Favorite attacker",
-                                                            rightInfo: rightAttacker?.name ?? "-",
-                                                            bestScore: .equal)),
-                     CellComponent(reuseId: infoReuseId,
-                                   data: ComparisonInfoData(leftInfo: leftDefender?.name ?? "-",
-                                                            infoName: "Favorite defender",
-                                                            rightInfo: rightDefender?.name ?? "-",
-                                                            bestScore: .equal))]
+                                                            bestScore: left.revives.bestScore(rightValue: right.revives)))]
+//                     CellComponent(reuseId: infoReuseId,
+//                                   data: ComparisonInfoData(leftInfo: leftAttacker?.name ?? "-",
+//                                                            infoName: "Favorite attacker",
+//                                                            rightInfo: rightAttacker?.name ?? "-",
+//                                                            bestScore: .equal)),
+//                     CellComponent(reuseId: infoReuseId,
+//                                   data: ComparisonInfoData(leftInfo: leftDefender?.name ?? "-",
+//                                                            infoName: "Favorite defender",
+//                                                            rightInfo: rightDefender?.name ?? "-",
+//                                                            bestScore: .equal))]
         return SectionComponent(header: headerData, cells: cells)
     }
     
     private func generateRankedStats(leftPlayer: PlayerDetail, rightPlayer: PlayerDetail) -> SectionComponent {
         let headerData = HeaderListViewData(title: "Ranked Stats (last season)", alignment: .center)
-        let left = leftPlayer.rank.bestRank
-        let right = rightPlayer.rank.bestRank
+        guard let left = leftPlayer.seasons.first,
+            let right = rightPlayer.seasons.first else { return SectionComponent(header: nil, cells: []) }
+        
         let cells = [CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: "\(left.wins)",
                                                             infoName: "Wins",
@@ -287,14 +290,14 @@ extension PlayerComparisonPresenter {
                                                             rightInfo: "\(right.abandons)",
                                                             bestScore: left.abandons.bestScore(rightValue: right.abandons))),
                      CellComponent(reuseId: infoReuseId,
-                                   data: ComparisonInfoData(leftInfo: left.winRate.twoDecimalPercent(),
+                                   data: ComparisonInfoData(leftInfo: left.winRate.twoDecimalPercent,
                                                             infoName: "Win rate",
-                                                            rightInfo: right.winRate.twoDecimalPercent(),
+                                                            rightInfo: right.winRate.twoDecimalPercent,
                                                             bestScore: left.winRate.bestScore(rightValue: right.winRate))),
                      CellComponent(reuseId: infoReuseId,
-                                   data: ComparisonInfoData(leftInfo: left.mmr.twoDecimal(),
+                                   data: ComparisonInfoData(leftInfo: left.mmr.twoDecimal,
                                                             infoName: "MMR",
-                                                            rightInfo: right.mmr.twoDecimal(),
+                                                            rightInfo: right.mmr.twoDecimal,
                                                             bestScore: left.mmr.bestScore(rightValue: right.mmr))),
                      CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: left.ranking.name,
@@ -302,9 +305,9 @@ extension PlayerComparisonPresenter {
                                                             rightInfo: right.ranking.name,
                                                             bestScore: left.ranking.rawValue.bestScore(rightValue: right.ranking.rawValue))),
                      CellComponent(reuseId: infoReuseId,
-                                   data: ComparisonInfoData(leftInfo: left.skill_mean.twoDecimal(),
+                                   data: ComparisonInfoData(leftInfo: left.skill_mean.twoDecimal,
                                                             infoName: "Skill",
-                                                            rightInfo: right.skill_mean.twoDecimal(),
+                                                            rightInfo: right.skill_mean.twoDecimal,
                                                             bestScore: left.skill_mean.bestScore(rightValue: right.skill_mean)))]
         return SectionComponent(header: headerData, cells: cells)
     }

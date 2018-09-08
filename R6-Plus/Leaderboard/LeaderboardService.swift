@@ -13,12 +13,6 @@ struct LeaderboardInput {
     let stat: String
     let limit: Int
     let page: Int
-    
-    var headers: [String: String] {
-        var defaultHeaders = Server.headers
-        defaultHeaders["Referer"] = "https://r6db.com/leaderboard/PC/ALL"
-        return defaultHeaders
-    }
 }
 
 class LeaderboardService {
@@ -26,11 +20,10 @@ class LeaderboardService {
     func fetchLeaderboard(input: LeaderboardInput, completion: @escaping ((Result<[Player]>) -> Void)) {
         let params: [String: Any] = ["stat": input.stat, "limit": input.limit, "page": input.page]
         
-        Alamofire.request(Server.leaderboardUrl,
+        Alamofire.request("",
                           method: .get,
                           parameters: params,
-                          encoding: URLEncoding.default,
-                          headers: input.headers)
+                          encoding: URLEncoding.default)
             
             .validate()
             .responseJSON { response in

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Alamofire
 
 struct ProGamesInput {
     let limit: Int

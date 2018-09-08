@@ -24,8 +24,12 @@ struct PlayerSeason: Codable {
         return Ranking(rawValue: rank) ?? .unranked
     }
     
+    var played: Double {
+        return wins + losses
+    }
+    
     var winRate: Double {
-        guard wins + losses != 0 else { return 0 }
-        return wins / wins + losses * 100
+        guard played != 0 else { return 0 }
+        return wins / played * 100
     }
 }

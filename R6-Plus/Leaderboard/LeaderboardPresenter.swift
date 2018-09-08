@@ -13,9 +13,9 @@ class LeaderboardPresenter {
     private let service: LeaderboardService
     private weak var view: UBTableView?
     private var page = 0
-    private var leaderboardRegion: LeaderboardRegion
+    private var leaderboardRegion: Region
     
-    init(service: LeaderboardService, leaderboardRegion: LeaderboardRegion) {
+    init(service: LeaderboardService, leaderboardRegion: Region) {
         self.service = service
         self.leaderboardRegion = leaderboardRegion
     }
@@ -54,7 +54,7 @@ class LeaderboardPresenter {
                                                  playerImage: $0.imageUrl,
                                                  position: "\($0.placement)",
                                                  nickName: $0.nickname,
-                                                 skillPoint: "Skill rating: \($0.skillPoint.twoDecimal())")
+                                                 skillPoint: "Skill rating: \($0.skillPoint.twoDecimal)")
             return CellComponent(reuseId: LeaderboardPlayerTableViewCell.reuseId,
                                  data: data) { [weak self] in
                                     self?.goToPlayerDetail(data.id)

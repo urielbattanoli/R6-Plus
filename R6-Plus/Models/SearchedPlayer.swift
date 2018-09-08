@@ -13,32 +13,6 @@ struct SearchedPlayer: Codable {
     let userId: String
     let platformType: String
     let nameOnPlatform: String
-//    let level: Int
-//    let ranks: Ranks
-    
-    struct Ranks: Codable {
-        let apac: Rank
-        let emea: Rank
-        let ncsa: Rank
-        
-        var bestRank: Rank {
-            let bestRank = [apac.rank, emea.rank, ncsa.rank].max() ?? 0
-            switch bestRank {
-            case apac.rank: return apac
-            case emea.rank: return emea
-            default: return ncsa
-            }
-        }
-    }
-    
-    struct Rank: Codable {
-        let mmr: Double
-        let rank: Int
-        
-        var ranking: Ranking {
-            return Ranking(rawValue: rank) ?? .unranked
-        }
-    }
     
     var imageUrl: String {
         return String(format: Server.baseImageUrl, userId)

@@ -9,16 +9,17 @@
 import Foundation
 
 extension Double {
-    func oneDecimal() -> String {
+    
+    var oneDecimal: String {
         return String(format: "%.1f", self)
     }
     
-    func twoDecimal() -> String {
+    var twoDecimal: String {
         return String(format: "%.2f", self)
     }
     
-    func twoDecimalPercent() -> String {
-        return "\(self.twoDecimal())%"
+    var twoDecimalPercent: String {
+        return "\(self.twoDecimal)%"
     }
     
     func bestScore(rightValue: Double) -> BestScore {

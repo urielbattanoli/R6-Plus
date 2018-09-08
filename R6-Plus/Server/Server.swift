@@ -24,6 +24,7 @@ struct Server {
     static var baseImageUrl: String { return "https://ubisoft-avatars.akamaized.net/%@/default_146_146.png" }
     static var ubiTokenUrl: String { return "\(baseR6Url)5000/token" }
     static var ubiSearchUrl: String { return "\(baseUbiUrl)v2/profiles" }
+    static func ubiProfileUrl(id: String) -> String { return "\(baseUbiUrl)v2/users/\(id)/profiles" }
     
     static var baseUbiV1: String { return "\(baseUbiUrl)v1/spaces/5172a557-50b5-4665-b7db-e3f2e8c5041d/sandboxes/OSBOR_PC_LNCH_A/" }
     static var ubiStatisticsUrl: String { return "\(baseUbiV1)playerstats2/statistics" }

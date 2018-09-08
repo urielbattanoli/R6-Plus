@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Alamofire
+import RxSwift
 
 struct UbiToken: Codable {
     let ticket: String
@@ -22,13 +22,13 @@ class TokenHelper {
     
     static var token: UbiToken?
     private static var timer = Timer()
+    private static var disposeBag = DisposeBag()
     
     @objc static func validUbiToken() {
-        R6API.getToken.request { result in
-            guard case .success(let json) = result,
-                let token = try? UbiToken.fromDictionary(json) else { return }
+        R6API.getToken.rxRequest().retry(3).subscribe(onNext: { json in
+            let token = try? UbiToken.fromDictionary(json)
             self.token = token
-        }
+        }).disposed(by: disposeBag)
         scheduleTimer()
     }
     

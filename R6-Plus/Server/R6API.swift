@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import RxSwift
 
 enum R6API {
     case getToken
@@ -15,6 +16,7 @@ enum R6API {
     case playerStatistics(input: PlayerStatisticInput)
     case playerProgression(input: PlayerProgressionInput)
     case playerSeason(input: PlayerSeasonInput)
+    case playerProfile(input: PlayerProfileInput)
     case proGames(input: ProGamesInput)
 }
 
@@ -27,6 +29,7 @@ extension R6API {
         case .playerStatistics: return Server.ubiStatisticsUrl
         case .playerProgression: return Server.ubiProgressionUrl
         case .playerSeason: return Server.ubiSeasonUrl
+        case .playerProfile(let input): return Server.ubiProfileUrl(id: input.id)
         case .proGames: return Server.proGamesUrl
         }
     }
@@ -44,6 +47,7 @@ extension R6API {
         case .proGames(let input): return input.params
         case .playerStatistics(let input): return input.params
         case .playerProgression(let input): return input.params
+        case .playerSeason(let input): return input.params
         default: return nil
         }
     }
@@ -53,9 +57,16 @@ extension R6API {
         case .proGames:
             return ["X-Parse-Application-Id": "R6PLUS",
                     "X-Parse-REST-API-Key": "bmoA6075Kxx4SLJ8ZJXXPccILaUrj04U"]
-//            return ["X-Parse-Application-Id": "R6PLUS-DEV",
-//                    "X-Parse-REST-API-Key": "666"]
+            //            return ["X-Parse-Application-Id": "R6PLUS-DEV",
+        //                    "X-Parse-REST-API-Key": "666"]
         default: return TokenHelper.token?.header()
+        }
+    }
+    
+    private var encoding: ParameterEncoding {
+        switch self {
+        case .proGames: return JSONEncoding.default
+        default: return URLEncoding.default
         }
     }
     
@@ -64,7 +75,7 @@ extension R6API {
         return Alamofire.request(url,
                                  method: method,
                                  parameters: params,
-                                 encoding: URLEncoding.default,
+                                 encoding: encoding,
                                  headers: headers)
             
             .validate()
@@ -79,6 +90,29 @@ extension R6API {
                 case .failure(let error):
                     completion(.failure(error))
                 }
+        }
+    }
+    
+    func rxRequest() -> Observable<[String: Any]> {
+        return Observable.create { observer -> Disposable in
+            let request = Alamofire.request(self.url,
+                                            method: self.method,
+                                            parameters: self.params,
+                                            encoding: self.encoding,
+                                            headers: self.headers)
+                .validate()
+                .responseJSON { response in
+                    switch response.result {
+                    case .success(let json):
+                        let result = json as? [String: Any] ?? [:]
+                        observer.onNext(result)
+                    case .failure(let error):
+                        observer.onError(error)
+                    }
+            }
+            return Disposables.create {
+                request.cancel()
+            }
         }
     }
 }

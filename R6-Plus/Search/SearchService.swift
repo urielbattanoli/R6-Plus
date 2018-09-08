@@ -22,18 +22,10 @@ struct SearchInput {
 class SearchService {
     
     func fetchSearch(input: SearchInput, completion: @escaping ((Result<[SearchedPlayer]>) -> Void)) -> DataRequest {
-        return Alamofire.request(Server.ubiSearchUrl,
-                                 method: .get,
-                                 parameters: input.params,
-                                 encoding: URLEncoding.default,
-                                 headers: TokenHelper.token?.header())
-
-            .validate()
-            .responseJSON { response in
-                switch response.result {
+        return R6API.searchPlayer(input: input).request { result in
+                switch result {
                 case .success(let json):
-                    guard let result = json as? [String: Any],
-                        let profiles = result["profiles"] as? [[String: Any]] else {
+                    guard let profiles = json["profiles"] as? [[String: Any]] else {
                         completion(.failure(nil))
                         return
                     }

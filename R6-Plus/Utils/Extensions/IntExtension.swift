@@ -10,8 +10,8 @@ import Foundation
 
 extension Int {
     
-    func inHours() -> String {
-        return "\((Double(self) / 3600).oneDecimal())h"
+    var inHours: String {
+        return "\((Double(self) / 3600).oneDecimal)h"
     }
     
     func bestScore(rightValue: Int) -> BestScore {

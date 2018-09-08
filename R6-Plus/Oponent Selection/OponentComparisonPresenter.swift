@@ -124,24 +124,9 @@ class OponentComparisonPresenter: SearchPresenter {
 
 private extension PlayerDetail {
     func toSearchedPlayer() -> SearchedPlayer {
-        let apac = SearchedPlayer.Rank(mmr: self.rank.apac.mmr,
-                                       rank: self.rank.apac.rank)
-        let emea = SearchedPlayer.Rank(mmr: self.rank.emea.mmr,
-                                       rank: self.rank.emea.rank)
-        let ncsa = SearchedPlayer.Rank(mmr: self.rank.ncsa.mmr,
-                                       rank: self.rank.ncsa.rank)
-        let ranks = SearchedPlayer.Ranks(apac: apac,
-                                         emea: emea,
-                                         ncsa: ncsa)
         return SearchedPlayer(userId: self.id,
                               platformType: self.platform,
                               nameOnPlatform: self.name)
-//        return SearchedPlayer(id: self.id,
-//                              userId: self.userId,
-//                              platform: self.platform,
-//                              name: self.name,
-//                              level: self.level,
-//                              ranks: ranks)
     }
 }
 
