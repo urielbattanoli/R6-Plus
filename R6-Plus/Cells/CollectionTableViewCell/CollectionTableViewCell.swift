@@ -86,7 +86,7 @@ extension CollectionTableViewCell: UICollectionViewDelegateFlowLayout {
         if items.first?.reuseId == OperatorCollectionViewCell.reuseId {
             return CGSize(width: 60, height: 60)
         }
-        return CGSize(width: 85, height: 100)
+        return CGSize(width: 85, height: 110)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

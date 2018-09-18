@@ -53,6 +53,8 @@
 		A44A4D2D214450DD00BD1438 /* PlayerDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44A4D2C214450DD00BD1438 /* PlayerDetail.swift */; };
 		A44A4D2F214452D900BD1438 /* AdVideoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44A4D2E214452D900BD1438 /* AdVideoHelper.swift */; };
 		A44A4D312144578300BD1438 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44A4D302144578200BD1438 /* UIApplicationExtension.swift */; };
+		A44A4D3521473D6600BD1438 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A44A4D3721473D6600BD1438 /* Localizable.strings */; };
+		A44A4D3A2147408400BD1438 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44A4D392147408300BD1438 /* Strings.swift */; };
 		A4505F6A208238EF00C841DE /* LeaderboardPlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F68208238EF00C841DE /* LeaderboardPlayerTableViewCell.swift */; };
 		A4505F6B208238EF00C841DE /* LeaderboardPlayerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4505F69208238EF00C841DE /* LeaderboardPlayerTableViewCell.xib */; };
 		A4505F6D2082393F00C841DE /* LeaderboardPlayerCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4505F6C2082393F00C841DE /* LeaderboardPlayerCellData.swift */; };
@@ -194,6 +196,7 @@
 		A43832F720AE796800B55F7C /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
 		A43BFACA209F6D6D004C00CB /* CellComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellComponent.swift; sourceTree = "<group>"; };
 		A43BFACC209F6EB3004C00CB /* CollectionCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellData.swift; sourceTree = "<group>"; };
+		A43CB87B2148A75E00D1AE85 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A43D13B2209014AF0067580D /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		A43E915820CB269700440D39 /* ComparisonInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonInfoTableViewCell.swift; sourceTree = "<group>"; };
 		A43E915920CB269700440D39 /* ComparisonInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComparisonInfoTableViewCell.xib; sourceTree = "<group>"; };
@@ -208,6 +211,9 @@
 		A44A4D2C214450DD00BD1438 /* PlayerDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetail.swift; sourceTree = "<group>"; };
 		A44A4D2E214452D900BD1438 /* AdVideoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdVideoHelper.swift; sourceTree = "<group>"; };
 		A44A4D302144578200BD1438 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
+		A44A4D3621473D6600BD1438 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A44A4D3821473D8B00BD1438 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		A44A4D392147408300BD1438 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		A4505F68208238EF00C841DE /* LeaderboardPlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardPlayerTableViewCell.swift; sourceTree = "<group>"; };
 		A4505F69208238EF00C841DE /* LeaderboardPlayerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaderboardPlayerTableViewCell.xib; sourceTree = "<group>"; };
 		A4505F6C2082393F00C841DE /* LeaderboardPlayerCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardPlayerCellData.swift; sourceTree = "<group>"; };
@@ -279,6 +285,8 @@
 		A4E9167420CDAD65001C291B /* ComparisonHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComparisonHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		A4E9167720CDB84D001C291B /* ComparisonHeaderViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonHeaderViewData.swift; sourceTree = "<group>"; };
 		A4E9167920CDB878001C291B /* PlayerComparisonPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerComparisonPresenter.swift; sourceTree = "<group>"; };
+		A4F61DA2214EFE1000F45863 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A4F61DC52150763100F45863 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A4FAE56A20A2224600E9E877 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		A4FE7E152117976500E9E871 /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -376,6 +384,7 @@
 				A4199537208164500039A6D4 /* LaunchScreen.storyboard */,
 				A41995322081644C0039A6D4 /* Main.storyboard */,
 				A41995302081644C0039A6D4 /* TabBarController.swift */,
+				A44A4D3721473D6600BD1438 /* Localizable.strings */,
 				A47E3AF720B66B6D001B4C10 /* UBTableViewController */,
 				A4505F6E208239C300C841DE /* Cells */,
 				A43832F220AE78F900B55F7C /* Favorites */,
@@ -584,6 +593,7 @@
 				A478D1B620FFF4CB00606F3F /* ReviewHelper.swift */,
 				A4AFC79B2139B11100F4BB30 /* TokenHelper.swift */,
 				A4A0A667208ED9E600CE46FA /* Utils.swift */,
+				A44A4D392147408300BD1438 /* Strings.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -813,6 +823,10 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
+				de,
+				it,
+				fr,
 			);
 			mainGroup = A41995222081644B0039A6D4;
 			productRefGroup = A419952C2081644C0039A6D4 /* Products */;
@@ -840,6 +854,7 @@
 				A4BBADB6209D0FD700425AEC /* PlayerDetailViewController.xib in Resources */,
 				A43832ED20AE622100B55F7C /* PlayerTableViewCell.xib in Resources */,
 				A497F54020A784B100D26A23 /* OperatorCollectionViewCell.xib in Resources */,
+				A44A4D3521473D6600BD1438 /* Localizable.strings in Resources */,
 				A448079B210C3B2C00EEF36D /* GoogleService-Info.plist in Resources */,
 				A497F52E20A6A57A00D26A23 /* SeasonCollectionViewCell.xib in Resources */,
 				A497F54520A8B3AC00D26A23 /* OperatorDetailViewController.xib in Resources */,
@@ -971,6 +986,7 @@
 				A43BFACD209F6EB3004C00CB /* CollectionCellData.swift in Sources */,
 				A4BBADBA209D0FF900425AEC /* PlayerDetailService.swift in Sources */,
 				A4DA9BDD209FE06A00EF830F /* IntExtension.swift in Sources */,
+				A44A4D3A2147408400BD1438 /* Strings.swift in Sources */,
 				A4BBADB5209D0FD700425AEC /* PlayerDetailViewController.swift in Sources */,
 				A4DA9BE420A1244400EF830F /* OperatorType.swift in Sources */,
 				A4DA9BE920A1467F00EF830F /* InformationTableViewCell.swift in Sources */,
@@ -1079,6 +1095,18 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		A44A4D3721473D6600BD1438 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A44A4D3621473D6600BD1438 /* en */,
+				A44A4D3821473D8B00BD1438 /* pt-BR */,
+				A43CB87B2148A75E00D1AE85 /* de */,
+				A4F61DA2214EFE1000F45863 /* it */,
+				A4F61DC52150763100F45863 /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -1086,6 +1114,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1146,6 +1175,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

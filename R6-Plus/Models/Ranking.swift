@@ -8,8 +8,11 @@
 
 import UIKit
 
+private typealias strings = Strings.Ranking
+
 enum Ranking: Int {
     
+    case unranked = 0
     case copper4 = 1
     case copper3 = 2
     case copper2 = 3
@@ -30,9 +33,34 @@ enum Ranking: Int {
     case platinum2 = 18
     case platinum1 = 19
     case diamond = 20
-    case unranked = 0
     
     var name: String {
+        switch self {
+        case .unranked: return strings.unranked
+        case .copper4: return strings.copper4
+        case .copper3: return strings.copper3
+        case .copper2: return strings.copper2
+        case .copper1: return strings.copper1
+        case .bronze4: return strings.bronze4
+        case .bronze3: return strings.bronze3
+        case .bronze2: return strings.bronze2
+        case .bronze1: return strings.bronze1
+        case .silver4: return strings.silver4
+        case .silver3: return strings.silver3
+        case .silver2: return strings.silver2
+        case .silver1: return strings.silver1
+        case .gold4: return strings.gold4
+        case .gold3: return strings.gold3
+        case .gold2: return strings.gold2
+        case .gold1: return strings.gold1
+        case .platinum3: return strings.platinum3
+        case .platinum2: return strings.platinum2
+        case .platinum1: return strings.platinum1
+        case .diamond: return strings.diamond
+        }
+    }
+    
+    private var imageName: String {
         switch self {
         case .copper4: return "Copper IV"
         case .copper3: return "Copper III"
@@ -60,7 +88,7 @@ enum Ranking: Int {
     
     var image: UIImage {
         switch self {
-        default: return UIImage(named: self.name) ?? UIImage()
+        default: return UIImage(named: imageName) ?? UIImage()
         }
     }
 }

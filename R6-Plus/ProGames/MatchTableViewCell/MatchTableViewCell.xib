@@ -105,10 +105,10 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nug-Ya-NuQ">
-                                <rect key="frame" x="327" y="0.0" width="70" height="30"/>
+                                <rect key="frame" x="335" y="0.0" width="62" height="30"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUT-qF-rEr">
-                                        <rect key="frame" x="16" y="5.5" width="49" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="Live" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUT-qF-rEr">
+                                        <rect key="frame" x="16" y="5.5" width="31" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -125,12 +125,11 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="0nV-ju-qbR"/>
+                                    <constraint firstAttribute="trailing" secondItem="hUT-qF-rEr" secondAttribute="trailing" constant="15" id="DtC-m8-8en"/>
                                     <constraint firstItem="Sba-Gm-3Mu" firstAttribute="centerY" secondItem="Nug-Ya-NuQ" secondAttribute="centerY" id="bSc-dE-twE"/>
                                     <constraint firstItem="Sba-Gm-3Mu" firstAttribute="leading" secondItem="Nug-Ya-NuQ" secondAttribute="leading" constant="5" id="cLl-pF-iF7"/>
                                     <constraint firstItem="hUT-qF-rEr" firstAttribute="centerY" secondItem="Nug-Ya-NuQ" secondAttribute="centerY" id="m9a-QW-idp"/>
-                                    <constraint firstAttribute="trailing" secondItem="hUT-qF-rEr" secondAttribute="trailing" constant="5" id="mfD-Fv-1UX"/>
                                     <constraint firstItem="hUT-qF-rEr" firstAttribute="leading" secondItem="Sba-Gm-3Mu" secondAttribute="trailing" constant="5" id="pKh-Tg-f4W"/>
-                                    <constraint firstAttribute="width" constant="70" id="z58-tW-4ln"/>
                                 </constraints>
                             </view>
                         </subviews>

@@ -12,15 +12,14 @@ class PremiumAccountViewController: UIViewController {
 
     @IBOutlet private weak var premiumImageView: UIImageView!
     @IBOutlet private weak var messageLabel: UILabel!
-    @IBOutlet private weak var buyButton: UIButton! {
-        didSet {
-            buyButton.setCorner(value: 5)
-        }
-    }
+    @IBOutlet private weak var buyButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        buyButton.setCorner(value: 5)
+        buyButton.setTitle(Strings.Premium.buyNow, for: .normal)
+        messageLabel.text = Strings.Premium.helpUs
         guard !R6UserDefaults.shared.premiumAccount else {
             changePremiumStatus()
             return
@@ -34,24 +33,24 @@ class PremiumAccountViewController: UIViewController {
     
     @objc private func changePremiumStatus() {
         premiumImageView.image = #imageLiteral(resourceName: "premium")
-        messageLabel.text = "You already own a Premium Account!\n\nThank you for your support!"
+        messageLabel.text = Strings.Premium.thanksMessage
         buyButton.isHidden = true
     }
     
     private func offerPremiumAccount() {
         configureIAP()
-        let alert = UIAlertController(title: "Premium Account",
+        let alert = UIAlertController(title: Strings.Premium.premium,
                                       message: nil,
                                       preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Buy", style: .default) { action in
+        alert.addAction(UIAlertAction(title: Strings.buy, style: .default) { action in
             AnalitycsHelper.PremiumAlertBuyTouched.logEvent()
             IAPHelper.shared.purchaseMyProduct(index: 0)
         })
-        alert.addAction(UIAlertAction(title: "Restore", style: .default) { action in
+        alert.addAction(UIAlertAction(title: Strings.restore, style: .default) { action in
             AnalitycsHelper.PremiumRestoreTouched.logEvent()
             IAPHelper.shared.restorePurchase()
         })
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { action in
+        alert.addAction(UIAlertAction(title: Strings.cancel, style: .cancel) { action in
             AnalitycsHelper.PremiumBuyCanceled.logEvent()
         })
         present(alert, animated: true)
@@ -63,7 +62,7 @@ class PremiumAccountViewController: UIViewController {
             let alert = UIAlertController(title: message,
                                           message: nil,
                                           preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
+            alert.addAction(UIAlertAction(title: Strings.ok, style: .cancel))
             self?.present(alert, animated: true)
         }
     }

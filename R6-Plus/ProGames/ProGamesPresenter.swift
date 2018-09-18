@@ -8,6 +8,8 @@
 
 import UIKit
 
+private typealias strings = Strings.ProGames
+
 class ProGamesPresenter {
     
     private weak var view: UBTableView?
@@ -31,7 +33,7 @@ class ProGamesPresenter {
                 self.view?.setSections(self.generateMatchesSection(matches), isLoadMore: true)
             }
             self.view?.stopLoading()
-            self.view?.setEmptyMessageIfNeeded("No matches scheduled for these days")
+            self.view?.setEmptyMessageIfNeeded(strings.noMatches)
             self.view?.reloadTableView()
         }
         page += 1
@@ -40,17 +42,22 @@ class ProGamesPresenter {
     private func matchTouched(_ match: Match) {
         AnalitycsHelper.MatchTouched.logEvent(obs: match.objectId)
         
-        guard let url = URL(string: match.streamUrl ?? ""),
-            match.isLive && UIApplication.shared.canOpenURL(url) else {
-            streamNotAvailable()
+        guard match.isLive else {
+            showAlertWithMessage(strings.streamUnavailable)
             return
+        }
+        
+        guard let url = URL(string: match.streamUrl ?? ""),
+            UIApplication.shared.canOpenURL(url) else {
+                showAlertWithMessage(strings.errorOpenUrl)
+                return
         }
         UIApplication.shared.open(url, options: [:])
     }
     
-    private func streamNotAvailable() {
-        let alert = UIAlertController(title: nil, message: "This stream is currently not available!", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
+    private func showAlertWithMessage(_ message: String) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: Strings.ok, style: .cancel))
         (view as? UIViewController)?.present(alert, animated: true)
     }
     

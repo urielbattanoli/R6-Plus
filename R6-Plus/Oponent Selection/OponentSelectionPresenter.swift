@@ -9,6 +9,8 @@
 import UIKit
 import GoogleMobileAds
 
+private typealias strings = Strings.OponentSelection
+
 class OponentSelectionPresenter: SearchPresenter {
     
     private let playerDetail: PlayerDetail
@@ -60,18 +62,18 @@ class OponentSelectionPresenter: SearchPresenter {
     
     private func offerPremiumAccount() {
         configureIAP()
-        let alert = UIAlertController(title: "You've reached the maximum number of comparisons today",
-                                      message: "Upgrade your account to premium and make as many comparisons as you want! Also, remove all ads.",
+        let alert = UIAlertController(title: strings.reachedMaximum,
+                                      message: strings.upgradeAccount,
                                       preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Buy", style: .default) { action in
+        alert.addAction(UIAlertAction(title: Strings.buy, style: .default) { action in
             AnalitycsHelper.ComparisonBuyPremiumTouched.logEvent()
             IAPHelper.shared.purchaseMyProduct(index: 0)
         })
-        alert.addAction(UIAlertAction(title: "Restore", style: .default) { action in
+        alert.addAction(UIAlertAction(title: Strings.restore, style: .default) { action in
             AnalitycsHelper.ComparisonRestorePremiumTouched.logEvent()
             IAPHelper.shared.restorePurchase()
         })
-        alert.addAction(UIAlertAction(title: "Free Comparison [Video Ads]", style: .default) { [weak self] action in
+        alert.addAction(UIAlertAction(title: strings.freeComp, style: .default) { [weak self] action in
             AnalitycsHelper.ComparisonWatchVideoTouched.logEvent()
             guard let viewController = self?.view as? UIViewController else { return }
             GADRewardBasedVideoAd.sharedInstance().delegate = self
@@ -79,7 +81,7 @@ class OponentSelectionPresenter: SearchPresenter {
                 GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: viewController)
             }
         })
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { action in
+        alert.addAction(UIAlertAction(title: Strings.cancel, style: .cancel) { action in
             AnalitycsHelper.ComparisonBuyCanceled.logEvent()
         })
         (view as? UIViewController)?.present(alert, animated: true)
@@ -91,7 +93,7 @@ class OponentSelectionPresenter: SearchPresenter {
             let alert = UIAlertController(title: message,
                                           message: nil,
                                           preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
+            alert.addAction(UIAlertAction(title: Strings.ok, style: .cancel))
             (self?.view as? UIViewController)?.present(alert, animated: true)
         }
     }

@@ -1,0 +1,108 @@
+/* 
+  Localizable.strings
+  R6-Plus
+
+  Created by Uriel Battanoli on 10/09/18.
+  Copyright © 2018 Mocka. All rights reserved.
+*/
+
+"ok" = "Okay";
+"cancel" = "Cancel";
+"buy" = "Kaufen";
+"restore" = "Wiederherstellen";
+
+// MENU
+"pro_games" = "Pro Games";
+"leaderboard" = "Leaderboard";
+"favorites" = "Favoriten";
+"premium" = "Premium";
+
+// SEARCH
+"search_player" = "Spieler suchen";
+"player_not_found" = "Spieler nicht gefunden";
+"search" = "Teilen";
+
+// PRO GAMES
+"no_matches" = "Für diese Tage sind keine Spiele geplant";
+"not_live" = "Dieses Spiel wird gerade nicht gestreamt!";
+"error_open_url" = "Konnte URL nicht öffnen";
+"live" = "Live";
+
+// LEADERBOARD
+"maintenance" = "Entschuldigung!\n\n Server unterhalt:(";
+"skill_rating" = "Skill-Bewertung";
+"global" = "WELTWEIT";
+"apac" = "ASIEN & PACIFIK";
+"emea" = "EUROPA, AFRIKA & NAHOST";
+"ncsa" = "NORD-, MITTEL- & SÜDAMERIKA";
+
+// STATISTICS
+"general_stats" = "Allgemeine Stats";
+"player_level" = "Spieler-Level";
+"wins" = "Siege";
+"losses" = "Niederlagen";
+"win_rate" = "S/N-Verhältnis";
+"kills" = "Eliminierungen";
+"deaths" = "Tode";
+"assists" = "Unterstützungen";
+"kd_ratio" = "K/D-Verhältnis";
+"time_played" = "Spielzeit";
+"casual" = "Locker";
+"ranked" = "Ranglistenspiel";
+"total" = "Gesamt";
+"fighting_stats" = "Kampfstatistik";
+"aim" = "Getroffene Ziele";
+"percentage_hs" = "Kopfschüsse in Prozent";
+"penetration_kills" = "Durchbruch-Eliminierungen";
+"melle_kills" = "Nahkampf-Eliminierungen";
+"revived" = "Wiederbelebt";
+"ranked_stats" = "Rang-Modus-Info";
+"ranked_stats_season" = "Rang-Modus-Info (letzte Saison)";
+"mmr" = "MMR";
+"rank" = "Rang";
+"skill" = "Skill";
+"xp" = "XP";
+"profile_info" = "Profil-Info";
+"season" = "Saison";
+"seasons" = "Saisons";
+"aliases" = "Aliases";
+"suicide" = "Selbstmorde";
+"abandons" = "Aufgegeben";
+"op_defenders" = "Operators (Verteidiger)";
+"op_attackers" = "Operators (Angreifer)";
+
+// FAVORITES
+"no_favorites" = "Keine Favoriten hinterlegt";
+
+// RANKING
+"copper1" = "Kupfer I";
+"copper2" = "Kupfer II";
+"copper3" = "Kupfer III";
+"copper4" = "Kupfer IV";
+"bronze1" = "Bronze I";
+"bronze2" = "Bronze II";
+"bronze3" = "Bronze III";
+"bronze4" = "Bronze IV";
+"silver1" = "Silber I";
+"silver2" = "Silber II";
+"silver3" = "Silber III";
+"silver4" = "Silber IV";
+"gold1" = "Gold I";
+"gold2" = "Gold II";
+"gold3" = "Gold III";
+"gold4" = "Gold IV";
+"platinum1" = "Platin I";
+"platinum2" = "Platin II";
+"platinum3" = "Platin III";
+"diamond" = "Diamant";
+"unranked" = "Kein Rang";
+
+// PREMIUM
+"thanks_message" = "Sie besitzen bereits ein Premium-Konto!\n\nDanke für die Hilde bei der Entwicklung der App!";
+"help_us_message" = "Helfen Sie uns, indem Sie Ihr Konto auf Premium upgraden und so viele Vergleiche machen wie Sie möchten! Entfernen Sie auch alle ads.";
+"buy_now" = "Kaufe Jetzt!";
+
+// OPONENT SELECTION
+"reached_maximum" = "Sie haben heute die maximale Anzahl von Vergleichen erreicht";
+"upgrade_account" = "Aktualisieren Sie Ihr Konto auf Premium und führen Sie so viele Vergleiche durch, wie Sie möchten! Entfernen Sie außerdem alle Anzeigen.";
+"free_comp" = "Kostenloser Vergleich [Videoanzeigen]";

@@ -30,11 +30,14 @@ class FavoritesPresenter {
     private func fetchFavorites() {
         let favorites = R6UserDefaults.shared.favorites
         players = PlayerDetail.fromDictionaryArray(favorites)
+        let cells = players.map { self.playerToCellComponent($0) }
         let section = SectionComponent(header: nil,
-                                        cells: players.map { self.playerToCellComponent($0) })
-        view?.setSections([section], isLoadMore: false)
+                                        cells: cells)
+        if cells.count > 0 {
+            view?.setSections([section], isLoadMore: false)
+        }
         view?.stopLoading()
-        view?.setEmptyMessageIfNeeded("You don't have any favorites")
+        view?.setEmptyMessageIfNeeded(Strings.Favorites.noFavorites)
         view?.reloadTableView()
     }
     

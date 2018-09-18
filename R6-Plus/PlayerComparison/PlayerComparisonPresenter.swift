@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 
 private let infoReuseId = ComparisonInfoTableViewCell.reuseId
+private typealias strings = Strings.Statistics
 
 class PlayerComparisonPresenter {
     
@@ -113,49 +114,49 @@ extension PlayerComparisonPresenter {
     }
     
     private func generateGeneralStats(leftPlayer: PlayerDetail, rightPlayer: PlayerDetail) -> SectionComponent {
-        let headerData = HeaderListViewData(title: "General Stats", alignment: .center)
+        let headerData = HeaderListViewData(title: strings.generalStats, alignment: .center)
         guard let left = leftPlayer.stats.general,
             let right = rightPlayer.stats.general else { return SectionComponent(header: nil, cells: []) }
         let cells = [CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: "\(leftPlayer.progression.level)",
-                                    infoName: "Player level",
+                                    infoName: strings.playerLevel,
                                     rightInfo: "\(rightPlayer.progression.level)",
                                     bestScore: leftPlayer.progression.level.bestScore(rightValue: rightPlayer.progression.level))),
                      CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: "\(left.won)",
-                                    infoName: "Wins",
+                                    infoName: strings.wins,
                                     rightInfo: "\(right.won)",
                                     bestScore: left.won.bestScore(rightValue: right.won))),
                      CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: "\(left.lost)",
-                                    infoName: "Losses",
+                                    infoName: strings.losses,
                                     rightInfo: "\(right.lost)",
                                     bestScore: left.lost.bestScore(rightValue: right.lost))),
                      CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: left.winRate.twoDecimalPercent,
-                                                            infoName: "Win rate",
+                                                            infoName: strings.winRate,
                                                             rightInfo: right.winRate.twoDecimalPercent,
                                                             bestScore: left.winRate.bestScore(rightValue: right.winRate))),
                      CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: "\(left.kills)",
-                                    infoName: "Kills",
+                                    infoName: strings.kills,
                                     rightInfo: "\(right.kills)",
                                     bestScore: left.kills.bestScore(rightValue: right.kills))),
                      CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: "\(left.deaths)",
-                                    infoName: "Deaths",
+                                    infoName: strings.deaths,
                                     rightInfo: "\(right.deaths)",
                                     bestScore: left.deaths.bestScore(rightValue: right.deaths))),
                      CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: left.kdRatio.twoDecimal,
-                                                            infoName: "K/D ratio",
+                                                            infoName: strings.kdRatio,
                                                             rightInfo: right.kdRatio.twoDecimal,
                                                             bestScore: left.kdRatio.bestScore(rightValue: right.kdRatio)))]
         return SectionComponent(header: headerData, cells: cells)
     }
     
     private func generateTimePlayed(leftPlayer: PlayerDetail, rightPlayer: PlayerDetail) -> SectionComponent {
-        let headerData = HeaderListViewData(title: "Time Played", alignment: .center)
+        let headerData = HeaderListViewData(title: strings.timePlayed, alignment: .center)
         let left = leftPlayer.stats
         let right = rightPlayer.stats
         
@@ -186,24 +187,24 @@ extension PlayerComparisonPresenter {
         }
         let cells = [CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: left.casual?.timePlayed.inHours ?? "-",
-                                                            infoName: "Casual",
+                                                            infoName: strings.casual,
                                                             rightInfo: right.casual?.timePlayed.inHours ?? "-",
                                                             bestScore: (left.casual?.timePlayed ?? 0).bestScore(rightValue: right.casual?.timePlayed ?? 0))),
                      CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: left.ranked?.timePlayed.inHours ?? "-",
-                                                            infoName: "Ranked",
+                                                            infoName: strings.ranked,
                                                             rightInfo: right.ranked?.timePlayed.inHours ?? "-",
                                                             bestScore: (left.ranked?.timePlayed ?? 0).bestScore(rightValue: right.ranked?.timePlayed ?? 0))),
                      CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: leftTotalTime,
-                                                            infoName: "Total",
+                                                            infoName: strings.total,
                                                             rightInfo: rightTotalTime,
                                                             bestScore: totalTimeBS))]
         return SectionComponent(header: headerData, cells: cells)
     }
     
     private func generateFightingStats(leftPlayer: PlayerDetail, rightPlayer: PlayerDetail) -> SectionComponent {
-        let headerData = HeaderListViewData(title: "Fighting Stats", alignment: .center)
+        let headerData = HeaderListViewData(title: strings.fightStats, alignment: .center)
         guard let left = leftPlayer.stats.general,
             let right = rightPlayer.stats.general else { return SectionComponent(header: nil, cells: []) }
         
@@ -219,41 +220,41 @@ extension PlayerComparisonPresenter {
         
         let cells = [CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: "\(left.kills)",
-                                                            infoName: "Kills",
+                                                            infoName: strings.kills,
                                                             rightInfo: "\(right.kills)",
                                                             bestScore: left.kills.bestScore(rightValue: right.kills))),
                      CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: "\(left.assists)",
-                                                            infoName: "Assists",
+                                                            infoName: strings.assists,
                                                             rightInfo: "\(right.assists)",
                                                             bestScore: left.assists.bestScore(rightValue: right.assists))),
                      CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: "\(left.deaths)",
-                                                            infoName: "Deaths",
+                                                            infoName: strings.deaths,
                                                             rightInfo: "\(right.deaths)",
                                                             bestScore: left.deaths.bestScore(rightValue: right.deaths))),                     CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: left.aim.twoDecimalPercent,
-                                                            infoName: "Aim (hits)",
+                                                            infoName: strings.aim,
                                                             rightInfo: right.aim.twoDecimalPercent,
                                                             bestScore: left.aim.bestScore(rightValue: right.aim))),
                      CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: left.hsRate.twoDecimalPercent,
-                                                            infoName: "Percentage HS",
+                                                            infoName: strings.hsPercent,
                                                             rightInfo: right.hsRate.twoDecimalPercent,
                                                             bestScore: left.hsRate.bestScore(rightValue: right.hsRate))),
                      CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: "\(left.penetrationKills)",
-                                                            infoName: "Penetration kills",
+                                                            infoName: strings.penetration,
                                                             rightInfo: "\(right.penetrationKills)",
                                                             bestScore: left.penetrationKills.bestScore(rightValue: right.penetrationKills))),
                      CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: "\(left.meleeKills)",
-                                                            infoName: "Melee kills",
+                                                            infoName: strings.melee,
                                                             rightInfo: "\(right.meleeKills)",
                                                             bestScore: left.meleeKills.bestScore(rightValue: right.meleeKills))),
                      CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: "\(left.revives)",
-                                                            infoName: "Revived",
+                                                            infoName: strings.revived,
                                                             rightInfo: "\(right.revives)",
                                                             bestScore: left.revives.bestScore(rightValue: right.revives)))]
 //                     CellComponent(reuseId: infoReuseId,
@@ -270,43 +271,43 @@ extension PlayerComparisonPresenter {
     }
     
     private func generateRankedStats(leftPlayer: PlayerDetail, rightPlayer: PlayerDetail) -> SectionComponent {
-        let headerData = HeaderListViewData(title: "Ranked Stats (last season)", alignment: .center)
+        let headerData = HeaderListViewData(title: strings.rankedStatsLastSeason, alignment: .center)
         guard let left = leftPlayer.seasons.first,
             let right = rightPlayer.seasons.first else { return SectionComponent(header: nil, cells: []) }
         
         let cells = [CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: "\(left.wins)",
-                                                            infoName: "Wins",
+                                                            infoName: strings.wins,
                                                             rightInfo: "\(right.wins)",
                                                             bestScore: left.wins.bestScore(rightValue: right.wins))),
                      CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: "\(left.losses)",
-                                                            infoName: "Losses",
+                                                            infoName: strings.losses,
                                                             rightInfo: "\(right.losses)",
                                                             bestScore: left.losses.bestScore(rightValue: right.losses))),
                      CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: "\(left.abandons)",
-                                                            infoName: "Abandons",
+                                                            infoName: strings.Abandons,
                                                             rightInfo: "\(right.abandons)",
                                                             bestScore: left.abandons.bestScore(rightValue: right.abandons))),
                      CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: left.winRate.twoDecimalPercent,
-                                                            infoName: "Win rate",
+                                                            infoName: strings.winRate,
                                                             rightInfo: right.winRate.twoDecimalPercent,
                                                             bestScore: left.winRate.bestScore(rightValue: right.winRate))),
                      CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: left.mmr.twoDecimal,
-                                                            infoName: "MMR",
+                                                            infoName: strings.mmr,
                                                             rightInfo: right.mmr.twoDecimal,
                                                             bestScore: left.mmr.bestScore(rightValue: right.mmr))),
                      CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: left.ranking.name,
-                                                            infoName: "Rank",
+                                                            infoName: strings.rank,
                                                             rightInfo: right.ranking.name,
                                                             bestScore: left.ranking.rawValue.bestScore(rightValue: right.ranking.rawValue))),
                      CellComponent(reuseId: infoReuseId,
                                    data: ComparisonInfoData(leftInfo: left.skill_mean.twoDecimal,
-                                                            infoName: "Skill",
+                                                            infoName: strings.skill,
                                                             rightInfo: right.skill_mean.twoDecimal,
                                                             bestScore: left.skill_mean.bestScore(rightValue: right.skill_mean)))]
         return SectionComponent(header: headerData, cells: cells)

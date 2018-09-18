@@ -1,0 +1,108 @@
+/* 
+  Localizable.strings
+  R6-Plus
+
+  Created by Uriel Battanoli on 10/09/18.
+  Copyright © 2018 Mocka. All rights reserved.
+*/
+
+"ok" = "Ok";
+"cancel" = "Cancelar";
+"buy" = "Comprar";
+"restore" = "Resgatar";
+
+// MENU
+"pro_games" = "Pro Games";
+"leaderboard" = "Leaderboard";
+"favorites" = "Favoritos";
+"premium" = "Premium";
+
+// SEARCH
+"search_player" = "Procurar jogador";
+"player_not_found" = "Jogador não encontrado";
+"search" = "Procurar";
+
+// PRO GAMES
+"no_matches" = "Nenhuma partida marcada para esses dias";
+"not_live" = "Esta partida não esta sendo transmitida agora!";
+"error_open_url" = "Falha ao abrir url";
+"live" = "Ao vivo";
+
+// LEADERBOARD
+"maintenance" = "Servidor em manutenção!\n\nDesculpe :(";
+"skill_rating" = "Skill rating";
+"global" = "GLOBAL";
+"apac" = "ÁSIA & PACÍFICO";
+"emea" = "EUROPA, ÁFRICA & ORIENTE MÉDIO";
+"ncsa" = "AMÉRICA DO NORTE, CENTRAL & SUL";
+
+// STATISTICS
+"general_stats" = "Estatísticas gerais";
+"player_level" = "Nível de jogador";
+"wins" = "Vitórias";
+"losses" = "Derrotas";
+"win_rate" = "Proporção de vitórias";
+"kills" = "Eliminações";
+"deaths" = "Mortes";
+"assists" = "Assistências";
+"kd_ratio" = "Proporção E/M";
+"time_played" = "Tempo jogado";
+"casual" = "Casual";
+"ranked" = "Ranqueada";
+"total" = "Total";
+"fighting_stats" = "Estatísticas de Combate";
+"aim" = "Mira (precisão)";
+"percentage_hs" = "Porcentagem de HS";
+"penetration_kills" = "Eliminações pela parede";
+"melle_kills" = "Facadas";
+"revived" = "Revivido";
+"ranked_stats" = "Ranqueadas";
+"ranked_stats_season" = "Ranqueadas (última temporada)";
+"mmr" = "MMR";
+"rank" = "Classificação";
+"skill" = "Habilidade";
+"xp" = "XP";
+"profile_info" = "Informações de perfil";
+"season" = "Temporada";
+"seasons" = "Temporadas";
+"aliases" = "Apelidos";
+"suicide" = "Suicídios";
+"abandons" = "Abandonos";
+"op_defenders" = "Agentes (Defesa)";
+"op_attackers" = "Agentes (Ataque)";
+
+// FAVORITES
+"no_favorites" = "Sem favoritos salvos";
+
+// RANKING
+"copper1" = "Cobre I";
+"copper2" = "Cobre II";
+"copper3" = "Cobre III";
+"copper4" = "Cobre IV";
+"bronze1" = "Bronze I";
+"bronze2" = "Bronze II";
+"bronze3" = "Bronze III";
+"bronze4" = "Bronze IV";
+"silver1" = "Prata I";
+"silver2" = "Prata II";
+"silver3" = "Prata III";
+"silver4" = "Prata IV";
+"gold1" = "Ouro I";
+"gold2" = "Ouro II";
+"gold3" = "Ouro III";
+"gold4" = "Ouro IV";
+"platinum1" = "Platina I";
+"platinum2" = "Platina II";
+"platinum3" = "Platina III";
+"diamond" = "Diamante";
+"unranked" = "Sem patente";
+
+// PREMIUM
+"thanks_message" = "Você já é um Premium!\n\nObrigado por ajudar no desenvolvimento deste aplicativo!";
+"help_us_message" = "Nos ajude sendo um premium e faça quantas comparações quiser! E também remova todos os anúncios.";
+"buy_now" = "Compre Agora!";
+
+// OPONENT SELECTION
+"reached_maximum" = "Você chegou no limite de comparações do dia";
+"upgrade_account" = "Seja premium e faça quantas comparações quiser! E também remova todos os anúncios.";
+"free_comp" = "Comparação grátis [Vídeo Ads]";

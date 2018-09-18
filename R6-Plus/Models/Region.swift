@@ -20,10 +20,10 @@ enum Region: String {
     
     func menuName() -> String {
         switch self {
-        case .global: return "GLOBAL"
-        case .apac: return "ASIA & PACIFIC"
-        case .emea: return "EUROPE, AFRICA & MIDDLE EAST"
-        case .ncsa: return "NORTH, CENTRAL & SOUTH AMERICA"
+        case .global: return Strings.Leaderboard.global
+        case .apac: return Strings.Leaderboard.apac
+        case .emea: return Strings.Leaderboard.emea
+        case .ncsa: return Strings.Leaderboard.ncsa
         }
     }
 }

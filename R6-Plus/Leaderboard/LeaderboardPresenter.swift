@@ -8,6 +8,8 @@
 
 import UIKit
 
+private typealias strings = Strings.Leaderboard
+
 class LeaderboardPresenter {
     
     private let service: LeaderboardService
@@ -42,7 +44,7 @@ class LeaderboardPresenter {
                 self.view?.setSections([section], isLoadMore: true)
             }
             self.view?.stopLoading()
-            self.view?.setEmptyMessageIfNeeded("Server in maintenance!\n\nSorry :(")
+            self.view?.setEmptyMessageIfNeeded(strings.maintenance)
             self.view?.reloadTableView()
         }
         page += 20
@@ -54,7 +56,7 @@ class LeaderboardPresenter {
                                                  playerImage: $0.imageUrl,
                                                  position: "\($0.placement)",
                                                  nickName: $0.nickname,
-                                                 skillPoint: "Skill rating: \($0.skillPoint.twoDecimal)")
+                                                 skillPoint: "\(strings.skillRating): \($0.skillPoint.twoDecimal)")
             return CellComponent(reuseId: LeaderboardPlayerTableViewCell.reuseId,
                                  data: data) { [weak self] in
                                     self?.goToPlayerDetail(data.id)

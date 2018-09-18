@@ -60,7 +60,7 @@ class SearchViewController: UBTableViewController {
         searchController.searchBar.scopeButtonTitles = scopeButtonsLabel.map { $0.rawValue }
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
-        searchController.searchBar.placeholder = "Search player"
+        searchController.searchBar.placeholder = Strings.Search.search_player
         navigationItem.searchController = searchController
         definesPresentationContext = true
     }

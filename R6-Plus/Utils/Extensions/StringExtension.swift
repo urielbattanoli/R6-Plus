@@ -23,4 +23,8 @@ extension String {
         dateFormatter.dateFormat = "MM/dd/yyyy"
         return dateFormatter.string(from: date)
     }
+    
+    var localized: String {
+        return NSLocalizedString(self, comment:"")
+    }
 }

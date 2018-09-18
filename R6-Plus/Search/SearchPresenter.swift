@@ -63,7 +63,7 @@ class SearchPresenter: NSObject {
             let section = SectionComponent(header: nil, cells: playerList)
             self.view?.setSections([section], isLoadMore: false)
             self.view?.stopLoading()
-            self.view?.setEmptyMessageIfNeeded("Player not found")
+            self.view?.setEmptyMessageIfNeeded(Strings.Search.playerNotFound)
             self.view?.reloadTableView()
         }
     }

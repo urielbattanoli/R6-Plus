@@ -19,7 +19,11 @@ class MatchTableViewCell: NibRegistrableTableViewCell {
     @IBOutlet private weak var teamBImageView: UIImageView!
     @IBOutlet private weak var teamBNameLabel: UILabel!
     @IBOutlet private weak var liveView: UIView!
-    @IBOutlet private weak var liveLabel: UILabel!
+    @IBOutlet private weak var liveLabel: UILabel! {
+        didSet {
+            liveLabel.text = Strings.ProGames.live
+        }
+    }
     @IBOutlet private weak var liveCircleView: UIView! {
         didSet {
             liveCircleView.setAsCircle()

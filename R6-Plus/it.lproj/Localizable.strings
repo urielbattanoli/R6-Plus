@@ -1,0 +1,108 @@
+/* 
+  Localizable.strings
+  R6-Plus
+
+  Created by Uriel Battanoli on 10/09/18.
+  Copyright © 2018 Mocka. All rights reserved.
+*/
+
+"ok" = "Ok";
+"cancel" = "Annulla";
+"buy" = "Acquistare";
+"restore" = "Ristabilire";
+
+// MENU
+"pro_games" = "Pro Games";
+"leaderboard" = "Classifica";
+"favorites" = "Preferiti";
+"premium" = "Premium";
+
+// SEARCH
+"search_player" = "Giocatore di ricerca";
+"player_not_found" = "Giocatore non trovato";
+"search" = "Ricerca";
+
+// PRO GAMES
+"no_matches" = "No matches scheduled for these days";
+"not_live" = "Questo stream non è al momento disponibile!";
+"error_open_url" = "Impossibile aprire l'URL";
+"live" = "Live";
+
+// LEADERBOARD
+"maintenance" = "Server in manutenzione!\n\nScusate :(";
+"skill_rating" = "Valutazione delle abilità";
+"global" = "GLOBALE";
+"apac" = "ASIA & PACIFICO";
+"emea" = "EUROPA, AFRICA & MEDIO ORIENTE";
+"ncsa" = "NORD, CENTRALE & SUD AMERICA";
+
+// STATISTICS
+"general_stats" = "Statistiche generali";
+"player_level" = "Livello del giocatore";
+"wins" = "Vittorie";
+"losses" = "Perdite";
+"win_rate" = "Percentuale di vincita";
+"kills" = "Kills";
+"deaths" = "Morti";
+"assists" = "Assist";
+"kd_ratio" = "Rapporto K/D";
+"time_played" = "Tempo giocato";
+"casual" = "Casuale";
+"ranked" = "Classifica";
+"total" = "Totale";
+"fighting_stats" = "Statistiche di combattimento";
+"aim" = "Obiettivo (colpi)";
+"percentage_hs" = "Percentuale di HS";
+"penetration_kills" = "La penetrazione uccide";
+"melle_kills" = "Melee uccide";
+"revived" = "Revived";
+"ranked_stats" = "Statistiche classificate";
+"ranked_stats_season" = "Statistiche classificate (ultima stagione)";
+"mmr" = "MMR";
+"rank" = "Rango";
+"skill" = "Abilità";
+"xp" = "XP";
+"profile_info" = "Informazioni sul profilo";
+"season" = "Stagione";
+"seasons" = "Stagione";
+"aliases" = "alias";
+"suicide" = "Suicidi";
+"abandons" = "Abbandona";
+"op_defenders" = "Operatori (Difensori)";
+"op_attackers" = "Operatori (attaccanti)";
+
+// FAVORITES
+"no_favorites" = "Nessun preferito salvato";
+
+// RANKING
+"copper1" = "Rame I";
+"copper2" = "Rame II";
+"copper3" = "Rame III";
+"copper4" = "Rame IV";
+"bronze1" = "Bronzo I";
+"bronze2" = "Bronzo II";
+"bronze3" = "Bronzo III";
+"bronze4" = "Bronzo IV";
+"silver1" = "Argento I";
+"silver2" = "Argento II";
+"silver3" = "Argento III";
+"silver4" = "Argento IV";
+"gold1" = "Oro I";
+"gold2" = "Oro II";
+"gold3" = "Oro III";
+"gold4" = "Oro IV";
+"platinum1" = "Platino I";
+"platinum2" = "Platino II";
+"platinum3" = "Platino III";
+"diamond" = "Diamante";
+"unranked" = "Nessun grado";
+
+// PREMIUM
+"thanks_message" = "Possiedi già un Account Premium!\n\nGrazie per l'aiuto nello sviluppo di questa applicazione!";
+"help_us_message" = "Aiutaci aggiornando il tuo account in premium e fai tanti confronti quanti vuoi! Anche, rimuovere tutti gli annunci.";
+"buy_now" = "Acquista ora!";
+
+// OPONENT SELECTION
+"reached_maximum" = "Hai raggiunto il numero massimo di confronti oggi";
+"upgrade_account" = "Aggiorna il tuo account a premium e fai tutti i confronti che vuoi! Anche, rimuovere tutti gli annunci.";
+"free_comp" = "Confronto gratuito [annunci video]";
