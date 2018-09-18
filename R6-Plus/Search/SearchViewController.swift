@@ -43,7 +43,7 @@ class SearchViewController: UBTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Search"
+        title = Strings.Search.search
         setupSearch()
     }
     
