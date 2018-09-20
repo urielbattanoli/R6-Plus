@@ -31,7 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GADMobileAds.configure(withApplicationID: ADS_APP_ID)
         GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
                                                     withAdUnitID: ADS_COMP_ID)
-        AdVideoHelper.shared.setupInterstitial() 
         ReviewHelper.incrementAppOpenedCount()
         AnalitycsHelper.AppOpened.logEvent(obs: "\(R6UserDefaults.shared.openCount)")
         
@@ -55,5 +54,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidFinishLaunching(_ application: UIApplication) {
         AnalitycsHelper.AppClosed.logEvent()
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        AdVideoHelper.shared.setupInterstitial() 
     }
 }
