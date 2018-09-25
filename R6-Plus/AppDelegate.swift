@@ -55,11 +55,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return shouldRotate ? .allButUpsideDown : .portrait
     }
     
-    func applicationDidFinishLaunching(_ application: UIApplication) {
+    func applicationDidEnterBackground(_ application: UIApplication) {
         AnalitycsHelper.AppClosed.logEvent()
+        AdVideoHelper.shared.stopTimer()
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        AdVideoHelper.shared.setupInterstitial() 
+        AdVideoHelper.shared.resetTimer()
+        AdVideoHelper.shared.setupInterstitial()
     }
 }

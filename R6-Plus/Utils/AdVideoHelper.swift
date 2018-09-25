@@ -16,11 +16,19 @@ class AdVideoHelper: NSObject {
     private var timer = Timer()
     private var seconds: TimeInterval = 20
     
+    func resetTimer() {
+        seconds = 20
+    }
+    
     func setupInterstitial() {
         interstitial = GADInterstitial(adUnitID: ADS_VIDEO_ID)
         interstitial?.load(GADRequest())
         interstitial?.delegate = self
         startTimer()
+    }
+    
+    func stopTimer() {
+        timer.invalidate()
     }
     
     private func reloadInterstitial() {
