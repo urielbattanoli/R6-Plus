@@ -106,6 +106,7 @@
 		A4BBADBE209D12FF00425AEC /* OldPlayerDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BBADBD209D12FF00425AEC /* OldPlayerDetail.swift */; };
 		A4BBADC5209F58AD00425AEC /* CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BBADC3209F58AD00425AEC /* CollectionTableViewCell.swift */; };
 		A4BBADC6209F58AD00425AEC /* CollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4BBADC4209F58AD00425AEC /* CollectionTableViewCell.xib */; };
+		A4C3928121536D5400D2F461 /* BannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C3928021536D5400D2F461 /* BannerViewController.swift */; };
 		A4DA9BCB209FCCBC00EF830F /* ProfileHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DA9BC9209FCCBC00EF830F /* ProfileHeaderTableViewCell.swift */; };
 		A4DA9BCC209FCCBC00EF830F /* ProfileHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4DA9BCA209FCCBC00EF830F /* ProfileHeaderTableViewCell.xib */; };
 		A4DA9BCE209FD1A900EF830F /* ProfileHeaderCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DA9BCD209FD1A900EF830F /* ProfileHeaderCellData.swift */; };
@@ -265,6 +266,7 @@
 		A4BBADBD209D12FF00425AEC /* OldPlayerDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldPlayerDetail.swift; sourceTree = "<group>"; };
 		A4BBADC3209F58AD00425AEC /* CollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableViewCell.swift; sourceTree = "<group>"; };
 		A4BBADC4209F58AD00425AEC /* CollectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionTableViewCell.xib; sourceTree = "<group>"; };
+		A4C3928021536D5400D2F461 /* BannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewController.swift; sourceTree = "<group>"; };
 		A4DA9BC9209FCCBC00EF830F /* ProfileHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		A4DA9BCA209FCCBC00EF830F /* ProfileHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		A4DA9BCD209FD1A900EF830F /* ProfileHeaderCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCellData.swift; sourceTree = "<group>"; };
@@ -594,6 +596,7 @@
 				A4AFC79B2139B11100F4BB30 /* TokenHelper.swift */,
 				A4A0A667208ED9E600CE46FA /* Utils.swift */,
 				A44A4D392147408300BD1438 /* Strings.swift */,
+				A4C3928021536D5400D2F461 /* BannerViewController.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1000,6 +1003,7 @@
 				A44A4D292142DBF400BD1438 /* RankedStats.swift in Sources */,
 				A4505F7720823AAB00C841DE /* LeaderboardPresenter.swift in Sources */,
 				A4DA9BF020A147DC00EF830F /* HeaderListViewData.swift in Sources */,
+				A4C3928121536D5400D2F461 /* BannerViewController.swift in Sources */,
 				A4BBADC5209F58AD00425AEC /* CollectionTableViewCell.swift in Sources */,
 				A478D1BD2100010800606F3F /* IAPHelper.swift in Sources */,
 				A43832EF20AE751900B55F7C /* PlayerCellData.swift in Sources */,

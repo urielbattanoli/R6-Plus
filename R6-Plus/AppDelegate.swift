@@ -23,6 +23,7 @@ let ONESIGNAL_APP_ID = "592b29cc-4853-4d42-9e8b-74873f9b8fbb"
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    private var bannerView: BannerViewController?
     internal var shouldRotate = false
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -45,6 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("User accepted notifications: \(accepted)")
         }
         TokenHelper.validUbiToken()
+        
+//        bannerView = BannerViewController()
         return true
     }
     
