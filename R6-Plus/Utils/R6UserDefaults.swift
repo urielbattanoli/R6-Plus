@@ -13,7 +13,7 @@ private struct Key {
     static var openCount: String { return "appOpenCount" }
     static var freeComparison: String { return "freeComparison" }
     static var premiumAccount: String { return "premiumAccount" }
-    static var premiumAccountVerified: String { return "premiumAccountVerified2" }
+    static var detailOpenedCount: String { return "detailOpenedCount" }
 }
 
 class R6UserDefaults {
@@ -63,12 +63,12 @@ class R6UserDefaults {
         }
     }
     
-    var premiumAccountVerified: Bool {
+    var detailOpenedCount: Int {
         get {
-            return userDefaults.bool(forKey: Key.premiumAccountVerified)
+            return userDefaults.integer(forKey: Key.detailOpenedCount)
         }
         set {
-            userDefaults.set(newValue, forKey: Key.premiumAccountVerified)
+            userDefaults.set(newValue, forKey: Key.detailOpenedCount)
         }
     }
 }

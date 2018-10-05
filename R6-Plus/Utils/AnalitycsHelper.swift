@@ -10,7 +10,6 @@ import Foundation
 import Crashlytics
 
 enum AnalitycsHelper: String {
-    case IsPremiumAccount
     case AppOpened
     case AppClosed
     case DetailComparisonTouched

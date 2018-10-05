@@ -17,10 +17,6 @@ class TabBarController: UITabBarController {
         
         setupTabBar()
         ReviewHelper.askForReviewIfNeeded()
-        if R6UserDefaults.shared.premiumAccount && !R6UserDefaults.shared.premiumAccountVerified {
-            R6UserDefaults.shared.premiumAccountVerified = true
-            AnalitycsHelper.IsPremiumAccount.logEvent()
-        }
     }
     
     private func setupTabBar() {

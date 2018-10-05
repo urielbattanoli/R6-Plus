@@ -61,6 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
+        R6UserDefaults.shared.detailOpenedCount = 0
         AdVideoHelper.shared.resetTimer()
         AdVideoHelper.shared.setupInterstitial()
     }

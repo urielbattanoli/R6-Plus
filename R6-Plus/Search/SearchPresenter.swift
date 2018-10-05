@@ -81,6 +81,9 @@ class SearchPresenter: NSObject {
     }
     
     private func goToPlayerDetail(_ player: SearchedPlayer) {
+        if R6UserDefaults.shared.openCount % 3 == 0 {
+            AdVideoHelper.shared.showVideo()
+        }
         let vc = PlayerDetailViewController(playerId: player.userId, playerDetail: nil)
         (view as? UIViewController)?.navigationController?.pushViewController(vc, animated: true)
     }

@@ -26,6 +26,7 @@ class PlayerDetailPresenter: NSObject {
     }
     
     func attachView(_ view: PlayerDetailView) {
+        R6UserDefaults.shared.detailOpenedCount += 1
         self.view = view
     }
     
