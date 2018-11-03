@@ -45,7 +45,7 @@ class AdVideoHelper: NSObject {
     }
     
     @objc func showVideo() {
-        guard var topController = UIApplication.shared.topViewController,
+        guard !R6UserDefaults.shared.premiumAccount, var topController = UIApplication.shared.topViewController,
             interstitial?.isReady == true else { return }
         while let presentedViewController = topController.presentedViewController {
             topController = presentedViewController
