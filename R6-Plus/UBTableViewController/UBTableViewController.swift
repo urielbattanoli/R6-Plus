@@ -19,12 +19,12 @@ class UBTableViewController: UIViewController {
     
     // MARK: - Properties
     var index = 0
-    private var presenter: UBtableViewPresenter
+    private var presenter: UBTableViewPresenter
     private var sections: [SectionComponent] = []
     private var pagination = 0
     
     // MARK: - Life cycle
-    init(presenter: UBtableViewPresenter) {
+    init(presenter: UBTableViewPresenter) {
         self.presenter = presenter
         
         super.init(nibName: nil, bundle: nil)

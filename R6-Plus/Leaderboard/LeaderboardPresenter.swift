@@ -66,7 +66,7 @@ class LeaderboardPresenter {
 }
 
 // MARK: - UBtableViewPresenter
-extension LeaderboardPresenter: UBtableViewPresenter {
+extension LeaderboardPresenter: UBTableViewPresenter {
     
     func attachView(_ view: UBTableView) {
         self.view = view

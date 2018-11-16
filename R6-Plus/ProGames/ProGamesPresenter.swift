@@ -91,7 +91,7 @@ class ProGamesPresenter {
     }
 }
 
-extension ProGamesPresenter: UBtableViewPresenter {
+extension ProGamesPresenter: UBTableViewPresenter {
     
     func loadMoreInfo() {}
     

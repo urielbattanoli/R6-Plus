@@ -75,7 +75,7 @@ class PlayerComparisonPresenter {
 }
 
 // MARK: - UBtableViewPresenter
-extension PlayerComparisonPresenter: UBtableViewPresenter {
+extension PlayerComparisonPresenter: UBTableViewPresenter {
     
     func attachView(_ view: UBTableView) {
         self.view = view

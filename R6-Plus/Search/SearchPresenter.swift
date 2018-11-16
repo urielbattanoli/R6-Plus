@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-protocol SearchPresenterDelegate: UBtableViewPresenter {
+protocol SearchPresenterDelegate: UBTableViewPresenter {
     func searchPlayer(name: String, platform: String)
 }
 

@@ -65,7 +65,7 @@ class FavoritesPresenter {
 }
 
 // MARK: - UBtableViewPresenter
-extension FavoritesPresenter: UBtableViewPresenter {
+extension FavoritesPresenter: UBTableViewPresenter {
     
     func attachView(_ view: UBTableView) {
         self.view = view

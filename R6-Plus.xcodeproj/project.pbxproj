@@ -97,7 +97,6 @@
 		A4AAC7FC20CB2EE9008F1EAB /* ComparisonInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AAC7FB20CB2EE9008F1EAB /* ComparisonInfoData.swift */; };
 		A4AE64A220B2F4F000544C2D /* MenuHeaderMain.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4AE64A120B2F4F000544C2D /* MenuHeaderMain.xib */; };
 		A4AFC79C2139B11100F4BB30 /* TokenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AFC79B2139B11100F4BB30 /* TokenHelper.swift */; };
-		A4BBADA9209CE50400425AEC /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BBADA8209CE50400425AEC /* UIColorExtension.swift */; };
 		A4BBADB5209D0FD700425AEC /* PlayerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BBADB3209D0FD700425AEC /* PlayerDetailViewController.swift */; };
 		A4BBADB6209D0FD700425AEC /* PlayerDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4BBADB4209D0FD700425AEC /* PlayerDetailViewController.xib */; };
 		A4BBADB8209D0FE400425AEC /* PlayerDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BBADB7209D0FE400425AEC /* PlayerDetailPresenter.swift */; };
@@ -257,7 +256,6 @@
 		A4AAC7FB20CB2EE9008F1EAB /* ComparisonInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonInfoData.swift; sourceTree = "<group>"; };
 		A4AE64A120B2F4F000544C2D /* MenuHeaderMain.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuHeaderMain.xib; sourceTree = "<group>"; };
 		A4AFC79B2139B11100F4BB30 /* TokenHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenHelper.swift; sourceTree = "<group>"; };
-		A4BBADA8209CE50400425AEC /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		A4BBADB3209D0FD700425AEC /* PlayerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailViewController.swift; sourceTree = "<group>"; };
 		A4BBADB4209D0FD700425AEC /* PlayerDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerDetailViewController.xib; sourceTree = "<group>"; };
 		A4BBADB7209D0FE400425AEC /* PlayerDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailPresenter.swift; sourceTree = "<group>"; };
@@ -632,7 +630,6 @@
 				A478D1C821015C0000606F3F /* NotificationExtension.swift */,
 				A497F53B20A782CB00D26A23 /* StringExtension.swift */,
 				A44A4D302144578200BD1438 /* UIApplicationExtension.swift */,
-				A4BBADA8209CE50400425AEC /* UIColorExtension.swift */,
 				A43D13B2209014AF0067580D /* UIImageViewExtension.swift */,
 				A491AA8D20BB79F70072B169 /* UINavigationControllerExtension.swift */,
 				A491AA8F20BB7A4F0072B169 /* UISearchControllerExtension.swift */,
@@ -1007,7 +1004,6 @@
 				A4BBADC5209F58AD00425AEC /* CollectionTableViewCell.swift in Sources */,
 				A478D1BD2100010800606F3F /* IAPHelper.swift in Sources */,
 				A43832EF20AE751900B55F7C /* PlayerCellData.swift in Sources */,
-				A4BBADA9209CE50400425AEC /* UIColorExtension.swift in Sources */,
 				A41AA4E220B2EF9C00E1D37D /* MenuHeaderMainItem.swift in Sources */,
 				A41AA4E320B2EF9C00E1D37D /* MenuHeaderMain.swift in Sources */,
 				A4505F6A208238EF00C841DE /* LeaderboardPlayerTableViewCell.swift in Sources */,

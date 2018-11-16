@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol UBtableViewPresenter: class {
+protocol UBTableViewPresenter: class {
     
     func loadMoreInfo()
     func refreshControlAction()
