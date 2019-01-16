@@ -20,6 +20,7 @@ class SearchPresenter: NSObject {
     private var lastInput: SearchInput?
     private var timer: Timer?
     private var lastRequest: DataRequest?
+    private var videoShowed = false
     
     init(service: SearchService) {
         self.service = service
@@ -81,9 +82,13 @@ class SearchPresenter: NSObject {
     }
     
     private func goToPlayerDetail(_ player: SearchedPlayer) {
-        if R6UserDefaults.shared.openCount % 3 == 0 {
+        if !videoShowed && R6UserDefaults.shared.detailOpenedCount != 0 && R6UserDefaults.shared.detailOpenedCount % 3 == 0 {
             AdVideoHelper.shared.showVideo()
+            videoShowed = true
+            return
         }
+        
+        videoShowed = false
         let vc = PlayerDetailViewController(playerId: player.userId, playerDetail: nil)
         (view as? UIViewController)?.navigationController?.pushViewController(vc, animated: true)
     }
