@@ -19,10 +19,11 @@ struct Server {
     private static var baseR6Url: String { return "http://178.128.75.11:" }
     static var proGamesUrl: String { return "\(baseR6Url)1337/parse/functions/matchesByPage" }
     //    static var proGamesUrl: String { return "\(baseR6Url):1338/parse/functions/matchesByPage" } // TEST
+    static var ubiTokenUrl: String { return "\(baseR6Url)5000/token" }
+    static var leaderboardUrl: String { return "\(baseR6Url)5000/leaderboard" }
     
     private static var baseUbiUrl: String { return "https://public-ubiservices.ubi.com/" }
     static var baseImageUrl: String { return "https://ubisoft-avatars.akamaized.net/%@/default_146_146.png" }
-    static var ubiTokenUrl: String { return "\(baseR6Url)5000/token" }
     static var ubiSearchUrl: String { return "\(baseUbiUrl)v2/profiles" }
     static func ubiProfileUrl(id: String) -> String { return "\(baseUbiUrl)v2/users/\(id)/profiles" }
     

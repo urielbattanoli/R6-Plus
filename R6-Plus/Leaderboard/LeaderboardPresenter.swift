@@ -35,7 +35,7 @@ class LeaderboardPresenter {
     }
     
     private func fetchPlayerList() {
-        let input = LeaderboardInput(stat: leaderboardRegion.stat(), limit: 20, page: page)
+        let input = LeaderboardInput(region: leaderboardRegion.rawValue, limit: 20, page: page)
         service.fetchLeaderboard(input: input) { [weak self] result in
             guard let `self` = self else { return }
             if case(.success(let players)) = result {
@@ -54,9 +54,9 @@ class LeaderboardPresenter {
         return players.map {
             let data = LeaderboardPlayerCellData(id: $0.id,
                                                  playerImage: $0.imageUrl,
-                                                 position: "\($0.placement)",
+                                                 position: $0.placement,
                                                  nickName: $0.nickname,
-                                                 skillPoint: "\(strings.skillRating): \($0.skillPoint.twoDecimal)")
+                                                 skillPoint: $0.kd)
             return CellComponent(reuseId: LeaderboardPlayerTableViewCell.reuseId,
                                  data: data) { [weak self] in
                                     self?.goToPlayerDetail(data.id)
