@@ -9,14 +9,10 @@
 import Foundation
 
 enum Region: String {
-    case global = "highest"
-    case apac
-    case emea
-    case ncsa
-    
-    func stat() -> String {
-        return "\(self.rawValue)_skill_adjusted"
-    }
+    case global = "GL"
+    case apac = "AS"
+    case emea = "EU"
+    case ncsa = "NA"
     
     func menuName() -> String {
         switch self {

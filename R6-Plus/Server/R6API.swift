@@ -18,6 +18,7 @@ enum R6API {
     case playerSeason(input: PlayerSeasonInput)
     case playerProfile(input: PlayerProfileInput)
     case proGames(input: ProGamesInput)
+    case leaderboard(input: LeaderboardInput)
 }
 
 extension R6API {
@@ -31,6 +32,7 @@ extension R6API {
         case .playerSeason: return Server.ubiSeasonUrl
         case .playerProfile(let input): return Server.ubiProfileUrl(id: input.id)
         case .proGames: return Server.proGamesUrl
+        case .leaderboard: return Server.leaderboardUrl
         }
     }
     
@@ -48,13 +50,14 @@ extension R6API {
         case .playerStatistics(let input): return input.params
         case .playerProgression(let input): return input.params
         case .playerSeason(let input): return input.params
+        case .leaderboard(let input): return input.params
         default: return nil
         }
     }
     
     private var headers: [String: String]? {
         switch self {
-        case .proGames:
+        case .proGames, .leaderboard:
             return ["X-Parse-Application-Id": "R6PLUS",
                     "X-Parse-REST-API-Key": "bmoA6075Kxx4SLJ8ZJXXPccILaUrj04U"]
             //            return ["X-Parse-Application-Id": "R6PLUS-DEV",
@@ -65,7 +68,7 @@ extension R6API {
     
     private var encoding: ParameterEncoding {
         switch self {
-        case .proGames: return JSONEncoding.default
+        case .proGames, .leaderboard: return JSONEncoding.default
         default: return URLEncoding.default
         }
     }
@@ -83,7 +86,11 @@ extension R6API {
                 switch response.result {
                 case .success(let json):
                     guard let result = json as? [String: Any] else {
-                        completion(.failure(nil))
+                        guard let result = json as? [[String: Any]] else {
+                            completion(.failure(nil))
+                            return
+                        }
+                        completion(.success(["result": result]))
                         return
                     }
                     completion(.success(result))

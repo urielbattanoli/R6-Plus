@@ -10,33 +10,30 @@ import Foundation
 import Alamofire
 
 struct LeaderboardInput {
-    let stat: String
+    let region: String
     let limit: Int
     let page: Int
+    
+    var params: [String: Any] {
+        return ["region": region,
+                "platform": "UPL"]
+    }
 }
 
 class LeaderboardService {
     
     func fetchLeaderboard(input: LeaderboardInput, completion: @escaping ((Result<[Player]>) -> Void)) {
-        let params: [String: Any] = ["stat": input.stat, "limit": input.limit, "page": input.page]
-        
-        Alamofire.request("",
-                          method: .get,
-                          parameters: params,
-                          encoding: URLEncoding.default)
-            
-            .validate()
-            .responseJSON { response in
-                switch response.result {
-                case .success(let json):
-                    guard let result = json as? [[String: Any]] else {
-                        completion(.failure(nil))
-                        return
-                    }
-                    completion(.success(Player.fromDictionaryArray(result)))
-                case .failure(let error):
-                    completion(.failure(error))
+        R6API.leaderboard(input: input).request { result in
+            switch result {
+            case .success(let json):
+                guard let result = json["result"] as? [[String: Any]] else {
+                    completion(.failure(nil))
+                    return
                 }
+                completion(.success(Player.fromDictionaryArray(result)))
+            case .failure(let error):
+                completion(.failure(error))
+            }
         }
     }
 }

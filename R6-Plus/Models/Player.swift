@@ -11,8 +11,8 @@ import Foundation
 struct Player: Codable {
     let id: String
     let nickname: String
-    let placement: Int
-    let skillPoint: Double
+    let placement: String
+    let kd: String
     var imageUrl: String {
         return String(format: Server.baseImageUrl, id)
     }
@@ -20,7 +20,7 @@ struct Player: Codable {
     enum CodingKeys: String, CodingKey {
         case id
         case nickname = "name"
-        case placement
-        case skillPoint = "value"
+        case placement = "position"
+        case kd = "info"
     }
 }
