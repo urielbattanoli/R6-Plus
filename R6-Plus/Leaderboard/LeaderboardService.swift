@@ -11,8 +11,6 @@ import Alamofire
 
 struct LeaderboardInput {
     let region: String
-    let limit: Int
-    let page: Int
     
     var params: [String: Any] {
         return ["region": region,
