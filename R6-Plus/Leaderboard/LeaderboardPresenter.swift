@@ -14,7 +14,6 @@ class LeaderboardPresenter {
     
     private let service: LeaderboardService
     private weak var view: UBTableView?
-    private var page = 0
     private var leaderboardRegion: Region
     
     init(service: LeaderboardService, leaderboardRegion: Region) {
@@ -35,7 +34,7 @@ class LeaderboardPresenter {
     }
     
     private func fetchPlayerList() {
-        let input = LeaderboardInput(region: leaderboardRegion.toLeaderboard, limit: 20, page: page)
+        let input = LeaderboardInput(region: leaderboardRegion.toLeaderboard)
         service.fetchLeaderboard(input: input) { [weak self] result in
             guard let `self` = self else { return }
             if case(.success(let players)) = result {
@@ -47,7 +46,6 @@ class LeaderboardPresenter {
             self.view?.setEmptyMessageIfNeeded(strings.maintenance)
             self.view?.reloadTableView()
         }
-        page += 20
     }
     
     private func playersToCellComponents(_ players: [Player]) -> [CellComponent] {
@@ -80,7 +78,6 @@ extension LeaderboardPresenter: UBTableViewPresenter {
     func refreshControlAction() {
         view?.setSections([], isLoadMore: false)
         view?.reloadTableView()
-        page = 0
         fetchPlayerList()
     }
     

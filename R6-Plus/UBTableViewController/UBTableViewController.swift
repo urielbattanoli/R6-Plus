@@ -166,7 +166,7 @@ extension UBTableViewController: UBTableView {
     
     func setEmptyMessageIfNeeded(_ message: String) {
         tableView.backgroundView = UIView()
-        guard sections.count == 0 else { return }
+        guard let section = sections.first, section.cells.count == 0 else { return }
         let messageLabel = UILabel(frame: .zero)
         tableView.backgroundView?.addSubview(messageLabel)
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
