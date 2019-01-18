@@ -27,8 +27,8 @@ struct Server {
     static var ubiSearchUrl: String { return "\(baseUbiUrl)v2/profiles" }
     static func ubiProfileUrl(id: String) -> String { return "\(baseUbiUrl)v2/users/\(id)/profiles" }
     
-    static var baseUbiV1: String { return "\(baseUbiUrl)v1/spaces/5172a557-50b5-4665-b7db-e3f2e8c5041d/sandboxes/OSBOR_PC_LNCH_A/" }
-    static var ubiStatisticsUrl: String { return "\(baseUbiV1)playerstats2/statistics" }
-    static var ubiProgressionUrl: String { return "\(baseUbiV1)r6playerprofile/playerprofile/progressions" }
-    static var ubiSeasonUrl: String { return "\(baseUbiV1)r6karma/players"}
+    static func baseUbiV1(platform: Platform) -> String { return "\(baseUbiUrl)v1/spaces/\(platform.id)/sandboxes/\(platform.osbor)/" }
+    static func ubiStatisticsUrl(platform: Platform) -> String { return "\(baseUbiV1(platform: platform))playerstats2/statistics" }
+    static func ubiProgressionUrl(platform: Platform) -> String { return "\(baseUbiV1(platform: platform))r6playerprofile/playerprofile/progressions" }
+    static func ubiSeasonUrl(platform: Platform) -> String { return "\(baseUbiV1(platform: platform))r6karma/players"}
 }

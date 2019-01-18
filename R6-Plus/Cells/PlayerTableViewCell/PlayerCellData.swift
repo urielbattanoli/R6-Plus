@@ -9,7 +9,6 @@
 import Foundation
 
 struct PlayerCellData {
-    let id: String
     let imageUrl: String
     let name: String
     let description: String

@@ -18,8 +18,10 @@ class PlayerDetailPresenter: NSObject {
     private var playerDetail: PlayerDetail?
     weak private var view: PlayerDetailView?
     private let disposeBag = DisposeBag()
+    private let platform: Platform
     
-    init(playerDetail: PlayerDetail?, service: PlayerDetailService) {
+    init(playerDetail: PlayerDetail?, service: PlayerDetailService, platform: Platform) {
+        self.platform = platform
         self.playerDetail = playerDetail
         self.service = service
         AnalitycsHelper.DetailOpened.logEvent()
@@ -54,7 +56,7 @@ class PlayerDetailPresenter: NSObject {
     }
     
     func fetchPlayerDetailIfNeeded(id: String) {
-        service.fetchPlayerDetail(id: id).subscribe(onNext: { [weak self] result in
+        service.fetchPlayerDetail(id: id, platform: platform).subscribe(onNext: { [weak self] result in
             guard let `self` = self, let playerDetail = result else { return }
             if playerDetail.isFavorite {
                 self.unsetAsFavorite(player: playerDetail)

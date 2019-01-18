@@ -13,6 +13,7 @@ fileprivate var statistics: String { return "generalpvp_timeplayed,generalpvp_ma
 
 struct PlayerStatisticInput {
     let id: String
+    let platform: Platform
     
     var params: [String: Any] {
         return ["populations": id,
@@ -22,6 +23,7 @@ struct PlayerStatisticInput {
 
 struct PlayerProgressionInput {
     let id: String
+    let platform: Platform
     
     var params: [String: Any] {
         return ["profile_ids": id]
@@ -32,6 +34,7 @@ struct PlayerSeasonInput {
     let id: String
     let season: Int
     let region: String
+    let platform: Platform
     
     var params: [String: Any] {
         return ["profile_ids": id,
@@ -47,10 +50,10 @@ struct PlayerProfileInput {
 
 class PlayerDetailService {
     
-    func fetchPlayerDetail(id: String) -> Observable<PlayerDetail?> {
-        let stats = fetchPlayerStatistics(id: id)
-        let prog = fetchPlayerProgression(id: id)
-        let season = fetchPlayerSeasons(id: id)
+    func fetchPlayerDetail(id: String, platform: Platform) -> Observable<PlayerDetail?> {
+        let stats = fetchPlayerStatistics(id: id, platform: platform)
+        let prog = fetchPlayerProgression(id: id, platform: platform)
+        let season = fetchPlayerSeasons(id: id, platform: platform)
         let profile = fetchPlayerProfile(id: id)
         return Observable.zip([stats, prog, season, profile]) { result in
             let date = Date().nextDay()?.nextDay() ?? Date()
@@ -68,8 +71,8 @@ class PlayerDetailService {
         }
     }
     
-    private func fetchPlayerStatistics(id: String) -> Observable<[String: Any]> {
-        let input = PlayerStatisticInput(id: id)
+    private func fetchPlayerStatistics(id: String, platform: Platform) -> Observable<[String: Any]> {
+        let input = PlayerStatisticInput(id: id, platform: platform)
         return Observable.create { observer -> Disposable in
             let request = R6API.playerStatistics(input: input).rxRequest().subscribe(onNext: { result in
                 guard let results = result["results"] as? [String: Any],
@@ -93,8 +96,8 @@ class PlayerDetailService {
         }
     }
     
-    private func fetchPlayerProgression(id: String) -> Observable<[String: Any]> {
-        let input = PlayerProgressionInput(id: id)
+    private func fetchPlayerProgression(id: String, platform: Platform) -> Observable<[String: Any]> {
+        let input = PlayerProgressionInput(id: id, platform: platform)
         return Observable.create { oserver -> Disposable in
             let request = R6API.playerProgression(input: input).rxRequest().subscribe(onNext: { result in
                 guard let results = result["player_profiles"] as? [[String: Any]],
@@ -108,12 +111,12 @@ class PlayerDetailService {
         }
     }
     
-    private func fetchPlayerSeasons(id: String) -> Observable<[String: Any]> {
-        let ncsa = PlayerSeasonInput(id: id, season: -1, region: Region.ncsa.rawValue)
+    private func fetchPlayerSeasons(id: String, platform: Platform) -> Observable<[String: Any]> {
+        let ncsa = PlayerSeasonInput(id: id, season: -1, region: Region.ncsa.rawValue, platform: platform)
         let ncsaRequest = R6API.playerSeason(input: ncsa).rxRequest()
-        let apac = PlayerSeasonInput(id: id, season: -1, region: Region.apac.rawValue)
+        let apac = PlayerSeasonInput(id: id, season: -1, region: Region.apac.rawValue, platform: platform)
         let apacRequest = R6API.playerSeason(input: apac).rxRequest()
-        let emea = PlayerSeasonInput(id: id, season: -1, region: Region.emea.rawValue)
+        let emea = PlayerSeasonInput(id: id, season: -1, region: Region.emea.rawValue, platform: platform)
         let emeaRequest = R6API.playerSeason(input: emea).rxRequest()
         return Observable.zip([ncsaRequest,apacRequest, emeaRequest]) { result in
             let goodResult = result.compactMap { (($0["players"] as? [String: Any]) ?? [:])[id] as? [String: Any] }

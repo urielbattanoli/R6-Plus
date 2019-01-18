@@ -27,9 +27,9 @@ extension R6API {
         switch self {
         case .getToken: return Server.ubiTokenUrl
         case .searchPlayer: return Server.ubiSearchUrl
-        case .playerStatistics: return Server.ubiStatisticsUrl
-        case .playerProgression: return Server.ubiProgressionUrl
-        case .playerSeason: return Server.ubiSeasonUrl
+        case .playerStatistics(let input): return Server.ubiStatisticsUrl(platform: input.platform)
+        case .playerProgression(let input): return Server.ubiProgressionUrl(platform: input.platform)
+        case .playerSeason(let input): return Server.ubiSeasonUrl(platform: input.platform)
         case .playerProfile(let input): return Server.ubiProfileUrl(id: input.id)
         case .proGames: return Server.proGamesUrl
         case .leaderboard: return Server.leaderboardUrl
@@ -68,7 +68,7 @@ extension R6API {
     
     private var encoding: ParameterEncoding {
         switch self {
-        case .proGames, .leaderboard: return JSONEncoding.default
+        case .proGames: return JSONEncoding.default
         default: return URLEncoding.default
         }
     }

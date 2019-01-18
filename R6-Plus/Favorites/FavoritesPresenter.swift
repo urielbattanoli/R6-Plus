@@ -23,7 +23,8 @@ class FavoritesPresenter {
     }
     
     private func goToPlayerDetail(_ player: PlayerDetail) {
-        let vc = PlayerDetailViewController(playerId: player.id, playerDetail: player)
+        let platform = Platform(rawValue: player.platform) ?? .pc
+        let vc = PlayerDetailViewController(playerId: player.id, playerDetail: player, platform: platform)
         (view as? UIViewController)?.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -42,8 +43,7 @@ class FavoritesPresenter {
     }
     
     private func playerToCellComponent(_ player: PlayerDetail) -> CellComponent {
-        let data = PlayerCellData(id: player.id,
-                                  imageUrl: player.imageUrl,
+        let data = PlayerCellData(imageUrl: player.imageUrl,
                                   name: player.name,
                                   description: player.platform)
         

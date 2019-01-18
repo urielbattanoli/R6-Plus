@@ -8,16 +8,32 @@
 
 import UIKit
 
-fileprivate enum Platform: String {
-    case pc = "PC"
-    case ps4 = "PS4"
-    case xbox = "XONE"
+enum Platform: String {
+    case pc = "uplay"
+    case ps4 = "psn"
+    case xbox = "xbl"
     
-    var nameOnServer: String {
+    var name: String {
         switch self {
-        case .pc: return "uplay"
-        case .ps4: return "psn"
-        case .xbox: return "xbl"
+        case .pc: return "PC"
+        case .ps4: return "PS4"
+        case .xbox: return "XONE"
+        }
+    }
+    
+    var id: String {
+        switch self {
+        case .pc: return "5172a557-50b5-4665-b7db-e3f2e8c5041d"
+        case .ps4: return "05bfb3f7-6c21-4c42-be1f-97a33fb5cf66"
+        case .xbox: return "98a601e5-ca91-4440-b1c5-753f601a2c90"
+        }
+    }
+    
+    var osbor: String {
+        switch self {
+        case .pc: return "OSBOR_PC_LNCH_A"
+        case .ps4: return "OSBOR_PS4_LNCH_A"
+        case .xbox: return "OSBOR_XBOXONE_LNCH_A"
         }
     }
 }
@@ -57,7 +73,7 @@ class SearchViewController: UBTableViewController {
     // MARK: - Functions
     private func setupSearch() {
         searchController.defaultConfiguration()
-        searchController.searchBar.scopeButtonTitles = scopeButtonsLabel.map { $0.rawValue }
+        searchController.searchBar.scopeButtonTitles = scopeButtonsLabel.map { $0.name }
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = Strings.Search.search_player
@@ -72,7 +88,7 @@ extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) { }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let scope = scopeButtonsLabel[searchBar.selectedScopeButtonIndex].nameOnServer
+        let scope = scopeButtonsLabel[searchBar.selectedScopeButtonIndex].rawValue
         filterContentForSearchText(searchText, scope: scope)
     }
     
@@ -85,7 +101,7 @@ extension SearchViewController: UISearchResultsUpdating {
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        let scope = scopeButtonsLabel[selectedScope].nameOnServer
+        let scope = scopeButtonsLabel[selectedScope].rawValue
         let text = searchBar.text ?? ""
         filterContentForSearchText(text, scope: scope)
     }

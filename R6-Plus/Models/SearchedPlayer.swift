@@ -10,6 +10,7 @@ import Foundation
 
 struct SearchedPlayer: Codable {
     
+    let profileId: String
     let userId: String
     let platformType: String
     let nameOnPlatform: String

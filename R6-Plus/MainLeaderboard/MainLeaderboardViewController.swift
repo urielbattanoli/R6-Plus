@@ -18,10 +18,10 @@ class MainLeaderboardViewController: UIViewController {
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
-        menuHeader.items = [Region.global.menuName(),
-                            Region.apac.menuName(),
-                            Region.emea.menuName(),
-                            Region.ncsa.menuName()]
+        menuHeader.items = [Region.global.menuName,
+                            Region.apac.menuName,
+                            Region.emea.menuName,
+                            Region.ncsa.menuName]
         menuHeader.delegate = self
     }
     

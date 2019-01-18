@@ -15,7 +15,7 @@ class OponentSelectionPresenter: SearchPresenter {
     
     private let playerDetail: PlayerDetail
     private var videoWatched = false
-    private var selectedPlayerId: String?
+    private var selectedPlayer: SearchedPlayer?
     
     init(service: SearchService, playerDetail: PlayerDetail) {
         self.playerDetail = playerDetail
@@ -49,13 +49,12 @@ class OponentSelectionPresenter: SearchPresenter {
     }
     
     override func playerToCellComponent(_ player: SearchedPlayer) -> CellComponent {
-        let data = PlayerCellData(id: player.userId,
-                                  imageUrl: player.imageUrl,
+        let data = PlayerCellData(imageUrl: player.imageUrl,
                                   name: player.nameOnPlatform,
                                   description: player.platformType)
         
         return CellComponent(reuseId: PlayerTableViewCell.reuseId, data: data) { [weak self] in
-            self?.selectedPlayerId = player.userId
+            self?.selectedPlayer = player
             self?.comparisonTouched()
         }
     }
@@ -108,9 +107,10 @@ class OponentSelectionPresenter: SearchPresenter {
     }
     
     private func openComparison() {
-        guard let playerId = selectedPlayerId else { return }
+        guard let player = selectedPlayer else { return }
         videoWatched = false
-        let comparePresenter = PlayerComparisonPresenter(leftPlayer: self.playerDetail, rightPlayerId: playerId)
+        let platform = Platform(rawValue: player.platformType) ?? .pc
+        let comparePresenter = PlayerComparisonPresenter(leftPlayer: self.playerDetail, rightPlayerId: player.userId, platform: platform)
         let compareVC = UBTableViewController(presenter: comparePresenter)
         (self.view as? UIViewController)?.navigationController?.pushViewController(compareVC, animated: true)
     }
@@ -126,7 +126,8 @@ class OponentSelectionPresenter: SearchPresenter {
 
 private extension PlayerDetail {
     func toSearchedPlayer() -> SearchedPlayer {
-        return SearchedPlayer(userId: self.id,
+        return SearchedPlayer(profileId: "",
+                              userId: self.id,
                               platformType: self.platform,
                               nameOnPlatform: self.name)
     }

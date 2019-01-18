@@ -38,10 +38,10 @@ struct Strings {
     struct Leaderboard {
         static var maintenance: String { return "maintenance".localized }
         static var skillRating: String { return "skillRating".localized }
-        static var global: String { return "global" }
-        static var apac: String { return "apac" }
-        static var emea: String { return "emea" }
-        static var ncsa: String { return "ncsa" }
+        static var global: String { return "global".localized }
+        static var apac: String { return "apac".localized }
+        static var emea: String { return "emea".localized }
+        static var ncsa: String { return "ncsa".localized }
     }
     
     struct Favorites {

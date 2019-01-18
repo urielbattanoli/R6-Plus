@@ -20,8 +20,10 @@ class PlayerComparisonPresenter {
     private var rightPlayerId: String?
     private var service = PlayerDetailService()
     private let disposeBag = DisposeBag()
+    private let platform: Platform
     
-    init(leftPlayer: PlayerDetail?, rightPlayerId: String?) {
+    init(leftPlayer: PlayerDetail?, rightPlayerId: String?, platform: Platform = .pc) {
+        self.platform = platform
         self.leftPlayer = leftPlayer
         self.rightPlayerId = rightPlayerId
         AnalitycsHelper.ComparisonDone.logEvent()
@@ -37,7 +39,7 @@ class PlayerComparisonPresenter {
     }
     
     func fetchPlayerDetailIfNeeded(id: String) {
-        service.fetchPlayerDetail(id: id).subscribe(onNext: { [weak self] playerDetail in
+        service.fetchPlayerDetail(id: id, platform: platform).subscribe(onNext: { [weak self] playerDetail in
             guard let `self` = self,
                 let playerDetail = playerDetail else { return }
             self.rightPlayer = playerDetail

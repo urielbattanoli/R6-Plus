@@ -9,12 +9,21 @@
 import Foundation
 
 enum Region: String {
-    case global = "GL"
-    case apac = "AS"
-    case emea = "EU"
-    case ncsa = "NA"
+    case global
+    case apac
+    case emea
+    case ncsa
     
-    func menuName() -> String {
+    var toLeaderboard: String {
+        switch self {
+        case .global: return "GL"
+        case .apac: return "AS"
+        case .emea: return "EU"
+        case .ncsa: return "NA"
+        }
+    }
+    
+    var menuName: String {
         switch self {
         case .global: return Strings.Leaderboard.global
         case .apac: return Strings.Leaderboard.apac

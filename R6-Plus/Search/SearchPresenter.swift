@@ -70,10 +70,10 @@ class SearchPresenter: NSObject {
     }
     
     func playerToCellComponent(_ player: SearchedPlayer) -> CellComponent {
-        let data = PlayerCellData(id: player.userId,
-                                  imageUrl: player.imageUrl,
+        let platform = Platform(rawValue: player.platformType) ?? .pc
+        let data = PlayerCellData(imageUrl: player.imageUrl,
                                   name: player.nameOnPlatform,
-                                  description: player.platformType)
+                                  description: platform.name)
         
         return CellComponent(reuseId: PlayerTableViewCell.reuseId,
                              data: data) { [weak self] in
@@ -89,7 +89,8 @@ class SearchPresenter: NSObject {
         }
         
         videoShowed = false
-        let vc = PlayerDetailViewController(playerId: player.userId, playerDetail: nil)
+        let platform = Platform(rawValue: player.platformType) ?? .pc
+        let vc = PlayerDetailViewController(playerId: player.profileId, playerDetail: nil, platform: platform)
         (view as? UIViewController)?.navigationController?.pushViewController(vc, animated: true)
     }
 }

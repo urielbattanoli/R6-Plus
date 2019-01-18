@@ -30,12 +30,12 @@ class LeaderboardPresenter {
     }
     
     private func goToPlayerDetail(_ id: String) {
-        let vc = PlayerDetailViewController(playerId: id, playerDetail: nil)
+        let vc = PlayerDetailViewController(playerId: id, playerDetail: nil, platform: .pc)
         (view as? UIViewController)?.navigationController?.pushViewController(vc, animated: true)
     }
     
     private func fetchPlayerList() {
-        let input = LeaderboardInput(region: leaderboardRegion.rawValue, limit: 20, page: page)
+        let input = LeaderboardInput(region: leaderboardRegion.toLeaderboard, limit: 20, page: page)
         service.fetchLeaderboard(input: input) { [weak self] result in
             guard let `self` = self else { return }
             if case(.success(let players)) = result {

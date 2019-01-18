@@ -28,9 +28,9 @@ class PlayerDetailViewController: UIViewController {
     }
     
     // MARK: - Life cycle
-    init(playerId: String, playerDetail: PlayerDetail?) {
+    init(playerId: String, playerDetail: PlayerDetail?, platform: Platform) {
         self.playerId = playerId
-        presenter = PlayerDetailPresenter(playerDetail: playerDetail, service: PlayerDetailService())
+        presenter = PlayerDetailPresenter(playerDetail: playerDetail, service: PlayerDetailService(), platform: platform)
         
         super.init(nibName: nil, bundle: nil)
     }
