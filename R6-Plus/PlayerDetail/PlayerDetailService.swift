@@ -50,16 +50,15 @@ struct PlayerProfileInput {
 
 class PlayerDetailService {
     
-    func fetchPlayerDetail(id: String, platform: Platform) -> Observable<PlayerDetail?> {
+    func fetchPlayerDetail(id: String, platform: Platform, name: String) -> Observable<PlayerDetail?> {
         let stats = fetchPlayerStatistics(id: id, platform: platform)
         let prog = fetchPlayerProgression(id: id, platform: platform)
         let season = fetchPlayerSeasons(id: id, platform: platform)
-        let profile = fetchPlayerProfile(id: id)
-        return Observable.zip([stats, prog, season, profile]) { result in
+        return Observable.zip([stats, prog, season]) { result in
             let date = Date().nextDay()?.nextDay() ?? Date()
             let dateString = Utils.defaultDateFormatter.string(from: date)
-            let name = result[3]["nameOnPlatform"] as? String ?? ""
-            let platform = result[3]["platformType"] as? String ?? ""
+            let name = name
+            let platform = platform.rawValue
             let dict: [String: Any] = ["id": id,
                                        "lastUpdated": dateString,
                                        "stats": result[0],
@@ -134,21 +133,6 @@ class PlayerDetailService {
 //                let seasons = seasonsDict.compactMap { (($0["players"] as? [String: Any]) ?? [:])[id] as? [String: Any] }
 //                return PlayerSeason.fromDictionaryArray(seasons)
 //            }
-        }
-    }
-    
-    private func fetchPlayerProfile(id: String) -> Observable<[String: Any]> {
-        let input = PlayerProfileInput(id: id)
-        return Observable.create { oserver -> Disposable in
-            let request = R6API.playerProfile(input: input).rxRequest().subscribe(onNext: { result in
-                guard let results = result["profiles"] as? [[String: Any]],
-                    let element = results.first else {
-                        oserver.onNext([:])
-                        return
-                }
-                oserver.onNext(element)
-            })
-            return Disposables.create { request.dispose() }
         }
     }
 }

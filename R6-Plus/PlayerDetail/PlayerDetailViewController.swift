@@ -21,6 +21,7 @@ class PlayerDetailViewController: UIViewController {
     private let presenter: PlayerDetailPresenter
     private var sections: [SectionComponent] = []
     private let playerId: String
+    private let playerName: String
     private var isFavorite: Bool = false {
         didSet {
             navigationItem.rightBarButtonItem?.image = isFavorite ? #imageLiteral(resourceName: "favorited") : #imageLiteral(resourceName: "unfavorited")
@@ -28,8 +29,9 @@ class PlayerDetailViewController: UIViewController {
     }
     
     // MARK: - Life cycle
-    init(playerId: String, playerDetail: PlayerDetail?, platform: Platform) {
+    init(playerId: String, playerName: String, playerDetail: PlayerDetail?, platform: Platform) {
         self.playerId = playerId
+        self.playerName = playerName
         presenter = PlayerDetailPresenter(playerDetail: playerDetail, service: PlayerDetailService(), platform: platform)
         
         super.init(nibName: nil, bundle: nil)
@@ -43,7 +45,7 @@ class PlayerDetailViewController: UIViewController {
         super.viewDidLoad()
         
         presenter.attachView(self)
-        presenter.fetchPlayerDetailIfNeeded(id: playerId)
+        presenter.fetchPlayerDetailIfNeeded(id: playerId, name: playerName)
         setupTableView()
         addFavoriteButton()
         guard !R6UserDefaults.shared.premiumAccount else { return }

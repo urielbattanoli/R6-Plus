@@ -24,7 +24,7 @@ class FavoritesPresenter {
     
     private func goToPlayerDetail(_ player: PlayerDetail) {
         let platform = Platform(rawValue: player.platform) ?? .pc
-        let vc = PlayerDetailViewController(playerId: player.id, playerDetail: player, platform: platform)
+        let vc = PlayerDetailViewController(playerId: player.id, playerName: player.name, playerDetail: player, platform: platform)
         (view as? UIViewController)?.navigationController?.pushViewController(vc, animated: true)
     }
     

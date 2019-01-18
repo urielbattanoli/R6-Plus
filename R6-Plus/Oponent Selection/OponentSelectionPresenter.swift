@@ -110,7 +110,10 @@ class OponentSelectionPresenter: SearchPresenter {
         guard let player = selectedPlayer else { return }
         videoWatched = false
         let platform = Platform(rawValue: player.platformType) ?? .pc
-        let comparePresenter = PlayerComparisonPresenter(leftPlayer: self.playerDetail, rightPlayerId: player.userId, platform: platform)
+        let comparePresenter = PlayerComparisonPresenter(leftPlayer: self.playerDetail,
+                                                         rightPlayerId: player.profileId,
+                                                         name: player.nameOnPlatform,
+                                                         platform: platform)
         let compareVC = UBTableViewController(presenter: comparePresenter)
         (self.view as? UIViewController)?.navigationController?.pushViewController(compareVC, animated: true)
     }
@@ -126,8 +129,7 @@ class OponentSelectionPresenter: SearchPresenter {
 
 private extension PlayerDetail {
     func toSearchedPlayer() -> SearchedPlayer {
-        return SearchedPlayer(profileId: "",
-                              userId: self.id,
+        return SearchedPlayer(profileId: self.id,
                               platformType: self.platform,
                               nameOnPlatform: self.name)
     }

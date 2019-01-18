@@ -16,7 +16,6 @@ enum R6API {
     case playerStatistics(input: PlayerStatisticInput)
     case playerProgression(input: PlayerProgressionInput)
     case playerSeason(input: PlayerSeasonInput)
-    case playerProfile(input: PlayerProfileInput)
     case proGames(input: ProGamesInput)
     case leaderboard(input: LeaderboardInput)
 }
@@ -30,7 +29,6 @@ extension R6API {
         case .playerStatistics(let input): return Server.ubiStatisticsUrl(platform: input.platform)
         case .playerProgression(let input): return Server.ubiProgressionUrl(platform: input.platform)
         case .playerSeason(let input): return Server.ubiSeasonUrl(platform: input.platform)
-        case .playerProfile(let input): return Server.ubiProfileUrl(id: input.id)
         case .proGames: return Server.proGamesUrl
         case .leaderboard: return Server.leaderboardUrl
         }

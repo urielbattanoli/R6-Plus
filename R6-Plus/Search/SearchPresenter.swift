@@ -90,7 +90,7 @@ class SearchPresenter: NSObject {
         
         videoShowed = false
         let platform = Platform(rawValue: player.platformType) ?? .pc
-        let vc = PlayerDetailViewController(playerId: player.profileId, playerDetail: nil, platform: platform)
+        let vc = PlayerDetailViewController(playerId: player.profileId, playerName: player.nameOnPlatform, playerDetail: nil, platform: platform)
         (view as? UIViewController)?.navigationController?.pushViewController(vc, animated: true)
     }
 }

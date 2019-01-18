@@ -11,11 +11,10 @@ import Foundation
 struct SearchedPlayer: Codable {
     
     let profileId: String
-    let userId: String
     let platformType: String
     let nameOnPlatform: String
     
     var imageUrl: String {
-        return String(format: Server.baseImageUrl, userId)
+        return String(format: Server.baseImageUrl, profileId)
     }
 }

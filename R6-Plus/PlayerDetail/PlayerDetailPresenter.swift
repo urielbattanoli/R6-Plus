@@ -55,8 +55,8 @@ class PlayerDetailPresenter: NSObject {
         R6UserDefaults.shared.favorites.remove(at: index)
     }
     
-    func fetchPlayerDetailIfNeeded(id: String) {
-        service.fetchPlayerDetail(id: id, platform: platform).subscribe(onNext: { [weak self] result in
+    func fetchPlayerDetailIfNeeded(id: String, name: String) {
+        service.fetchPlayerDetail(id: id, platform: platform, name: name).subscribe(onNext: { [weak self] result in
             guard let `self` = self, let playerDetail = result else { return }
             if playerDetail.isFavorite {
                 self.unsetAsFavorite(player: playerDetail)

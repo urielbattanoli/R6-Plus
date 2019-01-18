@@ -29,8 +29,8 @@ class LeaderboardPresenter {
         fetchPlayerList()
     }
     
-    private func goToPlayerDetail(_ id: String) {
-        let vc = PlayerDetailViewController(playerId: id, playerDetail: nil, platform: .pc)
+    private func goToPlayerDetail(id: String, name: String) {
+        let vc = PlayerDetailViewController(playerId: id, playerName: name, playerDetail: nil, platform: .pc)
         (view as? UIViewController)?.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -59,7 +59,7 @@ class LeaderboardPresenter {
                                                  skillPoint: $0.kd)
             return CellComponent(reuseId: LeaderboardPlayerTableViewCell.reuseId,
                                  data: data) { [weak self] in
-                                    self?.goToPlayerDetail(data.id)
+                                    self?.goToPlayerDetail(id: data.id, name: data.nickName)
             }
         }
     }

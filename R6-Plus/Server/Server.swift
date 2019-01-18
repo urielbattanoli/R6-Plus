@@ -25,7 +25,6 @@ struct Server {
     private static var baseUbiUrl: String { return "https://public-ubiservices.ubi.com/" }
     static var baseImageUrl: String { return "https://ubisoft-avatars.akamaized.net/%@/default_146_146.png" }
     static var ubiSearchUrl: String { return "\(baseUbiUrl)v2/profiles" }
-    static func ubiProfileUrl(id: String) -> String { return "\(baseUbiUrl)v2/users/\(id)/profiles" }
     
     static func baseUbiV1(platform: Platform) -> String { return "\(baseUbiUrl)v1/spaces/\(platform.id)/sandboxes/\(platform.osbor)/" }
     static func ubiStatisticsUrl(platform: Platform) -> String { return "\(baseUbiV1(platform: platform))playerstats2/statistics" }

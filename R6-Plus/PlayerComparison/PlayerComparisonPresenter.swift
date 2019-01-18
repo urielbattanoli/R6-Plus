@@ -15,17 +15,19 @@ private typealias strings = Strings.Statistics
 class PlayerComparisonPresenter {
     
     private weak var view: UBTableView?
-    private var leftPlayer: PlayerDetail?
+    private let leftPlayer: PlayerDetail
     private var rightPlayer: PlayerDetail?
-    private var rightPlayerId: String?
+    private let rightPlayerId: String
+    private var name: String
     private var service = PlayerDetailService()
     private let disposeBag = DisposeBag()
     private let platform: Platform
     
-    init(leftPlayer: PlayerDetail?, rightPlayerId: String?, platform: Platform = .pc) {
+    init(leftPlayer: PlayerDetail, rightPlayerId: String, name: String, platform: Platform = .pc) {
         self.platform = platform
         self.leftPlayer = leftPlayer
         self.rightPlayerId = rightPlayerId
+        self.name = name
         AnalitycsHelper.ComparisonDone.logEvent()
     }
     
@@ -33,13 +35,12 @@ class PlayerComparisonPresenter {
         view?.registerCells([ComparisonHeaderTableViewCell.self,
                              ComparisonInfoTableViewCell.self])
         view?.startLoading()
-        guard let rightPlayerId = rightPlayerId else { return }
-        fetchPlayerDetailIfNeeded(id: rightPlayerId)
+        fetchPlayerDetailIfNeeded(id: rightPlayerId, name: name)
         addShareInfo()
     }
     
-    func fetchPlayerDetailIfNeeded(id: String) {
-        service.fetchPlayerDetail(id: id, platform: platform).subscribe(onNext: { [weak self] playerDetail in
+    func fetchPlayerDetailIfNeeded(id: String, name: String) {
+        service.fetchPlayerDetail(id: id, platform: platform, name: name).subscribe(onNext: { [weak self] playerDetail in
             guard let `self` = self,
                 let playerDetail = playerDetail else { return }
             self.rightPlayer = playerDetail
@@ -52,8 +53,7 @@ class PlayerComparisonPresenter {
     }
     
     private func playersToSection() -> [SectionComponent] {
-        guard let leftPlayer = leftPlayer,
-            let rightPlayer = rightPlayer else { return [] }
+        guard let rightPlayer = rightPlayer else { return [] }
         return [generateHeader(leftPlayer: leftPlayer, rightPlayer: rightPlayer),
                 generateGeneralStats(leftPlayer: leftPlayer, rightPlayer: rightPlayer),
                 generateTimePlayed(leftPlayer: leftPlayer, rightPlayer: rightPlayer),
