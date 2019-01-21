@@ -22,8 +22,8 @@ class AdVideoHelper: NSObject {
     
     func setupInterstitial() {
         interstitial = GADInterstitial(adUnitID: ADS_VIDEO_ID)
-        interstitial?.load(GADRequest())
         interstitial?.delegate = self
+        interstitial?.load(GADRequest())
         startTimer()
     }
     
@@ -45,8 +45,10 @@ class AdVideoHelper: NSObject {
     }
     
     @objc func showVideo() {
-        guard !R6UserDefaults.shared.premiumAccount, var topController = UIApplication.shared.topViewController,
+        guard !R6UserDefaults.shared.premiumAccount,
+            var topController = UIApplication.shared.topViewController,
             interstitial?.isReady == true else { return }
+        
         while let presentedViewController = topController.presentedViewController {
             topController = presentedViewController
         }
@@ -59,6 +61,10 @@ class AdVideoHelper: NSObject {
 extension AdVideoHelper: GADInterstitialDelegate {
     func interstitialDidDismissScreen(_ ad: GADInterstitial) {
         AnalitycsHelper.InterstitialVideoFullyWatched.logEvent()
+        reloadInterstitial()
+    }
+    
+    func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
         reloadInterstitial()
     }
 }

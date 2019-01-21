@@ -71,9 +71,7 @@ extension LeaderboardPresenter: UBTableViewPresenter {
         setupLeaderboard()
     }
     
-    func loadMoreInfo() {
-        fetchPlayerList()
-    }
+    func loadMoreInfo() { }
     
     func refreshControlAction() {
         view?.setSections([], isLoadMore: false)
