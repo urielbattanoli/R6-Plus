@@ -36,9 +36,5 @@ struct Match: Codable {
     struct Team: Codable {
         let name: String
         let logo: String
-        
-        var imageUrl: String {
-            return "http://178.128.75.11:1337/public/assets/images/\(logo)"
-        }
     }
 }

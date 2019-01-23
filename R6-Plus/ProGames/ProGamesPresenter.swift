@@ -72,10 +72,10 @@ class ProGamesPresenter {
     
     private func generateMatchData(_ match: Match) -> MatchCellData {
         return MatchCellData(tournamentName: match.tournament.name,
-                             teamAImageUrl: match.team_a.imageUrl,
+                             teamAImageUrl: match.team_a.logo,
                              teamAName: match.team_a.name,
                              matchTime: match.playDate.toMatchTime(),
-                             teamBImageUrl: match.team_b.imageUrl,
+                             teamBImageUrl: match.team_b.logo,
                              teamBName: match.team_b.name,
                              isLive: match.isLive)
     }
