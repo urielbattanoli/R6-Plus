@@ -19,7 +19,7 @@ class UBTableViewController: UIViewController {
     
     // MARK: - Properties
     var index = 0
-    private var presenter: UBTableViewPresenter
+    private let presenter: UBTableViewPresenter
     private var sections: [SectionComponent] = []
     private var pagination = 0
     

@@ -1,5 +1,5 @@
 //
-//  MainLeaderboardViewController.swift
+//  MainPaginationViewController.swift
 //  R6-Plus
 //
 //  Created by Uriel Battanoli on 21/05/18.
@@ -8,26 +8,33 @@
 
 import UIKit
 
-class MainLeaderboardViewController: UIViewController {
+struct MainPaginationViewModel {
+    let menuItems: [String]
+    let viewControllers: [UIViewController]
+}
+
+protocol MainPaginationView: class {
+    func setupView(viewModel: MainPaginationViewModel)
+}
+
+class MainPaginationViewController: UIViewController {
     
     // MARK: - IBOutlet
     @IBOutlet private weak var menuHeader: MenuHeaderMain!
     
     // MARK: - Propertiers
-    var pageViewController: LeaderboardPageViewController!
+    var pageViewController: MainPageViewController!
+    var presenter: MainPaginationPresenter?
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
-        menuHeader.items = [Region.global.menuName,
-                            Region.apac.menuName,
-                            Region.emea.menuName,
-                            Region.ncsa.menuName]
         menuHeader.delegate = self
+        presenter?.attachView(self)
     }
     
     // MARK: - Functions
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let pageViewController = segue.destination as? LeaderboardPageViewController else { return }
+        guard let pageViewController = segue.destination as? MainPageViewController else { return }
         pageViewController.pageDelegate = self
         self.pageViewController = pageViewController
     }
@@ -39,7 +46,7 @@ class MainLeaderboardViewController: UIViewController {
 }
 
 // MARK: - MenuHeaderMainDelegate
-extension MainLeaderboardViewController: MenuHeaderMainDelegate {
+extension MainPaginationViewController: MenuHeaderMainDelegate {
     
     func button(_ button: UIButton, didChangeToPosition position: Int) {
         pageViewController.changePage(toPosition: position)
@@ -47,9 +54,18 @@ extension MainLeaderboardViewController: MenuHeaderMainDelegate {
 }
 
 // MARK: - ContentPageViewControllerDelegate
-extension MainLeaderboardViewController: ContentPageViewControllerDelegate {
+extension MainPaginationViewController: ContentPageViewControllerDelegate {
     
     func page(_ page: UIViewController, didChangeToPosition position: Int) {
         menuHeader.animateMenu(withPosition: position)
+    }
+}
+
+// MAKR: - MainPaginationView
+extension MainPaginationViewController: MainPaginationView {
+    
+    func setupView(viewModel: MainPaginationViewModel) {
+        menuHeader.items = viewModel.menuItems
+        pageViewController.leaderViewControllers = viewModel.viewControllers
     }
 }

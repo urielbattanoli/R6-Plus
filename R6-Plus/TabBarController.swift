@@ -27,7 +27,8 @@ class TabBarController: UITabBarController {
         proGamesNavigation.defaultConfiguration()
         
         let storyboard = UIStoryboard(name: "Leaderboard", bundle: nil)
-        let leaderboard = storyboard.instantiateInitialViewController()
+        let leaderboard = storyboard.instantiateInitialViewController() as? UINavigationController
+        (leaderboard?.viewControllers.first as? MainPaginationViewController)?.presenter = MainPaginationPresenter(type: .leaderboard)
         leaderboard?.tabBarItem = UITabBarItem(title: strings.leaderboard, image: #imageLiteral(resourceName: "unlist"), selectedImage: #imageLiteral(resourceName: "list"))
         
         let favorites = UBTableViewController(presenter: FavoritesPresenter())

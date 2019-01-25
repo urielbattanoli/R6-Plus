@@ -32,7 +32,7 @@ class AdVideoHelper: NSObject {
     }
     
     private func reloadInterstitial() {
-        seconds = 120
+        seconds = 60
         setupInterstitial()
     }
     
