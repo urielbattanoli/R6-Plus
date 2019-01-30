@@ -29,7 +29,7 @@ class TabBarController: UITabBarController {
         let storyboard = UIStoryboard(name: "MainPagination", bundle: nil)
         let news = storyboard.instantiateInitialViewController() as? UINavigationController
         (news?.viewControllers.first as? MainPaginationViewController)?.presenter = MainPaginationPresenter(type: .news)
-        news?.tabBarItem = UITabBarItem(title: strings.news, image: #imageLiteral(resourceName: "unlist"), selectedImage: #imageLiteral(resourceName: "list"))
+        news?.tabBarItem = UITabBarItem(title: strings.news, image: #imageLiteral(resourceName: "news"), selectedImage: #imageLiteral(resourceName: "filled_news"))
         
         let leaderboard = storyboard.instantiateInitialViewController() as? UINavigationController
         (leaderboard?.viewControllers.first as? MainPaginationViewController)?.presenter = MainPaginationPresenter(type: .leaderboard)
