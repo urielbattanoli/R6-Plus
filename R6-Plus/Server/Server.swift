@@ -21,6 +21,7 @@ struct Server {
     //    static var proGamesUrl: String { return "\(baseR6Url):1338/parse/functions/matchesByPage" } // TEST
     static var ubiTokenUrl: String { return "\(baseR6Url)5000/token" }
     static var leaderboardUrl: String { return "\(baseR6Url)5000/leaderboard" }
+    static var newsUrl: String { return "\(baseR6Url)5000/news" }
     
     private static var baseUbiUrl: String { return "https://public-ubiservices.ubi.com/" }
     static var baseImageUrl: String { return "https://ubisoft-avatars.akamaized.net/%@/default_146_146.png" }

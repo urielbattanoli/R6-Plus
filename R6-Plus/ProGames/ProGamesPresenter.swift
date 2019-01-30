@@ -49,7 +49,7 @@ class ProGamesPresenter {
         
         guard let url = URL(string: match.streamUrl ?? ""),
             UIApplication.shared.canOpenURL(url) else {
-                showAlertWithMessage(strings.errorOpenUrl)
+                showAlertWithMessage(Strings.errorOpenUrl)
                 return
         }
         UIApplication.shared.open(url, options: [:])

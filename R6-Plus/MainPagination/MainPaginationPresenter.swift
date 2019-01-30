@@ -28,7 +28,7 @@ class MainPaginationPresenter {
         case .leaderboard:
             setupForLeaderboard()
         case .news:
-            break
+            setupForNews()
         }
     }
     
@@ -48,6 +48,31 @@ class MainPaginationPresenter {
         let vc3 = UBTableViewController(presenter: vcd3)
         vc3.index = 2
         let vcd4 = LeaderboardPresenter(service: LeaderboardService(), leaderboardRegion: .ncsa)
+        let vc4 = UBTableViewController(presenter: vcd4)
+        vc4.index = 3
+        let vcs = [vc1, vc2, vc3, vc4]
+        
+        let viewModel = MainPaginationViewModel(menuItems: items,
+                                                viewControllers: vcs)
+        view?.setupView(viewModel: viewModel)
+    }
+    
+    private func setupForNews() {
+        let items = [Language.en.menuName,
+                     Language.pt.menuName,
+                     Language.de.menuName,
+                     Language.fr.menuName]
+        
+        let vcd1 = NewsPresenter(service: NewsService(), language: .en)
+        let vc1 = UBTableViewController(presenter: vcd1)
+        vc1.index = 0
+        let vcd2 = NewsPresenter(service: NewsService(), language: .pt)
+        let vc2 = UBTableViewController(presenter: vcd2)
+        vc2.index = 1
+        let vcd3 = NewsPresenter(service: NewsService(), language: .de)
+        let vc3 = UBTableViewController(presenter: vcd3)
+        vc3.index = 2
+        let vcd4 = NewsPresenter(service: NewsService(), language: .fr)
         let vc4 = UBTableViewController(presenter: vcd4)
         vc4.index = 3
         let vcs = [vc1, vc2, vc3, vc4]

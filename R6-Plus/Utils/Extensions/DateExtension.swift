@@ -23,4 +23,11 @@ extension Date {
         let text = Utils.matchDateFormatter.string(from: self)
         return text.replacingOccurrences(of: ":", with: "h")
     }
+    
+    func toNewsTime() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMM - HH:mm"
+        let text = formatter.string(from: self)
+        return text.replacingOccurrences(of: ":", with: "h")
+    }
 }

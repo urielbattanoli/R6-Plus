@@ -27,4 +27,10 @@ extension String {
     var localized: String {
         return NSLocalizedString(self, comment:"")
     }
+    
+    func toNewsDate() -> Date? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEE MMM dd HH:mm:ss +zzzz yyyy"
+        return formatter.date(from: self)
+    }
 }

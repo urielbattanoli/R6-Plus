@@ -5,56 +5,62 @@
 //  Created by Uriel Battanoli on 08/05/18.
 //  Copyright © 2018 Mocka. All rights reserved.
 //
-
 import UIKit
 
 @IBDesignable
 class GradientView: UIView {
     
-    @IBInspectable var startColor: UIColor = UIColor.white {
-        didSet {
-            gradientLayer.colors = [ startColor.cgColor, endColor.cgColor ]
-        }
+    let gradientName = "gradientLayer"
+    
+    @IBInspectable var start: CGPoint = CGPoint(x: 0, y: 0) {
+        didSet { configureGradient() }
     }
     
-    @IBInspectable var endColor: UIColor = UIColor.black {
-        didSet {
-            gradientLayer.colors = [ startColor.cgColor, endColor.cgColor ]
-        }
+    @IBInspectable var end: CGPoint = CGPoint(x: 0, y: 1) {
+        didSet { configureGradient() }
     }
     
-    @IBInspectable var startPoint: CGPoint = CGPoint(x:0, y:0) {
-        didSet {
-            gradientLayer.startPoint = startPoint
-        }
-    }
-    @IBInspectable var endPoint: CGPoint = CGPoint(x:0, y:1) {
-        didSet {
-            gradientLayer.endPoint = endPoint
-        }
+    @IBInspectable var colors: [UIColor] = [.black,.clear] {
+        didSet { configureGradient() }
     }
     
-    private var gradientLayer: CAGradientLayer = CAGradientLayer()
-    
-    override class var layerClass: AnyClass {
+    override public class var layerClass: Swift.AnyClass {
         return CAGradientLayer.self
     }
     
-    private func setupLayer() {
-        self.layer.insertSublayer(gradientLayer, at: 0)
+    override var bounds: CGRect {
+        didSet { configureGradient() }
+    }
+    
+    var gradientLayer: CAGradientLayer {
+        return self.layer as! CAGradientLayer
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupLayer()
+        configureGradient()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        setupLayer()
+        configureGradient()
     }
     
-    override func layoutSubviews() {
-        gradientLayer.frame = self.bounds
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        configureGradient()
+    }
+    
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        configureGradient()
+    }
+    
+    func configureGradient() {
+        self.layer.frame = bounds
+        layer.setNeedsDisplay()
+        gradientLayer.startPoint = start
+        gradientLayer.endPoint = end
+        gradientLayer.colors = colors.compactMap{$0.cgColor}
     }
 }

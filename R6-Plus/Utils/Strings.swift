@@ -14,12 +14,14 @@ struct Strings {
     static var cancel: String { return "cancel".localized }
     static var buy: String { return "buy".localized }
     static var restore: String { return "restore".localized }
+    static var errorOpenUrl: String { return "error_open_url".localized }
     
     struct Menu {
         static var proGames: String { return "pro_games".localized }
         static var leaderboard: String { return "leaderboard".localized }
         static var favorites: String { return "favorites".localized }
         static var premium: String { return "premium".localized }
+        static var news: String { return "news".localized }
     }
     
     struct Search {
@@ -31,7 +33,6 @@ struct Strings {
     struct ProGames {
         static var noMatches: String { return "no_matches".localized }
         static var streamUnavailable: String { return "not_live".localized }
-        static var errorOpenUrl: String { return "error_open_url".localized }
         static var live: String { return "live".localized }
     }
     

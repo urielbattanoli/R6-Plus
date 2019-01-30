@@ -26,7 +26,11 @@ class TabBarController: UITabBarController {
         let proGamesNavigation = UINavigationController(rootViewController: proGames)
         proGamesNavigation.defaultConfiguration()
         
-        let storyboard = UIStoryboard(name: "Leaderboard", bundle: nil)
+        let storyboard = UIStoryboard(name: "MainPagination", bundle: nil)
+        let news = storyboard.instantiateInitialViewController() as? UINavigationController
+        (news?.viewControllers.first as? MainPaginationViewController)?.presenter = MainPaginationPresenter(type: .news)
+        news?.tabBarItem = UITabBarItem(title: strings.news, image: #imageLiteral(resourceName: "unlist"), selectedImage: #imageLiteral(resourceName: "list"))
+        
         let leaderboard = storyboard.instantiateInitialViewController() as? UINavigationController
         (leaderboard?.viewControllers.first as? MainPaginationViewController)?.presenter = MainPaginationPresenter(type: .leaderboard)
         leaderboard?.tabBarItem = UITabBarItem(title: strings.leaderboard, image: #imageLiteral(resourceName: "unlist"), selectedImage: #imageLiteral(resourceName: "list"))
@@ -41,6 +45,6 @@ class TabBarController: UITabBarController {
         premiumVC.tabBarItem = UITabBarItem(title: strings.premium, image: #imageLiteral(resourceName: "account"), selectedImage: #imageLiteral(resourceName: "filled_account"))
         premiumVC.title = strings.premium
         // To avoid force unwrap on leaderboard 
-        viewControllers = [proGamesNavigation, leaderboard, favoritesNavigation, premiumVC].compactMap { $0 }
+        viewControllers = [news, proGamesNavigation, leaderboard, favoritesNavigation, premiumVC].compactMap { $0 }
     }
 }
