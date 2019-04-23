@@ -93,7 +93,9 @@ class ProGamesPresenter {
 
 extension ProGamesPresenter: UBTableViewPresenter {
     
-    func loadMoreInfo() {}
+    func loadMoreInfo() {
+        fetchMatches()
+    }
     
     func refreshControlAction() {
         view?.setSections([], isLoadMore: false)
