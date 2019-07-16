@@ -38,6 +38,7 @@
 "ncsa" = "NORTH, CENTRAL & SOUTH AMERICA";
 
 // STATISTICS
+"compare" = "Compare";
 "general_stats" = "General Stats";
 "player_level" = "Player level";
 "wins" = "Wins";

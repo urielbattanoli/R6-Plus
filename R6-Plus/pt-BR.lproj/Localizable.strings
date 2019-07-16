@@ -38,6 +38,7 @@
 "ncsa" = "AMÉRICA DO NORTE, CENTRAL & SUL";
 
 // STATISTICS
+"compare" = "Comparar";
 "general_stats" = "Estatísticas gerais";
 "player_level" = "Nível de jogador";
 "wins" = "Vitórias";

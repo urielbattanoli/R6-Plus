@@ -12,6 +12,7 @@ class ProfileHeaderTableViewCell: NibRegistrableTableViewCell {
     
     // MARK: - IBOutlet
     @IBOutlet private weak var profileImageView: UIImageView!
+    @IBOutlet private weak var compareButton: UIButton!
     
     // MARK: - Properties
     private var compareButtonHandler: (() -> Void)?
@@ -29,5 +30,7 @@ extension ProfileHeaderTableViewCell: DynamicCellComponent {
         guard let data = data as? ProfileHeaderCellData else { return }
         profileImageView.loadImage(data.imageUrl)
         compareButtonHandler = data.compareButtonHandler
+        compareButton.setCorner(value: 5)
+        compareButton.setTitle("compare".localized, for: .normal)
     }
 }
