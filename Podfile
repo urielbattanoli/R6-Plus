@@ -7,8 +7,8 @@ def shared_pods
 end
 
 target 'R6-Plus' do
-    pod 'Alamofire', '~> 4.7'
-    pod 'Kingfisher', '~> 4.0'
+    pod 'Alamofire'
+    pod 'Kingfisher'
     pod 'Google-Mobile-Ads-SDK'
     pod 'Firebase/Core'
     pod 'Fabric'

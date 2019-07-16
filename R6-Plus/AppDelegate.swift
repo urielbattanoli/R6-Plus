@@ -13,7 +13,6 @@ import OneSignal
 import Fabric
 import Crashlytics
 
-let ADS_APP_ID = "ca-app-pub-3291479380654020~6866270802"
 let ADS_BANNER_ID = "ca-app-pub-3291479380654020/4653210435"
 let ADS_COMP_ID = "ca-app-pub-3291479380654020/3432037228"
 let ADS_VIDEO_ID = "ca-app-pub-3291479380654020/5840496493"
@@ -26,10 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private var bannerView: BannerViewController?
     internal var shouldRotate = false
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         Fabric.with([Crashlytics.self])
         FirebaseApp.configure()
-        GADMobileAds.configure(withApplicationID: ADS_APP_ID)
+        GADMobileAds.sharedInstance().start()
         GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
                                                     withAdUnitID: ADS_COMP_ID)
         ReviewHelper.incrementAppOpenedCount()

@@ -72,7 +72,7 @@ class UBTableViewController: UIViewController {
     }
     
     private func setupTableView() {
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
         tableView.estimatedSectionHeaderHeight = 100
         tableView.tableFooterView = UIView()

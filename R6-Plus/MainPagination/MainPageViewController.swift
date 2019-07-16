@@ -39,7 +39,7 @@ class MainPageViewController: UIPageViewController {
     }
     
     func changePage(toPosition position: Int) {
-        let direction: UIPageViewControllerNavigationDirection
+        let direction: UIPageViewController.NavigationDirection
         
         if currentVC > position {
             direction = .reverse
@@ -57,14 +57,14 @@ class MainPageViewController: UIPageViewController {
 extension MainPageViewController: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let index = leaderViewControllers.index(of: viewController),
+        guard let index = leaderViewControllers.firstIndex(of: viewController),
             index - 1 >= 0 else { return nil }
         
         return leaderViewControllers[index - 1]
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let index = leaderViewControllers.index(of: viewController),
+        guard let index = leaderViewControllers.firstIndex(of: viewController),
             index + 1 < leaderViewControllers.count else { return nil }
         
         return leaderViewControllers[index + 1]

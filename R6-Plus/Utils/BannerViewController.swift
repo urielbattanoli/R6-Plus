@@ -19,7 +19,7 @@ class BannerViewController: UIViewController {
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        window.windowLevel = CGFloat.greatestFiniteMagnitude
+        window.windowLevel = UIWindow.Level(rawValue: CGFloat.greatestFiniteMagnitude)
         window.isHidden = false
         window.rootViewController = self
     }

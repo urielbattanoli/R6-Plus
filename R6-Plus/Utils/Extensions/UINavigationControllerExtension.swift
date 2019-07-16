@@ -13,8 +13,8 @@ extension UINavigationController {
     func defaultConfiguration() {
         self.navigationBar.barTintColor = #colorLiteral(red: 0.07450980392, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
         self.navigationBar.tintColor = .white
-        self.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-        self.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationBar.prefersLargeTitles = true
         self.navigationBar.isTranslucent = false

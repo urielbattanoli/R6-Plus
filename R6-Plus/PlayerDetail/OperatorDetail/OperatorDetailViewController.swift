@@ -45,7 +45,7 @@ class OperatorDetailViewController: UIViewController {
     // MARK: - Functions
     private func setupTableView() {
         tableView.register(InformationTableViewCell.nib, forCellReuseIdentifier: InformationTableViewCell.reuseId)
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
         tableView.estimatedSectionHeaderHeight = 100
         tableView.tableFooterView = UIView()

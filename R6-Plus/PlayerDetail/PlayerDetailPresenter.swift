@@ -51,7 +51,7 @@ class PlayerDetailPresenter: NSObject {
     }
     
     private func unsetAsFavorite(player: PlayerDetail) {
-        guard let index = (R6UserDefaults.shared.favorites.index { ($0["id"] as? String ?? "") == player.id }) else { return }
+        guard let index = (R6UserDefaults.shared.favorites.firstIndex { ($0["id"] as? String ?? "") == player.id }) else { return }
         R6UserDefaults.shared.favorites.remove(at: index)
     }
     
