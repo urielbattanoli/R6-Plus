@@ -15,6 +15,7 @@ class ProGamesPresenter {
     private weak var view: UBTableView?
     private var service = ProGamesService()
     private var page = 0
+    private var currentDateIndex: Int?
     
     private func setupProGames() {
         AnalitycsHelper.ProGamesOpened.logEvent()
@@ -26,33 +27,36 @@ class ProGamesPresenter {
     }
     
     func fetchMatches() {
-        let input = ProGamesInput(limit: 15, page: page)
-        service.fetchProGames(input: input) { [weak self] result in
-            guard let `self` = self else { return }
+        service.fetchProGames() { [weak self] result in
+            guard let self = self else { return }
+            self.currentDateIndex = nil
             if case .success(let matches) = result {
                 self.view?.setSections(self.generateMatchesSection(matches), isLoadMore: true)
             }
             self.view?.stopLoading()
             self.view?.setEmptyMessageIfNeeded(strings.noMatches)
             self.view?.reloadTableView()
+            if let currentDateIndex = self.currentDateIndex {
+                self.view?.scrollTo(indexPath: IndexPath(row: currentDateIndex, section: 0))
+            }
         }
         page += 1
     }
     
     private func matchTouched(_ match: Match) {
-        AnalitycsHelper.MatchTouched.logEvent(obs: match.objectId)
-        
-        guard match.isLive else {
-            showAlertWithMessage(strings.streamUnavailable)
-            return
-        }
-        
-        guard let url = URL(string: match.streamUrl ?? ""),
-            UIApplication.shared.canOpenURL(url) else {
-                showAlertWithMessage(Strings.errorOpenUrl)
-                return
-        }
-        UIApplication.shared.open(url, options: [:])
+//        AnalitycsHelper.MatchTouched.logEvent(obs: match.objectId)
+//
+//        guard match.isLive else {
+//            showAlertWithMessage(strings.streamUnavailable)
+//            return
+//        }
+//
+//        guard let url = URL(string: match.streamUrl ?? ""),
+//            UIApplication.shared.canOpenURL(url) else {
+//                showAlertWithMessage(Strings.errorOpenUrl)
+//                return
+//        }
+//        UIApplication.shared.open(url, options: [:])
     }
     
     private func showAlertWithMessage(_ message: String) {
@@ -62,22 +66,29 @@ class ProGamesPresenter {
     }
     
     private func generateMatchesSection(_ matches: [Match]) -> [SectionComponent] {
-        let cells = matches.map { [weak self] match in
-            CellComponent(reuseId: MatchTableViewCell.reuseId, data: generateMatchData(match)) {
-                self?.matchTouched(match)
+        var cells: [CellComponent] = []
+        for i in 0..<matches.count {
+            let match = matches[i]
+            if let date = match.playDate, date < Date() {
+                currentDateIndex = i
             }
+            let cell = CellComponent(reuseId: MatchTableViewCell.reuseId,
+                                     data: generateMatchData(match)) { [weak self] in
+                                        self?.matchTouched(match)
+            }
+            cells.append(cell)
         }
         return [SectionComponent(header: nil, cells: cells)]
     }
     
     private func generateMatchData(_ match: Match) -> MatchCellData {
-        return MatchCellData(tournamentName: match.tournament.name,
-                             teamAImageUrl: match.team_a.logo,
-                             teamAName: match.team_a.name,
-                             matchTime: match.playDate.toMatchTime(),
-                             teamBImageUrl: match.team_b.logo,
-                             teamBName: match.team_b.name,
-                             isLive: match.isLive)
+        return MatchCellData(tournamentName: match.league,
+                             teamAImageUrl: match.teamA.image,
+                             teamAName: match.teamA.name,
+                             matchTime: match.playDate?.toMatchTime() ?? " - ",
+                             teamBImageUrl: match.teamB.image,
+                             teamBName: match.teamB.name,
+                             isLive: false)
     }
     
     private func addSearchButton() {
@@ -87,15 +98,14 @@ class ProGamesPresenter {
     }
     
     @objc private func searchButtonTouched() {
-        SearchRouter.openSearch(viewController: view as? UIViewController)
+        let presenter = SearchPresenter(service: SearchService())
+        SearchRouter.openSearch(viewController: view as? UIViewController, presenter: presenter)
     }
 }
 
 extension ProGamesPresenter: UBTableViewPresenter {
     
-    func loadMoreInfo() {
-        fetchMatches()
-    }
+    func loadMoreInfo() {}
     
     func refreshControlAction() {
         view?.setSections([], isLoadMore: false)

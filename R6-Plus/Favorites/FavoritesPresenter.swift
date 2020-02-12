@@ -60,7 +60,8 @@ class FavoritesPresenter {
     }
     
     @objc private func searchButtonTouched() {
-        SearchRouter.openSearch(viewController: view as? UIViewController)
+        let presenter = SearchPresenter(service: SearchService())
+        SearchRouter.openSearch(viewController: view as? UIViewController, presenter: presenter)
     }
 }
 

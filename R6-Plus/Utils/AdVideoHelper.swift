@@ -24,7 +24,7 @@ class AdVideoHelper: NSObject {
         interstitial = GADInterstitial(adUnitID: ADS_VIDEO_ID)
         interstitial?.delegate = self
         interstitial?.load(GADRequest())
-        startTimer()
+//        startTimer()
     }
     
     func stopTimer() {

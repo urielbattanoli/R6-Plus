@@ -17,8 +17,7 @@ struct Server {
     
     // MARK: - NEW URLs
     private static var baseR6Url: String { return "http://178.128.75.11:" }
-    static var proGamesUrl: String { return "\(baseR6Url)1337/parse/functions/matchesByPage" }
-    //    static var proGamesUrl: String { return "\(baseR6Url):1338/parse/functions/matchesByPage" } // TEST
+    static var proGamesUrl: String { return "\(baseR6Url)5000/matches" }
     static var ubiTokenUrl: String { return "\(baseR6Url)5000/token" }
     static var leaderboardUrl: String { return "\(baseR6Url)5000/leaderboard" }
     static var newsUrl: String { return "\(baseR6Url)5000/news" }

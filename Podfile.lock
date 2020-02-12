@@ -76,7 +76,7 @@ DEPENDENCIES:
   - RxSwift
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - Crashlytics
     - Fabric
@@ -114,4 +114,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 1a721c40ab41fb99b9a10eb97c82afd1742a8252
 
-COCOAPODS: 1.7.1
+COCOAPODS: 1.8.4

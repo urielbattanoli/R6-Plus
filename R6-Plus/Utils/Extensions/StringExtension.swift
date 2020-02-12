@@ -33,4 +33,19 @@ extension String {
         formatter.dateFormat = "EEE MMM dd HH:mm:ss +zzzz yyyy"
         return formatter.date(from: self)
     }
+    
+    func toDate(from format: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        dateFormatter.locale = Locale(identifier: "en_US")
+        
+        let date = dateFormatter.date(from: self)
+        print(self)
+        print(date)
+        print("--------------------------\n\n")
+        if date == nil {
+            print("PQP")
+        }
+        return date
+    }
 }

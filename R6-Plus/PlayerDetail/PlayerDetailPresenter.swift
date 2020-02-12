@@ -102,11 +102,7 @@ class PlayerDetailPresenter: NSObject {
         AnalitycsHelper.DetailComparisonTouched.logEvent()
         guard let playerDetail = playerDetail else { return }
         let presenter = OponentSelectionPresenter(service: SearchService(), playerDetail: playerDetail)
-        let searchVC = SearchViewController(presenter: presenter)
-        searchVC.modalTransitionStyle = .crossDissolve
-        let navigation = UINavigationController(rootViewController: searchVC)
-        navigation.defaultConfiguration()
-        (view as? UIViewController)?.navigationController?.present(navigation, animated: true)
+        SearchRouter.openSearch(viewController: view as? UIViewController, presenter: presenter)
     }
 }
 

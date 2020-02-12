@@ -131,6 +131,10 @@ extension UBTableViewController: UITableViewDelegate {
 // MARK: - UBTableView
 extension UBTableViewController: UBTableView {
     
+    func scrollTo(indexPath: IndexPath) {
+        tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+    }
+    
     func startLoading() {
         loader.startAnimating()
     }

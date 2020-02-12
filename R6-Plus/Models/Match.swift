@@ -10,31 +10,18 @@ import Foundation
 
 struct Match: Codable {
     
-    let objectId: String
-    let tournament: Tournament
-    let team_b: Team
-    let team_a: Team
-    let start_timestamp: Double
-    let streamUrl: String?
+    let league: String
+    let teamB: Team
+    let teamA: Team
+    let time: String
+    let result: String
     
-    var playDate: Date {
-        let myTimeInterval = TimeInterval(start_timestamp / 1000)
-        return Date(timeIntervalSince1970: TimeInterval(myTimeInterval))
-    }
-    
-    var isLive: Bool {
-        let startGame = start_timestamp / 1000
-        let now = Date().timeIntervalSince1970
-        let endGame = startGame + 1 * 60 * 60
-        return now > startGame && now < endGame
-    }
-    
-    struct Tournament: Codable {
-        let name: String
+    var playDate: Date? {
+        return time.toDate(from: "MMMM d, yyyy - HH:mm zzz")
     }
     
     struct Team: Codable {
         let name: String
-        let logo: String
+        let image: String
     }
 }

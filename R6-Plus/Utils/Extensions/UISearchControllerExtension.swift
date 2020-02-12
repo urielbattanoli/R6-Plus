@@ -14,12 +14,15 @@ extension UISearchController {
         self.searchBar.isTranslucent = false
         self.obscuresBackgroundDuringPresentation = false
         self.searchBar.tintColor = .white
-        let textField = self.searchBar.value(forKey: "searchField") as? UITextField
-        textField?.textColor = .white
-        if let backgroundview = textField?.subviews.first {
-            backgroundview.backgroundColor = .white
-            backgroundview.layer.cornerRadius = 10
-            backgroundview.clipsToBounds = true
+        if let textField = self.searchBar.value(forKey: "searchField") as? UITextField,
+            let iconView = textField.leftView as? UIImageView {
+
+            textField.defaultTextAttributes = [.foregroundColor: UIColor.white]
+            textField.attributedPlaceholder = NSAttributedString(string: "placeholder text",
+                                                                 attributes: [.foregroundColor: UIColor.white])
+            
+            iconView.image = iconView.image?.withRenderingMode(.alwaysTemplate)
+            iconView.tintColor = .white
         }
     }
 }

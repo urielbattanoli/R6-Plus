@@ -16,7 +16,7 @@ enum R6API {
     case playerStatistics(input: PlayerStatisticInput)
     case playerProgression(input: PlayerProgressionInput)
     case playerSeason(input: PlayerSeasonInput)
-    case proGames(input: ProGamesInput)
+    case proGames
     case leaderboard(input: LeaderboardInput)
     case news(input: Language)
 }
@@ -38,7 +38,6 @@ extension R6API {
     
     private var method: HTTPMethod {
         switch self {
-        case .proGames: return .post
         default: return .get
         }
     }
@@ -47,7 +46,7 @@ extension R6API {
         switch self {
         case .getToken: return nil
         case .searchPlayer(let input): return input.params
-        case .proGames(let input): return input.params
+        case .proGames: return nil
         case .playerStatistics(let input): return input.params
         case .playerProgression(let input): return input.params
         case .playerSeason(let input): return input.params
@@ -58,11 +57,7 @@ extension R6API {
     
     private var headers: [String: String]? {
         switch self {
-        case .proGames, .leaderboard, .news:
-            return ["X-Parse-Application-Id": "R6PLUS",
-                    "X-Parse-REST-API-Key": "bmoA6075Kxx4SLJ8ZJXXPccILaUrj04U"]
-            //            return ["X-Parse-Application-Id": "R6PLUS-DEV",
-        //                    "X-Parse-REST-API-Key": "666"]
+        case .proGames, .leaderboard, .news: return nil
         default: return TokenHelper.token?.header()
         }
     }

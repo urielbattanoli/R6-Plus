@@ -60,6 +60,7 @@ class SearchViewController: UBTableViewController {
         super.viewDidLoad()
         
         title = Strings.Search.search
+        view.backgroundColor = #colorLiteral(red: 0.07450980392, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
         setupSearch()
     }
     

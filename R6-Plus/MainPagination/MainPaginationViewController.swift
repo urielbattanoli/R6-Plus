@@ -41,7 +41,8 @@ class MainPaginationViewController: UIViewController {
     
     // MARK: - IBAction
     @IBAction private func searchTouched() {
-        SearchRouter.openSearch(viewController: self)
+        let presenter = SearchPresenter(service: SearchService())
+        SearchRouter.openSearch(viewController: self, presenter: presenter)
     }
 }
 
