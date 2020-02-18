@@ -11,18 +11,19 @@ import UIKit
 extension UISearchController {
     
     func defaultConfiguration() {
-        self.searchBar.isTranslucent = false
-        self.obscuresBackgroundDuringPresentation = false
-        self.searchBar.tintColor = .white
-        if let textField = self.searchBar.value(forKey: "searchField") as? UITextField,
-            let iconView = textField.leftView as? UIImageView {
-
-            textField.defaultTextAttributes = [.foregroundColor: UIColor.white]
-            textField.attributedPlaceholder = NSAttributedString(string: "placeholder text",
-                                                                 attributes: [.foregroundColor: UIColor.white])
-            
-            iconView.image = iconView.image?.withRenderingMode(.alwaysTemplate)
-            iconView.tintColor = .white
+        DispatchQueue.main.async {
+            self.searchBar.isTranslucent = false
+            self.obscuresBackgroundDuringPresentation = false
+            self.searchBar.tintColor = .white
+            if let textField = self.searchBar.value(forKey: "searchField") as? UITextField,
+                let iconView = textField.leftView as? UIImageView {
+                textField.defaultTextAttributes = [.foregroundColor: UIColor.white]
+                textField.attributedPlaceholder = NSAttributedString(string: "placeholder text",
+                                                                     attributes: [.foregroundColor: UIColor.lightGray])
+                
+                iconView.image = iconView.image?.withRenderingMode(.alwaysTemplate)
+                iconView.tintColor = .white
+            }
         }
     }
 }

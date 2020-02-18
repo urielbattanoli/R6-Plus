@@ -14,10 +14,15 @@ struct Match: Codable {
     let teamB: Team
     let teamA: Team
     let time: String
+    let timezone: String
     let result: String
     
     var playDate: Date? {
-        return time.toDate(from: "MMMM d, yyyy - HH:mm zzz")
+        let timezone = "UTC\(self.timezone)"
+        var a = time.split(separator: " ")
+        a.removeLast()
+        let time = a.joined(separator: " ")
+        return time.toDate(from: "MMMM d, yyyy - HH:mm", timezone: timezone)
     }
     
     struct Team: Codable {

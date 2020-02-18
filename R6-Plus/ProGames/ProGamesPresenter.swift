@@ -69,7 +69,7 @@ class ProGamesPresenter {
         var cells: [CellComponent] = []
         for i in 0..<matches.count {
             let match = matches[i]
-            if let date = match.playDate, date < Date() {
+            if let date = match.playDate, date > Date() {
                 currentDateIndex = i
             }
             let cell = CellComponent(reuseId: MatchTableViewCell.reuseId,

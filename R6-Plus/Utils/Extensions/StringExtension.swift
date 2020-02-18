@@ -34,18 +34,10 @@ extension String {
         return formatter.date(from: self)
     }
     
-    func toDate(from format: String) -> Date? {
+    func toDate(from format: String, timezone: String = "UTC") -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
-        dateFormatter.locale = Locale(identifier: "en_US")
-        
-        let date = dateFormatter.date(from: self)
-        print(self)
-        print(date)
-        print("--------------------------\n\n")
-        if date == nil {
-            print("PQP")
-        }
-        return date
+        dateFormatter.timeZone = TimeZone(abbreviation: timezone)
+        return dateFormatter.date(from: self)
     }
 }
