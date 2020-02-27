@@ -34,6 +34,7 @@ struct Strings {
         static var noMatches: String { return "no_matches".localized }
         static var streamUnavailable: String { return "not_live".localized }
         static var live: String { return "live".localized }
+        static var premiumMatches: String { return "premium_matches".localized }
     }
     
     struct Leaderboard {

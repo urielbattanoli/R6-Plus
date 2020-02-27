@@ -40,7 +40,7 @@ class NewsPresenter {
     private func showAlertWithMessage(_ message: String) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: Strings.ok, style: .cancel))
-        (view as? UIViewController)?.present(alert, animated: true)
+        view?.present(alert, animated: true)
     }
     
     

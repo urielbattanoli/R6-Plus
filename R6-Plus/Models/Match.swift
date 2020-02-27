@@ -25,6 +25,14 @@ struct Match: Codable {
         return time.toDate(from: "MMMM d, yyyy - HH:mm", timezone: timezone)
     }
     
+    var teamAPoint: String {
+        return String(result.split(separator: ":").first ?? "")
+    }
+    
+    var teamBPoint: String {
+        return String(result.split(separator: ":").last ?? "")
+    }
+    
     struct Team: Codable {
         let name: String
         let image: String

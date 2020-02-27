@@ -30,7 +30,7 @@ class LeaderboardPresenter {
     
     private func goToPlayerDetail(id: String, name: String) {
         let vc = PlayerDetailViewController(playerId: id, playerName: name, playerDetail: nil, platform: .pc)
-        (view as? UIViewController)?.navigationController?.pushViewController(vc, animated: true)
+        view?.navigationController?.pushViewController(vc, animated: true)
     }
     
     private func fetchPlayerList() {

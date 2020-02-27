@@ -28,6 +28,7 @@
 "not_live" = "Esta partida não esta sendo transmitida agora!";
 "error_open_url" = "Falha ao abrir url";
 "live" = "Ao vivo";
+"premium_matches" = "Seja premium e veja jogos que ainda estão por vir";
 
 // LEADERBOARD
 "maintenance" = "Servidor em manutenção!\n\nDesculpe :(";

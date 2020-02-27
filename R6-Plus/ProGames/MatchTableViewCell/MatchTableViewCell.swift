@@ -11,8 +11,19 @@ import UIKit
 class MatchTableViewCell: NibRegistrableTableViewCell {
     
     // MARK: - IBOutlet
+    @IBOutlet private weak var blurView: UIView! {
+        didSet {
+            blurView.setBlurEffect()
+        }
+    }
+    @IBOutlet private weak var messageLabel: UILabel! {
+        didSet {
+            messageLabel.text = Strings.ProGames.premiumMatches
+        }
+    }
     @IBOutlet private weak var cellBackgroundView: UIView!
     @IBOutlet private weak var tournamentNameLabel: UILabel!
+    @IBOutlet private weak var resultLabel: UILabel!
     @IBOutlet private weak var teamAImageView: UIImageView!
     @IBOutlet private weak var teamANameLabel: UILabel!
     @IBOutlet private weak var matchTimeLabel: UILabel!
@@ -62,6 +73,9 @@ extension MatchTableViewCell: DynamicCellComponent {
         if data.isLive {
             startAnimating()
         }
+        resultLabel.text = data.result
         liveView.isHidden = !data.isLive
+        blurView.isHidden = !data.blurCell
+        messageLabel.isHidden = !data.blurCell
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol UBTableView: class {
+protocol UBTableView: UIViewController {
     
     func startLoading()
     func stopLoading()

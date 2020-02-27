@@ -62,17 +62,15 @@ class PlayerComparisonPresenter {
     }
     
     private func addShareInfo() {
-        guard let viewController = view as? UIViewController else { return }
         let button = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareButtonTouched))
-        viewController.navigationItem.rightBarButtonItem = button
+        view?.navigationItem.rightBarButtonItem = button
     }
     
     @objc private func shareButtonTouched() {
-        guard let image = view?.printScreen(),
-            let viewController = view as? UIViewController else { return }
+        guard let image = view?.printScreen() else { return }
         
         let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-        viewController.present(activityViewController, animated: true)
+        view?.present(activityViewController, animated: true)
     }
 }
 

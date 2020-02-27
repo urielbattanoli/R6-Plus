@@ -74,16 +74,16 @@ class OponentSelectionPresenter: SearchPresenter {
         })
         alert.addAction(UIAlertAction(title: strings.freeComp, style: .default) { [weak self] action in
             AnalitycsHelper.ComparisonWatchVideoTouched.logEvent()
-            guard let viewController = self?.view as? UIViewController else { return }
+            guard let view = self?.view else { return }
             GADRewardBasedVideoAd.sharedInstance().delegate = self
             if GADRewardBasedVideoAd.sharedInstance().isReady == true {
-                GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: viewController)
+                GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: view)
             }
         })
         alert.addAction(UIAlertAction(title: Strings.cancel, style: .cancel) { action in
             AnalitycsHelper.ComparisonBuyCanceled.logEvent()
         })
-        (view as? UIViewController)?.present(alert, animated: true)
+        view?.present(alert, animated: true)
     }
     
     private func configureIAP() {
@@ -93,7 +93,7 @@ class OponentSelectionPresenter: SearchPresenter {
                                           message: nil,
                                           preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: Strings.ok, style: .cancel))
-            (self?.view as? UIViewController)?.present(alert, animated: true)
+            self?.view?.present(alert, animated: true)
         }
     }
     
@@ -115,7 +115,7 @@ class OponentSelectionPresenter: SearchPresenter {
                                                          name: player.nameOnPlatform,
                                                          platform: platform)
         let compareVC = UBTableViewController(presenter: comparePresenter)
-        (self.view as? UIViewController)?.navigationController?.pushViewController(compareVC, animated: true)
+        view?.navigationController?.pushViewController(compareVC, animated: true)
     }
     
     private func canMakeComparison() -> Bool {

@@ -15,5 +15,7 @@ struct MatchCellData {
     let matchTime: String
     let teamBImageUrl: String
     let teamBName: String
+    let result: String
     let isLive: Bool
+    let blurCell: Bool
 }

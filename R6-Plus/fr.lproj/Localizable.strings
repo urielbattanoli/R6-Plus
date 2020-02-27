@@ -28,6 +28,7 @@
 "not_live" = "Ce match n\'est pas en streaming en ce moment!";
 "error_open_url" = "Could not open url";
 "live" = "Live";
+"premium_matches" = "Soyez premium et voyez les jeux à venir";
 
 // LEADERBOARD
 "maintenance" = "Serveur en maintenance!\n\nPardon :(";

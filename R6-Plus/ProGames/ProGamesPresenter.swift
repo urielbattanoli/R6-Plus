@@ -16,6 +16,7 @@ class ProGamesPresenter {
     private var service = ProGamesService()
     private var page = 0
     private var currentDateIndex: Int?
+    private var matches: [Match] = []
     
     private func setupProGames() {
         AnalitycsHelper.ProGamesOpened.logEvent()
@@ -24,6 +25,15 @@ class ProGamesPresenter {
         view?.startLoading()
         fetchMatches()
         addSearchButton()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(changePremiumStatus),
+                                               name: .didBuyPremiumAccount,
+                                               object: nil)
+    }
+    
+    @objc private func changePremiumStatus() {
+        view?.setSections(self.generateMatchesSection(matches), isLoadMore: true)
+        view?.reloadTableView()
     }
     
     func fetchMatches() {
@@ -31,6 +41,7 @@ class ProGamesPresenter {
             guard let self = self else { return }
             self.currentDateIndex = nil
             if case .success(let matches) = result {
+                self.matches = matches
                 self.view?.setSections(self.generateMatchesSection(matches), isLoadMore: true)
             }
             self.view?.stopLoading()
@@ -44,31 +55,53 @@ class ProGamesPresenter {
     }
     
     private func matchTouched(_ match: Match) {
-//        AnalitycsHelper.MatchTouched.logEvent(obs: match.objectId)
-//
-//        guard match.isLive else {
-//            showAlertWithMessage(strings.streamUnavailable)
-//            return
-//        }
-//
-//        guard let url = URL(string: match.streamUrl ?? ""),
-//            UIApplication.shared.canOpenURL(url) else {
-//                showAlertWithMessage(Strings.errorOpenUrl)
-//                return
-//        }
-//        UIApplication.shared.open(url, options: [:])
+        guard !R6UserDefaults.shared.premiumAccount,
+            let date = match.playDate,
+            date > Date() else { return }
+        configureIAP()
+        offerPremiumAccount()
+    }
+    
+    private func offerPremiumAccount() {
+        let alert = UIAlertController(title: Strings.Premium.premium,
+                                      message: nil,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: Strings.buy, style: .default) { action in
+            AnalitycsHelper.PremiumAlertBuyTouched.logEvent()
+            IAPHelper.shared.purchaseMyProduct(index: 0)
+        })
+        alert.addAction(UIAlertAction(title: Strings.restore, style: .default) { action in
+            AnalitycsHelper.PremiumRestoreTouched.logEvent()
+            IAPHelper.shared.restorePurchase()
+        })
+        alert.addAction(UIAlertAction(title: Strings.cancel, style: .cancel) { action in
+            AnalitycsHelper.PremiumBuyCanceled.logEvent()
+        })
+        self.view?.present(alert, animated: true)
+    }
+    
+    private func configureIAP() {
+        IAPHelper.shared.fetchAvailableProducts()
+        IAPHelper.shared.purchaseStatusBlock = { [weak self] message in
+            let alert = UIAlertController(title: message,
+                                          message: nil,
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: Strings.ok, style: .cancel))
+            self?.view?.present(alert, animated: true)
+        }
     }
     
     private func showAlertWithMessage(_ message: String) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: Strings.ok, style: .cancel))
-        (view as? UIViewController)?.present(alert, animated: true)
+        view?.present(alert, animated: true)
     }
     
     private func generateMatchesSection(_ matches: [Match]) -> [SectionComponent] {
         var cells: [CellComponent] = []
-        for i in 0..<matches.count {
-            let match = matches[i]
+        let matchs: [Match] = matches.sorted { return $0.playDate! > $1.playDate! }
+        for i in 0..<matchs.count {
+            let match = matchs[i]
             if let date = match.playDate, date > Date() {
                 currentDateIndex = i
             }
@@ -82,24 +115,30 @@ class ProGamesPresenter {
     }
     
     private func generateMatchData(_ match: Match) -> MatchCellData {
+        var showBlur = false
+        if !R6UserDefaults.shared.premiumAccount, let date = match.playDate {
+            showBlur = date > Date()
+        }
+        let result = "\(match.teamAPoint) X \(match.teamBPoint)"
         return MatchCellData(tournamentName: match.league,
                              teamAImageUrl: match.teamA.image,
                              teamAName: match.teamA.name,
                              matchTime: match.playDate?.toMatchTime() ?? " - ",
                              teamBImageUrl: match.teamB.image,
                              teamBName: match.teamB.name,
-                             isLive: false)
+                             result: result,
+                             isLive: false,
+                             blurCell: showBlur)
     }
     
     private func addSearchButton() {
-        guard let viewController = view as? UIViewController else { return }
         let button = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchButtonTouched))
-        viewController.navigationItem.rightBarButtonItem = button
+        view?.navigationItem.rightBarButtonItem = button
     }
     
     @objc private func searchButtonTouched() {
         let presenter = SearchPresenter(service: SearchService())
-        SearchRouter.openSearch(viewController: view as? UIViewController, presenter: presenter)
+        SearchRouter.openSearch(viewController: view, presenter: presenter)
     }
 }
 

@@ -38,7 +38,6 @@ class PremiumAccountViewController: UIViewController {
     }
     
     private func offerPremiumAccount() {
-        configureIAP()
         let alert = UIAlertController(title: Strings.Premium.premium,
                                       message: nil,
                                       preferredStyle: .alert)

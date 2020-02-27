@@ -25,7 +25,7 @@ class FavoritesPresenter {
     private func goToPlayerDetail(_ player: PlayerDetail) {
         let platform = Platform(rawValue: player.platform) ?? .pc
         let vc = PlayerDetailViewController(playerId: player.id, playerName: player.name, playerDetail: player, platform: platform)
-        (view as? UIViewController)?.navigationController?.pushViewController(vc, animated: true)
+        view?.navigationController?.pushViewController(vc, animated: true)
     }
     
     private func fetchFavorites() {
@@ -54,14 +54,13 @@ class FavoritesPresenter {
     }
     
     private func addSearchButton() {
-        guard let viewController = view as? UIViewController else { return }
         let button = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchButtonTouched))
-        viewController.navigationItem.rightBarButtonItem = button
+        view?.navigationItem.rightBarButtonItem = button
     }
     
     @objc private func searchButtonTouched() {
         let presenter = SearchPresenter(service: SearchService())
-        SearchRouter.openSearch(viewController: view as? UIViewController, presenter: presenter)
+        SearchRouter.openSearch(viewController: view, presenter: presenter)
     }
 }
 
